@@ -76,13 +76,17 @@ local.properties
 
 # User-specific stuff
 
-.idea/
+# 하위 폴더 추격 x
+CulturePark/.idea/
+CulturePark/.target/
+
+
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-.target/
+
 
 # AWS User-specific
 .idea/**/aws.xml
