@@ -1,0 +1,133 @@
+
+/* pc 메인헤드 */
+
+.pc_header {
+    display: flex;
+}
+
+
+/* 로고 */
+
+.logo_section {
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main_title {
+    font-size: 1.5rem;
+    color: cornflowerblue;
+}
+.sub_title {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    color: black;
+}
+
+/*우측 상단 바로가기*/
+.function_section {
+
+    position: relative;
+    width: 100%;
+    float: right;
+}
+
+/*functions mobile*/
+
+.funcs_mobile {
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+/*functions pc*/
+.funcs_pc {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: auto;
+}
+
+.func_list {
+    margin-right: 20px;
+    font-size: 0.8rem;
+}
+
+.func_list:hover {
+    color: orange;
+}
+
+
+
+/*pc 사이드 */
+
+.sideMenu_pc {
+    display: none;
+    width: 100%;
+    border : 1px solid black;
+}
+.side_section {
+    display: flex;
+    width: 100%;
+}
+
+.sideList {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* 사이드 모바일 */
+
+.sideMenu_mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: cornflowerblue;
+}
+
+.side_section_m {
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sideList_m {
+    display: flex;
+    width: 100%;
+    font-size: 2.5rem;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width:768px) {
+
+    /* 헤더 우측상단 기능 모바일-pc 스위칭*/
+    .funcs_pc {
+        display: flex;
+    }
+
+    .funcs_mobile {
+        display: none;
+    }
+
+
+    /* 사이드 모바일-PC 스위칭 */
+
+    .sideMenu_mobile {
+        display: none;
+    }
+
+    .sideMenu_pc {
+        display: flex;
+    }
+
+
+
+}

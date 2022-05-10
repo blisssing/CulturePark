@@ -81,7 +81,7 @@
     </servlet-mapping>-->
 
     <welcome-file-list>
-        <welcome-file>/WEB-INF/users/index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/common/index.jsp</welcome-file>
     </welcome-file-list>
 
 

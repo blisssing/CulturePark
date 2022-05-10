@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TestController {
-    @RequestMapping(value = "test.mdo")
-    public ModelAndView returnview() {
+    @RequestMapping(value = "index.do")
+    public ModelAndView returnIndex() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("test");
+        mv.setViewName("index");
         return mv;
     }
 

@@ -1,0 +1,78 @@
+html{
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+/* layout */
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
+    width:100%;
+    height: 800px;
+    /* 임시 백그라운드 컬러  */
+}
+/* 센터 */
+.centerContainer {
+    display: inline-block;
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    background: pink;
+}
+
+
+input{
+    /*font-family: 'Univers', 'Noto Sans KR', sans-serif;*/
+}
+
+
+body{
+    /*background-color:#faf8f0;*/
+    /*font-family: 'Univers', 'Noto Sans KR', sans-serif;*/
+}
+
+
+
+/* content */
+
+.mainContainer{
+
+    /*min-height: 100vh;*/
+    /*box-sizing:border-box;*/
+    /*padding-bottom:50px;*/
+}
+
+
+.mainContainer >div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: seagreen;
+}
+
+
+
+@media screen and (min-width:768px) {
+
+
+}
+
+@media screen and (min-width:1200px) {
+
+
+}
+
+
+
+
+
