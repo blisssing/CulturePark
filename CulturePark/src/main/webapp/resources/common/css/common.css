@@ -1,32 +1,26 @@
 html{
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 /* layout */
-.MainContainer{
+.mainContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
     width:100%;
+    height: 800px;
     /* 임시 백그라운드 컬러  */
 }
-
-.header_container{
-    width:auto;
-}
-
-
-    /*pc 사이드 */
-
-.sideMenu_pc {
-    display: inline-block;
-    width: 20%;
-    background-color: cornflowerblue;
-}
-
+/* 센터 */
 .centerContainer {
     display: inline-block;
-    width: 80%;
-    background: black;
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    background: pink;
 }
 
 
@@ -44,10 +38,8 @@ body{
 
 /* content */
 
-#mainContainer{
-    position: relative;
-    z-index: 1;
-    margin: 10px 0;
+.mainContainer{
+
     /*min-height: 100vh;*/
     /*box-sizing:border-box;*/
     /*padding-bottom:50px;*/
@@ -55,7 +47,8 @@ body{
 
 
 .mainContainer >div {
-    margin: 10px 10px 20px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 a{
@@ -71,16 +64,6 @@ a:hover {
 
 @media screen and (min-width:768px) {
 
-
-/* 사이드 모바일-PC 스위칭 */
-
-    .sideMenu_mobile {
-        display: none;
-    }
-
-    .sideMenu_pc {
-        display: inline-block;
-    }
 
 }
 
