@@ -8,75 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <%--  css 불러오기  --%>
-
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
     <style><%@include file="/resources/common/css/header.css"%></style>
-    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-    
 
-    <title>Title</title>
+<%--  js 불러오기  --%>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>CulturePark 우리들의 문화공간</title>
 </head>
 <body>
 
 <div class="mainContainer">
 
     <div class="header_container">
+        <%@ include file="/WEB-INF/common/main_header.jsp"%>
 
-        <div class="pc_header">
-            <div class="logo_section">
-                <div>
-                    <a href="#">
-                        <p class="main_title">Culture Park</p>
-                        <p class="sub_title"> 우리들의 문화공간</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="function_section">
-
-
-                <ul class="funcs_pc">
-                    <li><a class="func_list" href="#">로그인</a></li>
-                    <li><a class="func_list" href="#">회원가입</a></li>
-                    <li><a class="func_list" href="#">마이페이지</a></li>
-                    <li><a class="func_list" href="#">마이티켓</a></li>
-                </ul>
-
-                <div class="funcs_mobile">
-                    <button type="button" class="toggle_button"><i class="fa-solid fa-bars"></i></button>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="sideMenu_pc">
-            <ul class="side_section">
-                <li class="sideList"><a href="#">홈</a></li>
-                <li class="sideList"><a href="#">전시</a></li>
-                <li class="sideList"><a href="#">뮤지엄</a></li>
-                <li class="sideList"><a href="#">랭킹</a></li>
-                <li class="sideList"><a href="#">리뷰 게시판</a></li>
-                <li class="sideList"><a href="#">고객센터</a></li>
-            </ul>
-        </div>
-
-        <%-- 모바일 토글 버튼 누를시 활성화. 화면 가림
-
-        <div class="sideMenu_mobile">
-            <ul class="side_section_m">
-                <li class="sideList_m"><a href="#">전시</a></li>
-                <li class="sideList_m"><a href="#">뮤지엄</a></li>
-                <li class="sideList_m"><a href="#">랭킹</a></li>
-                <li class="sideList_m"><a href="#">리뷰 게시판</a></li>
-                <li class="sideList_m"><a href="#">고객센터</a></li>
-            </ul>
-        </div>
-
-        --%>
-
+        <%@ include file="/WEB-INF/common/main_side.jsp"%>
     </div>
 
     <%-- Contents 영역 --%>
@@ -86,5 +35,11 @@
 </div>
 
 </body>
+
+
+<%--js  불러오기 --%>
+    <script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+
 
 </html>
