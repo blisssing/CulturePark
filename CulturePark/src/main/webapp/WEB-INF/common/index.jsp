@@ -6,9 +6,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+<%--  css 불러오기  --%>
+
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
     <style><%@include file="/resources/common/css/header.css"%></style>
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
     
 
     <title>Title</title>
@@ -40,7 +44,7 @@
                 </ul>
 
                 <div class="funcs_mobile">
-                    <h1>이곳에는 토글 버튼이 들어갈 예정입니다</h1>
+                    <button type="button" class="toggle_button"><i class="fa-solid fa-bars"></i></button>
                 </div>
 
             </div>

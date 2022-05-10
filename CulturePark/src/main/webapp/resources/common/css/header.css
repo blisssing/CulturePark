@@ -37,8 +37,14 @@
 .funcs_mobile {
     display: flex;
     position: absolute;
+    top: 20px;
     right: 0;
 }
+
+.toggle_button {
+    font-size: 1.5rem;
+}
+
 
 /*functions pc*/
 .funcs_pc {
