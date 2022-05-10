@@ -1,0 +1,95 @@
+html{
+    scroll-behavior: smooth;
+}
+
+/* layout */
+.MainContainer{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    /* 임시 백그라운드 컬러  */
+}
+
+.header_container{
+    width:auto;
+}
+
+
+    /*pc 사이드 */
+
+.sideMenu_pc {
+    display: inline-block;
+    width: 20%;
+    background-color: cornflowerblue;
+}
+
+.centerContainer {
+    display: inline-block;
+    width: 80%;
+    background: black;
+}
+
+
+input{
+    /*font-family: 'Univers', 'Noto Sans KR', sans-serif;*/
+}
+
+
+body{
+    /*background-color:#faf8f0;*/
+    /*font-family: 'Univers', 'Noto Sans KR', sans-serif;*/
+}
+
+
+
+/* content */
+
+#mainContainer{
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
+    /*min-height: 100vh;*/
+    /*box-sizing:border-box;*/
+    /*padding-bottom:50px;*/
+}
+
+
+.mainContainer >div {
+    margin: 10px 10px 20px 10px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: seagreen;
+}
+
+
+
+@media screen and (min-width:768px) {
+
+
+/* 사이드 모바일-PC 스위칭 */
+
+    .sideMenu_mobile {
+        display: none;
+    }
+
+    .sideMenu_pc {
+        display: inline-block;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+
+
+}
+
+
+
+
+
