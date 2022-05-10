@@ -18,7 +18,7 @@ $(document).ready(function () {
         var display_status = $('.sideMenu_mobile').css('display')
 
         if (width_size>=1200 && clickStatus == 0){
-            $('.open_btn').click();
+            $('.close_btn').click();
             clickStatus=1;
         }
 
