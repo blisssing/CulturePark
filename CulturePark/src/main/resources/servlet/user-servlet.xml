@@ -17,7 +17,7 @@
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/users/"></property>
+        <property name="prefix" value="/WEB-INF/user/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 </beans>

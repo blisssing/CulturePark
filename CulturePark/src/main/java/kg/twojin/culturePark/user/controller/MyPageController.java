@@ -5,15 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UserTestController {
+public class MyPageController {
 
-    @RequestMapping(value = "/index.do")
-    public ModelAndView goToIndex() {
+@RequestMapping(value="/myPage.do")
+    public ModelAndView goToMypage(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
+        mv.setViewName("myPage");
         return mv;
     }
-
-
-
 }
