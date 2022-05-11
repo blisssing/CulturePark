@@ -13,19 +13,22 @@
     border-style: solid;
     background-color: lightgray;
     width: 90%;
-    height: 90%;
 }
 
 /* [pc] */
+
 @media screen and (min-width:1200px) {
 
     /* 마이페이지 서브메뉴 영역 */
     .subMenu_container {
+<<<<<<< HEAD
         float:left;
+=======
+        /*display: inline-block;*/
+>>>>>>> 8a66537f9bd9ad51d0649db1ca553b91b64840ed
         border-style: solid;
         background-color: skyblue;
         width: 20%;
-        height: 30%;
     }
 
     /* 마이페이지 화면전환 */
@@ -34,7 +37,6 @@
         border-style: solid;
         background-color: wheat;
         width:60%;
-        height: 80%;
     }
 
 }

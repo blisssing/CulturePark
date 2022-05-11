@@ -78,6 +78,10 @@ a:hover {
 @media screen and (min-width:1200px) {
 
     .centerContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1200px;
         margin: 40px auto;
     }
 }
