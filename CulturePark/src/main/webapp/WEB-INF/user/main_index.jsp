@@ -23,9 +23,8 @@
 <div class="mainContainer">
 
     <div class="header_container">
-        <%@ include file="/WEB-INF/common/main_header.jsp"%>
-
-        <%@ include file="/WEB-INF/common/main_side.jsp"%>
+        <%@ include file="/WEB-INF/user/main_header.jsp"%>
+        <%@ include file="/WEB-INF/user/main_side.jsp"%>
     </div>
 
     <%-- Contents 영역 --%>
