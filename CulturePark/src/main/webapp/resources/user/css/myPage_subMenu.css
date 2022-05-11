@@ -1,6 +1,6 @@
 
 /* <myPage label영역> */
-.myPage_txt {  /* 세부영역 잡을때 px ? % ?  */
+.myPage_txt {
     width: 150px;
     height:30px;
     font-weight: bold;
