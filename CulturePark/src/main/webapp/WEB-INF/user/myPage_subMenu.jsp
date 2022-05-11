@@ -22,11 +22,11 @@
     <%--2.회원 등급--%>
     <div class="level">
     <div class="myInfo_txt">
-        <span class="myName">김진아</span>"님은 현재"<br>
+        <span class="myName">김진아</span>님은 현재<br>
 
         <a href="#현재등급정보+다음등급까지의게이지" class="grade" target="_blank">
-            <span class="culture_beginner">Culture Beginner</span>
-        </a>"회원입니다."
+            <span class="culture_beginner">Culture Beginner</span><br>
+        </a>회원입니다
     </div>
 
 

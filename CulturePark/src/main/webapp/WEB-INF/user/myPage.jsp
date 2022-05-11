@@ -46,7 +46,7 @@
         </div>
 
         <%-- content --%>
-        <div class="content_container">
+        <div class="content_container"><div style="clear:both;"></div>
             <%@ include file="/WEB-INF/user/myPage_content.jsp"%>
         </div>
 

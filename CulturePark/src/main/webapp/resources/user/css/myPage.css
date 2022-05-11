@@ -1,42 +1,41 @@
 
-/* [mobile] */
+/* mobile */
 /* 마이페이지 전체 영역 (header 아래부터의 영역) */
-.centerContainer {
-    border-style: solid;
-}
 
 .subMenu_container {
     display:none;
 }
 
 .content_container {
-    border-style: solid;
     background-color: lightgray;
-    width: 90%;
+    width: 100%;
+    height: 100%;
+
 }
 
-/* [pc] */
+/* pc */
 
 @media screen and (min-width:1200px) {
 
     /* 마이페이지 서브메뉴 영역 */
     .subMenu_container {
-<<<<<<< HEAD
-        float:left;
-=======
-        /*display: inline-block;*/
->>>>>>> 8a66537f9bd9ad51d0649db1ca553b91b64840ed
-        border-style: solid;
-        background-color: skyblue;
-        width: 20%;
+        position: absolute;
+        display:inline-block;
+
+        background-color: lightsteelblue;
+        width: 30%;
+        height: 50%;
     }
 
     /* 마이페이지 화면전환 */
     .content_container {
+        position: absolute;
+        display: inline-block;
         float:right;
-        border-style: solid;
-        background-color: wheat;
-        width:60%;
+
+        background-color: lightgray;
+        width: 60%;
+        height: 100%;
     }
 
 }
