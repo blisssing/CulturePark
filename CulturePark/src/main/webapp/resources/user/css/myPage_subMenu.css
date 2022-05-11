@@ -2,26 +2,39 @@
 /* <myPage label영역> */
 .myPage_txt {
     width: 150px;
-    height:30px;
+    height: 10px;
     font-weight: bold;
 }
 
 /* <등급안내 영역> */
 .level {
     width: 150px;
-    height: 60px;
+    height: 30px;
 }
 
 /* 등급별 혜택 영역 */
 .myInfo_txt {
     width: 150px;
-    height: 45px;
+    height: 10px;
+}
+
+.myName {
+    font-size:10pt;
+    font-weight: bold;
+}
+
+.culture_beginner {
+    font-size:13pt;
+    color:darkgoldenrod;
 }
 
 /* 등급별 혜택 버튼 */
-.level {
+.level_btn {
     width: 150px;
     height: 15px;
+    border-style: solid;
+    background-color: silver;
+
 }
 
 /* <적립금 영역> */
@@ -38,8 +51,20 @@
 /* 포인트 금액 */
 .savedM_btn {
     font-size: 10pt;
+    font-weight: bold;
+    color:green;
+
+}
+.p_label {
+    color: gray;
 }
 
+.subMenu {
+    width: 130px;
+    height: 40px;
+}
 
-
+.subList {
+    font-size:10pt;
+}
 
