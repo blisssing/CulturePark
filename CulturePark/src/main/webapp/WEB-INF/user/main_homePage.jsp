@@ -32,13 +32,18 @@
     <div class="centerContainer">
 
         <div class="event_section">
-            <div class="section_name"> 이벤트 영역 </div>
+            <div class="section_name"><span> 이벤트 영역 </span></div>
             <div class="slide_section">
                 <ul class="img_box">
-                    <li class="img_list"><img src="/resources/user/resource/home/event_img_01.png"></li>
-                    <li class="img_list"><img src="/resources/user/resource/home/event_img_02.png"></li>
-                    <li class="img_list"><img src="/resources/user/resource/home/event_img_03.png"></li>
+                    <%-- 이미지 규격 990*400 --%>
+                    <li class="img_list" id="ev_img_li_01"><img src="/resources/user/resource/home/event_img_01.png"></li>
+                    <li class="img_list" id="ev_img_li_02"><img src="/resources/user/resource/home/event_img_02.png"></li>
+                    <li class="img_list" id="ev_img_li_03"><img src="/resources/user/resource/home/event_img_03.png"></li>
                 </ul>
+                <div class="btn_section">
+                    <button type="button" class="btn_prev"><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="btn_next"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
 
             </div>
         </div>
@@ -65,6 +70,7 @@
 
 <%--js  불러오기 --%>
 <script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
+<script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
 
