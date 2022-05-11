@@ -28,7 +28,7 @@
 <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
     <%-- <haader> --%>
     <div class="header_container">
-        <%@ include file="/WEB-INF/common/main_header.jsp"%>
+        <%@ include file="/WEB-INF/user/main_header.jsp"%>
     </div>
 
 

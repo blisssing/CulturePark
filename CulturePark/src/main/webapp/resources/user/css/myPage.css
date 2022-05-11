@@ -21,6 +21,7 @@
 
     /* 마이페이지 서브메뉴 영역 */
     .subMenu_container {
+        float:left;
         border-style: solid;
         background-color: skyblue;
         width: 20%;
@@ -29,6 +30,7 @@
 
     /* 마이페이지 화면전환 */
     .content_container {
+        float:right;
         border-style: solid;
         background-color: wheat;
         width:60%;
