@@ -13,28 +13,28 @@
     position: relative;
     max-width: 1200px;
     overflow: hidden;
-    width: 100%;
 }
 
 .img_box {
     display: flex;
     justify-content: space-between;
+    position: absolute;
     width: 3600px;
     top: 0;
     left: 0;
+    right: 0;
 }
 
 .img_list {
     display: inline-block;
     overflow: hidden;
     width: 100%;
-    max-height: 400px;
 }
 
 .img_list >img{
     width: 100%;
-    height: 100%;
     max-width: 1200px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -45,6 +45,55 @@
     position: absolute;
 }
 
+.btn_prev {
+    top: 45% ;
+    left: 0;
+    right: auto;
+}
+
+.btn_next {
+    top: 45% ;
+    right: 0;
+    left: auto;
+}
+
+/*라디오 버튼*/
+
+.radio_section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+/*섹션 이름*/
+
+.section_name {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.prom_link {
+    color: cornflowerblue;
+    font-weight: bolder;
+}
+
+
+@media screen and (min-width: 600px){
+    /*.slide_section {*/
+    /*    min-height: 180px;*/
+    /*}*/
+}
+
+
+@media screen and (min-width: 950px){
+    /*.slide_section {*/
+    /*    min-height: 300px;*/
+    /*}*/
+}
+
+
 
 @media screen and (min-width: 1200px) {
 
@@ -52,28 +101,19 @@
         margin-bottom: 20px;
     }
 
-    .slide_section {
-    }
-
-
     .img_list {
         overflow-y: hidden;
     }
 
 
+    .prom_link {
+        font-size: 2.5rem;
+    }
+
+
 /*  버튼 위치 조정  */
 
-    .btn_prev {
-        top: 45% ;
-        left: 0;
-        right: auto;
-    }
 
-    .btn_next {
-        top: 45% ;
-        right: 0;
-        left: auto;
-    }
 
 
 }
