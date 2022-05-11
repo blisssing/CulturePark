@@ -56,6 +56,7 @@
         </div>
         <div class="ex_promotion_section">
             <div class="section_name"><a class="prom_link"><span> 전시회</span></a></div>
+
             <div class="slide_section">
                 <li class="prom_list"> </li>
                 <li class="prom_list"> </li>
@@ -64,9 +65,20 @@
                 <li class="prom_list"> </li>
                 <li class="prom_list"> </li>
             </div>
+
+            <div class="slide_section_m">
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+            </div>
+
         </div>
         <div class="mu_promotion_section">
             <div class="section_name"><a class="prom_link"><span> 뮤지엄</span></a></div>
+
             <div class="slide_section">
                 <li class="prom_list"> </li>
                 <li class="prom_list"> </li>
@@ -74,6 +86,15 @@
                 <li class="prom_list"> </li>
                 <li class="prom_list"> </li>
                 <li class="prom_list"> </li>
+            </div>
+
+            <div class="slide_section_m">
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
+                <li class="prom_list_m"> </li>
             </div>
 
         </div>

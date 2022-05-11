@@ -13,15 +13,22 @@
 
 }
 
+.innerContainer {
+    display: flex;
+    width: 100%;
+}
+
+
+
 /* pc */
 
 @media screen and (min-width:1200px) {
 
     /* 마이페이지 서브메뉴 영역 */
     .subMenu_container {
-        position: absolute;
-        display:inline-block;
+        /*position: absolute;*/
 
+        display:inline-block;
         background-color: lightsteelblue;
         width: 30%;
         height: 50%;
@@ -29,10 +36,10 @@
 
     /* 마이페이지 화면전환 */
     .content_container {
-        position: absolute;
+        /*position: absolute;*/
+
         display: inline-block;
         float:right;
-
         background-color: lightgray;
         width: 60%;
         height: 100%;

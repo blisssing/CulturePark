@@ -39,17 +39,20 @@
         <%-- 이곳에 페이지를 import --%>
         <%--index--%>
 
-        <%-- subMenu --%>
-        <div class="subMenu_container">
-            <%@ include file="/WEB-INF/user/myPage_subMenu.jsp"%>
+        <%-- 내부 영역을 한 번 감싸주는 영역.  --%>
+        <div class="innerContainer">
 
+            <%-- subMenu --%>
+            <div class="subMenu_container">
+                <%@ include file="/WEB-INF/user/myPage_subMenu.jsp"%>
+
+            </div>
+
+            <%-- content --%>
+            <div class="content_container"><div style="clear:both;"></div>
+                <%@ include file="/WEB-INF/user/myPage_content.jsp"%>
+            </div>
         </div>
-
-        <%-- content --%>
-        <div class="content_container"><div style="clear:both;"></div>
-            <%@ include file="/WEB-INF/user/myPage_content.jsp"%>
-        </div>
-
 
 
     </div> <%-- /centerContainer --%>
