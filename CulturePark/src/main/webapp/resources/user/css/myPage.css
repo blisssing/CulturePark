@@ -1,33 +1,40 @@
-/* Main */
-.main_section {
-    display:flex;
-    position:relative;
+
+/* [mobile] */
+/* 마이페이지 전체 영역 (header 아래부터의 영역) */
+.centerContainer {
+    border-style: solid;
+}
+
+.subMenu_container {
+    display:none;
+}
+
+.content_container {
+    border-style: solid;
+    background-color: lightgray;
+    width: 90%;
+    height: 90%;
+}
+
+/* [pc] */
+@media screen and (min-width:1200px) {
+
+    /* 마이페이지 서브메뉴 영역 */
+    .subMenu_container {
+        border-style: solid;
+        background-color: skyblue;
+        width: 20%;
+        height: 30%;
+    }
+
+    /* 마이페이지 화면전환 */
+    .content_container {
+        border-style: solid;
+        background-color: wheat;
+        width:60%;
+        height: 80%;
+    }
 
 }
 
-/* myPage */
-.myPage {
-    /*position: absolute;*/
-    display: inline-block;
-    background-color: burlywood;
-    width: 20%;
-    height: 30%;
-}
 
-/* subMenu */
-.subMenu {
-    position: absolute;
-    display: inline-block;
-    background-color: gray;
-    width: 20%;
-    height: 50%;
-}
-
-/* content */
-.content {
-    /*position: absolute;*/
-    display: inline-block;
-    background-color: lightsteelblue;
-    width:60%;
-    height:80%;
-}

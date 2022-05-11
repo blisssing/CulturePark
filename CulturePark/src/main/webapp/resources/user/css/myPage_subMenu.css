@@ -1,0 +1,45 @@
+
+/* <myPage label영역> */
+.myPage_txt {  /* 세부영역 잡을때 px ? % ?  */
+    width: 150px;
+    height:30px;
+    font-weight: bold;
+}
+
+/* <등급안내 영역> */
+.level {
+    width: 150px;
+    height: 60px;
+}
+
+/* 등급별 혜택 영역 */
+.myInfo_txt {
+    width: 150px;
+    height: 45px;
+}
+
+/* 등급별 혜택 버튼 */
+.level {
+    width: 150px;
+    height: 15px;
+}
+
+/* <적립금 영역> */
+.saved_money {
+    width: 150px;
+    height: 25px;
+}
+
+/* 적립금 label */
+.savedM_txt {
+    font-size: 10pt;
+}
+
+/* 포인트 금액 */
+.savedM_btn {
+    font-size: 10pt;
+}
+
+
+
+
