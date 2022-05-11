@@ -14,7 +14,7 @@
         bottom: 0;
         height: 5rem;
         background-color: black;
-        z-index: 1;
+        z-index: 2;
     }
 
     .header_2_logo {
@@ -86,7 +86,7 @@
 /* 로고 */
 
 .logo_section {
-    min-width: 120px;
+    min-width: 130px;
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 150%;
@@ -167,12 +167,14 @@
     flex-direction: column;
     position: absolute;
     width: 100%;
-    height: 80%;
+    height: 100%;
     top: 0;
     left: auto;
     right: 0;
+    padding-bottom: 20%;
     text-align: center;
     background-color: cornflowerblue;
+    z-index: 1;
 }
 
 .side_section_m {
