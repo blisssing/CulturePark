@@ -15,6 +15,23 @@ public class HomePageController {
         return mv;
     }
 
+    @RequestMapping(value = "/exhibitMain.do")
+    public ModelAndView getExhibitPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("main_exhibitPage");
+        return mv;
+    }
+
+    @RequestMapping(value = "/musiumPage.do")
+    public ModelAndView getMusiumPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("main_musiumPage");
+        return mv;
+    }
+
+
+
+
 
 
 }

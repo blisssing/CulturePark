@@ -150,7 +150,6 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
-                            <div class="img_comment_m">코멘트</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -242,7 +241,6 @@
                             <div class="img_title">제목</div>
                             <div class="img_space">장소</div>
                             <div class="img_schedule">일정</div>
-                            <div class="img_commnet_m">코멘트</div>
                         </div></a>
                     </li>
                     <li class="prom_list" id="mu_prom_img_04">
@@ -251,7 +249,6 @@
                             <div class="img_title">제목</div>
                             <div class="img_space">장소</div>
                             <div class="img_schedule">일정</div>
-                            <div class="img_commnet_m">코멘트</div>
                         </div></a>
                     </li>
                     <li class="prom_list" id="mu_prom_img_05">
@@ -260,7 +257,6 @@
                             <div class="img_title">제목</div>
                             <div class="img_space">장소</div>
                             <div class="img_schedule">일정</div>
-                            <div class="img_commnet_m">코멘트</div>
                         </div></a>
                     </li>
                     <li class="prom_list" id="mu_prom_img_06">
@@ -269,7 +265,6 @@
                             <div class="img_title">제목</div>
                             <div class="img_space">장소</div>
                             <div class="img_schedule">일정</div>
-                            <div class="img_commnet_m">코멘트</div>
                         </div></a>
                     </li>
                 </ul>
@@ -287,57 +282,46 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
-                            <div class="img_comment_m">코멘트</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
                         <img src="/resources/user/resource/home/event_img_02.png">
                         <div class="description_m">
-                            <div class="img_title_m"></div>
-                            <div class="img_space_m"></div>
-                            <div class="img_schedule_m"></div>
-                            <div class="img_comment_m"></div>
-
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
                         <img src="/resources/user/resource/home/event_img_03.png">
                         <div class="description_m">
-                            <div class="img_title_m"></div>
-                            <div class="img_space_m"></div>
-                            <div class="img_schedule_m"></div>
-                            <div class="img_comment_m"></div>
-
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
                         <img src="/resources/user/resource/home/event_img_01.png">
                         <div class="description_m">
-                            <div class="img_title_m"></div>
-                            <div class="img_space_m"></div>
-                            <div class="img_schedule_m"></div>
-                            <div class="img_comment_m"></div>
-
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
                         <img src="/resources/user/resource/home/event_img_02.png">
                         <div class="description_m">
-                            <div class="img_title_m"></div>
-                            <div class="img_space_m"></div>
-                            <div class="img_schedule_m"></div>
-                            <div class="img_comment_m"></div>
-
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
                         <img src="/resources/user/resource/home/event_img_03.png">
                         <div class="description_m">
-                            <div class="img_title_m"></div>
-                            <div class="img_space_m"></div>
-                            <div class="img_schedule_m"></div>
-                            <div class="img_comment_m"></div>
-
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
                         </div>
                     </li>
                 </ul>
