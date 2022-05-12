@@ -80,10 +80,29 @@ $(document).ready(function () {
 
     $('.prom_prev').click(function (){
         slidePrev();
+
+        if (ex_prom_number === 1) {
+            $('#ex_page_num').html("1");
+            console.log('실행됨');
+        }
+
+        if (mu_prom_number=== 1) {
+            $('#mu_page_num').html("1");
+        }
     });
 
     $('.prom_next').click(function () {
         slideNext();
+
+        if (ex_prom_number === 2) {
+            $('#ex_page_num').html("2");
+        }
+
+        if (mu_prom_number=== 2) {
+            $('#mu_page_num').html("2");
+        }
+
+
     });
 
     function slideNext() {
@@ -106,6 +125,7 @@ $(document).ready(function () {
                     left:'-='+prom_list_width+'px'
                 })
                 prom_img_position_ex++;
+
                 $('#ex_chk_0' + prom_img_position_ex).prop("checked", true);
             } else if (prom_img_count > prom_img_position_mu && nodename==='mu_prom_m'){
                 node.animate({
@@ -162,6 +182,9 @@ $(document).ready(function () {
                 })
                 prom_img_position_ex--;
                 $('#ex_chk_0' + prom_img_position_ex).prop("checked", true);
+                $('#ex_page_num').html("1");
+
+
             } else if (1 < prom_img_position_mu && nodename==='mu_prom_m'){
                 node.animate({
                     left:'+='+prom_list_width+'px'

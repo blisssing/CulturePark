@@ -141,7 +141,6 @@
 
 .section_name {
     text-align: center;
-
 }
 
 .prom_link {
@@ -156,6 +155,17 @@
 .img_title {
     font-weight: bolder;
 }
+
+.section_page {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+/*모바일 설명 박스*/
+
+
+
 
 
 
@@ -202,6 +212,9 @@
         object-fit: contain;
     }
 
+    .section_page {
+        display: block;
+    }
 
 
 }
