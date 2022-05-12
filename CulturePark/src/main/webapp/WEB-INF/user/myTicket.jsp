@@ -18,20 +18,21 @@
     <%-- script --%>
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
-    <title>myPage</title>
+    <title>myTicket</title>
 
 </head>
 <body>
 
 <%-- Main --%>
 <div class="mainContainer">
-<%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
-    <%-- haader --%>
+    <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
+    <%-- <haader> --%>
     <div class="header_container">
         <%@ include file="/WEB-INF/user/main_header.jsp"%>
     </div>
 
-    <%-- center --%>
+
+    <%-- <center> --%>
     <div class="centerContainer">
         <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
         <%-- 이곳에 페이지를 import --%>
@@ -43,17 +44,25 @@
             <%-- subMenu --%>
             <div class="subMenu_container">
                 <%@ include file="/WEB-INF/user/myPage_subMenu.jsp"%>
+
             </div>
 
-        <%-- content --%>
-        <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
+            <%-- content --%>
+            <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
             <div class="content_container"><div style="clear:both;"></div>
 
-                <p> myPage index 페이지 입니다 '-^ </p>
+                <div>
+
+
+                </div>
+
+
+
+
 
             </div> <%-- /content_container --%>
 
-        </div> <%-- /innerContent --%>
+        </div> <%-- /innerContainer --%>
     </div> <%-- /centerContainer --%>
 </div> <%-- /mainContainer --%>
 
