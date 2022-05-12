@@ -1,33 +1,43 @@
 /* 구분선 */
 .sectionLine {
     border: 1px solid black;
-    margin: 5px 5px;
+    margin : 5px 10px;/*수정함*/
+
 }
 
 /* ****** myPage ****** */
 .myPage {
+    display: flex;
+    flex-direction: column;
     width:100%;
-    margin:10px 5px;
-
+    /*margin:10px 5px;*/
     border: 1px solid black;
+
+}
+
+.myPage > div, .subMenu > div{
+    /*추가함*/
+    padding: 20px 20px;
 }
 
 /* <myPage label영역> */
 .myPage_txt {
     display: inline-block;
-    margin:10px 5px;
 }
 
-.myPage{
+
+/* <등급안내 영역> */
+.myInfo_txt {
     display: flex;
     flex-direction: column;
 }
 
-/* <등급안내 영역> */
-.myInfo_txt {
-    display: inline-block;
-    margin:10px 5px;
+.level_section {
+    margin-top: 20px;
+    border: 1px dashed darkgray;
+
 }
+
 
 .myName {
     font-weight: bold;
@@ -44,16 +54,13 @@
 /* <등급별 혜택 버튼 영역> */
 .level_btn {
     display: inline-block;
-    width: 80px;
-    height: 15px;
-    margin:10px 5px;
-    padding: 3px 3px;
-
+    /*width: 80px;*/
+    /*height: 15px;*/
+    padding: 10px 0;
+    width: 100%;
     text-align: center;
-    border: 1px dashed darkgray;
     background-color: lightgrey;
-
-    font-size: 10pt;
+    font-size: 1rem;
 }
 
 #level_label{
@@ -96,10 +103,11 @@
 .sub_section {
     width: 100%;
     border: 1px solid black;
-    margin: 5px 5px;
+    /*margin: 5px 5px;*/
 }
 
 .subMenu > .sub_section > li {
     font-size: 12pt;
-    margin: 20px 5px;
+    /*margin: 20px 5px;*/
+    padding: 20px;
 }

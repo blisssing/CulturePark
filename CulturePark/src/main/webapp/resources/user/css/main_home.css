@@ -140,12 +140,18 @@
 /*텍스트*/
 
 .section_name {
+    display: flex;
     justify-content: space-between;
 }
 
-.prom_link {
+.section_title {
     color: cornflowerblue;
+    font-size: 1.2rem;
+}
+
+.prom_link {
     font-weight: bolder;
+    font-size: 0.8rem;
 }
 
 .img_description {
@@ -173,24 +179,31 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    max-width: 150px;
+    max-width: 60px;
     z-index: 5;
     padding-left: 30px;
     background-color: rgba(0,0,0,0.5);
-
-
 }
 
 .description_m > div {
     color: white;
     margin: auto auto;
+    font-size: 0.2rem;
 
+}
+
+.slide_section_m > .radio_section {
+    font-size: 0.1rem;
 }
 
 
 
+@media screen and (min-width: 500px){
 
-
+    .description_m {
+        max-width: 150px;
+    }
+}
 
 
 @media screen and (min-width: 1200px) {
