@@ -32,7 +32,9 @@
     <div class="centerContainer">
 
         <div class="event_section">
-            <div class="section_name"><span> Event </span></div>
+            <div class="section_name">
+                <span class="section_title">이벤트</span>
+            </div>
             <div class="slide_section" id="slide_event">
                 <ul class="img_box">
                     <%-- 이미지 규격 1200*400 --%>
@@ -54,8 +56,9 @@
 
         <div class="ex_promotion_section">
             <div class="section_name">
-                <span class="prom_link"><a >전시</a></span>
-                <span class="prom_link">전 체 보 기</span>
+                <span class="section_title">전시</span>
+                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+
             </div>
             <div class="section_page">
                 <span id="ex_page_num">1</span><span>/2</span>
@@ -138,6 +141,7 @@
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
                             <div class="img_comment_m">코멘트</div>
+
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -182,7 +186,9 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+
                             <div class="img_comment_m">코멘트</div>
+
                         </div>
                     </li>
                 </ul>
@@ -203,7 +209,11 @@
 
         </div>
         <div class="mu_promotion_section">
-            <div class="section_name"><a class="prom_link"><span> 뮤지엄</span></a></div>
+            <div class="section_name">
+                <span class="section_title">뮤지엄</span>
+                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+            </div>
+
             <div class="section_page">
                 <span id="mu_page_num">1</span><span>/2</span>
             </div>

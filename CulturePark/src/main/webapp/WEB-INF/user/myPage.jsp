@@ -39,8 +39,8 @@
 
         <%-- 내부 영역을 한 번 감싸주는 영역.  --%>
 
+            <div class="innerContainer">
         <div class="innerContainer">
-
 
             <%-- subMenu --%>
             <div class="subMenu_container">
