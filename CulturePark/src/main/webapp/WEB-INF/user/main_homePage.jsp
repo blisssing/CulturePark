@@ -32,8 +32,8 @@
     <div class="centerContainer">
 
         <div class="event_section">
-            <div class="section_name"><span> 이벤트 영역 </span></div>
-            <div class="slide_section">
+            <div class="section_name"><span> Event </span></div>
+            <div class="slide_section" id="slide_event">
                 <ul class="img_box">
                     <%-- 이미지 규격 1200*400 --%>
                     <li class="img_list" id="ev_img_li_01"><img src="/resources/user/resource/home/event_img_01.png"></li>
@@ -41,8 +41,8 @@
                     <li class="img_list" id="ev_img_li_03"><img src="/resources/user/resource/home/event_img_03.png"></li>
                 </ul>
                 <div class="btn_section">
-                    <button type="button" class="btn_prev"><i class="fa-solid fa-angle-left"></i></button>
-                    <button type="button" class="btn_next"><i class="fa-solid fa-angle-right"></i></button>
+                    <button type="button" id="ev_prev" class="btn_prev"><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" id="ev_next" class="btn_next"><i class="fa-solid fa-angle-right"></i></button>
                 </div>
 
                 <div class="radio_section">
@@ -54,47 +54,118 @@
 
             </div>
         </div>
-        <div class="ex_promotion_section">
-            <div class="section_name"><a class="prom_link"><span> 전시회</span></a></div>
 
-            <div class="slide_section">
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
+        <div class="ex_promotion_section">
+            <div class="section_name"><a class="prom_link"><span> 전시 </span></a></div>
+
+            <div class="slide_section_pc" id="slide_ex">
+                <ul class="prom_box" id="ex_prom">
+                    <li class="prom_list" id="ex_prom_img_01">
+                        <img src="/resources/user/resource/home/ex_prom_01.png">
+                        <div class="img_description">
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+
+                        
+                    </li>
+                    <li class="prom_list" id="ex_prom_img_02">
+                        <img src="/resources/user/resource/home/ex_prom_02.png">
+                        <div class="img_description">
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+
+                        
+                    </li>
+                    <li class="prom_list" id="ex_prom_img_03">
+                        <img src="/resources/user/resource/home/ex_prom_03.png">
+                        <div class="img_description">
+
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+                    </li>
+                    <li class="prom_list" id="ex_prom_img_04">
+                        <img src="/resources/user/resource/home/ex_prom_01.png">
+                        <div class="img_description">
+                        
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+
+                        
+                    </li>
+                    <li class="prom_list" id="ex_prom_img_05">
+                        <img src="/resources/user/resource/home/ex_prom_02.png">
+                        <div class="img_description">
+
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+
+                        </div>
+                        
+                    </li>
+                    <li class="prom_list" id="ex_prom_img_06">
+                        <img src="/resources/user/resource/home/ex_prom_03.png">
+                        <div class="img_description">
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn_section">
+                    <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="prom_next" onclick="setObj(this)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
             </div>
 
             <div class="slide_section_m">
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
+                <ul class="prom_box_m">
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_03.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_01.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_02.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_03.png"> </li>
+                </ul>
             </div>
+
 
         </div>
         <div class="mu_promotion_section">
             <div class="section_name"><a class="prom_link"><span> 뮤지엄</span></a></div>
 
-            <div class="slide_section">
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
-                <li class="prom_list"> </li>
+            <div class="slide_section_pc">
+                <ul class="prom_box" id="mu_prom">
+                    <li class="prom_list" id="mu_prom_img_01"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
+                    <li class="prom_list" id="mu_prom_img_02"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
+                    <li class="prom_list" id="mu_prom_img_03"><img src="/resources/user/resource/home/ex_prom_03.png"></li>
+                    <li class="prom_list" id="mu_prom_img_04"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
+                    <li class="prom_list" id="mu_prom_img_05"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
+                    <li class="prom_list" id="mu_prom_img_06"><img src="/resources/user/resource/home/ex_prom_03.png"></li>
+                </ul>
+                <div class="btn_section">
+                    <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="prom_next" onclick="setObj(this)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
             </div>
 
             <div class="slide_section_m">
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
-                <li class="prom_list_m"> </li>
+                <ul class="prom_box_m">
+                    <li class="prom_list_m"> </li>
+                    <li class="prom_list_m"> </li>
+                    <li class="prom_list_m"> </li>
+                    <li class="prom_list_m"> </li>
+                    <li class="prom_list_m"> </li>
+                    <li class="prom_list_m"> </li>
+                </ul>
             </div>
 
         </div>
@@ -110,6 +181,7 @@
 <%--js  불러오기 --%>
 <script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
+<script src="/resources/common/js/slide.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
 

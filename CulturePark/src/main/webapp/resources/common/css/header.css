@@ -14,7 +14,7 @@
         bottom: 0;
         height: 5rem;
         background-color: black;
-        z-index: 2;
+        z-index: 10;
     }
 
     .header_2_logo {
@@ -174,7 +174,7 @@
     padding-bottom: 20%;
     text-align: center;
     background-color: cornflowerblue;
-    z-index: 1;
+    z-index: 9;
 }
 
 .side_section_m {
