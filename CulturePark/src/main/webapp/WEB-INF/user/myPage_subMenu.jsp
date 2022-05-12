@@ -25,11 +25,10 @@
     <%-- 3.적립금 영역 --%>
     <div class="saved_money">
         <span class="savedM_txt">적립금</span>
-
-        <div class="savedM_btn">
+        <span class="savedM_btn">
             <a href="#고객센터_마이멤버십" target="_blank" alt="적립금">0</a>
-            <span class="p_label">p</span>
-        </div>
+        <span class="p_label">p</span>
+        </span>
     </div> <%-- /saved_money --%>
 
 </div><%-- /myPage --%>
