@@ -53,9 +53,15 @@
         </div>
 
         <div class="ex_promotion_section">
-            <div class="section_name"><a class="prom_link"><span> 전시 </span></a></div>
-
+            <div class="section_name">
+                <span class="prom_link"><a >전시</a></span>
+                <span class="prom_link">전 체 보 기</span>
+            </div>
+            <div class="section_page">
+                <span id="ex_page_num">1</span><span>/2</span>
+            </div>
             <div class="slide_section_pc" id="slide_ex">
+
                 <ul class="prom_box" id="ex_prom">
                     <li class="prom_list" id="ex_prom_img_01">
                         <img src="/resources/user/resource/home/ex_prom_01.png">
@@ -125,12 +131,60 @@
 
             <div class="slide_section_m">
                 <ul class="prom_box_m" id="ex_prom_m">
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"></li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_01.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_02.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_03.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_01.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_02.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_03.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
                 </ul>
                 <div class="btn_section">
                     <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
@@ -150,15 +204,64 @@
         </div>
         <div class="mu_promotion_section">
             <div class="section_name"><a class="prom_link"><span> 뮤지엄</span></a></div>
+            <div class="section_page">
+                <span id="mu_page_num">1</span><span>/2</span>
+            </div>
 
             <div class="slide_section_pc">
                 <ul class="prom_box" id="mu_prom">
-                    <li class="prom_list" id="mu_prom_img_01"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
-                    <li class="prom_list" id="mu_prom_img_02"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
-                    <li class="prom_list" id="mu_prom_img_03"><img src="/resources/user/resource/home/ex_prom_03.png"></li>
-                    <li class="prom_list" id="mu_prom_img_04"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
-                    <li class="prom_list" id="mu_prom_img_05"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
-                    <li class="prom_list" id="mu_prom_img_06"><img src="/resources/user/resource/home/ex_prom_03.png"></li>
+                    <li class="prom_list" id="mu_prom_img_01">
+                        <img src="/resources/user/resource/home/ex_prom_01.png">
+                        <div class="img_description">
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+                    </li>
+                    <li class="prom_list" id="mu_prom_img_02">
+                        <img src="/resources/user/resource/home/ex_prom_02.png">
+                        <div class="img_description">
+                            <div class="img_title"><a class="title_text" href="#">제목</a></div>
+                            <div class="img_space"><a class="space_text" href="#">장소</a></div>
+                            <div class="img_schedule"><a class="schedule_text" href="#">기간</a></div>
+                        </div>
+                    </li>
+                    <li class="prom_list" id="mu_prom_img_03">
+                        <img src="/resources/user/resource/home/ex_prom_03.png">
+                        <a><div class="img_description">
+                            <div class="img_title">제목</div>
+                            <div class="img_space">장소</div>
+                            <div class="img_schedule">일정</div>
+                            <div class="img_commnet_m">코멘트</div>
+                        </div></a>
+                    </li>
+                    <li class="prom_list" id="mu_prom_img_04">
+                        <img src="/resources/user/resource/home/ex_prom_01.png">
+                        <a><div class="img_description">
+                            <div class="img_title">제목</div>
+                            <div class="img_space">장소</div>
+                            <div class="img_schedule">일정</div>
+                            <div class="img_commnet_m">코멘트</div>
+                        </div></a>
+                    </li>
+                    <li class="prom_list" id="mu_prom_img_05">
+                        <img src="/resources/user/resource/home/ex_prom_02.png">
+                        <a><div class="img_description">
+                            <div class="img_title">제목</div>
+                            <div class="img_space">장소</div>
+                            <div class="img_schedule">일정</div>
+                            <div class="img_commnet_m">코멘트</div>
+                        </div></a>
+                    </li>
+                    <li class="prom_list" id="mu_prom_img_06">
+                        <img src="/resources/user/resource/home/ex_prom_03.png">
+                        <a><div class="img_description">
+                            <div class="img_title">제목</div>
+                            <div class="img_space">장소</div>
+                            <div class="img_schedule">일정</div>
+                            <div class="img_commnet_m">코멘트</div>
+                        </div></a>
+                    </li>
                 </ul>
                 <div class="btn_section">
                     <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
@@ -168,12 +271,65 @@
 
             <div class="slide_section_m">
                 <ul class="prom_box_m" id="mu_prom_m">
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"> </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_01.png">
+                        <div class="description_m">
+                            <div class="img_title_m">제목</div>
+                            <div class="img_space_m">공간</div>
+                            <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_02.png">
+                        <div class="description_m">
+                            <div class="img_title_m"></div>
+                            <div class="img_space_m"></div>
+                            <div class="img_schedule_m"></div>
+                            <div class="img_comment_m"></div>
+
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_03.png">
+                        <div class="description_m">
+                            <div class="img_title_m"></div>
+                            <div class="img_space_m"></div>
+                            <div class="img_schedule_m"></div>
+                            <div class="img_comment_m"></div>
+
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_01.png">
+                        <div class="description_m">
+                            <div class="img_title_m"></div>
+                            <div class="img_space_m"></div>
+                            <div class="img_schedule_m"></div>
+                            <div class="img_comment_m"></div>
+
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_02.png">
+                        <div class="description_m">
+                            <div class="img_title_m"></div>
+                            <div class="img_space_m"></div>
+                            <div class="img_schedule_m"></div>
+                            <div class="img_comment_m"></div>
+
+                        </div>
+                    </li>
+                    <li class="prom_list_m">
+                        <img src="/resources/user/resource/home/event_img_03.png">
+                        <div class="description_m">
+                            <div class="img_title_m"></div>
+                            <div class="img_space_m"></div>
+                            <div class="img_schedule_m"></div>
+                            <div class="img_comment_m"></div>
+
+                        </div>
+                    </li>
                 </ul>
                 <div class="btn_section">
                     <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
