@@ -140,7 +140,7 @@
 /*텍스트*/
 
 .section_name {
-    text-align: center;
+    justify-content: space-between;
 }
 
 .prom_link {
@@ -164,6 +164,28 @@
 
 /*모바일 설명 박스*/
 
+.description_m {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 150px;
+    z-index: 5;
+    padding-left: 30px;
+    background-color: rgba(0,0,0,0.5);
+
+
+}
+
+.description_m > div {
+    color: white;
+    margin: auto auto;
+
+}
 
 
 
