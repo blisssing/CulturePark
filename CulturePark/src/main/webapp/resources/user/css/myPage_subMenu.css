@@ -1,46 +1,58 @@
+/* 구분선 */
+.sectionLine {
+    border: 1px solid gray;
+    margin:10px 2px;
+}
+
+
+.myPage {
+    width:100%;
+}
 
 /* <myPage label영역> */
 .myPage_txt {
     display: inline-block;
     width: 150px;
     height: 10px;
-    font-weight: bold;
     margin: 5px 5px;
+
+    font-weight: bold;
+    font-size:12pt;
 }
+
 
 /* <등급안내 영역> */
-.level {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
-    margin: 5px 5px;
-}
-
-/* <등급별 혜택 영역> */
 .myInfo_txt {
     display: inline-block;
     width: 150px;
-    height: 10px;
-    margin: 5px 5px;
+    margin: 15px 5px;
 }
 
 .myName {
-    font-size:10pt;
     font-weight: bold;
+    font-size:11pt;
 }
 
 .culture_beginner {
-    font-size:13pt;
-    color:darkgoldenrod;
+    margin:5px 0px;
+
+    color: papayawhip;
+    font-size:14pt;
 }
 
-/* 등급별 혜택 버튼 */
+/* <등급별 혜택 버튼 영역> */
 .level_btn {
     display: inline-block;
-    width: 150px;
-    height: 15px;
-    border-style: solid;
-    background-color: silver;
+    margin: 5px 5px;
+    width: 100px;
+    height: 20px;
+    text-align:center;
+
+    border: 1px dashed peachpuff;
+    background: papayawhip;
+    font-size:12pt;
+
+
 }
 
 /* <적립금 영역> */
@@ -60,13 +72,12 @@
 .savedM_btn {
     font-size: 12pt;
     font-weight: bold;
-    color: mediumseagreen;
 
 }
 
 /* 포인트 라벨 */
 .p_label {
-    font-size: 12pt
+    font-size: 12pt;
     color: gray;
 }
 
@@ -74,12 +85,19 @@
 .subMenu {
     display: inline-block;
     margin:5px 5px;
-    width: 130px;
-    height: 40px;
+    width: 150px;
+    height: 100%;
+
+}
+
+.sub_section {
+    width:150px;
+    height: 100%;
 }
 
 .subList {
     font-size: 12pt;
     list-style: none;
+    margin-bottom: 15px;
 }
 
