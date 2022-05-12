@@ -41,11 +41,9 @@
 
         <%-- 내부 영역을 한 번 감싸주는 영역.  --%>
         <div class="innerContainer">
-
             <%-- subMenu --%>
             <div class="subMenu_container">
                 <%@ include file="/WEB-INF/user/myPage_subMenu.jsp"%>
-
             </div>
 
             <%-- content --%>

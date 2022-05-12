@@ -44,14 +44,11 @@
                     <button type="button" id="ev_prev" class="btn_prev"><i class="fa-solid fa-angle-left"></i></button>
                     <button type="button" id="ev_next" class="btn_next"><i class="fa-solid fa-angle-right"></i></button>
                 </div>
-
                 <div class="radio_section">
                     <input type="radio" id="evt_chk_01" name="evt_chk" checked="checked">
                     <input type="radio" id="evt_chk_02" name="evt_chk">
                     <input type="radio" id="evt_chk_03" name="evt_chk">
                 </div>
-
-
             </div>
         </div>
 
@@ -127,14 +124,26 @@
             </div>
 
             <div class="slide_section_m">
-                <ul class="prom_box_m">
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_01.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_02.png"></li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_03.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_01.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_02.png"> </li>
-                    <li class="prom_list_m"><img src="/resources/user/resource/home/ex_prom_03.png"> </li>
+                <ul class="prom_box_m" id="ex_prom_m">
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"></li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"></li>
                 </ul>
+                <div class="btn_section">
+                    <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="prom_next" onclick="setObj(this)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="radio_section">
+                    <input type="radio" id="ex_chk_01" name="ex_chk" checked="checked">
+                    <input type="radio" id="ex_chk_02" name="ex_chk">
+                    <input type="radio" id="ex_chk_03" name="ex_chk">
+                    <input type="radio" id="ex_chk_04" name="ex_chk">
+                    <input type="radio" id="ex_chk_05" name="ex_chk">
+                    <input type="radio" id="ex_chk_06" name="ex_chk">
+                </div>
             </div>
 
 
@@ -158,14 +167,26 @@
             </div>
 
             <div class="slide_section_m">
-                <ul class="prom_box_m">
-                    <li class="prom_list_m"> </li>
-                    <li class="prom_list_m"> </li>
-                    <li class="prom_list_m"> </li>
-                    <li class="prom_list_m"> </li>
-                    <li class="prom_list_m"> </li>
-                    <li class="prom_list_m"> </li>
+                <ul class="prom_box_m" id="mu_prom_m">
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_01.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_02.png"> </li>
+                    <li class="prom_list_m"><img src="/resources/user/resource/home/event_img_03.png"> </li>
                 </ul>
+                <div class="btn_section">
+                    <button type="button" class="prom_prev" onclick="setObj(this)" ><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="prom_next" onclick="setObj(this)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="radio_section">
+                    <input type="radio" id="mu_chk_01" name="mu_chk" checked="checked">
+                    <input type="radio" id="mu_chk_02" name="mu_chk">
+                    <input type="radio" id="mu_chk_03" name="mu_chk">
+                    <input type="radio" id="mu_chk_04" name="mu_chk">
+                    <input type="radio" id="mu_chk_05" name="mu_chk">
+                    <input type="radio" id="mu_chk_06" name="mu_chk">
+                </div>
             </div>
 
         </div>

@@ -1,14 +1,13 @@
 <%@ page pageEncoding="UTF-8" %>
 <%-- <myPage> --%>
 <div class="myPage">
-
     <%--1.라벨--%>
-    <div class="myPage_txt">MY PAGE
-    </div>
+    <div class="myPage_txt">MY PAGE</div>
 
     <div class="sectionLine"></div>
 
     <%--2.회원 등급--%>
+
 
     <div class="myInfo_txt">
         <span class="myName">김진아</span>님은 현재<br>
