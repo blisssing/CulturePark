@@ -140,6 +140,7 @@
 /*텍스트*/
 
 .section_name {
+
     display: flex;
     justify-content: space-between;
 }
@@ -147,6 +148,7 @@
 .section_title {
     color: cornflowerblue;
     font-size: 1.2rem;
+
 }
 
 .prom_link {

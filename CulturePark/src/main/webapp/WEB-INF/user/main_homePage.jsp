@@ -58,6 +58,7 @@
             <div class="section_name">
                 <span class="section_title">전시</span>
                 <span class="prom_link"><a href="#">전 체 보 기</a></span>
+
             </div>
             <div class="section_page">
                 <span id="ex_page_num">1</span><span>/2</span>
@@ -139,6 +140,8 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
+
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -156,6 +159,7 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -164,6 +168,7 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -172,6 +177,7 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+                            <div class="img_comment_m">코멘트</div>
                         </div>
                     </li>
                     <li class="prom_list_m">
@@ -180,6 +186,9 @@
                             <div class="img_title_m">제목</div>
                             <div class="img_space_m">공간</div>
                             <div class="img_schedule_m">기간</div>
+
+                            <div class="img_comment_m">코멘트</div>
+
                         </div>
                     </li>
                 </ul>
