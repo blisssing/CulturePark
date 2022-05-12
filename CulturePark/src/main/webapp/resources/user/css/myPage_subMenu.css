@@ -34,7 +34,7 @@
 
 .level_section {
     margin-top: 20px;
-    border: 1px dashed darkgray;
+    width: 100%;
 
 }
 
@@ -56,11 +56,11 @@
     display: inline-block;
     /*width: 80px;*/
     /*height: 15px;*/
-    padding: 10px 0;
-    width: 100%;
+    padding: 7px 0;
+    width: 50%;
     text-align: center;
     background-color: lightgrey;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #level_label{
@@ -70,7 +70,6 @@
 /* <적립금 영역> */
 .saved_money {
     display: inline-block;
-    margin:10px 5px;
 }
 
 /* 적립금 label */
