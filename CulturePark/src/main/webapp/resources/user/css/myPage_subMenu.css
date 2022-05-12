@@ -2,26 +2,23 @@
 /* <myPage label영역> */
 .myPage_txt {
     display: inline-block;
-    width: 150px;
-    height: 10px;
-    font-weight: bold;
-    margin: 5px 5px;
+
+}
+
+.myPage{
+    display: flex;
+    flex-direction: column;
 }
 
 /* <등급안내 영역> */
 .level {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
-    margin: 5px 5px;
+
 }
 
 /* <등급별 혜택 영역> */
 .myInfo_txt {
     display: inline-block;
-    width: 150px;
-    height: 10px;
-    margin: 5px 5px;
+
 }
 
 .myName {
@@ -37,8 +34,6 @@
 /* 등급별 혜택 버튼 */
 .level_btn {
     display: inline-block;
-    width: 150px;
-    height: 15px;
     border-style: solid;
     background-color: silver;
 }
@@ -46,9 +41,7 @@
 /* <적립금 영역> */
 .saved_money {
     display: inline-block;
-    width: 150px;
-    height: 25px;
-    margin: 5px 5px;
+
 }
 
 /* 적립금 label */
@@ -66,20 +59,17 @@
 
 /* 포인트 라벨 */
 .p_label {
-    font-size: 12pt
+    font-size: 12pt;
     color: gray;
 }
 
 /* 메뉴 목록 */
 .subMenu {
     display: inline-block;
-    margin:5px 5px;
-    width: 130px;
-    height: 40px;
+
 }
 
 .subList {
     font-size: 12pt;
-    list-style: none;
 }
 
