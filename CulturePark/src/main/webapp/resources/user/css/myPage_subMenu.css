@@ -64,7 +64,6 @@
 .saved_money {
     display: inline-block;
     margin:10px 5px;
-
 }
 
 /* 적립금 label */
@@ -78,8 +77,6 @@
     font-weight: bold;
 
     margin-left: 50%;
-
-
 }
 
 /* 포인트 라벨 */
@@ -88,24 +85,21 @@
 
     font-size: 12pt;
     color: gray;
-
 }
 
 /* ***** 메뉴 목록 **** */
 .subMenu {
     display: inline-block;
     width:100%;
-
 }
 
 .sub_section {
     width: 100%;
     border: 1px solid black;
     margin: 5px 5px;
-
 }
+
 .subMenu > .sub_section > li {
     font-size: 12pt;
     margin: 20px 5px;
-
 }
