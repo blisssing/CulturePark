@@ -7,10 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MyPageController {
 
-@RequestMapping(value="/myPage.do")
-    public ModelAndView goToMypage(){
+    @RequestMapping(value = "/myTicket.do")
+    public ModelAndView getMyTicket() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("myPage");
+        mv.setViewName("myTicket");
         return mv;
     }
+
+
 }
