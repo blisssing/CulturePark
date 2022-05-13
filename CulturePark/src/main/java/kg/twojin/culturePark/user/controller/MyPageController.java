@@ -10,9 +10,22 @@ public class MyPageController {
     @RequestMapping(value = "/myTicket.do")
     public ModelAndView getMyTicket() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("myTicket");
+        mv.setViewName("myPage_myTicket");
         return mv;
     }
 
+    @RequestMapping(value = "/viewDetail.do")
+    public ModelAndView getViewDetail() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_viewDetail");
+        return mv;
+    }
+
+    @RequestMapping(value = "/viewTicket.do")
+    public ModelAndView getViewTicket() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_viewTicket");
+        return mv;
+    }
 
 }
