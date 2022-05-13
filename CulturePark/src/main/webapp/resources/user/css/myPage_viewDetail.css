@@ -1,0 +1,69 @@
+.viewDetail_container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px 10px 10px;
+}
+
+.sectionLine {
+    border: 1px solid black;
+}
+
+.booking_status_section {
+    display: flex;
+}
+
+.fa-arrow-left {
+    float:left;
+    margin-left:10px;
+}
+
+.fa-circle-check {
+    margin-left: 35%;
+    margin-right: 3%;
+
+}
+
+/* 제목 영역 */
+.booking_title_section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 전시 제목 */
+#booking_name {
+    margin-top: 15px;
+}
+
+/* 일정 / 내역 영역 */
+.booking_info_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.type_section {
+    margin-top: 10px;
+}
+
+.booking_label {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.booking_cancel_section {
+    width: 100%;
+    margin-left: 1%;
+
+}
+
+/* 예매취소 버튼 */
+.booking_cancel_btn {
+    width: 95%;
+    margin: 25px 5px 5px 5px;
+}
+
+.booking_address {
+    margin-left: 1%;
+}
+
+/*line-height*/
+/* div들 세로 간격 조정  % */

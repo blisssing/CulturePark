@@ -19,7 +19,8 @@
 }
 
 .m_period_btn_section{
-    margin-bottom: 5px;
+    margin: 30px 0px;
+
 
 }
 
@@ -43,9 +44,10 @@
 .menu_btn {
     padding: 5px 5px;
 
+
 }
 
-#exhibit {
+#exhibit_btn {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -53,13 +55,11 @@
     margin-right: 5px;
 }
 
-#museum {
+#museum_btn {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
-
-
 
 
 .table_section {
@@ -67,23 +67,18 @@
     flex-direction: column;
     width: 100%;
     margin: 40px 0px;
-
-
 }
 
-.table{
-
+.table {
     /*display: flex;*/
     /*flex-direction: column;*/
     /*width:100%;*/
-
 }
+
 
 .table > thead {
     border-top: 1px solid;
     border-bottom: 1px solid;
-
-
 }
 
 .table > tbody {
@@ -103,18 +98,22 @@ th {
 
 
 .m_view_btn_section {
-    margin-left: 1px;
-    margin-top:5px;
 
+    border-bottom: 1px dashed black;
+
+    margin: 20px 0px 20px 1px;
 }
 
-#m_view_details{
+#m_view_detail{
+    margin-right: 15px;
+}
+#m_view_detail_museum {
     margin-right: 15px;
 }
 
 .m_view_btn {
     border: 1px solid black;
-    width: 70px;
+    width: 100px;
 }
 
 .none_section > p {
@@ -125,8 +124,13 @@ th {
 
 .sectionLine {
     border: 1px solid black;
-    margin-top: 2%;
+    margin-top: 3%;
 }
+
+button {
+    z-index: 3;
+}
+
 
 @media screen and (min-width:1200px) {
 
@@ -134,10 +138,15 @@ th {
         display: none;
     }
 
+    .m_view_btn_section {
+        display: none;
+    }
+
     .period_section {
         display: flex;
         justify-content: center;
         width: 100%;
+        margin: 20px 0px 10px 0px;
     }
 
     .period_choice {
@@ -150,19 +159,21 @@ th {
         margin-right: 1.5%;
     }
 
+    .table_row_section {
+        border-bottom: 1px dashed black;
+    }
+
 
     .view_btn_section{
-        float: right;
-        margin-left: 1px;
-        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        width:100%;
+        margin: 20px 0px 20px 1px;
     }
 
     .view_btn {
         border: 1px solid black;
-        /*padding: 5px 5px;*/
-
+        margin: 0 5px;
     }
-
-
 
 }

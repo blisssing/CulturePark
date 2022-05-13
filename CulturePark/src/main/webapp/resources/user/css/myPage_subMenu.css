@@ -34,7 +34,6 @@
 
 .level_section {
     margin-top: 20px;
-    border: 1px dashed darkgray;
 
 }
 
@@ -54,13 +53,13 @@
 /* <등급별 혜택 버튼 영역> */
 .level_btn {
     display: inline-block;
-    /*width: 80px;*/
-    /*height: 15px;*/
-    padding: 10px 0;
-    width: 100%;
+    /* width: 80px; */
+    /* height: 15px; */
+    padding: 5px 0;
+    width: 50%;
     text-align: center;
     background-color: lightgrey;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #level_label{
