@@ -60,9 +60,11 @@
                 <span class="prom_link"><a href="#">전 체 보 기</a></span>
 
             </div>
+
             <div class="section_page">
                 <span id="ex_page_num">1</span><span>/2</span>
             </div>
+
             <div class="slide_section_pc" id="slide_ex">
 
                 <ul class="prom_box" id="ex_prom">
@@ -352,7 +354,6 @@
 <%--js  불러오기 --%>
 <script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
-<script src="/resources/common/js/slide.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
 
