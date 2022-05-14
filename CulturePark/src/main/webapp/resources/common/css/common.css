@@ -12,19 +12,18 @@ html{
     position: relative;
     z-index: 1;
     width:100%;
-    height: 1200px;
+
     /* 임시 백그라운드 컬러  */
 }
+
 /* 센터 */
 .centerContainer {
     display: inline-block;
-    overflow-y: scroll;
     width: auto;
     max-width: 1480px;
     height: 100%;
-
     padding: 20px;
-    background: pink;
+    margin-bottom: 120px;
 }
 
 /*인풋 관련*/
@@ -78,6 +77,10 @@ a:hover {
 @media screen and (min-width:1200px) {
 
     .centerContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1200px;
         margin: 40px auto;
     }
 }
