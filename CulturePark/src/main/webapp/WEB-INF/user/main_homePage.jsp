@@ -56,7 +56,7 @@
 
         <div class="ex_promotion_section">
             <div class="section_name">
-                <span class="section_title">전시</span>
+                <span class="section_title"><a href="/exhibitMain.do">전시</a></span>
                 <span class="prom_link"><a href="#">전 체 보 기</a></span>
 
             </div>
@@ -211,7 +211,7 @@
         </div>
         <div class="mu_promotion_section">
             <div class="section_name">
-                <span class="section_title">뮤지엄</span>
+                <span class="section_title"><a href="/museumPage.do">뮤지엄</a></span>
                 <span class="prom_link"><a href="#">전 체 보 기</a></span>
             </div>
 
@@ -352,7 +352,7 @@
 
 
 <%--js  불러오기 --%>
-<script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
+<script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 

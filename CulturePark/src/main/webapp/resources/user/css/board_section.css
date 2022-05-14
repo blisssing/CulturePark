@@ -4,28 +4,32 @@
 
 .board_section {
     border: 1px solid black;
-    max-height: 300px;
     background-color: rgba(0,0,0,0.1);
-
+    position: relative;
+    overflow: hidden;
 }
 
 .board_box {
     display: flex;
+    position: absolute;
+    width: 3600px;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
 
 .board_list {
+    display: inline-block;
     width: 100%;
     position: relative;
+    /*overflow: hidden;*/
 }
 
 .board_content {
     display: flex;
 }
 
-.board_content > div {
-    margin: 5px 5px;
-}
 
 .board_img {
     display: flex;
@@ -40,6 +44,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
+    margin: 5px 20px;
 }
 
 .board_info > div{
@@ -52,6 +57,7 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(100, 149 , 237 , 0.6);
+    height: 50%;
 }
 
 .board_title {
@@ -81,8 +87,6 @@
 }
 /*row 2 */
 
-
-
 .row_content {
     font-size: 0.8rem;
     background-color: rgba(100, 149 , 237 , 0.6);
@@ -90,7 +94,20 @@
 }
 
 
-.btn_section {
+.board_btn > button {
+    position: absolute;
+}
+
+/* row 3 */
+
+.board_row_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.board_row_3 > div{
+    text-align: center;
 
 }
 
@@ -106,14 +123,21 @@
     }
 
     /*  row2  */
-
     .board_row_2:nth-child(2)>div>div {
        display: inline-block;
     }
     .review_writer {
         float: right;
     }
+}
 
+@media screen and (min-width: 700px){
+
+    .board_row_3 {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
 }
 
 

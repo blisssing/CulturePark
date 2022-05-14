@@ -356,7 +356,7 @@
                             </div>
                             <div class="board_row_2"> <%--작품 이름 및 작가 이름--%>
                                 <div class="row_content">
-                                    <div class="span_head">[전시]</div><span class="product_title">사울레이터 창문을 통해 어림풋이</span>
+                                    <div class="span_head">[뮤지엄]</div><span class="product_title">사울레이터 창문을 통해 어림풋이</span>
                                 </div>
                                 <div class="row_content">
                                     <div class="span_head">작성자</div><div class="review_writer">아무개</div>
@@ -382,7 +382,7 @@
                             </div>
                             <div class="board_row_2"> <%--작품 이름 및 작가 이름--%>
                                 <div class="row_content">
-                                    <div class="span_head">[전시]</div><span class="product_title">사울레이터 창문을 통해 어림풋이</span>
+                                    <div class="span_head">[뮤지엄]</div><span class="product_title">사울레이터 창문을 통해 어림풋이</span>
                                 </div>
                                 <div class="row_content">
                                     <div class="span_head">작성자</div><div class="review_writer">아무개</div>
