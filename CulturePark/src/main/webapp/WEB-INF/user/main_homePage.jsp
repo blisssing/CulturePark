@@ -352,7 +352,7 @@
 
 
 <%--js  불러오기 --%>
-<script src="/resources/common/js/toggle_btn.js" type="text/javascript"></script>
+<script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
