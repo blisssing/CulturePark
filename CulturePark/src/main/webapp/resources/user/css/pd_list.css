@@ -1,0 +1,50 @@
+.search_section {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+}
+
+
+.search_section > div {
+    margin: 10px 10px;
+}
+
+
+.search_table > div {
+    margin: 10px 0;
+}
+
+
+.search_table > div > div{
+    display: inline-block;
+}
+
+.search_head {
+    margin-bottom: 10px;
+}
+
+/* row 1 */
+
+.search_row_01 {
+    display: flex;
+    border: 1px solid black;
+    word-break: keep-all;
+}
+
+.search_row_01 > div {
+    margin: 0 auto;
+}
+
+/* row 2 */
+
+/* row 3 */
+
+.search_row_03 > button{
+    width: 100%;
+}
+
+@media screen and (min-width: 500px){
+    .search_row_01 > div > div {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,10 @@
+.fast_btn_section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.fast_btn_section > div {
+    display: inline-block;
+}
