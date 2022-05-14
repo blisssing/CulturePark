@@ -1,0 +1,53 @@
+.centerContainer > div {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.gallery_section_pc {
+    display: none;
+}
+
+
+.gallery_section_mobile {
+    position: relative;
+    max-width: 1200px;
+    overflow: hidden;
+    background-color: pink;
+}
+
+.gallery_box_m {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 3600px;
+    top: 0;
+    left: 0;
+    /*right: 0;*/
+}
+
+.gallery_list_m {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.gallery_list_m > img {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    object-fit: contain;
+
+}
+
+
+
+
+
+
+@media screen and (min-width: 1200px){
+
+    .gallery_section_mobile {
+        display: none;
+    }
+
+}

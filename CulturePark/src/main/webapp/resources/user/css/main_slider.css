@@ -1,0 +1,215 @@
+/*.prom_box{*/
+/*    position: absolute;*/
+/*}*/
+#ex_prom {
+    position: relative;
+}
+
+.section_name {
+    width: 100%;
+}
+
+.slide_section , .slide_section_pc {
+    position: relative;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+.slide_section_pc {
+    display: none;
+}
+
+.slide_section_m {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_section>button{
+    position: absolute;
+    z-index: 5;
+}
+
+.prom_prev {
+    top: 45% ;
+    left: 0;
+    right: auto;
+}
+
+.prom_next {
+    top: 45% ;
+    right: 0;
+    left: auto;
+}
+
+.radio_section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.prom_box {
+    display: flex;
+    position: absolute;
+    width: 2400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.prom_list {
+    display: inline-block;
+    width: 100%;
+}
+
+.prom_list img {
+    width: 100%;
+}
+
+
+.prom_box_m {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 7200px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.prom_list_m{
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.prom_list_m >img{
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 1%;
+}
+
+.section_name {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.section_title {
+    color: cornflowerblue;
+    font-size: 1.2rem;
+
+}
+
+.prom_link {
+    font-weight: bolder;
+    font-size: 0.8rem;
+}
+
+.img_description {
+    text-align: center;
+}
+
+.img_title {
+    font-weight: bolder;
+}
+
+.section_page {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+/*모바일 설명 박스*/
+
+.description_m {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 7%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+    background-color: rgba(100,149,237,0.9);
+}
+
+.description_m > div {
+    color: white;
+    margin: auto 0 auto 40px;
+    z-index: 8;
+    font-size: 0.5rem;
+
+}
+
+.slide_section_m > .radio_section {
+    font-size: 0.1rem;
+}
+
+@media screen and (min-width: 500px){
+
+    .description_m {
+        width: 100%;
+        max-width: 120px;
+        z-index: 5;
+        padding-left: 30px;
+        left: 0;
+        right: auto;
+        background-color: rgba(100,149,237,0.9);
+    }
+
+    .description_m >div {
+        margin: auto auto;
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .slide_section_pc {
+        display: block;
+    }
+
+    .slide_section_m {
+        display: none;
+    }
+
+    .section_name {
+
+        margin: 0 0 20px 0;
+    }
+
+    .img_list {
+        overflow-y: hidden;
+    }
+
+    /*프로모션 섹션*/
+
+
+    .prom_list {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .prom_list > img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .section_page {
+        display: block;
+    }
+
+
+}
+
+
+
+
+
+
