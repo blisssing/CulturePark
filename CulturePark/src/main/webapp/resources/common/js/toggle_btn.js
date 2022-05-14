@@ -12,6 +12,11 @@ $(document).ready(function () {
             clickStatus=1;
     });
 
+    $('.mymenu_btn').click(function () {
+        location.replace('myPage.do');
+    });
+
+
 
     $(window).resize(function () {
         var width_size = window.outerWidth;
