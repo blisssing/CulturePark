@@ -22,10 +22,10 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "/musiumPage.do")
+    @RequestMapping(value = "/museumPage.do")
     public ModelAndView getMusiumPage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("main_musiumPage");
+        mv.setViewName("main_museumPage");
         return mv;
     }
 
