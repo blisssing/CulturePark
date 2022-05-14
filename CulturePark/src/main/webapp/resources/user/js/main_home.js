@@ -49,6 +49,7 @@ $(document).ready(function () {
 
         var imgs_width = $('.img_list').width();
         if (1 < img_position) {
+            console.log(imgs);
             imgs.animate({
                 left: '+='+imgs_width+'px'
             });
