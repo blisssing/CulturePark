@@ -47,6 +47,14 @@
 
 }
 
+#all_view_btn {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+    margin-right: 5px;
+}
+
 #exhibit_btn {
     border-top: 1px solid black;
     border-left: 1px solid black;

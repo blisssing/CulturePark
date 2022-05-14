@@ -4,9 +4,15 @@
     margin: 10px 10px 10px 10px;
 }
 
+/*.a_link {
+    text-decoration-line : none;
+    color: black;
+}*/
+
 .sectionLine {
-    border: 1px solid black;
+    border: 0.5px solid black;
 }
+
 
 .booking_status_section {
     display: flex;
@@ -18,7 +24,7 @@
 }
 
 .fa-circle-check {
-    margin-left: 35%;
+    margin-left: 30%;
     margin-right: 3%;
 
 }
@@ -34,10 +40,20 @@
     margin-top: 15px;
 }
 
+
 /* 일정 / 내역 영역 */
 .booking_info_section {
     display: flex;
     flex-direction: column;
+}
+
+/*일정 내역 */
+.date_section {
+   display: flex;
+}
+
+.booking_time {
+    margin-left: 20px;
 }
 
 .type_section {
@@ -58,12 +74,53 @@
 /* 예매취소 버튼 */
 .booking_cancel_btn {
     width: 95%;
-    margin: 25px 5px 5px 5px;
+    margin: 25px 5px 5px 10px;
+    padding: 3px 0px 3px 0px;
+
+    font-size:11pt;
+}
+
+/* 관람장소 영역 */
+.booking_place_section {
+    line-height: 170%;
 }
 
 .booking_address {
     margin-left: 1%;
 }
+
+.booking_admission_btn {
+    float: right;
+    margin-right: 25px;
+}
+
+.label_section {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.booking_purchase_no {
+    margin-left: 2%;
+}
+
+.purchase_section {
+    float: right;
+}
+
+.booking_purchase {
+
+    font-size: 13pt;
+
+}
+
+.ok_use {
+    padding-left: 15px;
+
+    font-weight: bold;
+    color: green
+
+}
+
 
 /*line-height*/
 /* div들 세로 간격 조정  % */
