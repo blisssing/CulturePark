@@ -66,8 +66,9 @@
 
                     <%-- /pc --%>
                     <div class="menu_section">
-                        <button class="menu_btn" id="exhibit_btn" >전시</button>
-                        <button class="menu_btn" id="museum_btn" >뮤지엄</button>
+                        <button class="menu_btn" id="all_view_btn">전체</button>
+                        <button class="menu_btn" id="exhibit_btn">전시</button>
+                        <button class="menu_btn" id="museum_btn">뮤지엄</button>
                     </div>
 
 
