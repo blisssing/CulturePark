@@ -17,7 +17,7 @@
         <div class="viewDetail_container">
 
             <div class="booking_status_section">
-                <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-left" onclick="self.close()"></i>
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="booking_status">예매 확정</span>
             </div>
@@ -36,8 +36,8 @@
                 <div class="date_section">
                     <span class="booking_label">일정</span>
                     <span><i class="fa-solid fa-calendar-range"></i></span>
-                    <span id="booking_date"> 2022.1.1</span>
-                    <span><i class="fa-solid fa-alarm-clock"></i></span>
+                    <span class="booking_date"> 2022.1.1</span>
+                    <i class="fa-solid fa-alarm-clock"></i>
                     <span class="booking_time"> 11:00</span>
                 </div>
 
@@ -49,7 +49,8 @@
             </div>
 
             <div class="booking_cancel_section">
-                <button class="booking_cancel_btn" id="booking_cancel" onclick="bookingCancel()">예매취소</button>
+                <button class="booking_cancel_btn" id="booking_cancel" onClick="location.href='/WEB-INF/user/myPage_viewCancel.jsp'" target="_self">예 매 취 소</button>
+
             </div>
 
         <p class="sectionLine"></p>
@@ -66,24 +67,35 @@
                 <span class="booking_label">입장 안내</span>
                 <button class="booking_admission_btn"> <i class="fa-solid fa-angle-down"></i></button>
 
-                <p class="sectionLine"></p>
-
             </div>
 
             <div class="booking_admission_content_toggle">
+
+                <p class="sectionLine"></p>
+
                 <span class="booking_admission_content">현장 상황에 따라 대기 시간이 발생 할 수 있습니다.<br>
                 예매 시간으로부터 +1시간까지 입장 가능합니다.<br>
                 마지막 입장가능시간 <span class="last_admissionTime">17:00</span><br>
-                전시장 마감 <span class="close_exhibitionTime"></span>
+                전시장 마감 <span class="close_exhibitionTime">18:00</span>
                 </span>
             </div>
 
         <p class="sectionLine"></p>
 
-            <div>
-                <span class="booking_label">상세 내역</span>
-                <span>상세 주문번호</span><span class="booking_purchase_no"> 202201012345 </span>
-                <span class="booking_purchase">15000</span><span>원 사용가능</span>
+            <div class="detail_section">
+
+                <div class="label_section">
+                    <span class="booking_label">상세 내역</span><br>
+                </div>
+
+                <span>상품 주문번호</span><span class="booking_purchase_no"> 202201012345 </span>
+
+                <p class="sectionLine"></p>
+
+                <div class="purchase_section">
+                <span class="booking_purchase">15,000</span><span>원</span><span class="ok_use">사용가능</span>
+                </div>
+
             </div>
 
         </div> <%-- viewDetail_container --%>

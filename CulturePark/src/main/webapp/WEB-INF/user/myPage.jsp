@@ -51,7 +51,7 @@
         <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
             <div class="content_container"><div style="clear:both;"></div>
 
-                <p> myPage index 페이지 입니다 '-^ </p>
+                <img src="/resources/user/resource/myPage/love.PNG" style= "width: 807.792px; height: 800px;">
 
             </div> <%-- /content_container --%>
 
