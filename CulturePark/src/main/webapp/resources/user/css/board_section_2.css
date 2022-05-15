@@ -1,0 +1,36 @@
+.board_list_2_m {
+    display: flex;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.board_list_2_m > div {
+    margin: 5px 10px;
+}
+
+.board_info_2_m {
+    width: 100%;
+}
+
+/* row 1 */
+
+.board_row_01_m {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board_row_01_m > div {
+    display: inline-block;
+}
+
+.board_row_01_m > div > div {
+    display: inline-block;
+}
+
+.info_score_m > div > div,i {
+    display: inline-block;
+}
+
+.star_point, .thumb_point {
+    float: right;
+}
