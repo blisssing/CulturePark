@@ -12,9 +12,6 @@
     <style><%@include file="/resources/common/css/common.css"%></style>
     <style><%@include file="/resources/common/css/header.css"%></style>
 
-<%--  js 불러오기  --%>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <title>CulturePark 우리들의 문화공간</title>
 </head>
@@ -39,6 +36,7 @@
 <%--js  불러오기 --%>
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 </html>

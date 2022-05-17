@@ -1,0 +1,152 @@
+
+/* 모바일 바닥 메뉴 비활성화 */
+.header_2 {
+    display: none;
+}
+
+.centerContainer > div {
+
+}
+
+.pdContainer_m  {
+    width: 100%;
+}
+
+/*섹션 원 */
+
+.section_one_m {
+    position: relative;
+    margin-bottom: 80px !important;
+}
+
+.pd_img {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
+.pd_img > img {
+    background-size: cover;
+    width: 100%;
+}
+
+.pd_img_02 {
+    position: absolute;
+    width: 100%;
+    bottom: -70px;
+}
+
+.pd_img_02 > div{
+    display: inline-block;
+}
+
+
+.pd_img_02 > img {
+    margin-left: 30px;
+    width: 25%;
+}
+
+.pd_img_title {
+    position: absolute;
+    right: 10%;
+    bottom: 25%;
+    font-weight: bolder;
+}
+
+.pd_score_box {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+}
+
+.pd_score_box > div {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.fa-star {
+    color: #0f9d58;
+}
+
+.fa-thumbs-up {
+    color: #1a73e8;
+}
+
+#pd_section_m_01 > div {
+    margin: 20px 0;
+}
+
+/*섹션 two*/
+
+.section_two_m {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.section_two_m > ul>li {
+    margin: 10px 0;
+}
+
+/* cal 01 */
+
+.board_cal_01_m {
+    padding-left: 5%;
+    width: 30%;
+}
+
+/* cal 2 */
+
+
+.board_cal_02_m {
+    width: 70%;
+}
+
+
+.board_cal_02_m > li {
+    display: block;
+}
+
+
+/* 섹션 three*/
+
+.button_section {
+    display: flex;
+    width: 100%;
+}
+
+
+.btn_content_select {
+    width: 100%;
+}
+
+.btn_c_s_box {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.btn_content_list {
+    display: inline-block;
+}
+
+
+
+/* 사이드 섹션 */
+
+.sideContainer {
+    margin-bottom: 20%;
+}
+
+@media screen and (min-width: 700px){
+    .pd_img_title {
+        right: 25%;
+        bottom: 10%;
+        font-size: 1.5rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    #pd_section_m_01 {
+        display: none;
+    }
+}
