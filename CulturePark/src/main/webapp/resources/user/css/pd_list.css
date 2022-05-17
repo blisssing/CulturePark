@@ -14,8 +14,6 @@
 }
 
 
-
-
 /*search_section*/
 
 .search_section {
@@ -128,6 +126,7 @@
 
 @media screen and (min-width: 500px){
 
+
     .search_head {
         display: initial;
     }
@@ -138,9 +137,6 @@
 
     .chk_list {
         display: inline-block;
-    }
-
-    .search_row_01 {
     }
 
 /* row 2  */
@@ -173,6 +169,15 @@
     .keyword_area > input {
         padding: 0;
         width: 100%;
+    }
+
+    /* 폰트 사이즈 */
+    .chk_label {
+        font-size: 1.0rem;
+    }
+
+    .tag_list {
+        font-size: 0.8rem;
     }
 
 }

@@ -57,23 +57,23 @@
                         <div class="search_head"> 장르 </div>
                         <ul class="chk_box">
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_genre" value="gre_total" checked="checked"/>
+                                <input type="checkbox" name="chk_total" class="gre_total" value="gre_total" checked="checked"/>
                                     <label class="chk_label">전체</label>
                             </li>
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_genre" value="gre_paint"/>
+                                <input type="checkbox" name="chk_genre" id="gre_paint" class="gre_region" value="gre_paint"/>
                                     <label class="chk_label">그림</label>
                             </li>
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_genre" value="gre_photo"/>
+                                <input type="checkbox" name="chk_genre" id="gre_photo" class="gre_region" value="gre_photo"/>
                                     <label class="chk_label">사진</label>
                             </li>
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_genre" value="gre_space"/>
+                                <input type="checkbox" name="chk_genre" id="gre_space" class="gre_region" value="gre_space"/>
                                     <label class="chk_label">공간</label>
                             </li>
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_genre" value="gre_activity"/>
+                                <input type="checkbox" name="chk_genre" id="gre_activity" class="gre_region" value="gre_activity"/>
                                     <label class="chk_label">체험</label>
                             </li>
                         </ul>
@@ -82,7 +82,7 @@
                         <div class="search_head"> 지역 </div>
                         <ul class="chk_box">
                             <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_total" checked="checked"/>
+                                <input type="checkbox" name="chk_region_total" value="rg_total" checked="checked"/>
                                 <label class="chk_label">전체</label>
                             </li>
                             <li class="chk_list">
@@ -112,10 +112,12 @@
                 <div class="search_row_02">
                     <div class="search_head">검색</div>
                     <div class="search_content">
-                        <div class="keyword_box"><select name="keyword">
-                                <option value="이름" selected="selected">전시이름</option>
-                                <option value="태그">태그</option>
-                            </select></div>
+                        <div class="keyword_box">
+                            <select class="key_select" name="keyword">
+                                <option name="pd_title" value="title" selected="selected">전시이름</option>
+                                <option name="tag"value="tag">태그</option>
+                            </select>
+                        </div>
                         <div class="keyword_area"><input id="keywordInput"/></div>
                     </div>
                 </div>
@@ -136,32 +138,40 @@
         </div>
 
         <div class="board_section_2">
+
             <div class="board_container_mobile">
+
+                <div class="board_page_section_m">
+                    <ul class="board_page_box_m">
+                        <button class="bnt_start_page"><i class="fa-solid fa-angles-left"></i></button>
+                        <button class="btn_prev_page"><i class="fa-solid fa-angle-left"></i></button>
+                        <li class="page_list_m">
+                            <a class="page_number">1</a>
+                            <a class="page_number">2</a>
+                            <a class="page_number">3</a>
+                            <a class="page_number">4</a>
+                            <a class="page_number">5</a>
+                        </li>
+                        <button class="btn_next_page"><i class="fa-solid fa-angle-right"></i></button>
+                        <button class="btn_end_page"><i class="fa-solid fa-angles-right"></i></button>
+                    </ul>
+                </div>
+
                 <ul class="board_box_2_m">
                     <li class="board_list_2_m">
                         <%-- 300 * 400 이미지만 올릴 것--%>
-                        <div class="board_img_2_m">
-                            <img src="/resources/user/resource/exhibit/ex_01.png">
+                        <div class="board_cal_01_m">
+                            <img src="/resources/user/resource/exhibit/img/ex_01.png">
                         </div>
-                        <div class="board_info_2_m">
+                        <div class="board_cal_02_m">
                             <div class="board_row_01_m">
                                 <div class="info_title_m">
                                     <span class="title_text"> 사울레이터 창문을 통해 어렴풋이</span>
                                 </div>
-                                <div class="info_score_m">
-                                    <div class="i_star">
-                                        <i class="fa-solid fa-star"></i>
-                                        <div class="star_point">3.5</div>
-                                    </div>
-                                    <div class="i_thumb">
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                        <div class="thumb_point">21</div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="board_row_02_m">
                                 <div class="info_place_m">
-                                    <span class="place_text"> 서울 피크닉 </span>
+                                    서울 피크닉
                                 </div>
                             </div>
                             <div class="board_row_03_m">
@@ -169,18 +179,517 @@
                                     <span class="period_start">2022.07.21</span> ~ <span class="period_end">2022.09.13</span>
                                 </div>
                             </div>
+                            <div class="board_row_04_m">
+
+                            </div>
+                        </div>
+                        <div class="board_cal_03_m">
+                                <div class="i_star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <div class="star_point">3.5</div>
+                                </div>
+                                <div class="i_thumb">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <div class="thumb_point">21</div>
+                                </div>
                         </div>
                     </li>
+                    <li class="board_list_2_m">
+                        <%-- 300 * 400 이미지만 올릴 것--%>
+                        <div class="board_cal_01_m">
+                            <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                        </div>
+                        <div class="board_cal_02_m">
+                            <div class="board_row_01_m">
+                                <div class="info_title_m">
+                                    <span class="title_text"> 사울레이터 창문을 통해 어렴풋이</span>
+                                </div>
+                            </div>
+                            <div class="board_row_02_m">
+                                <div class="info_place_m">
+                                    서울 피크닉
+                                </div>
+                            </div>
+                            <div class="board_row_03_m">
+                                <div class="info_period_m">
+                                    <span class="period_start">2022.07.21</span> ~ <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_row_04_m">
 
+                            </div>
+                        </div>
+                        <div class="board_cal_03_m">
+                            <div class="i_star">
+                                <i class="fa-solid fa-star"></i>
+                                <div class="star_point">3.5</div>
+                            </div>
+                            <div class="i_thumb">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div class="thumb_point">21</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="board_list_2_m">
+                        <%-- 300 * 400 이미지만 올릴 것--%>
+                        <div class="board_cal_01_m">
+                            <img src="/resources/user/resource/exhibit/img/ex_03.png">
+                        </div>
+                        <div class="board_cal_02_m">
+                            <div class="board_row_01_m">
+                                <div class="info_title_m">
+                                    <span class="title_text"> 사울레이터 창문을 통해 어렴풋이</span>
+                                </div>
+                            </div>
+                            <div class="board_row_02_m">
+                                <div class="info_place_m">
+                                    서울 피크닉
+                                </div>
+                            </div>
+                            <div class="board_row_03_m">
+                                <div class="info_period_m">
+                                    <span class="period_start">2022.07.21</span> ~ <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_row_04_m">
+
+                            </div>
+                        </div>
+                        <div class="board_cal_03_m">
+                            <div class="i_star">
+                                <i class="fa-solid fa-star"></i>
+                                <div class="star_point">3.5</div>
+                            </div>
+                            <div class="i_thumb">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div class="thumb_point">21</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="board_list_2_m">
+                        <%-- 300 * 400 이미지만 올릴 것--%>
+                        <div class="board_cal_01_m">
+                            <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                        </div>
+                        <div class="board_cal_02_m">
+                            <div class="board_row_01_m">
+                                <div class="info_title_m">
+                                    <span class="title_text"> 사울레이터 창문을 통해 어렴풋이</span>
+                                </div>
+                            </div>
+                            <div class="board_row_02_m">
+                                <div class="info_place_m">
+                                    서울 피크닉
+                                </div>
+                            </div>
+                            <div class="board_row_03_m">
+                                <div class="info_period_m">
+                                    <span class="period_start">2022.07.21</span> ~ <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_row_04_m">
+
+                            </div>
+                        </div>
+                        <div class="board_cal_03_m">
+                            <div class="i_star">
+                                <i class="fa-solid fa-star"></i>
+                                <div class="star_point">3.5</div>
+                            </div>
+                            <div class="i_thumb">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div class="thumb_point">21</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="board_list_2_m">
+                        <%-- 300 * 400 이미지만 올릴 것--%>
+                        <div class="board_cal_01_m">
+                            <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                        </div>
+                        <div class="board_cal_02_m">
+                            <div class="board_row_01_m">
+                                <div class="info_title_m">
+                                    <span class="title_text"> 사울레이터 창문을 통해 어렴풋이</span>
+                                </div>
+                            </div>
+                            <div class="board_row_02_m">
+                                <div class="info_place_m">
+                                    서울 피크닉
+                                </div>
+                            </div>
+                            <div class="board_row_03_m">
+                                <div class="info_period_m">
+                                    <span class="period_start">2022.07.21</span> ~ <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_row_04_m">
+
+                            </div>
+                        </div>
+                        <div class="board_cal_03_m">
+                            <div class="i_star">
+                                <i class="fa-solid fa-star"></i>
+                                <div class="star_point">3.5</div>
+                            </div>
+                            <div class="i_thumb">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div class="thumb_point">21</div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
+
+                <div class="board_page_section_m">
+                    <ul class="board_page_box_m">
+                        <button class="bnt_start_page"><i class="fa-solid fa-angles-left"></i></button>
+                        <button class="btn_prev_page"><i class="fa-solid fa-angle-left"></i></button>
+                        <li class="page_list_m">
+                            <a class="page_number">1</a>
+                            <a class="page_number">2</a>
+                            <a class="page_number">3</a>
+                            <a class="page_number">4</a>
+                            <a class="page_number">5</a>
+                        </li>
+                        <button class="btn_next_page"><i class="fa-solid fa-angle-right"></i></button>
+                        <button class="btn_end_page"><i class="fa-solid fa-angles-right"></i></button>
+                    </ul>
+                </div>
             </div>
-<%--            <div class="board_container_pc">--%>
-<%--            </div>--%>
 
+
+            <div class="board_container_pc">
+                <div class="board_gry_table">
+                    <ul class="board_gry_row">
+                        <li class="board_gry_cal_01">
+                            <div class="board_gry_img">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_02">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_03">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_04">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_05">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gallery_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="start_day"></span>
+                                    ~
+                                    <span class="end_day"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="board_gry_row">
+                        <li class="board_gry_cal_01">
+                            <div class="board_gry_img">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_02">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_03">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_04">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_05">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gallery_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="start_day"></span>
+                                    ~
+                                    <span class="end_day"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="board_gry_row">
+                        <li class="board_gry_cal_01">
+                            <div class="board_gry_img">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_02">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_03">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_04">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_01.png">
+                            </div>
+                            <div class="board_gry_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="period_start">2022.07.21</span>
+                                    ~
+                                    <span class="period_end">2022.09.13</span>
+                                </div>
+                            </div>
+                            <div class="board_gry_btn_box">
+                                <div class="board_gry_btn">
+                                    <button>페이지이동</button>
+                                </div>
+                                <div class="board_gry_btn">
+                                    <button>리뷰 보기</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="board_gry_cal_05">
+                            <div class="board_gallery_box">
+                                <img src="/resources/user/resource/exhibit/img/ex_02.png">
+                            </div>
+                            <div class="board_gallery_info">
+                                <div class="board_gallery_title">제목</div>
+                                <div class="board_gallery_space">공간</div>
+                                <div class="board_gallery_period">
+                                    <span class="start_day"></span>
+                                    ~
+                                    <span class="end_day"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="board_page_section_p">
+                    <ul class="board_page_box_p">
+                        <button class="bnt_start_page"><i class="fa-solid fa-angles-left"></i></button>
+                        <button class="btn_prev_page"><i class="fa-solid fa-angle-left"></i></button>
+                        <li class="page_list_p">
+                            <a class="page_number">1</a>
+                            <a class="page_number">2</a>
+                            <a class="page_number">3</a>
+                            <a class="page_number">4</a>
+                            <a class="page_number">5</a>
+                        </li>
+                        <button class="btn_next_page"><i class="fa-solid fa-angle-right"></i></button>
+                        <button class="btn_end_page"><i class="fa-solid fa-angles-right"></i></button>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-
-
     </div>
 </div>
 
@@ -192,5 +701,6 @@
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
+    <script src="/resources/user/js/pd_filter.js" type="text/javascript"></script>
 
 </html>
