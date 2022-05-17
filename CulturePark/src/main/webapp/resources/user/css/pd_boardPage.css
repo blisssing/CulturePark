@@ -1,9 +1,15 @@
 
-/* 모바일 바닥 메뉴 비활성화 */
-.header_2 {
-    display: none;
-}
+/*비활성화 */
 
+    /*모바일 헤더*/
+    .header_2 {
+        display: none;
+    }
+
+/*사이드Container*/
+    .sideContainer {
+        display: none;
+    }
 .centerContainer > div {
 
 }
@@ -109,8 +115,20 @@
 
 /* 섹션 three*/
 
+.buttonContainer {
+    background-color: white;
+}
+
 .button_section {
     display: flex;
+    width: 100%;
+}
+
+.button_bar_fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
 }
 
@@ -135,6 +153,79 @@
 .sideContainer {
     margin-bottom: 20%;
 }
+
+
+/*contentContainer*/
+
+.content_container > div{
+    margin: 20px 10px;
+}
+
+/*pd_mainInfo*/
+
+
+
+.inner_section > div{
+    margin: 10px 0;
+}
+
+.inner_section_name {
+    font-weight: bolder;
+
+}
+
+.inner_box {
+    line-height: 150%;
+}
+
+#pd_detail_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inner_content >img {
+    width: 100%;
+}
+
+/*부가정보*/
+
+.inner_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.table_head {
+    width: 100px;
+    white-space: nowrap;
+}
+.th_text {
+    background: rgba(236,236,236,0.5);
+    width: 30px;
+}
+
+
+
+.table_data {
+    width: 500px;
+}
+
+.data_list {
+    margin: 10px 0;
+}
+
+.list_head {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inner_s_box {
+    margin: 10px 0;
+}
+
+
 
 @media screen and (min-width: 700px){
     .pd_img_title {
