@@ -29,16 +29,12 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value="/myPage.do")
-    public ModelAndView goToMypage(){
+    @RequestMapping(value = "/myPage.do")
+    public ModelAndView goToMypage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage");
         return mv;
     }
-
-
-
-
-
-
 }
+
+

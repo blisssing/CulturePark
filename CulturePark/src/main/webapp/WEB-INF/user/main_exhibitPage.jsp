@@ -13,6 +13,7 @@
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/main_home.css"%></style>
     <style><%@include file="/resources/user/css/board_section.css"%></style>
+    <style><%@include file="/resources/user/css/main_pdMainPage.css"%></style>
 
     <%--  js 불러오기  --%>
 
@@ -31,6 +32,12 @@
 
     <%-- Contents 영역 --%>
     <div class="centerContainer">
+
+        <div class="fast_btn_section">
+            <div class="fast_button_box"><button class="fast_button" id="fast_btn_01">전 체 목 록</button></div>
+            <div class="fast_button_box"><button class="fast_button" id="fast_btn_02">랭 킹 목 록</button></div>
+            <div class="fast_button_box"><button class="fast_button" id="fast_btn_03">리 뷰 목 록</button></div>
+        </div>
 
         <div class="event_section">
             <div class="section_name">
@@ -439,6 +446,7 @@
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_board.js" type="text/javascript"></script>
+<script src="/resources/user/js/main_productMain.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
 

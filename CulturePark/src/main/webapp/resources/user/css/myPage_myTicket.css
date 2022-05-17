@@ -47,6 +47,14 @@
 
 }
 
+#all_view_btn {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+    margin-right: 5px;
+}
+
 #exhibit_btn {
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -67,6 +75,7 @@
     flex-direction: column;
     width: 100%;
     margin: 40px 0px;
+    text-align: center;
 }
 
 .table {
@@ -174,6 +183,8 @@ button {
     .view_btn {
         border: 1px solid black;
         margin: 0 5px;
+        padding: 4px;
     }
+}
 
 }

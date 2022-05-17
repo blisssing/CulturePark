@@ -67,6 +67,17 @@ a:hover {
 }
 
 
+/* 아이콘 */
+
+.i_star > i{
+    color: #0f9d58;
+}
+
+.i_thumb > i{
+    color: #1a73e8;
+}
+
+
 
 @media screen and (min-width:768px) {
 

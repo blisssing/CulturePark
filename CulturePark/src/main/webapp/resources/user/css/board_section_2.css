@@ -1,0 +1,173 @@
+.board_container_mobile {
+    margin-bottom: 30px;
+}
+
+/* mobile 버전 */
+
+.board_list_2_m {
+    display: flex;
+    position: relative;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+
+
+/* cal 2 */
+
+    /* row 1 */
+
+
+    .board_row_01_m > div {
+        display: inline-block;
+    }
+
+    .board_row_01_m > div > div {
+        display: inline-block;
+    }
+
+    .star_point, .thumb_point {
+        float: right;
+    }
+
+
+    /* row 2 */
+
+
+    .board_cal_02_m {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        width: 100%;
+        padding: 20px 0 0 10px;
+    }
+
+
+    .board_cal_02_m > div {
+        text-align: center;
+        /*align-content: center;*/
+        align-items: center;
+        margin: 5px 10px;
+        width: 100%;
+        width: 100%;
+        height: 33.3333333333333333%;
+    }
+
+    .search_tag_row {
+        display: none;
+    }
+
+/* cal 3 */
+
+.board_cal_03_m {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.board_cal_03_m > div{
+    display: inline-block;
+
+}
+
+/* 페이징 */
+
+.board_page_section_m {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.btn_prev_page , .btn_next_page{
+    display: inline-block;
+}
+
+.page_list_m {
+    display: inline-block;
+}
+
+
+.board_container_pc {
+    display: none;
+}
+
+@media screen and (min-width: 580px) {
+
+    .search_table , .search_section {
+        min-width: 580px;
+    }
+}
+
+
+/* pc 버전 */
+@media screen and (min-width: 1200px) {
+
+    .board_container_mobile {
+        display: none;
+    }
+
+    .board_container_pc {
+        display: block;
+        width: 100%;
+    }
+
+
+    .search_table , .search_section {
+        min-width: 580px;
+    }
+
+
+
+/* row */
+    .board_gry_row {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        line-height: 150%;
+        margin: 10px 0;
+    }
+
+
+/* cal */
+    .board_gry_row li {
+        display: inline-block;
+    }
+
+/*contents*/
+
+    .board_gry_info {
+
+    }
+
+    .board_gry_info > div {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+
+    .board_gry_btn_box {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .board_gry_btn_box button:hover {
+        background-color: pink;
+    }
+
+/*  button  */
+
+    .board_page_section_p {
+        width: 100%;
+    }
+
+    .board_page_box_p {
+        text-align: center;
+    }
+
+    .board_page_box_p button, .board_page_box_p li {
+        display: inline-block;
+    }
+
+
+}

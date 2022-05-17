@@ -28,4 +28,11 @@ public class MyPageController {
         return mv;
     }
 
+    @RequestMapping(value = "/viewCancel.do")
+    public ModelAndView getViewCancel() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_viewCancel");
+        return mv;
+    }
+
 }

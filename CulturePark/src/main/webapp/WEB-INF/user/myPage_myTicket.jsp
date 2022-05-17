@@ -66,8 +66,9 @@
 
                     <%-- /pc --%>
                     <div class="menu_section">
-                        <button class="menu_btn" id="exhibit_btn" >전시</button>
-                        <button class="menu_btn" id="museum_btn" >뮤지엄</button>
+                        <button class="menu_btn" id="all_view_btn">전체</button>
+                        <button class="menu_btn" id="exhibit_btn">전시</button>
+                        <button class="menu_btn" id="museum_btn">뮤지엄</button>
                     </div>
 
 
@@ -200,6 +201,6 @@
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/resources/user/js/myPage_myTicket.js"></script>
-<script src="/resources/user/js/myPage_view_Detail_Ticket.js"></script>
+<script src="/resources/user/js/myPage_viewDetail_viewTicket.js"></script>
 
 </html>

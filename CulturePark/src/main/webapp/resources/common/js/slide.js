@@ -80,7 +80,6 @@ $(document).ready(function () {
                 $('#mu_chk_0' + prom_img_position_mu).prop("checked", true);
             }
 
-
         } else{
 
             var move_width = 1200;
