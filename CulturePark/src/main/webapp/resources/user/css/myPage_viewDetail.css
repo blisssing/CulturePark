@@ -2,46 +2,60 @@
     display: flex;
     flex-direction: column;
     margin: 10px 10px 10px 10px;
+    height: 90%;
 }
 
-/*.a_link {
-    text-decoration-line : none;
-    color: black;
-}*/
+.viewDetail_container > div {
+    margin:20px 0px;
+}
 
 .sectionLine {
     border: 0.5px solid black;
 }
 
-
-.booking_status_section {
-    display: flex;
+.booking_status_box {
+    position: relative;
 }
 
-.fa-arrow-left {
-    float:left;
+.booking_status_box > div {
+    display: inline-block;
+}
+
+.arrow_div {
     margin-left:10px;
 }
 
-.fa-circle-check {
-    margin-left: 30%;
-    margin-right: 3%;
-
+.fa-angle-down {
+    margin-left: 10px;
 }
+
+.check_div {
+    position: absolute;
+    left: 43%;
+    display: inline-block;
+    width:100px;
+}
+
+.fa-circle-check {
+    margin-right: 3%;
+}
+
 
 /* 제목 영역 */
 .booking_title_section {
     display: flex;
     flex-direction: column;
+
 }
 
 /* 전시 제목 */
 #booking_name {
     margin-top: 15px;
+    font-size: 13pt;
 }
 
 
-/* 일정 / 내역 영역 */
+/* 일정/내역 영역 */
 .booking_info_section {
     display: flex;
     flex-direction: column;
@@ -50,53 +64,71 @@
 /*일정 내역 */
 .date_section {
    display: flex;
+   margin-top: 10px;
 }
 
-.booking_time {
+.date_icon_section {
     margin-left: 20px;
 }
 
+.time_icon_section {
+    margin-left: 15px;
+}
+
 .type_section {
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+/* 성인1명 */
+.type_unit_value {
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .booking_label {
     font-weight: bold;
-    margin-right: 15px;
 }
 
 .booking_cancel_section {
     width: 100%;
-    margin-left: 1%;
 
 }
 
 /* 예매취소 버튼 */
 .booking_cancel_btn {
     width: 95%;
-    margin: 25px 5px 5px 10px;
-    padding: 3px 0px 3px 0px;
+    border: 1px solid black;
+    margin: 0px 5px 5px 10px;
+    padding: 4px 0px 4px 0px;
 
     font-size:11pt;
 }
 
 /* 관람장소 영역 */
 .booking_place_section {
-    line-height: 170%;
+    /*line-height: 170%;*/
 }
 
 .booking_address {
-    margin-left: 1%;
+    /*margin-left: 1%;*/
 }
 
 .booking_admission_btn {
     float: right;
-    margin-right: 25px;
+    /*margin-right: 10px;*/
 }
 
-.label_section {
-    display: flex;
-    margin-bottom: 8px;
+.booking_admission_content_toggle {
+   margin-top: 10px !important;
+   margin-bottom: 25px !important;
+}
+
+.booking_admission_content {
+    margin-top: 10px;
+}
+
+.purchase_no_section {
+    margin: 15px 0px 25px 0px
 }
 
 .booking_purchase_no {
@@ -105,20 +137,18 @@
 
 .purchase_section {
     float: right;
+    margin-top: 20px;
 }
 
 .booking_purchase {
-
     font-size: 13pt;
 
 }
 
 .ok_use {
     padding-left: 15px;
-
     font-weight: bold;
     color: green
-
 }
 
 
