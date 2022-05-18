@@ -30,7 +30,7 @@
     /*flex-direction: column;*/
     width: 100%;
     max-width: 55px;
-    margin-right: 30px;
+    margin-right: 8px;
     line-height: 35px;
     font-size: 0.8rem;
     font-weight: bold;
@@ -54,17 +54,13 @@
 
 }
 
-.pd_name_section>span {
-
-}
-
 .schedule_section {
     display: flex;
 }
 
 .pd_name_section {
     display: inline-block;
-    width:130px;
+    width:160px;
 
 }
 
@@ -88,5 +84,5 @@
 }
 
 .pd_address {
-    margin-left: 10px;
+    margin-left: 5px;
 }

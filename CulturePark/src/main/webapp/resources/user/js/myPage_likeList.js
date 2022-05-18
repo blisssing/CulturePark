@@ -1,0 +1,134 @@
+$(document).ready(function () {
+
+    $('#popup').hide();
+
+    $('#all_view_btn').css('font-weight','bold');
+
+    /*전체 탭*/
+    $('#all_view_btn').on('click', function () {
+        $('#exhibit_set').show();
+        $('#museum_set').show();
+
+        $(this).css('font-weight','bold');
+        $('#exhibit_btn').css('font-weight','normal');
+        $('#museum_btn').css('font-weight','normal');
+    });
+
+    /*전시 탭*/
+    $('#exhibit_btn').on('click', function () {
+        $('#exhibit_set').show();
+        $('#museum_set').hide();
+
+        $(this).css('font-weight','bold');
+        $('#all_view_btn').css('font-weight','normal');
+        $('#museum_btn').css('font-weight','normal');
+    });
+
+    /*뮤지엄 탭*/
+    $('#museum_btn').on('click', function () {
+        $('#museum_set').show();
+        $('#exhibit_set').hide();
+
+        $(this).css('font-weight','bold');
+        $('#all_view_btn').css('font-weight','normal');
+        $('#exhibit_btn').css('font-weight','normal');
+    });
+
+
+    /* 체크박스 전체 선택 (전시용) */
+        $('#check_all_exhibit').click(function () {
+            if ($("#check_all_exhibit").prop("checked")) {
+                $(".check_one_exhibit").prop("checked", true);
+            } else {
+                $(".check_one_exhibit").prop("checked", false);
+            }
+        });
+
+    /* 체크박스 전체 선택 (뮤지엄) */
+    $('#check_all_museum').click(function () {
+        if ($("#check_all_museum").prop("checked")) {
+            $(".check_one_museum").prop("checked", true);
+        } else {
+            $(".check_one_museum").prop("checked", false);
+        }
+    });
+
+    /* 체크박스 해제 시 전체 체크박스 해제 (전시용) */
+        $("input[class=check_one_exhibit]").click(function () {
+            var total = $("input[class=check_one_exhibit]").length;
+            var checked = $("input[class=check_one_exhibit]:checked").length;
+
+            if (total != checked) {
+                $(".check_all_exhibit").prop("checked", false);
+            } else {
+                $(".check_all_exhibit").prop("checked", true);
+            }
+        });
+
+    /* 체크박스 해제 시 전체 체크박스 해제 (뮤지엄용) */
+    $("input[class=check_one_museum]").click(function () {
+        var total = $("input[class=check_one_museum]").length;
+        var checked = $("input[class=check_one_museum]:checked").length;
+
+        if (total != checked) {
+            $(".check_all_museum").prop("checked", false);
+        } else {
+            $(".check_all_museum").prop("checked", true);
+        }
+    });
+
+
+/* --------------------------------- */
+
+    /*  선택상품 삭제 */
+    $('.delete_btn').click(function() {
+        deleteBtn_check();
+    });
+
+
+    $('.list_btn_no').click(function() {
+       window.close();
+    });
+
+    $('.list_btn_yes').click(function() {
+        deleteBtn_exhibit();
+        deleteBtn_museum();
+    });
+
+
+
+/* ---------------------------------- */
+
+    /* 전시 목록 삭제 */
+    function deleteBtn_exhibit() {
+        $("input:checkbox[class='check_one_exhibit']:checked").each(function (k, kVal) {
+            console.log("kVal ::", kVal.parentElement);
+            let a = kVal.parentElement;
+            $(a).remove();
+        });
+    }
+
+    /* 뮤지엄 목록 삭제 */
+    function deleteBtn_museum() {
+        $("input:checkbox[class='check_one_museum']:checked").each(function (k, kVal) {
+            console.log("kVal ::", kVal.parentElement);
+            let a = kVal.parentElement;
+            $(a).remove();
+        });
+    }
+});
+
+/* ------------------------------- */
+
+/* 삭제할 항목 미체크 확인 */
+function deleteBtn_check() {
+
+    var checked_cnt = $('input:checkbox[name=chk]:checked').length;
+
+     if (checked_cnt=== 0) {
+        alert("삭제할 항목을 선택해 주세요.");
+    } else {
+         console.log("정상적으로 수행 됨");
+         window.open("/delete_popup.do", "likeList_delete_popup", "width=420px, height=120px, left=100, top=50");
+    }
+}
