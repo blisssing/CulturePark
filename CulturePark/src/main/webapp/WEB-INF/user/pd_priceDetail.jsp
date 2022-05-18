@@ -5,9 +5,23 @@
 <head>
     <title>금액 상세보기 페이지</title>
     <style><%@include file="/resources/common/css/reset.css"%> </style>
+    <style><%@include file="/resources/user/css/price_detail.css"%></style>
 
 </head>
 <body>
+
+<%--  팝업 완성할 것  --%>
+    <div class="popup_container">
+        <div class="pu_inner_section">
+            <div class="section_title"></div>
+            <ul class="price_box">
+                <li class="price_list">
+                    <div class="price_case">성인</div>
+                    <div class="price_money"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 
 

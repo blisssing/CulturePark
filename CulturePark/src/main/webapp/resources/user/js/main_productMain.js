@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $('#fast_btn_01').click(function () {
-        location.replace('url');
+        location.replace('pdList.do');
     });
 
     $('#fast_btn_02').click(function () {

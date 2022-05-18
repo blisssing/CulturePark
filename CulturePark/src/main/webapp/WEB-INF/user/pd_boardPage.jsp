@@ -12,6 +12,19 @@
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/pd_boardPage.css"%></style>
     <style><%@include file="/resources/user/css/pd_board_header.css"%></style>
+<%--    <style><%@include file="/resources/common/css/jquery-ui.css"%></style>--%>
+
+<%--Jquery UI--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<%-- Jquery UI--%>
+
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+    <script src="/resources/common/js/common.js" type="text/javascript"></script>
+    <script src="/resources/user/js/pd_board.js" type="text/javascript"></script>
+    <script src="/resources/common/js/calendar.js" type="text/javascript"></script>
+
 
 
     <title>CulturePark 우리들의 문화공간</title>
@@ -90,9 +103,68 @@
 
             </div>
 
-            <div class="pdContainer_p"></div>
 
-            <div class="sideContainer"></div>
+            <div class="sideContainer">
+
+                <%--켈린더--%>
+                <div class="topContainer">
+                    <div class="container_box">
+                        <div class="box_header" id="date_header">
+                            <div class="b_header_title">관람일</div>
+                            <div class="b_header_content" id="date_selected">
+
+                            </div>
+                            <div class="toggle_btn" id="date_toggle">
+                                <button id="btn_date_top"><i id="toUp" class="fa-solid fa-angle-up"></i></button>
+                                <button id="btn_date_bottom"><i class="fa-solid fa-angle-down"></i></button>
+                            </div>
+                        </div>
+
+
+                        <div id="datepicker"></div>
+                    </div>
+
+                    <div class="container_box">
+                        <div class="box_header">
+                            <div class="b_header_title">회차</div>
+                            <div class="b_header_content" id="round_content">
+                                <ul class="round_box">
+                                    <li class="round_list">
+                                        <div class="round_number">1회</div>
+                                        <div class="round_time">14:30</div>
+                                    </li>
+                                    <li class="round_list">
+                                        <div class="round_number">1회</div>
+                                        <div id="round_time">14:30</div>
+                                    </li>
+                                    <li class="round_list">
+                                        <div class="round_number">1회</div>
+                                        <div class="round_time">14:30</div>
+                                    </li>
+
+                                    <div id="round_tickets">
+                                        <span class="ticket_cnt">32</span><span class="ticket_unit">장</span>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="toggle_btn" id="round_toggle">
+                                <button id="btn_round_top"><i class="fa-solid fa-angle-up"></i></button>
+                                <button id="btn_round_bottom"><i class="fa-solid fa-angle-down"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <%--예매하기 버튼--%>
+                <div class="bottomContainer">
+                    <button class="btn_booking">예매하기</button>
+                </div>
+
+            </div>
+
+
+
         </div>
 
         <div class="buttonContainer">
@@ -120,14 +192,5 @@
 </div>
 
 </body>
-
-
-<%--js  불러오기 --%>
-
-<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/common/js/common.js" type="text/javascript"></script>
-<script src="/resources/user/js/pd_board.js" type="text/javascript"></script>
-
 
 </html>
