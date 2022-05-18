@@ -35,4 +35,17 @@ public class MyPageController {
         return mv;
     }
 
+    @RequestMapping(value="/likeList.do")
+    public ModelAndView getLikeList() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_likeList");
+        return mv;
+    }
+
+    @RequestMapping(value="/delete_popup.do")
+    public ModelAndView getDeletePopup(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("likeList_delete_popup");
+        return mv;
+    }
 }
