@@ -57,7 +57,7 @@
         <div class="ex_promotion_section">
             <div class="section_name">
                 <span class="section_title"><a href="/exhibitMain.do">전시</a></span>
-                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+                <span class="prom_link"><a href="exhibitMain.do">전 체 보 기</a></span>
 
             </div>
 
@@ -212,7 +212,7 @@
         <div class="mu_promotion_section">
             <div class="section_name">
                 <span class="section_title"><a href="/museumPage.do">뮤지엄</a></span>
-                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+                <span class="prom_link"><a href="/museumPage.do">전 체 보 기</a></span>
             </div>
 
             <div class="section_page">

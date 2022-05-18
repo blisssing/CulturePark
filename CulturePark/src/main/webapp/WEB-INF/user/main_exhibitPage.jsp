@@ -17,7 +17,7 @@
 
     <%--  js 불러오기  --%>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
     <title>CulturePark 우리들의 문화공간</title>
 </head>
@@ -443,11 +443,13 @@
 
 
 <%--js  불러오기 --%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_board.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_productMain.js" type="text/javascript"></script>
-<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+
 
 
 </html>
