@@ -36,7 +36,7 @@
 <%--js  불러오기 --%>
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 
 
 </html>

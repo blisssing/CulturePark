@@ -6,15 +6,14 @@
         display: none;
     }
 
+
+
 /*사이드Container*/
 
 .sideContainer {
-        display: none;
-    }
-
-.centerContainer > div {
-
+    display: none;
 }
+
 
 .pdContainer_m  {
     width: 100%;
@@ -132,6 +131,8 @@
     left: 0;
     right: 0;
     width: 100%;
+    height: 50px;
+    background: #fff;
 }
 
 
@@ -218,6 +219,39 @@
     margin: 10px 0;
 }
 
+/* 모달 */
+
+
+
+/*헤드*/
+
+.modalContainer > div {
+    margin: 30px 10px;
+}
+
+.modal_head {
+    border-bottom: 2px solid gray;
+}
+
+.modal_head *{
+    display: inline-block;
+}
+
+/*Modal content*/
+
+.modal_content *{
+    width: 100%;
+    margin: 10px 0;
+}
+
+#price_table > tbody > tr > td {
+    width: 33.33333333333333%;
+}
+
+.category {
+
+}
+
 
 
 @media screen and (min-width: 700px){
@@ -231,18 +265,19 @@
 
 @media screen and (min-width: 1200px) {
 
+    .centerContainer {
+        flex-direction: row;
+    }
+
     .pdContainer {
         display: flex;
+        flex-direction: column;
+        width: 70%;
     }
 
     .pdContainer > div {
         margin: 10px 10px;
     }
-
-    .pdContainer_m {
-        width: 70%;
-    }
-
 
 
     /*예매하기 버튼 비활성화*/
@@ -273,6 +308,10 @@
         font-size: 1.2rem;
     }
 
+    .price_detail > a{
+        font-size: 0.8rem;
+    }
+
 
 /*사이드 컨테이너*/
 
@@ -280,13 +319,24 @@
 
         .sideContainer {
             display: inline-block;
-            position: relative;
+            position: fixed;
+            right: 5px;
             width: 30%;
+            height: 50%;
             background-color: pink;
         }
 
-        .sideContainer > div {
-            margin: 10px 10px;
+        .sideContainer > div >div {
+            margin: 30px 10px;
+        }
+
+        .side_box_for_fix {
+            display: flex;
+            width: 100%;
+        }
+
+        .side_box_for_fix > div{
+            width: 100%;
         }
 
         .container_box {
@@ -349,6 +399,14 @@
         #btn_round_bottom {
             display: none;
         }
+
+    /*  고정  */
+
+        /*.side_bar_fix {*/
+        /*    position: fixed;*/
+        /*    top: 0;*/
+        /*    right: 10px;*/
+        /*}*/
 
     /*글  꼴*/
 
