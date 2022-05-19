@@ -112,10 +112,11 @@ td, th {
     margin-top: 2%;
 }
 
-.sectionLine {
+.myTicket_sectionLine {
     border: 0.5px solid black;
     margin-top: 3%;
     width: 100%;
+
 }
 
 .sectionLine1{
@@ -152,7 +153,7 @@ td, th {
         display: flex;
         justify-content: center;
         width: 100%;
-        margin: 20px 0px 10px 0px;
+        margin: 60px 0px 60px 0px;
     }
 
     .period_choice {
@@ -164,6 +165,21 @@ td, th {
         border:1px solid black;
         margin-right: 1.5%;
     }
+
+.hasDatepicker {
+     width: 120px;
+     text-align: center;
+ }
+
+ul {
+    margin-left: 20px;
+}
+
+.datepicker_search_btn {
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
 
     .table_section {
         line-height: 180%;

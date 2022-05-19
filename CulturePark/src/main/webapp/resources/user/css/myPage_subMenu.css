@@ -102,7 +102,7 @@
 .sub_section {
     width: 100%;
     border: 1px solid black;
-    /*margin: 5px 5px;*/
+    margin: 5px 0px;
 }
 
 .subMenu > .sub_section > li {

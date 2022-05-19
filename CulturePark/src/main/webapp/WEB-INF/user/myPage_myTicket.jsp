@@ -9,12 +9,15 @@
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
     <%-- css 불러오기 --%>
+
     <style><%@include file="/resources/common/css/reset.css" %></style>
     <style><%@include file="/resources/common/css/common.css" %></style>
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/myPage.css" %></style>
     <style><%@include file="/resources/user/css/myPage_subMenu.css" %></style>
     <style><%@include file="/resources/user/css/myPage_myTicket.css" %></style>
+
+
 
     <title>myTicket</title>
 </head>
@@ -65,12 +68,25 @@
                     <%-- mobile --%>
                     <%-- pc --%>
                     <div class="period_section">
+
                         <span class="period_choice">조회기간 선택</span>
-                        <button class="period_btn" id="period_one" value="1개월">1개월</button>
-                        <button class="period_btn" id="period_three" value="3개월">3개월</button>
-                        <button class="period_btn" id="period_six" value="6개월">6개월</button>
-                        <button class="period_btn" id="period_oneYear" value="12개월">12개월</button>
-                        <button class="period_btn" id="period_all" value="전체">전체</button>
+
+                        <a href="javacript:fnQuickSearch('0')" class="period_btn" id="period_one" value="1개월">1개월</a>
+                        <a href="javacript:fnQuickSearch('90')" class="period_btn" id="period_three" value="3개월">3개월</a>
+                        <a href="javacript:fnQuickSearch('180')" class="period_btn" id="period_six" value="6개월">6개월</a>
+                        <a href="javacript:fnQuickSearch('365')" class="period_btn" id="period_oneYear" value="12개월">12개월</a>
+                        <a href="javacript:fnQuickSearch('0')" class="period_btn" id="period_all" value="전체">전체</a>
+
+                        <ul>
+                            <li>
+                                <input id="datepicker"  name="SEARCH_START_DATE" class="hasDatepicker">
+                                <em>~</em>
+                                <input type="text" id="datepickerEnd"  name="SEARCH_END_DATE" class="hasDatepicker">
+                            </li>
+                        </ul>
+
+                        <button class="datepicker_search_btn" id="datepicker_search_btn">조회</button>
+
                     </div>
 
                     <%-- /pc --%>
@@ -216,7 +232,7 @@
                         <div class="table_section">
                             <p> 최근 예매 내역이 없습니다.</p>
                         </div>
-                        <p class="sectionLine"></p>
+                        <p class="myTicket_sectionLine"></p>
 
                 </div> <!-- ===========  /탭 메뉴 ============== -->
 
@@ -228,8 +244,17 @@
 </body>
 
 <%-- script --%>
+<%--Jquery & jquery-ui--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<%----%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/resources/user/js/myPage_myTicket.js"></script>
+<script src="/resources/common/js/2point_calendar.js"></script><%--
+<script src="/resources/common/js/calendar.js"></script>--%>
+
+
+
 
 </html>

@@ -69,16 +69,11 @@ $(document).ready(function(){
             alert('취소되었습니다.\n'+'환불은 카드사 사정에 따라 3~4일 소요됩니다.');
         });
 
-    // 티켓 보기 들어갈 시 자동으로 크기 조정 : 전시명 , 관람장소
 
-
-   /*     // 1. 부모 요소의 너비값을 구한다
-    console.log("리사이즈 수행 됨 ");
-    var section_width = $('.product_value_section').width();
-    $('.pd_name').css('width', section_width);
-    console.log("section_width : " + section_width);*/
 
 });
+
+/* ---------------------------------------------------------*/
 
 /* 1. 상세보기 팝업 */
 function viewDetail() {
@@ -91,12 +86,8 @@ function viewTicket() {
     window.open("/viewTicket.do", "myPage_viewTicket", "width=400, height=600, left=50, top=100");
 }
 
-/* 크기 조정 펑션*/
 
 
-/* 이전 화살표 뒤로가기 :  모바일 구현하기  */
-/*$( document ). ready(function() {
-    $('.fa-arrow-left').load("/WEB-INF/user/myPage_myTicket.jsp");
-})*/
+
 
 

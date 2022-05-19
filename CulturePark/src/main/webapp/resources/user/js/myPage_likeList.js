@@ -82,53 +82,45 @@ $(document).ready(function () {
 
     /*  선택상품 삭제 */
     $('.delete_btn').click(function() {
-        deleteBtn_check();
-    });
-
-
-    $('.list_btn_no').click(function() {
-       window.close();
-    });
-
-    $('.list_btn_yes').click(function() {
+        delete_check();
         deleteBtn_exhibit();
         deleteBtn_museum();
     });
-
-
-
-/* ---------------------------------- */
-
-    /* 전시 목록 삭제 */
-    function deleteBtn_exhibit() {
-        $("input:checkbox[class='check_one_exhibit']:checked").each(function (k, kVal) {
-            console.log("kVal ::", kVal.parentElement);
-            let a = kVal.parentElement;
-            $(a).remove();
-        });
-    }
-
-    /* 뮤지엄 목록 삭제 */
-    function deleteBtn_museum() {
-        $("input:checkbox[class='check_one_museum']:checked").each(function (k, kVal) {
-            console.log("kVal ::", kVal.parentElement);
-            let a = kVal.parentElement;
-            $(a).remove();
-        });
-    }
 });
 
-/* ------------------------------- */
 
-/* 삭제할 항목 미체크 확인 */
-function deleteBtn_check() {
 
-    var checked_cnt = $('input:checkbox[name=chk]:checked').length;
+/* 전시 목록 삭제 */
+function deleteBtn_exhibit() {
 
-     if (checked_cnt=== 0) {
+
+        $("input:checkbox[name='chk1']:checked").each(function (k, kVal) {
+            console.log("kVal ::", kVal.parentElement);
+            let a = kVal.parentElement;
+            $(a).remove();
+        });
+}
+
+/* 뮤지엄 목록 삭제 */
+function deleteBtn_museum() {
+
+
+        $("input:checkbox[name='chk2']:checked").each(function (k, kVal) {
+            console.log("kVal ::", kVal.parentElement);
+            let a = kVal.parentElement;
+            $(a).remove();
+        });
+}
+
+function delete_check() {
+
+    var checked_cnt_1 = $('input:checkbox[name=chk1]:checked').length;
+    var checked_cnt_2 = $('input:checkbox[name=chk2]:checked').length;
+    var checked_cnt_total = checked_cnt_1 + checked_cnt_2;
+
+    if (checked_cnt_total === 0) {
         alert("삭제할 항목을 선택해 주세요.");
-    } else {
-         console.log("정상적으로 수행 됨");
-         window.open("/delete_popup.do", "likeList_delete_popup", "width=420px, height=120px, left=100, top=50");
+    }else {
+        return;
     }
 }
