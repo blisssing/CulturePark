@@ -42,10 +42,5 @@ public class MyPageController {
         return mv;
     }
 
-    @RequestMapping(value="/delete_popup.do")
-    public ModelAndView getDeletePopup(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("likeList_delete_popup");
-        return mv;
-    }
+
 }

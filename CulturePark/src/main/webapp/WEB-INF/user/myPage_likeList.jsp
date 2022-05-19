@@ -90,13 +90,13 @@
                                 </thead>
                                 <tbody>
                                 <tr class="table_row_section">
-                                    <td class="cal_check"><input type="checkbox" name="chk" class="check_one check_one_exhibit" id="check_one_exhibit" ></td>
+                                    <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit" ></td>
                                     <td class="seq">1</td>
                                     <td class="pd_name">스누피</td>
                                     <td class="pd_price">13,000</td>
                                 </tr>
                                 <tr>
-                                    <td class="cal_check"><input type="checkbox" name="chk" class="check_one check_one_exhibit" id="check_one_exhibit2"></td>
+                                    <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit2"></td>
                                     <td class="seq">1</td>
                                     <td class="pd_name">요시고</td>
                                     <td class="pd_price">17,000</td>
@@ -131,7 +131,7 @@
                                 </thead>
                                 <tbody>
                                 <tr class="table_row_section">
-                                    <td class="cal_check" ><input type="checkbox" name="chk" class="check_one check_one_museum" id="check_one_museum"></td>
+                                    <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum"></td>
                                     <td class="seq">1</td>
                                     <td class="pd_name">박물관이 살아있다</td>
                                     <td class="pd_price">12,000</td>
@@ -139,7 +139,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td class="cal_check"><input type="checkbox" name="chk" class="check_one check_one_museum" id="check_one_museum2"></td>
+                                    <td class="cal_check"><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum2"></td>
                                     <td class="seq">2</td>
                                     <td class="pd_name">허브아일랜드</td>
                                     <td class="pd_price">17,000</td>
@@ -164,7 +164,7 @@
 
                         <div class="pd_delete_section">
                             <div class="pd_delete">
-                                <span>선택한 상품</span><a class="delete_btn" id="checked_delete" target="_blank">삭제</a>
+                                <span>선택한 상품</span><a class="delete_btn" id="checked_delete">삭제</a>
                             </div>
                         </div>
 
