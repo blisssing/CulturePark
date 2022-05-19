@@ -31,6 +31,13 @@
     border-right: 1px solid black;*/
 }
 
+.cal_check {
+  margin-top: 5px;
+}
+
+.check_one {
+    margin-top: 10px;
+}
 
 .table_section {
    /* display: flex;*/
@@ -51,7 +58,9 @@
 }
 
 td, th {
-    padding: 2px 12px;
+    /*padding: 2px 12px;*/
+    text-align: center;
+    vertical-align:middle;
 }
 
 .view_btn_section {
@@ -148,10 +157,6 @@ td, th {
 }
 
 @media screen and (min-width:1200px) {
-
-    td, th {
-        padding: 2px 37px;
-    }
 
     .menu_section {
         display: flex;

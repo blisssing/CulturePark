@@ -1,0 +1,123 @@
+.period_section {
+    display: none;
+}
+
+.m_period_section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.m_period_choice {
+    margin-top: 10px;
+
+    text-align: center;
+    font-size: 10pt;
+}
+
+.m_period_btn_section{
+    margin: 20px 0px;
+}
+
+.m_period_btn {
+    border: 1px solid black;
+    margin-right: 1%;
+}
+
+.table {
+    width: 100%;
+}
+
+.table_section {
+
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.table > thead {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.table > tbody {
+    margin: 15px 0px;
+    border-bottom: 1px solid;
+}
+
+td, th {
+    padding: 2px 0px;
+}
+
+.myTicket_sectionLine {
+    border: 0.5px solid black;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.label_section {
+    margin: 30px 0px;
+    font-size: 0.8rem;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+@media screen and (min-width:1200px) {
+
+    .m_period_section {
+        display: none;
+    }
+
+    .period_section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 60px 0px 60px 0px;
+    }
+
+    .period_choice {
+        margin-right: 2%;
+        font-size: 11pt;
+        padding-top: 7px;
+    }
+
+    .period_btn {
+        border:1px solid black;
+        margin-right: 1.5%;
+        padding: 5px;
+    }
+
+    .datepicker_section {
+        margin-left: 40px;
+    }
+
+    .datepicker_section > input {
+        width: 120px;
+        text-align: center;
+    }
+
+    .datepicker_search_btn {
+        border: 1px solid black;
+        margin-left: 10px;
+        font-size: 0.8rem;
+        height: 22px;
+    }
+
+    .table_section {
+        line-height: 180%;
+    }
+
+    .table_row_section {
+        border-bottom: 1px dashed black;
+    }
+
+    /* table */
+
+
+}
