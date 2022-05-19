@@ -30,7 +30,7 @@
         <script src="/resources/common/js/two_point_datePicker.js"></script>
 
 
-    <title>myTicket</title>
+    <title>my Ticket</title>
 </head>
 <body>
 <%-- Main --%>
@@ -90,6 +90,7 @@
 
                         <div class="datepicker_section">
                             <input id="startPicker" class="startPoint">
+                            <em> ~ </em>
                             <input id="endPicker" class="endPoint">
                         </div>
 
@@ -131,10 +132,10 @@
                             </thead>
                             <tbody>
                             <tr class="table_row_section">
-                                <th scope="seq">1</td>
-                                <th scope="booking_day">2022.05.11</td>
-                                <th scope="pd_name">스누피</td>
-                                <th scope="pd_date">2022.05.12</td>
+                                <th class=seq">1</td>
+                                <th class="booking_day">2022.05.11</td>
+                                <th class="pd_name">스누피</td>
+                                <th class="pd_date">2022.05.12</td>
 
                                 <%-- pc --%>
                                 <td>

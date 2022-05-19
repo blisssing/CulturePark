@@ -82,7 +82,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="cal_check check_all check_all_exhibit"><input type="checkbox" id="check_all_exhibit"></th>
+                                    <th class="cal_check check_all check_all_exhibit" name="check_all_exhibit"><input type="checkbox" id="check_all_exhibit"></th>
                                     <th class="seq">seq</th>
                                     <th class="pd_name">작품명</th>
                                     <th class="pd_price">금액</th>
@@ -122,29 +122,24 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="cal_check check_all check_all_museum"><input type="checkbox" id="check_all_museum"></th>
+                                    <th class="cal_check check_all check_all_museum"name="check_all_museum"><input type="checkbox" id="check_all_museum"></th>
                                     <th class="seq">seq</th>
                                     <th class="pd_name">작품명</th>
                                     <th class="pd_price">금액</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="table_row_section">
+                            <tr class="table_row_section">
                                     <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum"></td>
                                     <td class="seq">1</td>
                                     <td class="pd_name">박물관이 살아있다</td>
                                     <td class="pd_price">12,000</td>
-
-
                                 </tr>
                                 <tr>
                                     <td class="cal_check"><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum2"></td>
                                     <td class="seq">2</td>
                                     <td class="pd_name">허브아일랜드</td>
                                     <td class="pd_price">17,000</td>
-
-
                                 </tr>
 
                                 </tbody>

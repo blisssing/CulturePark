@@ -1,0 +1,78 @@
+.table_section {
+    /* display: flex;*/
+    flex-direction: column;
+    width: 100%;
+    margin: 40px 0px 10px 0px;
+    text-align: center;
+}
+
+.table > thead {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.table > tbody {
+    margin: 15px 0px;
+    border-bottom: 1px solid;
+}
+
+td, th {
+    padding: 2px 12px;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
+
+.table_section {
+    line-height: 180%;
+}
+
+.table_row_section {
+    border-bottom: 1px dashed black;
+}
+
+.label_div_section {
+    margin-top: 5px;
+}
+
+.tab_content {
+    margin-top: 150px;
+}
+
+.myReview_section {
+    width: 100%;
+    height: 200%;
+}
+
+.scroll_section {
+    overflow-y: scroll;
+    position: relative;
+}
+
+thead {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+
+
+@media screen and (min-width:1200px) {
+
+    .menu_section {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+
+}
