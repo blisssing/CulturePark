@@ -14,6 +14,16 @@ $(document).ready(function () {
     });
 
 
+    // 예매 하기 버튼
+
+    $('.btn_booking').click(function () {
+        getBooking();
+    });
+
+    $('.btn_getBookingPage').click(function () {
+        getBooking();
+    });
+
     // 모달 컨트롤
     $('#btn_price_detail').click(function () {
 
@@ -24,6 +34,7 @@ $(document).ready(function () {
         });
         // $('.modal').fadeIn();
         // window.open("getPriceDetail.do", "Price_Detail");
+
     });
 
     $('.modal_content').click(function () {
@@ -47,19 +58,15 @@ $(document).ready(function () {
                 barThis.removeClass("button_bar_fix");
             }
         } else if (window.outerWidth >= 1200) {
-
-            /*var docScrollY = $(document).scrollTop();
+            var docScrollY = $(document).scrollTop();
             var barThis = $('.sideContainer');
 
             if (docScrollY > sideBar.top) {
                 barThis.addClass("side_bar_fix");
             } else {
                 barThis.removeClass("side_bar_fix");
-            }*/
-
+            }
         }
-
-
 
     });
 
@@ -93,3 +100,8 @@ $(document).ready(function () {
 
 
 });
+
+function getBooking() {
+    var status = "width=400, height=500, top=0, left=0";
+    window.open('book01.do', 'booking01',status);
+}

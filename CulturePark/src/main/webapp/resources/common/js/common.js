@@ -25,6 +25,7 @@ $(document).ready(function () {
                 location.replace('home.do');
             });
 
+
         // 버튼 이동 : 메뉴
 
             // 3. 상단 메뉴 토글 버튼과 기능 동일
