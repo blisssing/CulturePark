@@ -13,23 +13,54 @@ $(document).ready(function () {
         $('.content_container').load("/getReviewinfo.do");
     });
 
+
+    // 모달 컨트롤
     $('#btn_price_detail').click(function () {
-        window.open("getPriceDetail.do", "Price_Detail");
+
+        console.log("수행 모달 ");
+        $('.modal').modal({
+            fadeDuration: 300,
+            showClose:false
+        });
+        // $('.modal').fadeIn();
+        // window.open("getPriceDetail.do", "Price_Detail");
+    });
+
+    $('.modal_content').click(function () {
+        $('.modal_container').fadeOut();
     });
 
 
-    // 상단 바 고정
+    // 상단 바 or sideMenu 고정
     var topBar = $(".buttonContainer").offset();
+    var sideBar = $(".sideContainer").offset();
 
     $(window).scroll(function () {
-        var docScrollY = $(document).scrollTop();
-        var barThis = $(".buttonContainer");
 
-        if (docScrollY > topBar.top) {
-            barThis.addClass("button_bar_fix");
-        } else {
-            barThis.removeClass("button_bar_fix");
+        if (window.outerWidth < 1200) {
+            var docScrollY = $(document).scrollTop();
+            var barThis = $(".buttonContainer");
+
+            if (docScrollY > topBar.top) {
+                barThis.addClass("button_bar_fix");
+            } else {
+                barThis.removeClass("button_bar_fix");
+            }
+        } else if (window.outerWidth >= 1200) {
+
+            /*var docScrollY = $(document).scrollTop();
+            var barThis = $('.sideContainer');
+
+            if (docScrollY > sideBar.top) {
+                barThis.addClass("side_bar_fix");
+            } else {
+                barThis.removeClass("side_bar_fix");
+            }*/
+
         }
+
+
+
     });
 
     // 캘린더 토글 버튼
