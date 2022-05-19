@@ -18,6 +18,17 @@
     <style><%@include file="/resources/user/css/myPage_myTicket.css" %></style>
 
 
+    <%-- script --%>
+
+    <%--Jquery & jquery-ui--%>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <%----%>
+        <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+        <script src="/resources/user/js/myPage_myTicket.js"></script>
+        <script src="/resources/common/js/two_point_datePicker.js"></script>
+
 
     <title>myTicket</title>
 </head>
@@ -77,13 +88,10 @@
                         <a href="javacript:fnQuickSearch('365')" class="period_btn" id="period_oneYear" value="12개월">12개월</a>
                         <a href="javacript:fnQuickSearch('0')" class="period_btn" id="period_all" value="전체">전체</a>
 
-                        <ul>
-                            <li>
-                                <input id="datepicker"  name="SEARCH_START_DATE" class="hasDatepicker">
-                                <em>~</em>
-                                <input type="text" id="datepickerEnd"  name="SEARCH_END_DATE" class="hasDatepicker">
-                            </li>
-                        </ul>
+                        <div class="datepicker_section">
+                            <input id="startPicker" class="startPoint">
+                            <input id="endPicker" class="endPoint">
+                        </div>
 
                         <button class="datepicker_search_btn" id="datepicker_search_btn">조회</button>
 
@@ -243,16 +251,9 @@
     </div> <%-- /mainContainer --%>
 </body>
 
-<%-- script --%>
-<%--Jquery & jquery-ui--%>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<%----%>
-<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="/resources/user/js/myPage_myTicket.js"></script>
-<script src="/resources/common/js/2point_calendar.js"></script><%--
-<script src="/resources/common/js/calendar.js"></script>--%>
+
+<%--<script src="/resources/common/js/2point_calendar.js"></script>--%>
+<%--<script src="/resources/common/js/calendar.js"></script>&ndash;%&gt;--%>
 
 
 

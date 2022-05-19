@@ -166,10 +166,6 @@ td, th {
         margin-right: 1.5%;
     }
 
-.hasDatepicker {
-     width: 120px;
-     text-align: center;
- }
 
 ul {
     margin-left: 20px;
@@ -205,7 +201,6 @@ ul {
     .pd_score {
         width: 200px;
     }
-
 
 
     /* 상세보기 버튼 영역 */
