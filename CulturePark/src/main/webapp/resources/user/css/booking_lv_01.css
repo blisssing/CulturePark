@@ -1,0 +1,30 @@
+#datepicker {
+    margin: 0 auto;
+}
+
+div.ui-datepicker{
+
+}
+
+
+
+/*
+
+
+@media screen and (min-width: 500px){
+    #datepicker {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 700px){
+    #datepicker {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    #datepicker {
+        font-size:  ;
+    }
+}*/

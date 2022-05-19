@@ -33,6 +33,7 @@
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
     <script src="/resources/user/js/pd_board.js" type="text/javascript"></script>
     <script src="/resources/common/js/calendar.js" type="text/javascript"></script>
+    <script src="/resources/common/js/calendar_func.js" type="text/javascript"></script>
 
 
 
@@ -199,7 +200,7 @@
     <div class="modalContainer" id="modal">
         <div class="modal_head">
             <div class="modal_title">전체가격 보기</div>
-            <button class="modal_close">X</button>
+<%--            <button class="modal_close">X</button>--%>
         </div>
         <div class="modal_content">
             <div class="modal_row_01">

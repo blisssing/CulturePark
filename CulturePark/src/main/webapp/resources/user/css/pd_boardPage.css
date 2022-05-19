@@ -225,6 +225,10 @@
 
 /*헤드*/
 
+#modal {
+    display: none;
+}
+
 .modalContainer > div {
     margin: 30px 10px;
 }

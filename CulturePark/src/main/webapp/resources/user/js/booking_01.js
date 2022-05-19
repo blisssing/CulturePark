@@ -1,10 +1,19 @@
 $(document).ready(function () {
+    var body_size = $('.booking_body').css('width').replace(/[^0-9]/g, "");
+    $('div.ui-datepicker').css('font-size', body_size/10/2);
 
+    $(window).resize(function () {
+        // console.log('수행 확인');
+        resizeDatePicker();
+    });
+
+
+
+// 데이트 피커
     // 초기 선택 날짜 셋팅
-        $('#date_selected').text(getToday());
-
+    $('.schedule_date').text(getToday());
     // 데이터 피커
-        $('#datepicker').datepicker({
+    $('#datepicker').datepicker({
         dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
         nextText: '다음 달',
@@ -15,6 +24,7 @@ $(document).ready(function () {
         dayNamesMin: ['일','월','화','수','목','금','토'],
         showMonthAfterYear: false,
         yearSuffix: '년',
+        minDate:0,
         onSelect: function (d) {
             var chose_date = new Date($('#datepicker').datepicker({
                 dateFormat: "yyyy/mm/dd"
@@ -29,26 +39,24 @@ $(document).ready(function () {
 
             var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
 
-            $('#date_selected').text(today_str);
+            // $('.schedule_date').text(today_str);
+            nextLevel();
         },
     });
 
-
-
-
 });
 
-function getToday() {
-    var today = new Date();
 
-    var year=today.getFullYear();
-    var month=today.getMonth()+1;
-    var date = today.getDate();
-    var day = today.getDay();
-    var dayList = new Array('일','월','화','수','목','금','토');
-    var day_kor =  dayList[day];
-
-    var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
-
-    return today_str;
+function resizeDatePicker() {
+    var body_size = $('.booking_body').css('width').replace(/[^0-9]/g, "");
+    // console.log(body_size);
+    // console.log(date_size);
+    $('div.ui-datepicker').css('font-size', body_size/10/2);
 }
+
+function nextLevel() {
+    location.href='book02.do';
+}
+
+
+
