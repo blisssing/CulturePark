@@ -2,8 +2,21 @@
     margin: 0 auto;
 }
 
-div.ui-datepicker{
+.btn_bar {
+    display: inline-block;
+    justify-content: normal;
+    text-align: center;
+}
 
+.btn_bar > div {
+    display: inline-block;
+}
+
+#book_level {
+
+}
+#close_btn {
+    float: right;
 }
 
 
