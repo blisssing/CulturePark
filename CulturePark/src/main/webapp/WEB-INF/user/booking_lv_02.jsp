@@ -92,6 +92,50 @@
                 <input type="radio" name="chk" class="btn_select">선택</input>
               </td>
             </tr>
+            <tr class="round_row">
+              <th class="round_r_data">
+                <span class="round_number">3</span>
+                <span class="round_unit">회</span>
+              </th>
+              <td class="round_time">12:00</td>
+              <td class="round_ticket">
+                <span class="ticket_number">120</span>
+                <span class="ticket_unit">장</span>
+              </td>
+              <td class="round_btn">
+                <input type="radio" name="chk" class="btn_select">선택</input>
+              </td>
+            </tr>
+            <tr class="round_row">
+              <th class="round_r_data">
+                <span class="round_number">3</span>
+                <span class="round_unit">회</span>
+              </th>
+              <td class="round_time">12:00</td>
+              <td class="round_ticket">
+                <span class="ticket_number">120</span>
+                <span class="ticket_unit">장</span>
+              </td>
+              <td class="round_btn">
+                <input type="radio" name="chk" class="btn_select">선택</input>
+              </td>
+            </tr>
+            <tr class="round_row">
+              <th class="round_r_data">
+                <span class="round_number">3</span>
+                <span class="round_unit">회</span>
+              </th>
+              <td class="round_time">12:00</td>
+              <td class="round_ticket">
+                <span class="ticket_number">120</span>
+                <span class="ticket_unit">장</span>
+              </td>
+              <td class="round_btn">
+                <input type="radio" name="chk" class="btn_select">선택</input>
+              </td>
+            </tr>
+
+
             </tbody>
           </table>
         </div>

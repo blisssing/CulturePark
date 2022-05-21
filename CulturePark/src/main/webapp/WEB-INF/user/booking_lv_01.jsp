@@ -36,7 +36,7 @@
                 <input type="radio" id="lv_chk_02" name="lv_chk">
                 <input type="radio" id="lv_chk_03" name="lv_chk">
                 <input type="radio" id="lv_chk_04" name="lv_chk">
-                <input type="radio" id="lv_chk_05" name="lv_chk" checked="checked">
+                <input type="radio" id="lv_chk_05" name="lv_chk">
             </div>
             <button id="close_btn" class="book_btn"><i class="fa-solid fa-xmark"></i></button>
         </div>

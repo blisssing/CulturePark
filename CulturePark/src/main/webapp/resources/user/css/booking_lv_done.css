@@ -1,0 +1,24 @@
+.section_title {
+    padding: 40px 10px 0 10px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.booking_table {
+    width: 100%;
+
+}
+
+
+
+
+th, tr{
+    font-size: 1.2rem;
+    border-spacing: 10px;
+    padding: 10px 10px;
+}
+
+
+th {
+    font-weight: bold;
+}
