@@ -4,11 +4,16 @@
     font-weight: bolder;
 }
 
+
+.btn_bar {
+    justify-content: right;
+}
+
+
 .booking_table {
     width: 100%;
 
 }
-
 
 
 

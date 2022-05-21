@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>CulturePark 우리들의 문화공간</title>
 </head>
 <body onload="autoReload();">
 <table align="center" id="calendar">

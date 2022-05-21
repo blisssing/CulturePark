@@ -1,0 +1,17 @@
+
+/* 필터 */
+.search_row_03 >button {
+    display: inline-block;
+    width: 45%;
+}
+
+/* 레이아웃 */
+
+.board_list_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
