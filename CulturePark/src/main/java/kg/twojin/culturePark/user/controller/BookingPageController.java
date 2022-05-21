@@ -28,5 +28,31 @@ public class BookingPageController {
         return mv;
     }
 
+    @RequestMapping(value = "book03.do")
+    public ModelAndView bookLvTrd() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("booking_lv_03");
+        return mv;
+    }
 
+    @RequestMapping(value = "book04.do")
+    public ModelAndView bookLvFth() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("booking_lv_04");
+        return mv;
+    }
+
+    @RequestMapping(value = "bookDone.do")
+    public ModelAndView bookDone() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("booking_lv_done");
+        return mv;
+    }
+
+    @RequestMapping(value = "bookFail.do")
+    public ModelAndView bookFail() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("booking_lv_fail");
+        return mv;
+    }
 }

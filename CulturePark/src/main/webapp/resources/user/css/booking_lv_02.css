@@ -1,0 +1,28 @@
+.round_section {
+    width: 100%;
+}
+
+
+table, tr , th, td {
+    padding: 10px 10px;
+    font-size: 1.2rem;
+}
+
+.round_table {
+    display: flex;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+tbody {
+    width: 100%;
+}
+
+.round_row {
+    width: 100%;
+}
+
+.btn_next, .disable_btn {
+    width: 100%;
+}
