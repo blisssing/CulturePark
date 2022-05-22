@@ -125,22 +125,53 @@
 
         </div>
 
-        <div class="board_list_section">
+        <div class="board_list_section_ver_01">
             <div id="page_bar_top" class="page_bar"></div>
             <div class="board_list_wrap">
                 <ul class="board_list_box">
                     <li class="board_list">
-                        <div class="board_img"></div>
-                        <div class="board_info">
-                            <div class="info_row_01"></div>
-                            <div class="info_row_02"></div>
-                            <div class="info_row_03"></div>
+                        <div class="board_img">
+                            <img src="/resources/user/resource/home/ex_prom_01.png">
+                        </div>
+                        <div class="table_wrap">
+                            <div class="score_wrap">
+                                <div class="pd_genre">[전시]</div>
+                                <div class="score_box score_star_wrap">
+                                    <span class="star_point">3.5</span><span class="review_icon star_icon">별</span>
+                                </div>
+                                <div class="score_box score_thumb_wrap">
+                                    <span class="thumb_point">21</span><span class="review_icon thumb_icon">따봉</span>
+                                </div>
+                            </div>
+                            <table class="board_table">
+                                <tr class="table_row_01">
+                                    <th class="text_head board_title_head">제목</th>
+                                    <td class="text_content board_title">장막 너머의 세상</td>
+                                    <th class="text_head board_writer_head">작성자</th>
+                                    <td class="text_content board_writer">희야</td>
+                                </tr>
+                                <tr class="table_row_02">
+                                    <th class="text_head product_title_head">이름</th>
+                                    <td class="text_content product_title" colspan="3">사울레이터 : 창문을 통해 어렴풋이</td>
+                                    <th></th>
+                                    <td></td>
+
+
+                                </tr>
+
+                            </table>
+
                         </div>
                     </li>
                 </ul>
             </div>
             <div id="page_bar_bottom" class="page_bar"></div>
+        </div>
 
+
+
+
+        <div class="board_list_section_ver_02">
 
         </div>
 

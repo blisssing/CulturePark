@@ -5,13 +5,99 @@
     width: 45%;
 }
 
-/* 레이아웃 */
+/* 게시판  */
 
 .board_list_section {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+/*ul*/
+.board_list_box {
+    display: flex;
+    flex-direction: column;
+}
+/*li*/
+.board_list {
+    display: flex;
+    width: 100%;
+}
+/*div*/
+.board_img {
+    width: 40%;
+}
+/*img*/
+.board_img > img {
+    width: 100%;
+}
+
+
+
+/* table */
+
+.table_wrap {
+    position: relative;
+    width: auto;
+    padding-top: 30px;
+}
+
+.board_table {
+    width: 100%;
+}
+
+.board_table * {
+    padding: 5px 2px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+
+th {
+    text-align: left;
+
+}
+
+
+td {
+    text-align: left;
+}
+
+/* 상품명 */
+.product_title {
+    white-space: nowrap;
+}
+
+
+.score_wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.score_box, .pd_genre{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.score_box {
+    float: right;
+}
+
+.score_box > span {
+    margin: 0 5px;
+}
+
+
+
+/*nowrap*/
+
+th, .board_writer, .board_title {
+    white-space: nowrap;
+}
+
+
+
 
 
 
