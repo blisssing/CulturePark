@@ -3,9 +3,9 @@
 
 <html>
 <head>
-    <title>금액 상세보기 페이지</title>
+    <title>CulturePark 우리들의 문화공간</title>
     <style><%@include file="/resources/common/css/reset.css"%> </style>
-    <style><%@include file="/resources/user/css/price_detail.css"%></style>
+    <style><%@include file="/resources/user/css/pd_priceDetail.css"%></style>
 
 </head>
 <body>

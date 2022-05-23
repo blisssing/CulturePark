@@ -40,7 +40,6 @@ $(document).ready(function () {
             } else {
                 var msg = '결제에 실패했습니다.';
                 msg += '에러 내용 : ' + rsp.error_msg;
-                location.href='bookFail.do'; // 실패시 페이지 이동
             }
             alert(msg);
         });

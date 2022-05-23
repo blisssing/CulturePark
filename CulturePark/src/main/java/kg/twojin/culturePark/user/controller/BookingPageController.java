@@ -42,17 +42,10 @@ public class BookingPageController {
         return mv;
     }
 
-    @RequestMapping(value = "bookDone.do")
+    @RequestMapping(value = "bookSuc.do")
     public ModelAndView bookDone() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("booking_lv_done");
-        return mv;
-    }
-
-    @RequestMapping(value = "bookFail.do")
-    public ModelAndView bookFail() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("booking_lv_fail");
+        mv.setViewName("booking_lv_success");
         return mv;
     }
 }

@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     $('.btn_section').click(function () {
         if (checkRadio()) {
             location.href = "book03.do";
@@ -16,7 +18,6 @@ $(document).ready(function () {
             $('.btn_section').html('회차를 선택해주세요.');
         }
         inputData($(this));
-
     });
 
 

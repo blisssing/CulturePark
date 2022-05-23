@@ -11,7 +11,7 @@
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
     <style><%@include file="/resources/common/css/header.css"%></style>
-    <style><%@include file="/resources/user/css/main_home.css"%></style>
+
     <style><%@include file="/resources/user/css/board_section.css"%></style>
     <style><%@include file="/resources/user/css/main_pdMainPage.css"%></style>
 

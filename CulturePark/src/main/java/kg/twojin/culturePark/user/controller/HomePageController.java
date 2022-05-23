@@ -30,11 +30,20 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/myPage.do")
-    public ModelAndView goToMypage() {
+    public ModelAndView getMypage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage");
         return mv;
     }
+
+
+    @RequestMapping(value = "/reviewPage.do")
+    public ModelAndView getReviewPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("review_listPage");
+        return mv;
+    }
+
 }
 
 
