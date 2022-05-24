@@ -1,0 +1,106 @@
+/* PC 비활성화 */
+.review_info_wrap_p {
+    display: none;
+}
+
+/*전체 틀*/
+
+
+
+/*리뷰 모바일*/
+.review_info_wrap_m {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    font-size: 0.8rem;
+}
+
+.review_info_table_m, .review_point_wrap_m {
+    margin: 10px 10px;
+}
+
+/* 테이블 인포 */
+.review_info_table_m{
+    width: 100%;
+}
+
+td, th {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+th {
+    width: 10%;
+}
+
+
+/*리뷰*/
+
+
+
+/* 리뷰 포인트 */
+
+
+.point_row > td {
+    text-align: center;
+}
+
+
+/* 리뷰 컨텐츠 */
+
+.review_content_section {
+    overflow-x: hidden;
+    line-height: 200%;
+    padding: 20px 10px;
+}
+
+/* 바텀 */
+
+.review_bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.review_bottom > button {
+    width: 33.333333333333333333%;
+
+}
+
+
+@media screen and (min-width: 500px ){
+    .review_info_wrap_m {
+        font-size: 1.0rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+    .review_info_wrap_m {
+        display: none;
+    }
+
+    .review_info_wrap_p {
+        display: flex;
+        width: 100%;
+    }
+
+    .pd_img_wrap {
+        width: 30%;
+        text-align: center;
+    }
+    .board_info_wrap {
+        width: 70%;
+    }
+
+    .info_table {
+        height: 100%;
+    }
+
+    .row_head, .row_content {
+        vertical-align: middle;
+    }
+
+
+}
