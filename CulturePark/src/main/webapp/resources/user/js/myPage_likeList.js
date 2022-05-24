@@ -77,7 +77,6 @@ $(document).ready(function () {
         }
     });
 
-
 /* --------------------------------- */
 
     /*  선택상품 삭제 */
@@ -92,16 +91,12 @@ $(document).ready(function () {
 
 /* 전시 목록 삭제 */
 function deleteBtn_exhibit() {
-
         $("input:checkbox[name='chk1']:checked").each(function (k, kVal) {
             console.log("kVal : " + kVal);
             let a = kVal.parentElement.parentElement;
             console.log('a : ' + a);
             $(a).remove();
-            alert('삭제 되었습니다.')
         });
-
-
 }
 
 /* 뮤지엄 목록 삭제 */
@@ -112,10 +107,7 @@ function deleteBtn_museum() {
             let a = kVal.parentElement.parentElement;
             console.log('a : ' + a);
             $(a).remove();
-            alert('삭제 되었습니다.')
         });
-
-
 }
 
 
@@ -127,9 +119,9 @@ function delete_check() {
 
     if (checked_cnt_total === 0) {
         alert("삭제할 항목을 선택해 주세요.");
-        return;
     } else {
         deleteBtn_exhibit();
         deleteBtn_museum();
+        alert('삭제 되었습니다.');
     }
 }

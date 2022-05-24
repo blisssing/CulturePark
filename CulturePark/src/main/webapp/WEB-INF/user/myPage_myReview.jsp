@@ -53,100 +53,172 @@
             <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
             <div class="content_container"><div style="clear:both;"></div>
 
-                <div class="myReview_section">
 
-                <div class="label_section">마이리뷰</div>
-
-                <p class="sectionLine_thin"></p>
+                    <div class="label_section">마이리뷰</div>
+                    <p class="sectionLine_thin"></p>
 
 
-
-
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="pd_seq">seq</th>
-                            <th class="pd_name">작품명</th>
-                            <th class="pd_date">관람날짜</th>
-                            <th class="pd_score">별점</th>
-                            <th class="pd_like">좋아요</th>
-                            <th class="pd_cnt">조회수</th>
-                        </tr>
-                        </thead>
+                <%-- 테이블 구성 --%>
+                <div class="fix_relative">
 
                 <div class="scroll_section">
 
+                <table class="table_list">
+
+                        <thead>
+                        <tr>
+                            <th class="pd_seq cal_01">seq</th>
+                            <th class="pd_name" >이름</th>
+                            <th class="pd_date">관람일</th>
+                            <th class="pd_score">별점</th>
+                            <th class="pd_like">좋아요</th>
+                            <th class="pd_cnt">조회</th>
+                        </tr>
+                        </thead>
+
+
+
+
                     <tbody>
                         <tr class="table_row_section">
-                            <td class="seq">1</td>
+                            <td class="seq cal_01">1</td>
                             <td class="pd_name">사울레이터</td>
                             <td class="pd_price">22/05/19</td>
-                            <th class="pd_score">4.5</th>
-                            <th class="pd_like">5</th>
-                            <th class="pd_cnt">20</th>
+                            <td class="pd_score">4.5</td>
+                            <td class="pd_like">5</td>
+                            <td class="pd_cnt">20</td>
                         </tr>
                         <tr>
-                            <td class="seq">2</td>
+                            <td class="seq cal_01">2</td>
                             <td class="pd_name">요시고</td>
                             <td class="pd_price">22/03/19</td>
-                            <th class="pd_score">4.0</th>
-                            <th class="pd_like">1</th>
-                            <th class="pd_cnt">5</th>
+                            <td class="pd_score">4.0</td>
+                            <td class="pd_like">1</td>
+                            <td class="pd_cnt">5</td>
+                        </tr>
+                        <tr>
+                            <td class="seq cal_01">3</td>
+                            <td class="pd_name">라이프 사진전</td>
+                            <td class="pd_price">22/03/19</td>
+                            <td class="pd_score">4.0</td>
+                            <td class="pd_like">1</td>
+                            <td class="pd_cnt">5</td>
+                        </tr>
+                        <tr>
+                            <td class="seq cal_01">4</td>
+                            <td class="pd_name">어둠속의 대화</td>
+                            <td class="pd_price">22/03/19</td>
+                            <td class="pd_score">4.0</td>
+                            <td class="pd_like">1</td>
+                            <td class="pd_cnt">5</td>
+                        </tr>
+                        <tr>
+                            <td class="seq cal_01">5</td>
+                            <td class="pd_name">박물관이 살아있다</td>
+                            <td class="pd_price">22/03/19</td>
+                            <td class="pd_score">4.0</td>
+                            <td class="pd_like">1</td>
+                            <td class="pd_cnt">5</td>
+                        </tr>
+                        <tr>
+                            <td class="seq cal_01">6</td>
+                            <td class="pd_name">허브 아일랜드</td>
+                            <td class="pd_price">22/03/19</td>
+                            <td class="pd_score">4.0</td>
+                            <td class="pd_like">1</td>
+                            <td class="pd_cnt">5</td>
                         </tr>
                     </tbody>
-                </div> <%-- scroll_section --%>
 
-                    </table>
 
-            </div> <%-- myReview_section --%>
+            </table>
 
-                <%-- ========  탭메뉴 ======== --%>
-                <div class="tab_content">
+            </div> <%-- scroll_section --%>
+
+
+            </div> <%-- fix_relative--%>
+
 
                     <div class="label_section">
                         <p class="label_text">최근 30일 이내 관람한 작품</p>
                     </div>
 
-                    <p class="sectionLine"></p>
+                    <p class="sectionLine_thin"></p>
 
-                    <%-- 스크롤 시작 --%>
+                    <%-- scroll --%>
                     <div class="scroll_section">
 
-                    <div class="table_section" id="exhibit_set">
 
-                        <table class="table">
+                        <%-- table --%>
+                        <table class="table_list">
 
+                            <thead>
+                            <tr>
+                                <th class="watched_pd_type">종류</th>
+                                <th class="watched_pd_name">이름</th>
+                                <th class="watched_pd_review_btn"></th>
+                            </tr>
+                            </thead>
+
+
+
+
+                        <tbody>
                         <div class="view_pd_list">
                             <tr class="table_row_section">
-                                <span>[</span><td class="type">전시</td><span>]</span>
-                                <td class="pd_name">사울레이터</td>
-                                <button class="write_Review">리뷰쓰기</button>
+                                <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
+                                <td class="pd_name_watched">사울레이터</td>
+                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
                             </tr>
                         </div>
 
                        <div class="view_pd_list">
                             <tr>
-                                <span>[</span><td class="type">뮤지엄</td><span>]</span>
-                                <td class="pd_name">허브아일랜드</td>
-                                <button class="write_Review">리뷰쓰기</button>
+                                <td class="watched_pd_type_value"><span>[</span><span class="type">뮤지엄</span><span>]</span></td>
+                                <td class="pd_name_watched">허브아일랜드</td>
+                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
                             </tr>
                        </div>
 
-                        </table>
+                        <div class="view_pd_list">
+                            <tr>
+                                <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
+                                <td class="pd_name_watched">라이프 사진전</td>
+                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                            </tr>
+                        </div>
 
-                    </div>
+                        <div class="view_pd_list">
+                            <tr>
+                                <td class="watched_pd_type_value"><span>[</span><span class="type">뮤지엄</span><span>]</span></td>
+                                <td class="pd_name_watched">박물관이 살아있다</td>
+                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                            </tr>
+                        </div>
 
-                    </div> <%-- 스크롤 끝 --%>
+                        <div class="view_pd_list">
+                            <tr>
+                                <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
+                                <td class="pd_name_watched">스누피</td>
+                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                            </tr>
+                        </div>
+                        </tbody>
+
+
+
+                        </table> <%--table--%>
+
+
+                    </div> <%-- scroll --%>
 
 
                     <%--전시가 없을때--%> <%--if문으로 적용 class이름 같게함--%>
-                    <div class="table_section">
+                    <div class="table_section_label">
                         <p>  관람한 작품이 없습니다. </p>
                     </div>
 
-                </div> <%-- scroll_section --%>
-
-                </div> <!-- ===========  /탭 메뉴 ============== -->
+                <p class="sectionLine_thin"></p>
 
             </div> <%-- /content_container --%>
 
