@@ -20,9 +20,16 @@
     <div class="viewTicket_container">
 
         <%-- 1. 예약번호 --%>
+
         <div class="booking_no_section">
+            <div class="arrow_div">
+                <i class="fa-solid fa-arrow-left" onclick="self.close()"></i>
+            </div>
+
+            <div class="number_section">
             <span>No.</span>
             <span class="booking_no">267595037</span>
+            </div>
         </div>
 
             <p class="sectionLine"></p>
