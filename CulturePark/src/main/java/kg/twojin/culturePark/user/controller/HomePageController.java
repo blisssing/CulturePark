@@ -44,6 +44,13 @@ public class HomePageController {
         return mv;
     }
 
+    @RequestMapping(value="/member_login.do")
+    public ModelAndView getLoginPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_login");
+        return mv;
+    }
+
 }
 
 
