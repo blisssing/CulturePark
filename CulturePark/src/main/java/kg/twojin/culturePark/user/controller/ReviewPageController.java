@@ -14,10 +14,11 @@ public class ReviewPageController {
         return mv;
     }
 
-    @RequestMapping(value = "writeReview.do")
-    public ModelAndView createReview() {
+    @RequestMapping(value="/writeReview.do")
+    public ModelAndView getWriteReview(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("");
+        mv.setViewName("review_writeReview");
         return mv;
     }
+
 }
