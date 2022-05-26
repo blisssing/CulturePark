@@ -13,8 +13,8 @@
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/main_rankPage.css"%></style>
 
-
-
+<%--hover datepicker--%>
+<%--https://stackoverflow.com/questions/44433406/hover-state-for-active-row-in-ui-datepicker--%>
 
 
     <title>CulturePark 우리들의 문화공간</title>
