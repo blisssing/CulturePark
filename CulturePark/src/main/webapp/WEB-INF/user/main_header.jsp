@@ -4,7 +4,7 @@
     <div class="pc_header">
         <div class="logo_section">
             <div class="logo">
-                <a href="#">
+                <a href="/home.do">
                     <p class="main_title">Culture Park</p>
                     <p class="sub_title"> 우리들의 문화공간</p>
                 </a>

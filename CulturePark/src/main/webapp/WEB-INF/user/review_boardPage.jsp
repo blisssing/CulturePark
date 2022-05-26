@@ -32,8 +32,8 @@
     <div class="centerContainer">
 
         <div class="review_board_section">
-
             <div class="review_info_wrap_m">
+
                 <table class="review_point_table">
                     <tr class="point_row">
                         <th class="avg_head">평균</th>
@@ -64,7 +64,7 @@
                     </tr>
                     <tr class="review_row review_row_02">
                         <th class="row_head">Product</th>
-                        <td class="row_content" colspan="3"><a class="pd_title" href="">사울레이터 : 창문을 통해 얼렴풋이</a></td>
+                        <td class="row_content" colspan="3"><a class="pd_title" href="">사울레이터 : 창문을 통해 얼렴풋이</a><i class="link_icon fa-solid fa-link"></i></td>
                     </tr>
                     <tr class="review_row review_row_03">
                         <th class="row_head">작성자</th>
@@ -77,8 +77,34 @@
                         <td class="row_content review_date">22.05.23</td>
                     </tr>
                 </table>
+
             </div>
-            <div class="review_info_wrap_p">
+            <div class="review_score_wrap pc_wrap">
+                <table class="review_point_table">
+                    <tr class="point_row">
+                        <th class="avg_head">평균</th>
+                        <th class="review_head">리뷰</th>
+                        <th class="review_like">LIKE</th>
+                    </tr>
+                    <tr class="point_row">
+                        <td class="avg_point">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="star_point">3.8</span>
+                        </td>
+                        <td class="review_point">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="star_point">3.0</span>
+                        </td>
+                        <td class="review_thumb">
+                            <button class="thumb_btn">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <span class="thumb_point" id="thumb_point">21</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="review_info_wrap_p pc_wrap">
                 <div class="pd_img_wrap">
                     <img class="pd_img" src="/resources/user/resource/home/ex_prom_01.png">
                 </div>
@@ -90,7 +116,7 @@
                         </tr>
                         <tr class="info_row" id="info_row_02">
                             <th class="row_head">Product</th>
-                            <td class="row_content"><a class="pd_title" href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                            <td class="row_content"><a class="pd_title" href="#">사울레이터 : 창문을 통해 어렴풋이<i class="link_icon fa-solid fa-link"></i></a></td>
                             <th class="row_head">작성자</th>
                             <td class="row_content"><a class="review_writer" href="#">희야</a></td>
                         </tr>
@@ -101,8 +127,10 @@
                             <td class="row_content review_date">22.09.13</td>
                         </tr>
                     </table>
+
                 </div>
             </div>
+
 
             <div class="review_content_section">
 <%--                게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물게시물rptlanf게시물게시물게시물게시물--%>

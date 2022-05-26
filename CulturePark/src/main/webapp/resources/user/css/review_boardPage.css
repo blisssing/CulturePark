@@ -1,30 +1,29 @@
 /* PC 비활성화 */
-.review_info_wrap_p {
+.pc_wrap {
     display: none;
 }
-
-/*전체 틀*/
-
-
 
 /*리뷰 모바일*/
 .review_info_wrap_m {
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    width: 100%;
     font-size: 0.8rem;
 }
 
-.review_info_table_m, .review_point_wrap_m {
-    margin: 10px 10px;
-}
 
 /* 테이블 인포 */
 .review_info_table_m{
     width: 100%;
+    border: black 1px solid;
+
 }
 
-td, th {
+.review_point_table {
+    width: 100%;
+}
+
+td, .info_row th {
     white-space: nowrap;
     padding: 10px;
 }
@@ -67,6 +66,21 @@ th {
 
 }
 
+/* 링크, 아이콘, 폰트*/
+
+.link_icon {
+    margin-left: 5px;
+}
+
+.review_point > i {
+    color: red;
+}
+
+.avg_point > i {
+    color: #0f9d58;
+}
+
+
 
 @media screen and (min-width: 500px ){
     .review_info_wrap_m {
@@ -77,13 +91,32 @@ th {
 
 @media screen and (min-width: 1200px) {
 
+    .review_score_wrap {
+        width: 100%;
+    }
+
+    .pc_wrap {
+        display: flex;
+        width: 100%;
+    }
+
+    point_row {
+        width: 100%;
+    }
+
     .review_info_wrap_m {
         display: none;
+    }
+
+    review_score_wrap {
+        width: 100%;
     }
 
     .review_info_wrap_p {
         display: flex;
         width: 100%;
+        padding: 20px 0 ;
+        border: 1px solid black;
     }
 
     .pd_img_wrap {
@@ -96,6 +129,7 @@ th {
 
     .info_table {
         height: 100%;
+        width: 100%;
     }
 
     .row_head, .row_content {

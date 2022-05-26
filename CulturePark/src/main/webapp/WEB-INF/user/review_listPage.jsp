@@ -77,36 +77,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="search_select_02" id="search_area">
-                        <div class="search_head"> 지역 </div>
-                        <ul class="chk_box">
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region_total" value="rg_total" checked="checked"/>
-                                <label class="chk_label">전체</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region1" />
-                                <label class="chk_label">서울</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region3" />
-                                <label class="chk_label">경기</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region4" />
-                                <label class="chk_label">충청</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region5" />
-                                <label class="chk_label">경상</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region6" />
-                                <label class="chk_label">전라</label>
-                            </li>
-
-                        </ul>
-                    </div>
                 </div>
                 <div class="search_row_02">
                     <div class="search_head">검색</div>

@@ -1,5 +1,9 @@
 /* 필터 */
 
+    .search_section {
+        width: 100%;
+    }
+
     .search_row_03 >button {
         display: inline-block;
         width: 45%;
@@ -173,12 +177,24 @@ tbody tr {
 .section_ver_01 {
     display: flex;
 }
+.keyword_area {
+    width: 80%;
+}
+
+.keywordInput {
+    width: 100%;
+}
 
 
 @media screen and (min-width: 500px){
+    .search_section {
+        width: 70%;
+    }
     .board_list {
         font-size: 1.2rem;
     }
+
+
 
     .section_ver_02 {
         display:none;
@@ -189,6 +205,9 @@ tbody tr {
     }
 }
 
+@media screen and (min-width: 700px) {
+
+}
 
 
 

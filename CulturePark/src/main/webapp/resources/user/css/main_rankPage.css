@@ -1,0 +1,89 @@
+
+.centerContainer > div {
+    display: flex;
+    margin: 10px 10px;
+}
+
+/* 탭 메뉴 */
+.tab_wrap {
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.tab_wrap div{
+    display: inline-block;
+    padding: 5px 0;
+}
+
+/* date selecter*/
+
+.period_wrap {
+    justify-content: space-between;
+}
+
+/* datepicker*/
+
+.datepicker_box *{
+    margin: 0 5px;
+}
+
+#datebox_month, #datebox_year {
+    display: none;
+}
+
+/*rank_board_wrap*/
+
+.rank_box, .rank_list, .rank_list > a {
+    width: 100%;
+}
+
+.rank_list > a {
+    display: flex;
+}
+
+.table_wrap {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+}
+
+.rank_number {
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-size: 2rem;
+    margin: auto 0;
+}
+
+.rank_img {
+    padding: 10px 10px;
+}
+
+.rank_img > img {
+    width: 70%;
+}
+
+
+/* 테이블 */
+
+.rank_info {
+    width: 100%;
+}
+
+.row_content {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.row_content > div {
+    display: inline-block;
+}
+
+.pd_title {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+
+}

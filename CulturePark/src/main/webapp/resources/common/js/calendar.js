@@ -30,7 +30,7 @@ $(document).ready(function () {
             var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
 
             $('#date_selected').text(today_str);
-        },
+        }
     });
 
 
