@@ -60,6 +60,14 @@ public class HomePageController {
         return mv;
     }
 
+    @RequestMapping(value="/member_join.do")
+    public ModelAndView getJoinPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_join");
+        return mv;
+    }
+
+
 }
 
 
