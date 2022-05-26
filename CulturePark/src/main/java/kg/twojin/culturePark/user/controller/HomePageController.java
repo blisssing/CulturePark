@@ -2,6 +2,7 @@ package kg.twojin.culturePark.user.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,7 +23,7 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "/museumPage.do")
+    @RequestMapping(value = "/museumMain.do")
     public ModelAndView getMusiumPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("main_museumPage");
@@ -41,6 +42,14 @@ public class HomePageController {
     public ModelAndView getReviewPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("review_listPage");
+        return mv;
+    }
+
+
+    @RequestMapping(value = "/rankPage.do")
+    public ModelAndView getRankpage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("main_rankPage");
         return mv;
     }
 

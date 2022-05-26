@@ -53,7 +53,11 @@
     <%-- Contents 영역 --%>
     <div class="centerContainer">
         <div class="search_section">
-            <div class="section_name"> 필터 </div>
+            <div class="section_head">
+                <span>필터</span>
+                <button class="filter_slide_btn slide_down"><i class="fa-solid fa-angle-down"></i></button>
+                <button class="filter_slide_btn slide_up" ><i class="fa-solid fa-angle-up"></i></button>
+            </div>
             <div class="search_table">
                 <div class="search_row_01">
                     <div class="search_select_01" id="search_kind">
@@ -73,36 +77,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="search_select_02" id="search_area">
-                        <div class="search_head"> 지역 </div>
-                        <ul class="chk_box">
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region_total" value="rg_total" checked="checked"/>
-                                <label class="chk_label">전체</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region1" />
-                                <label class="chk_label">서울</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region3" />
-                                <label class="chk_label">경기</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region4" />
-                                <label class="chk_label">충청</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region5" />
-                                <label class="chk_label">경상</label>
-                            </li>
-                            <li class="chk_list">
-                                <input type="checkbox" name="chk_region" value="rg_region6" />
-                                <label class="chk_label">전라</label>
-                            </li>
-
-                        </ul>
-                    </div>
                 </div>
                 <div class="search_row_02">
                     <div class="search_head">검색</div>
@@ -116,17 +90,34 @@
                         <div class="keyword_area"><input id="keywordInput"/></div>
                     </div>
                 </div>
-                <div class="search_row_extra_01"></div>
                 <div class="search_row_03">
-                    <button class="search_row_btn" id="search_btn">적용하기</button>
                     <button class="search_row_btn" id="refresh_btn">새로고침</button>
+                    <button class="search_row_btn" id="search_btn">적용하기</button>
                 </div>
             </div>
 
         </div>
 
-        <div class="board_list_section_ver_01">
-            <div id="page_bar_top" class="page_bar"></div>
+        <div class="version_section">
+            <button class="list_btn"><i class="fa-solid fa-list"></i></button>
+            <button class="gallery_btn"><i class="fa-solid fa-image"></i></button>
+        </div>
+
+
+        <div class="board_list_section section_ver_01">
+            <div id="page_bar_top" class="page_bar">
+                <ul class="number_list">
+                    <button class="arrow_button first_btn"><i class="fa-solid fa-angles-left"></i></button>
+                    <button class="arrow_button prev_btn"><i class="fa-solid fa-angle-left"></i></button>
+                    <li class="page_number"><a href="">1</a></li>
+                    <li class="page_number"><a href="">2</a></li>
+                    <li class="page_number"><a href="">3</a></li>
+                    <li class="page_number"><a href="">4</a></li>
+                    <li class="page_number"><a href="">5</a></li>
+                    <button class="arrow_button next_btn"><i class="fa-solid fa-angle-right"></i></button>
+                    <button class="arrow_button last_btn"><i class="fa-solid fa-angles-right"></i></button>
+                </ul>
+            </div>
             <div class="board_list_wrap">
                 <ul class="board_list_box">
                     <li class="board_list">
@@ -137,42 +128,237 @@
                             <div class="score_wrap">
                                 <div class="pd_genre">[전시]</div>
                                 <div class="score_box score_star_wrap">
-                                    <span class="star_point">3.5</span><span class="review_icon star_icon">별</span>
+                                    <span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span><span class="star_point">3.5</span>
                                 </div>
                                 <div class="score_box score_thumb_wrap">
-                                    <span class="thumb_point">21</span><span class="review_icon thumb_icon">따봉</span>
+                                    <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span><span class="thumb_point">21</span>
                                 </div>
                             </div>
                             <table class="board_table">
-                                <tr class="table_row_01">
+                                <tr class="table_row table_row_01">
                                     <th class="text_head board_title_head">제목</th>
                                     <td class="text_content board_title">장막 너머의 세상</td>
                                     <th class="text_head board_writer_head">작성자</th>
-                                    <td class="text_content board_writer">희야</td>
+                                    <td class="text_content board_writer"><a href="#">작성자링크</a></td>
                                 </tr>
-                                <tr class="table_row_02">
+                                <tr class="table_row table_row_02">
                                     <th class="text_head product_title_head">이름</th>
-                                    <td class="text_content product_title" colspan="3">사울레이터 : 창문을 통해 어렴풋이</td>
-                                    <th></th>
-                                    <td></td>
-
-
+                                    <td class="text_content product_title" colspan="3"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
                                 </tr>
+                                <tr class="table_row table_row_03">
+                                    <th class="text_head product_place_head">장소</th>
+                                    <td class="text_content product_place" colspan="3">Piknic</td>
+                                </tr>
+                                <tr class="table_row table_row_04">
+                                    <td class="product_link" colspan="4"><button class="link_btn">리 뷰 보 기</button></td>
+                                </tr>
+                            </table>
 
+                        </div>
+                    </li>
+                    <li class="board_list">
+                        <div class="board_img">
+                            <img src="/resources/user/resource/home/ex_prom_01.png">
+                        </div>
+                        <div class="table_wrap">
+                            <div class="score_wrap">
+                                <div class="pd_genre">[전시]</div>
+                                <div class="score_box score_star_wrap">
+                                    <span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span><span class="star_point">3.5</span>
+                                </div>
+                                <div class="score_box score_thumb_wrap">
+                                    <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span><span class="thumb_point">21</span>
+                                </div>
+                            </div>
+                            <table class="board_table">
+                                <tr class="table_row table_row_01">
+                                    <th class="text_head board_title_head">제목</th>
+                                    <td class="text_content board_title">장막 너머의 세상</td>
+                                    <th class="text_head board_writer_head">작성자</th>
+                                    <td class="text_content board_writer"><a href="#">작성자링크</a></td>
+                                </tr>
+                                <tr class="table_row table_row_02">
+                                    <th class="text_head product_title_head">이름</th>
+                                    <td class="text_content product_title" colspan="3"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                                </tr>
+                                <tr class="table_row table_row_03">
+                                    <th class="text_head product_place_head">장소</th>
+                                    <td class="text_content product_place" colspan="3">Piknic</td>
+                                </tr>
+                                <tr class="table_row table_row_04">
+                                    <td class="product_link" colspan="4"><button class="link_btn">리 뷰 보 기</button></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </li>
+                    <li class="board_list">
+                        <div class="board_img">
+                            <img src="/resources/user/resource/home/ex_prom_01.png">
+                        </div>
+                        <div class="table_wrap">
+                            <div class="score_wrap">
+                                <div class="pd_genre">[전시]</div>
+                                <div class="score_box score_star_wrap">
+                                    <span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span><span class="star_point">3.5</span>
+                                </div>
+                                <div class="score_box score_thumb_wrap">
+                                    <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span><span class="thumb_point">21</span>
+                                </div>
+                            </div>
+                            <table class="board_table">
+                                <tr class="table_row table_row_01">
+                                    <th class="text_head board_title_head">제목</th>
+                                    <td class="text_content board_title">장막 너머의 세상</td>
+                                    <th class="text_head board_writer_head">작성자</th>
+                                    <td class="text_content board_writer"><a href="#">작성자링크</a></td>
+                                </tr>
+                                <tr class="table_row table_row_02">
+                                    <th class="text_head product_title_head">이름</th>
+                                    <td class="text_content product_title" colspan="3"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                                </tr>
+                                <tr class="table_row table_row_03">
+                                    <th class="text_head product_place_head">장소</th>
+                                    <td class="text_content product_place" colspan="3">Piknic</td>
+                                </tr>
+                                <tr class="table_row table_row_04">
+                                    <td class="product_link" colspan="4"><button class="link_btn">리 뷰 보 기</button></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </li>
+                    <li class="board_list">
+                        <div class="board_img">
+                            <img src="/resources/user/resource/home/ex_prom_01.png">
+                        </div>
+                        <div class="table_wrap">
+                            <div class="score_wrap">
+                                <div class="pd_genre">[전시]</div>
+                                <div class="score_box score_star_wrap">
+                                    <span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span><span class="star_point">3.5</span>
+                                </div>
+                                <div class="score_box score_thumb_wrap">
+                                    <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span><span class="thumb_point">21</span>
+                                </div>
+                            </div>
+                            <table class="board_table">
+                                <tr class="table_row table_row_01">
+                                    <th class="text_head board_title_head">제목</th>
+                                    <td class="text_content board_title">장막 너머의 세상</td>
+                                    <th class="text_head board_writer_head">작성자</th>
+                                    <td class="text_content board_writer"><a href="#">작성자링크</a></td>
+                                </tr>
+                                <tr class="table_row table_row_02">
+                                    <th class="text_head product_title_head">이름</th>
+                                    <td class="text_content product_title" colspan="3"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                                </tr>
+                                <tr class="table_row table_row_03">
+                                    <th class="text_head product_place_head">장소</th>
+                                    <td class="text_content product_place" colspan="3">Piknic</td>
+                                </tr>
+                                <tr class="table_row table_row_04">
+                                    <td class="product_link" colspan="4"><button class="link_btn">리 뷰 보 기</button></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </li>
+                    <li class="board_list">
+                        <div class="board_img">
+                            <img src="/resources/user/resource/home/ex_prom_01.png">
+                        </div>
+                        <div class="table_wrap">
+                            <div class="score_wrap">
+                                <div class="pd_genre">[전시]</div>
+                                <div class="score_box score_star_wrap">
+                                    <span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span><span class="star_point">3.5</span>
+                                </div>
+                                <div class="score_box score_thumb_wrap">
+                                    <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span><span class="thumb_point">21</span>
+                                </div>
+                            </div>
+                            <table class="board_table">
+                                <tr class="table_row table_row_01">
+                                    <th class="text_head board_title_head">제목</th>
+                                    <td class="text_content board_title">장막 너머의 세상</td>
+                                    <th class="text_head board_writer_head">작성자</th>
+                                    <td class="text_content board_writer"><a href="#">작성자링크</a></td>
+                                </tr>
+                                <tr class="table_row table_row_02">
+                                    <th class="text_head product_title_head">이름</th>
+                                    <td class="text_content product_title" colspan="3"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                                </tr>
+                                <tr class="table_row table_row_03">
+                                    <th class="text_head product_place_head">장소</th>
+                                    <td class="text_content product_place" colspan="3">Piknic</td>
+                                </tr>
+                                <tr class="table_row table_row_04">
+                                    <td class="product_link" colspan="4"><button class="link_btn">리 뷰 보 기</button></td>
+                                </tr>
                             </table>
 
                         </div>
                     </li>
                 </ul>
             </div>
-            <div id="page_bar_bottom" class="page_bar"></div>
+            <div id="page_bar_bottom" class="page_bar">
+                <ul class="number_list">
+                    <button class="arrow_button first_btn"><i class="fa-solid fa-angles-left"></i></button>
+                    <button class="arrow_button prev_btn"><i class="fa-solid fa-angle-left"></i></button>
+                    <li class="page_number"><a href="">1</a></li>
+                    <li class="page_number"><a href="">2</a></li>
+                    <li class="page_number"><a href="">3</a></li>
+                    <li class="page_number"><a href="">4</a></li>
+                    <li class="page_number"><a href="">5</a></li>
+                    <button class="arrow_button next_btn"><i class="fa-solid fa-angle-right"></i></button>
+                    <button class="arrow_button last_btn"><i class="fa-solid fa-angles-right"></i></button>
+                </ul>
+            </div>
         </div>
 
+        <div class="board_list_section section_ver_02">
+            <div id="page_bar_top_ver2" class="page_bar">
+                <ul>
 
+                </ul>
+            </div>
+            <div class="board_list_wrap_ver2">
+                <table class="board_table_ver2">
+                    <tr class="board_row_m">
+                        <th>분류</th>
+                        <th>제목</th>
+                        <th>전시</th>
+                        <th>작성자</th>
+                        <th><span class="review_icon star_icon"><i class="fa-solid fa-star"></i></span> |
+                            <span class="review_icon thumb_icon"><i class="fa-solid fa-thumbs-up"></i></span>
+                        </th>
+                    </tr>
+                    <tr class="board_data_row">
+                        <td class="pd_genre">[전시]</td>
+                        <td class="board_title"><a href="#">장막 너머의 세상</a></td>
+                        <td class="pd_title"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                        <td class="board_writer"><a  href="#">희야</a></td>
+                        <td class=""><span class="star_point">3.5</span> | <span class="thumb_point">21</span>  </td>
+                    </tr>
+                    <tr class="board_data_row">
+                        <td class="pd_genre">[전시]</td>
+                        <td class="board_title"><a href="#">장막 너머의 세상</a></td>
+                        <td class="pd_title"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                        <td><a class="board_writer" href="#">희야</a></td>
+                        <td><span class="star_point">3.5</span> | <span class="thumb_point">21</span>  </td>
+                    </tr>
+                    <tr class="board_data_row">
+                        <td class="pd_genre">[전시]</td>
+                        <td class="board_title"><a href="#">장막 너머의 세상</a></td>
+                        <td class="pd_title"><a href="#">사울레이터 : 창문을 통해 어렴풋이</a></td>
+                        <td><a class="board_writer" href="#">희야</a></td>
+                        <td><span class="star_point">3.5</span> | <span class="thumb_point">21</span>  </td>
+                    </tr>
+                    </tr>
 
-
-        <div class="board_list_section_ver_02">
-
+                </table>
+            </div>
         </div>
 
     </div>
@@ -186,5 +372,7 @@
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
+<script src="/resources/user/js/pd_filter.js" type="text/javascript"></script>
+<script src="/resources/user/js/review_listPage.js" type="text/javascript"></script>
 
 </html>

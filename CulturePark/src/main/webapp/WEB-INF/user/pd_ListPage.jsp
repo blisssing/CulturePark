@@ -50,7 +50,11 @@
     <%-- Contents 영역 --%>
     <div class="centerContainer">
         <div class="search_section">
-            <div class="section_name"> 필터 </div>
+            <div class="section_head">
+                <span>필터</span>
+                <button class="filter_slide_btn slide_down"><i class="fa-solid fa-angle-down"></i></button>
+                <button class="filter_slide_btn slide_up" ><i class="fa-solid fa-angle-up"></i></button>
+            </div>
             <div class="search_table">
                 <div class="search_row_01">
                     <div class="search_select_01" id="search_kind">

@@ -9,7 +9,7 @@ $(document).ready(function () {
     });
 
     $('#fast_btn_03').click(function () {
-        location.replace('url');
+        location.replace('reviewPage.do');
     });
 
 

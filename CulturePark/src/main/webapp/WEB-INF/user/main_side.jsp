@@ -7,7 +7,7 @@
         <li class="sideList"><a href="/exhibitMain.do">전시</a></li>
         <li class="sideList"><a href="/museumPage.do">뮤지엄</a></li>
         <li class="sideList"><a href="#">랭킹</a></li>
-        <li class="sideList"><a href="#">리뷰 게시판</a></li>
+        <li class="sideList"><a href="/reviewPage.do">리뷰 게시판</a></li>
         <li class="sideList"><a href="#">고객센터</a></li>
     </ul>
 </div>
@@ -24,7 +24,7 @@
         <li class="sideList_m"><a href="/exhibitMain.do">전시</a></li>
         <li class="sideList_m"><a href="/museumPage.do">뮤지엄</a></li>
         <li class="sideList_m"><a href="#">랭킹</a></li>
-        <li class="sideList_m"><a href="#">리뷰 게시판</a></li>
+        <li class="sideList_m"><a href="/reviewPage.do">리뷰 게시판</a></li>
         <li class="sideList_m"><a href="#">고객센터</a></li>
     </ul>
 </div>

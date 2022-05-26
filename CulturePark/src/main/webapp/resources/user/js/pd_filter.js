@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+// 슬라이더 펼치고 접기
+
+    $('.slide_up').click(function () {
+        $('.search_table').slideToggle();
+        $('.slide_down').css('display', 'block');
+        $('.slide_up').css('display', 'none');
+    });
+
+    $('.slide_down').click(function () {
+        $('.search_table').slideToggle();
+        $('.slide_down').css('display', 'none');
+        $('.slide_up').css('display', 'block');
+    });
+
+
+
 
 // 장르 필터
 
@@ -56,9 +72,8 @@ $(document).ready(function () {
     });
 
 
-
-
-
-
-
 });
+
+function slideToggle() {
+
+}

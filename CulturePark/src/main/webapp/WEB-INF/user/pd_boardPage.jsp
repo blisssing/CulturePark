@@ -27,7 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
 
-<%-- modal --%>
+<%-- /modal --%>
 
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
