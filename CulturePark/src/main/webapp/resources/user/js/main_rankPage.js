@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     // tab Menu
 
     $('#total_btn').click(function () {
@@ -60,11 +59,14 @@ $(document).ready(function () {
         changeMonth: true,
         minDate:"-6M",
         maxDate:0,
-        showWeek: true,
-
-
         onSelect: function (d) {
             getWeekPoint();
+        },
+
+        beforeShow: function () {
+            applyWeeklyHighlight();
+
+
         }
 
     });
@@ -201,23 +203,27 @@ $(document).ready(function () {
             // console.log('lastPoint :' + lastPoint);
             // console.log('stepPoint : ' + stepPoint);
         } // else if
-
-        hoverWeek(weekSun, selectDate);
-
     }
 
-    function hoverWeek(start, now) {
 
-        for (i = start; i++; i <= now) {
-
-            if ($('a .ui_state_default').text() === i) {
-                console.log('수행'+ i);
-            }
-
-
-        }
-
-
+    monthlyAddClass = function () {
+        $(this).find('tr td a').addClass('ui-state-hover');
     }
+
+    monthlyRemoveClass = function () {
+        $(this).find('tr td a').removeClass('ui-state-hover');
+    }
+
+
 
 });
+
+function applyWeeklyHighlight() {
+    $('.ui-datepicker-calendar>tbody>tr').hover(function () {
+        $(this).css('color', 'yellow');
+    });
+}
+
+
+
+
