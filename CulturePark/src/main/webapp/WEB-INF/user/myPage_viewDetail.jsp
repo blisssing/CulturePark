@@ -33,7 +33,9 @@
         <p class="sectionLine"></p>
 
             <div class="booking_title_section">
+              <div class="no_section">
                <span>No.</span><span id="booking_no">267595037</span>
+              </div>
                 <span id="booking_name">사울레이터 창문을 통해 어렴풋이</span>
             </div>
 

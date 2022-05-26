@@ -1,0 +1,126 @@
+.table > thead {
+    border-top: 0.5px solid;
+    border-bottom: 0.5px solid;
+}
+
+.table > tbody {
+    margin: 15px 0px;
+    border-bottom: 1px solid;
+}
+
+td, th {
+    padding: 2px 2px;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
+
+.table_row_section {
+    border-bottom: 1px dashed black;
+}
+
+.label_div_section {
+    margin-top: 5px;
+}
+
+.tab_content {
+    margin-top: 150px;
+}
+
+.myReview_section {
+    width: 100%;
+    height: 200%;
+}
+
+
+/* 고정영역 */
+.fix_relative {
+    position: relative;
+}
+
+.table_list {
+    width: 100%;
+    line-height: 180%;
+}
+
+.table_list thead tr {
+    position: sticky;
+    top: 0px;
+    border-bottom: 0.5px solid black;
+
+    background-color: lightgray;
+
+}
+
+.scroll_section {
+    overflow-y: scroll;
+    max-height: 200px;
+    border-bottom: 0.5px solid black;
+   /* overflow: auto;*/
+}
+
+
+.label_text {
+    margin-top: 50px;
+}
+
+.write_review_btn {
+    float:right;
+    border: 1px solid black;
+    padding: 4px 3px;
+}
+
+.watched_pd_type {
+    text-align: left;
+    padding: 0px 20px;
+}
+
+.watched_pd_type_value {
+    text-align: left;
+    padding: 8px 10px;
+}
+
+.table_section_label {
+    margin: 50px 0px 30px 0px;
+    text-align: center;
+}
+
+.table_list {
+    font-size: 0.9rem;
+}
+
+
+/* seq 영역 */
+.cal_01 {
+    display:none;
+}
+
+@media screen and (min-width:1200px) {
+
+    .menu_section {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+
+    .cal_01 {
+        display: inline-block;
+    }
+
+    td, th {
+        padding: 2px 12px;
+        text-align: center;
+        vertical-align:middle;
+    }
+
+}

@@ -28,8 +28,9 @@
 
 .menu_section {
     display: flex;
-    /*width: 100%;*/
+    margin-bottom: 3%;
 
+    /*width: 100%;*/
 }
 
 .menu_btn {
@@ -81,7 +82,6 @@ td, th {
     padding: 2px 0px;
 }
 
-
 .view_btn_section {
     display: none;
 }
@@ -116,7 +116,6 @@ td, th {
     border: 0.5px solid black;
     margin-top: 3%;
     width: 100%;
-
 }
 
 .sectionLine1{
@@ -139,82 +138,140 @@ td, th {
     margin-top: 10px;
 }
 
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
+
+/* 고정영역 */
+.fix_relative {
+    position: relative;
+    margin-bottom: 5%;
+}
+
+.table_list {
+    width: 100%;
+    line-height: 180%;
+}
+
+.table_list thead tr {
+    position: sticky;
+    top: 0px;
+    border-bottom: 0.5px solid black;
+
+    background-color: lightgray;
+}
+
+.scroll_section {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 200px;
+    border-bottom: 0.5px solid black;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+/*.menu_section {
+    display: flex;
+    width: 100%;
+    margin-top: 5%;
+    !*    border-bottom: 1px solid black;*!
+}*/
+
+
 @media screen and (min-width:1200px) {
 
-    .m_period_section {
-        display: none;
-    }
+.m_period_section {
+    display: none;
+}
 
-    .m_view_btn_section {
-        display: none;
-    }
+.m_view_btn_section {
+    display: none;
+}
 
-    .period_section {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 60px 0px 60px 0px;
-    }
+.period_section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 60px 0px 30px 0px;
+}
 
-    .period_choice {
-        margin-right: 2%;
-        font-size: 10pt;
-    }
+.period_choice {
+    margin-right: 2%;
+    font-size: 11pt;
+    padding-top: 7px;
+}
 
-    .period_btn {
-        border:1px solid black;
-        margin-right: 1.5%;
-    }
-
+.period_btn {
+    border:1px solid black;
+    margin-right: 1.5%;
+    padding: 5px;
+}
 
 ul {
     margin-left: 20px;
 }
 
+.datepicker_section {
+    margin-left: 40px;
+}
+
+.datepicker_section > input {
+    width: 120px;
+    text-align: center;
+}
+
 .datepicker_search_btn {
     border: 1px solid black;
     margin-left: 10px;
+    font-size: 0.8rem;
+    height: 22px;
+}
+
+.table_section {
+    line-height: 180%;
+}
+
+.table_row_section {
+    border-bottom: 1px dashed black;
+}
+
+.seq {
+    width: 30px;
+}
+
+.pd_name {
+    width: 460px;
+}
+
+.pd_price {
+    width: 100px;
+}
+
+.pd_score {
+    width: 200px;
 }
 
 
-    .table_section {
-        line-height: 180%;
-    }
-
-    .table_row_section {
-        border-bottom: 1px dashed black;
-    }
-
-    /* table */
-    .seq {
-        width: 30px;
-    }
-
-    .pd_name {
-        width: 460px;
-    }
-
-    .pd_price {
-        width: 100px;
-    }
-
-    .pd_score {
-        width: 200px;
-    }
-
-
-    /* 상세보기 버튼 영역 */
-    .view_btn_section{
-        display: flex;
-        justify-content: center;
-        width:100%;
-        margin: 20px 0px 20px 1px;
-    }
-
-    /* 상세보기 버튼 */
-    .view_btn {
-        border: 1px solid black;
-        margin: 0 5px;
-        padding: 4px;
-    }
+/* 상세보기 버튼 영역 */
+.view_btn_section{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    margin: 20px 0px 20px 1px;
 }
+
+/* 상세보기 버튼 */
+.view_btn {
+    border: 1px solid black;
+    margin: 0 5px;
+    padding: 4px;
+}
+
+}
+
+

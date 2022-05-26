@@ -17,7 +17,7 @@ $(document).ready(function () {
 
         // 버튼 이동 : 마이 메뉴
             $('.mymenu_btn').click(function () {
-                location.replace('마이페이지 초기 페이지 url을 입력해주세요');
+                location.replace('myPage.do');
             });
 
         // 버튼 이동 : 홈
@@ -33,7 +33,7 @@ $(document).ready(function () {
         // 버튼 이동 : 마이티켓
 
             $('.myticket_btn').click(function () {
-                location.replace('url 명령어를 입력해주세요. ')
+                location.replace('myTicket.do')
             });
 
 

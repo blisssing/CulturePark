@@ -2,7 +2,6 @@
     display: flex;
     width: 100%;
     margin-top: 5%;
-/*    border-bottom: 1px solid black;*/
 }
 
 .sectionLine1{
@@ -31,6 +30,19 @@
     border-right: 1px solid black;*/
 }
 
+.cal_check {
+  margin-top: 5px;
+}
+
+.check_one {
+    margin-top: 10px;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
 
 .table_section {
    /* display: flex;*/
@@ -51,7 +63,9 @@
 }
 
 td, th {
-    padding: 2px 12px;
+    /*padding: 2px 12px;*/
+    text-align: center;
+    vertical-align:middle;
 }
 
 .view_btn_section {
@@ -85,6 +99,7 @@ td, th {
 .table {
     width: 100%;
     font-size: 0.8rem;
+    line-height: 250%;
 }
 
 .table_section {
@@ -141,17 +156,44 @@ td, th {
     font-size: 0.9rem;
 }
 
-
-
 .label_div_section {
     margin-top: 5px;
 }
 
-@media screen and (min-width:1200px) {
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
 
-    td, th {
-        padding: 2px 37px;
-    }
+/* 고정영역 */
+.fix_relative {
+    position: relative;
+}
+
+.table_list {
+    width: 100%;
+    line-height: 180%;
+}
+
+.table_list thead tr {
+    position: sticky;
+    top: 0px;
+    border-bottom: 0.5px solid black;
+
+    background-color: lightgray;
+}
+
+
+
+.scroll_section {
+    overflow-y: scroll;
+    max-height: 200px;
+    border-bottom: 0.5px solid black;
+    /* overflow: auto;*/
+}
+
+
+@media screen and (min-width:1200px) {
 
     .menu_section {
         display: flex;

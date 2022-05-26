@@ -48,13 +48,12 @@
                 <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
                 <div class="content_container"><div style="clear:both;"></div>
 
-                <div class="label_div_section">
+
                     <div class="likeList_label_section">
                         <span class="likeList_label">나의 찜 목록</span>
                     </div>
 
                     <p class="sectionLine_thin"></p>
-                </div>
 
                     <div class="menu_section">
                         <button class="menu_btn" id="all_view_btn">전체</button>
@@ -63,93 +62,143 @@
                     </div>
 
 
-                    <%-- ========  탭메뉴 ======== --%>
-                    <div class="tab_content">
 
-                        <%-- 전시 라벨 --%>
-                       <%-- <div class="label_exhibit_section">
-                            <span class="label_exhibit">  전시  </span>
-                        </div>
---%>
-                        <%-- -----------  전시 ---------------%>
-                        <div class="table_section" id="exhibit_set">
-
+                    <div id="exhibit_set">
+                            <%-- 전시 라벨 --%>
                             <div class="label_exhibit_section">
-                                <span class="label_exhibit">  전시  </span>
+                                <span class="label_section">  전시  </span>
                             </div>
 
+                            <p class="sectionLine_thin"></p>
 
-                            <table class="table">
+
+                            <%-- 테이블 구성 --%>
+                            <div class="fix_relative">
+
+                            <div class="scroll_section">
+
+                            <table class="table_list">
+
                                 <thead>
                                 <tr>
-                                    <th class="cal_check check_all check_all_exhibit"><input type="checkbox" id="check_all_exhibit"></th>
+                                    <th class="cal_check check_all check_all_exhibit" name="check_all_exhibit"><input type="checkbox" id="check_all_exhibit"></th>
                                     <th class="seq">seq</th>
                                     <th class="pd_name">작품명</th>
                                     <th class="pd_price">금액</th>
                                 </tr>
                                 </thead>
+
+
                                 <tbody>
-                                <tr class="table_row_section">
-                                    <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit" ></td>
-                                    <td class="seq">1</td>
-                                    <td class="pd_name">스누피</td>
-                                    <td class="pd_price">13,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit2"></td>
-                                    <td class="seq">1</td>
-                                    <td class="pd_name">요시고</td>
-                                    <td class="pd_price">17,000</td>
-                                </a>
-                                </tr>
+                                     <tr class="table_row_section">
+                                        <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit" ></td>
+                                        <td class="seq">1</td>
+                                        <td class="pd_name">스누피</td>
+                                        <td class="pd_price">13,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit2"></td>
+                                        <td class="seq">2</td>
+                                        <td class="pd_name">요시고</td>
+                                        <td class="pd_price">17,000</td>
+                                    </tr>
+                                     <tr>
+                                         <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit3"></td>
+                                         <td class="seq">3</td>
+                                         <td class="pd_name">사울레이터</td>
+                                         <td class="pd_price">17,000</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit4"></td>
+                                         <td class="seq">4</td>
+                                         <td class="pd_name">라이프사진전</td>
+                                         <td class="pd_price">17,000</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit5"></td>
+                                         <td class="seq">5</td>
+                                         <td class="pd_name">반고흐</td>
+                                         <td class="pd_price">17,000</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="cal_check"><input type="checkbox" name="chk1" class="check_one check_one_exhibit" id="check_one_exhibit6"></td>
+                                         <td class="seq">6</td>
+                                         <td class="pd_name">모네 특별전</td>
+                                         <td class="pd_price">17,000</td>
+                                     </tr>
                                 </tbody>
+
                             </table>
+                            </div> <%-- scroll_section --%>
+                            </div> <%-- fix_section --%>
                         </div>
 
 
-                        <%-- 뮤지엄 라벨 --%>
-                        <%--<div class="label_museum_section">
-                            <span class="label_museum"> 뮤지엄 </span>
-                        </div>--%>
-
-                        <%-- -------------- 뮤지엄 ---------------- --%>
-                        <div class="table_section" id="museum_set">
-
+                    <div id="museum_set">
+                            <%-- 뮤지엄 라벨 --%>
                             <div class="label_museum_section">
-                                <span class="label_museum"> 뮤지엄 </span>
+                                <span class="label_section"> 뮤지엄 </span>
                             </div>
 
-                            <table class="table">
-                                <thead>
+                            <p class="sectionLine_thin"></p>
+
+                            <%-- scroll --%>
+                            <div class="scroll_section">
+
+                            <table class="table_list">
+                            <thead>
                                 <tr>
-                                    <th class="cal_check check_all check_all_museum"><input type="checkbox" id="check_all_museum"></th>
+                                    <th class="cal_check check_all check_all_museum"name="check_all_museum"><input type="checkbox" id="check_all_museum"></th>
                                     <th class="seq">seq</th>
                                     <th class="pd_name">작품명</th>
                                     <th class="pd_price">금액</th>
-
                                 </tr>
-                                </thead>
-                                <tbody>
+                            </thead>
+
+
+                            <tbody>
                                 <tr class="table_row_section">
                                     <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum"></td>
                                     <td class="seq">1</td>
                                     <td class="pd_name">박물관이 살아있다</td>
                                     <td class="pd_price">12,000</td>
-
-
                                 </tr>
                                 <tr>
                                     <td class="cal_check"><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum2"></td>
                                     <td class="seq">2</td>
                                     <td class="pd_name">허브아일랜드</td>
                                     <td class="pd_price">17,000</td>
-
-
+                                </tr>
+                                <tr>
+                                    <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum3"></td>
+                                    <td class="seq">3</td>
+                                    <td class="pd_name">제주 아일랜드</td>
+                                    <td class="pd_price">12,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum4"></td>
+                                    <td class="seq">4</td>
+                                    <td class="pd_name">대천 머드 축제</td>
+                                    <td class="pd_price">12,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum5"></td>
+                                    <td class="seq">5</td>
+                                    <td class="pd_name">레고 박물관</td>
+                                    <td class="pd_price">12,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="cal_check" ><input type="checkbox" name="chk2" class="check_one check_one_museum" id="check_one_museum6"></td>
+                                    <td class="seq">6</td>
+                                    <td class="pd_name">해녀 박물관</td>
+                                    <td class="pd_price">12,000</td>
                                 </tr>
 
                                 </tbody>
-                            </table>
-                        </div>
+
+                            </table> <%-- table --%>
+                            </div> <%-- scroll --%>
+                    </div>
 
                         <%--전시가 없을때--%> <%--if문으로 적용 class이름 같게함--%>
                         <div class="table_section">
@@ -167,8 +216,6 @@
                                 <span>선택한 상품</span><a class="delete_btn" id="checked_delete">삭제</a>
                             </div>
                         </div>
-
-                    </div> <!-- ===========  /탭 메뉴 ============== -->
 
 
 

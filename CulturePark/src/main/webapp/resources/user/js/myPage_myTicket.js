@@ -69,21 +69,19 @@ $(document).ready(function(){
             alert('취소되었습니다.\n'+'환불은 카드사 사정에 따라 3~4일 소요됩니다.');
         });
 
-
-
 });
 
 /* ---------------------------------------------------------*/
 
 /* 1. 상세보기 팝업 */
 function viewDetail() {
-    window.open("/viewDetail.do", "myPage_viewDetail", "width=500px, height=600px, left=100, top=50");
+    window.open("/viewDetail.do", "myPage_viewDetail", "width=400px, height=500px, left=100, top=50");
 }
 
 
 /* 2. 티켓보기 팝업 */
 function viewTicket() {
-    window.open("/viewTicket.do", "myPage_viewTicket", "width=400, height=600, left=50, top=100");
+    window.open("/viewTicket.do", "myPage_viewTicket", "width=350px, height=450px, left=50, top=100");
 }
 
 
