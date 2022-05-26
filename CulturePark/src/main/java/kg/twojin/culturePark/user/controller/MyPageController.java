@@ -59,7 +59,7 @@ public class MyPageController {
     @RequestMapping(value="/writeReview.do")
     public ModelAndView getWriteReview(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("myPage_writeReview");
+        mv.setViewName("review_writeReview");
         return mv;
     }
 }

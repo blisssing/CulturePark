@@ -13,7 +13,7 @@
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/myPage.css" %></style>
     <style><%@include file="/resources/user/css/myPage_subMenu.css" %></style>
-    <style><%@include file="/resources/user/css/myPage_writeReview.css" %></style>
+    <style><%@include file="/resources/user/css/review_writeReview.css" %></style>
 
     <%-- modal --%>
     <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -50,7 +50,7 @@
 
             <%-- content --%>
                 <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
-            <div class="content_container"><div style="clear:both;"></div>
+            <div class="content_container">
 
 
                 <div class="writeReview_label_section">
@@ -195,6 +195,6 @@
 
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="/resources/user/js/myPage_writeReview.js"></script>
+<script src="/resources/user/js/review_writeReview.js"></script>
 
 </html>

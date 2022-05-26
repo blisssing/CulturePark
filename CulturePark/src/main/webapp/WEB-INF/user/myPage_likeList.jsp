@@ -46,7 +46,7 @@
 
                 <%-- content --%>
                 <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
-                <div class="content_container"><div style="clear:both;"></div>
+                <div class="content_container">
 
 
                     <div class="likeList_label_section">
