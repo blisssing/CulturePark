@@ -27,7 +27,7 @@
     margin: 0 5px;
 }
 
-#datebox_month, #datebox_year {
+#datebox_week, #datebox_month {
     display: none;
 }
 

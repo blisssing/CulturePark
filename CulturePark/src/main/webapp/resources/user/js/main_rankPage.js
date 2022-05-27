@@ -13,14 +13,12 @@ $(document).ready(function () {
 
     });
 
-
     $('.date_selector').change(function () {
         checkSelector();
     });
 
 
     // 데이터 피커 셋팅
-
 
     // 일별 선택
     $('#picker_date').datepicker({
@@ -42,9 +40,8 @@ $(document).ready(function () {
         }
     });
 
-
     // 월별 선택
-    $('#picker_month').datepicker({
+    $('#picker_week').datepicker({
         dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
         nextText: '다음 달',
@@ -60,89 +57,82 @@ $(document).ready(function () {
         minDate:"-6M",
         maxDate:0,
         onSelect: function (d) {
-            getWeekPoint();
+            getWeekPoint(getSelectedInfo(d));
+
         },
-
         beforeShow: function () {
-            applyWeeklyHighlight();
-
-
+            setTimeout("hoverWeek()", 100);
+        },
+        onUpdateDatepicker: function () {
+            setTimeout("hoverWeek()", 100);
         }
 
     });
 
-    $('#picker_year').datepicker({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dayNames:['일','월','화','수','목','금','토'],
-        dayNamesShort:['일','월','화','수','목','금','토'],
-        dayNamesMin: ['일','월','화','수','목','금','토'],
-        showMonthAfterYear: false,
-        yearSuffix: '년'
-    });
+    // 월별 선택
+    // $('#picker_month').datepicker({
+    //     dateFormat: 'yy-mm-dd',
+    //     prevText: '이전 달',
+    //     nextText: '다음 달',
+    //     monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    //     monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    //     dayNames:['일','월','화','수','목','금','토'],
+    //     dayNamesShort:['일','월','화','수','목','금','토'],
+    //     dayNamesMin: ['일','월','화','수','목','금','토'],
+    //     showMonthAfterYear: false,
+    //     yearSuffix: '년',
+    //     changeYear:true,
+    //     changeMonth:true
+    // });
 
     // 오늘/이번달/올해로 날짜 지정
     $('#picker_date').datepicker('setDate', 'today');
-    $('#picker_month').datepicker('setDate', 'm');
 
-
-
+    // 버튼 확인
     function checkSelector() {
 
         var val = $('.date_selector').val();
 
         if (val === 'day') {
             $('#datebox_day').css('display', 'inline-block');
-            $('#datebox_month').css('display', 'none');
-            $('#datebox_year').css('display','none');
+            $('#datebox_week').css('display', 'none');
+            $('#datebox_month').css('display','none');
+            console.log(val);
+        } else if (val === 'week') {
+            $('#datebox_day').css('display', 'none');
+            $('#datebox_week').css('display', 'inline-block');
+            $('#datebox_month').css('display','none');
             console.log(val);
         } else if (val === 'month') {
             $('#datebox_day').css('display', 'none');
-            $('#datebox_month').css('display', 'inline-block');
-            $('#datebox_year').css('display','none');
-            console.log(val);
-        } else if (val === 'year') {
-            $('#picker_date').css('display', 'none');
-            $('#datebox_month').css('display', 'none');
-            $('#datebox_year').css('display','inline-block');
+            $('#datebox_week').css('display', 'none');
+            $('#datebox_month').css('display','inline-block');
             console.log(val);
         }
 
     }
 
-    function getToday() {
-        var today = new Date();
-
-        var year=today.getFullYear();
-        var month=today.getMonth()+1;
-        var date = today.getDate();
-        var day = today.getDay();
-        var dayList = new Array('일','월','화','수','목','금','토');
-        var day_kor =  dayList[day];
-
-        var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
-
-        return today_str;
-    }
-
     // 주 선택
-    function getWeekPoint() {
+    function getWeekPoint(obj) {
 
-        var chose_date = new Date($('.datepicker').datepicker({
-            dateFormat: "yyyy/mm/dd"
-        }).val()); // 선택한 날을 'yyyy/mm/dd' 데이터 포맷으로 가져오기
+        // var chose_date = new Date($('.datepicker').datepicker({
+        //     dateFormat: "yyyy/mm/dd"
+        // }).val()); // 선택한 날을 'yyyy/mm/dd' 데이터 포맷으로 가져오기
 
-        var selectDay = chose_date.getDay(); // 요일 가져오기
-        var selectDate = chose_date.getDate(); // 날짜 가져오기
+
+        var selectDay = obj.getDay(); // 요일 가져오기
+        var selectDate = obj.getDate(); // 날짜 가져오기
         var today = new Date().getDate(); // 오늘 날짜 가져오기
 
         // [1. 선택된 날짜가 이전달 혹은 다음달과 연결돼 있는지 확인하여 선택한 날짜에 대당하는 주의 일요일 date 구하기]
 
-        var select_month = chose_date.getMonth() +1; // 선택한 날짜의 Month
-        var select_year = chose_date.getFullYear();  // 선택한 날짜의 Year
+        var select_month = obj.getMonth() +1; // 선택한 날짜의 Month
+        var select_year = obj.getFullYear();  // 선택한 날짜의 Year
+
+
+        // 현재 년&월
+        var thisYear = new Date().getFullYear();
+        var thisMonth = new Date().getMonth()+1;
 
 
         var thisMonFirst =  new Date(select_year, select_month-1, 1); //선택 달의 첫 날
@@ -168,13 +158,14 @@ $(document).ready(function () {
         if (selectDate - 7 <1) {
             if (thisMonFirstDay === 0) {
                 var weekSun = thisMonFirstDate;
-                console.log('1. 일요일의 날짜는 ' + weekSun + '입니다');
+                sundayInfo = new Date(select_year, select_month, weekSun);
             } else{
                 var weekSun = lastMonLastDate - lastMonLastDay;
-                console.log('2. 일요일의 날짜는 ' + weekSun + '입니다');
+                sundayInfo = new Date(select_year, select_month - 1, weekSun);
             }
         } else {
             var weekSun = selectDate-selectDay;
+            sundayInfo = new Date(select_year, select_month, weekSun);
         }
 
         // 토요일 구하기( 주의 끝 )
@@ -185,45 +176,82 @@ $(document).ready(function () {
         // 검증 1 : 만약 선택한 날짜의 마지막 날이 '오늘' 이후의 날이라면 'weekSat'의 값을 오늘로 처리. 오늘 이후의 데이터를 받아올 필요가 없기 때문
         // 조건 1-1. 선택한 달과, 이번 달이 같아야 함
         // 조건 1-2. 오늘보다 weekSat의 값이 커야 함.
-        if (  new Date ().getMonth() ===select_month &&  new Date(select_year, select_month, weekSat) > new Date(select_year, select_month, today)) {
+
+        console.log('weekSun : ' + weekSun);
+        if (select_month === thisMonth && weekSat > today) {
+            console.log('동작수행1');
             weekSat = today;
-            console.log('토요일은 : ' + weekSat);
+            satInfo = new Date(select_year, select_month, weekSat);
         } else if (thisMonLastDate < weekSat) {
-
-        // 검증 2 : weekSat이 선택 달의 마지막 날짜보다 크다는 것은 한주가 다음달과 이어져 있다는 뜻.
-
-
+            // 검증 2 : weekSat이 선택 달의 마지막 날짜보다 크다는 것은 한주가 다음달과 이어져 있다는 뜻.
+            console.log('동작수행2');
             var movePoint = 6 - selectDay; // 토요일까지의 간격 : 움직여야 하는 거리
             var lastPoint = thisMonLastDay - selectDay; // 달력의 마지막 날짜와 선택한 날짜와의 거리
             var stepPoint = movePoint - lastPoint - 1; // 다음 달 달력의 시작과 토요일까지의 거리
+            satInfo = new Date(select_year, select_month, 1 + stepPoint); // 토요일에 해당하는 날짜의 정보
+            weekSat = satInfo.getDate();
+        } else {
+            satInfo = new Date(select_year, select_month, weekSat);
+        }
 
-            var weekSatSet = new Date(select_year, select_month, 1 + stepPoint); // 토요일에 해당하는 날짜의 정보
 
-            // console.log('movePoint : ' + movePoint);
-            // console.log('lastPoint :' + lastPoint);
-            // console.log('stepPoint : ' + stepPoint);
-        } // else if
+        var sunStr = sundayInfo.getFullYear() + '/' + sundayInfo.getMonth() + '/' + sundayInfo.getDate();
+        var satStr = satInfo.getFullYear() + '/' + satInfo.getMonth() + '/' + satInfo.getDate();
+
+        $('#picker_week').val(sunStr + '~' + satStr);
+
     }
-
-
-    monthlyAddClass = function () {
-        $(this).find('tr td a').addClass('ui-state-hover');
-    }
-
-    monthlyRemoveClass = function () {
-        $(this).find('tr td a').removeClass('ui-state-hover');
-    }
-
-
-
 });
 
-function applyWeeklyHighlight() {
-    $('.ui-datepicker-calendar>tbody>tr').hover(function () {
-        $(this).css('color', 'yellow');
+// 호버할 경우 하이라이트 표시 해주기
+function hoverWeek() {
+
+    $('.ui-datepicker-calendar tr').each(function () {
+        // if ($(this).parent().get(0).tagName === 'TBODY') {
+
+            $(this).mouseover(function () {
+                $(this).find('a').css({
+                    'background':'#ffffcc',
+                    'border':'1px solid #dddddd'
+                });
+                $(this).find('a').removeClass('ui-state-default');
+                $(this).css('background', '#ffffcc');
+            });
+
+            $(this).mouseout(function () {
+                $(this).css('background', '#ffffff');
+                $(this).find('a').css('background' ,"");
+                $(this).find('a').addClass('ui-state-default');
+            });
+        // } // if out
     });
 }
 
+function getSelectedInfo(obj) {
+    var arr = obj.split("-");
+    var arr_year = arr[0];
+    var arr_month = arr[1];
+    var arr_date = arr[2];
+
+    var selectedCal = new Date(arr_year, arr_month -1, arr_date);
+
+    return selectedCal;
+}
+
+function getToday() {
+    var today = new Date();
+
+    var year=today.getFullYear();
+    var month=today.getMonth()+1;
+    var date = today.getDate();
+    var day = today.getDay();
+    var dayList = new Array('일','월','화','수','목','금','토');
+    var day_kor =  dayList[day];
+
+    var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
+
+    return today_str;
+}
 
 
 

@@ -24,7 +24,7 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "/museumMain.do")
-    public ModelAndView getMusiumPage() {
+    public ModelAndView getMuseumPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("main_museumPage");
         return mv;
@@ -53,20 +53,26 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value="/member_login.do")
+    @RequestMapping(value = "/member_login.do")
     public ModelAndView getLoginPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("member_login");
         return mv;
     }
 
-    @RequestMapping(value="/member_join.do")
+    @RequestMapping(value = "/member_join.do")
     public ModelAndView getJoinPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("member_join");
         return mv;
     }
 
+    @RequestMapping(value = "/servicePage.do")
+    public ModelAndView getServicePage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("service_main");
+        return mv;
+    }
 
 }
 

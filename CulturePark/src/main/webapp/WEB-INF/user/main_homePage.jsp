@@ -211,8 +211,8 @@
         </div>
         <div class="mu_promotion_section">
             <div class="section_name">
-                <span class="section_title"><a href="/museumPage.do">뮤지엄</a></span>
-                <span class="prom_link"><a href="/museumPage.do">전 체 보 기</a></span>
+                <span class="section_title"><a href="/museumMain.do">뮤지엄</a></span>
+                <span class="prom_link"><a href="/museumMain.do">전 체 보 기</a></span>
             </div>
 
             <div class="section_page">

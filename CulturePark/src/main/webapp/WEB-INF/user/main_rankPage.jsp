@@ -13,8 +13,9 @@
     <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/main_rankPage.css"%></style>
 
-<%--hover datepicker--%>
-<%--https://stackoverflow.com/questions/44433406/hover-state-for-active-row-in-ui-datepicker--%>
+<%-- datepicker--%>
+    <%--https://stackoverflow.com/questions/44433406/hover-state-for-active-row-in-ui-datepicker--%>
+    <%--https://xx707xx.tistory.com/13 --%>
 
 
     <title>CulturePark 우리들의 문화공간</title>
@@ -41,8 +42,8 @@
             <div class="selector_wrap">
                 <select class="date_selector">
                     <option name="date_day" value="day" selected="selected">일별</option>
-                    <option name="date_month" value="month">주간</option>
-                    <option name="date_year" value="year">월별</option>
+                    <option name="date_week" value="week">주간</option>
+                    <option name="date_month" value="month">월별</option>
                 </select>
             </div>
 
@@ -52,11 +53,16 @@
                     <span><i class="fa-solid fa-calendar"></i></span><input class="datepicker" id="picker_date"></input>
                 </div>
 
-                <div class="datepicker_box" id="datebox_month">
-                    <span><i class="fa-solid fa-calendar"></i></span><input class="datepicker" id="picker_month"></input>
+                <div class="datepicker_box" id="datebox_week">
+                    <span><i class="fa-solid fa-calendar"></i></span><input type="text" class="datepicker" id="picker_week"></input>
                 </div>
-                <div class="datepicker_box" id="datebox_year">
-                    <span><i class="fa-solid fa-calendar"></i></span><input class="datepicker" id="picker_year"></input>
+                <div class="datepicker_box" id="datebox_month">
+                    <span><i class="fa-solid fa-calendar"></i></span>
+                    <select class="month_select" name="month_chk"id="picker_month">
+                        <option name="month_chk" value="">1</option>
+                        <option name="month_chk" value="">2</option>
+                        <option name="month_chk" value="">3</option>
+                    </select>
                 </div>
             </div>
         </div>
