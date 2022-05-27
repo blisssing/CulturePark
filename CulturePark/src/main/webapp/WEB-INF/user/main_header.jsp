@@ -14,8 +14,8 @@
             <ul class="funcs_pc">
                 <li><a class="func_list" href="#">로그인</a></li>
                 <li><a class="func_list" href="#">회원가입</a></li>
-                <li><a class="func_list" href="#">마이페이지</a></li>
-                <li><a class="func_list" href="#">마이티켓</a></li>
+                <li><a class="func_list" href="/myPage.do">마이페이지</a></li>
+                <li><a class="func_list" href="/myTicket.do">마이티켓</a></li>
             </ul>
 
             <div class="funcs_mobile">
