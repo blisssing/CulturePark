@@ -51,7 +51,8 @@
         <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
             <div class="content_container">
 
-                <img src="/resources/user/resource/myPage/love.PNG" style= "width: 807.792px; height: 800px;">
+                <%@ include file="/WEB-INF/user/myPage_myTicket.jsp"%>
+                <%--<img src="/resources/user/resource/myPage/love.PNG" style= "width: 807.792px; height: 800px;">--%>
 
             </div> <%-- /content_container --%>
 

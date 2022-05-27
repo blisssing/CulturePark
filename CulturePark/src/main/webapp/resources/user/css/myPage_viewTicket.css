@@ -2,10 +2,6 @@
     float: left;
 }
 
-.number_section {
-    margin-left: 180px;
-}
-
 .arrow_div {
     vertical-align: middle;
 }
@@ -25,6 +21,20 @@
     text-align: center;
     margin-bottom: 25px;
 }
+
+.number_section {
+    width: 100%;
+}
+
+.no_section {
+    justify-content: center;
+}
+
+.booking_no {
+    margin-left: 5px;
+}
+
+
 
 .qr_code {
     text-align: center;

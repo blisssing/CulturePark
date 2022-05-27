@@ -12,8 +12,8 @@
         </div>
         <div class="function_section">
             <ul class="funcs_pc">
-                <li><a class="func_list" href="#">로그인</a></li>
-                <li><a class="func_list" href="#">회원가입</a></li>
+                <li><a class="func_list" href="/member_login_do">로그인</a></li>
+                <li><a class="func_list" href="/member_join.do">회원가입</a></li>
                 <li><a class="func_list" href="/myPage.do">마이페이지</a></li>
                 <li><a class="func_list" href="/myTicket.do">마이티켓</a></li>
             </ul>
@@ -30,7 +30,7 @@
 <div class="header_2_logo">
     <div class="logo_section">
         <div class="logo">
-            <a href="#">
+            <a href="/home.do">
                 <p class="main_title">Culture Park</p>
                 <p class="sub_title"> 우리들의 문화공간</p>
             </a>

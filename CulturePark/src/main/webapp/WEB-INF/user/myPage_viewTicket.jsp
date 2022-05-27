@@ -27,9 +27,12 @@
             </div>
 
             <div class="number_section">
-            <span>No.</span>
-            <span class="booking_no">267595037</span>
+                <div class="no_section">
+                    <span>No.</span>
+                    <span class="booking_no">267595037</span>
+                </div>
             </div>
+
         </div>
 
             <p class="sectionLine"></p>

@@ -44,9 +44,9 @@
 
 <div class="subMenu">
     <ul class="sub_section">
-        <li><a class="subList" href="#">마이티켓</a></li>
-        <li><a class="subList" href="#">찜목록</a></li>
-        <li><a class="subList" href="#">마이리뷰</a></li>
+        <li><a class="subList" href="/myTicket.do">마이티켓</a></li>
+        <li><a class="subList" href="/likeList.do">찜목록</a></li>
+        <li><a class="subList" href="/myReview.do">마이리뷰</a></li>
         <li><a class="subList" href="#">회원정보</a></li>
     </ul>
 </div> <%-- /subMenu --%>

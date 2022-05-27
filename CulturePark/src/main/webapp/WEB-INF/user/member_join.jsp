@@ -13,6 +13,7 @@
     <%-- css 불러오기 --%>
     <style><%@include file="/resources/common/css/reset.css" %></style>
     <style><%@include file="/resources/common/css/common.css" %></style>
+    <style><%@include file="/resources/common/css/header.css"%></style>
     <style><%@include file="/resources/user/css/member_join.css" %></style>
 
     <title> join </title>
@@ -23,6 +24,11 @@
 <%-- Main --%>
 <div class="mainContainer">
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
+
+        <%-- haader --%>
+        <div class="header_container">
+            <%@ include file="/WEB-INF/user/main_header.jsp"%>
+        </div>
 
     <div class="centerContainer">
         <%-- 절대 건드리지말기.  div 따로 만들어주고 건드리기 --%>
@@ -48,23 +54,23 @@
 
                 <div class="id_section">
                     <div class="id_label">아이디</div>
-                    <input class="id_value_1 id_value_1_p" type="textFiled" name="id_value_1">
+                    <input class="id_value_1" type="textFiled" name="id_value_1">
 
 
                     <%-- 아이디 중복확인 버튼 --%>
-                    <input class="id_confirm_btn id_confirm_btn_p" type="button" name="id_confirm_btn" value="중복확인">
+                    <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                 </div>
 
                 <div class="pw_section">
                     <div class="pw_label">비밀번호</div>
-                    <input class="pw_value pw_value_p" type="password" name="pw_value">
+                    <input class="pw_value " type="password" name="pw_value">
                 </div>
 
                 <div class="rePw_section">
                     <div class="rePw_label">비밀번호확인</div>
                     <div class="rePw_value_section">
                         <%-- 비밀번호확인 체크 메세지--%>
-                        <input class="rePw_value rePw_value_p" type="password" name="rePw_value">
+                        <input class="rePw_value" type="password" name="rePw_value">
                         <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
                     </div>
                 </div>
@@ -75,21 +81,21 @@
                     <div class="nick_label">닉네임</div>
                     <div class="nick_confirm_msg_section">
                         <%-- 닉네임 중복확인 메세지 --%>
-                        <input class="nick_value nick_value_p" type="textFiled" name="nick_value">
-                        <div class="nick_confirm_msg nick_confirm_msg_p" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
+                        <input class="nick_value" type="textFiled" name="nick_value">
+                        <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
                     </div>
                 </div>
 
 
                 <div class="name_section">
                     <div class="name_label">이름</div>
-                    <input class="name_value name_value_p" type="textFiled" name="name_value">
+                    <input class="name_value" type="textFiled" name="name_value">
                 </div>
 
                 <div class="jumin_section">
                     <div class="jumin_label">주민번호</div>
-                    <input class="jumin_value1 jumin_value1_p" type="textFiled" name="jumin_value1"> -
-                    <input class="jumin_value2 jumin_value2_p" type="textFiled" name="jumin_value2"> ******
+                    <input class="jumin_value1" type="textFiled" name="jumin_value1"> -
+                    <input class="jumin_value2" type="textFiled" name="jumin_value2"> ******
                 </div>
 
                 <div class="tel_section">
@@ -97,7 +103,7 @@
                     <div class="tel_label">전화번호</div>
 
                     <div class="tel_div">
-                        <select class="tel_1 tel_1_p" id="tel_1" name="tel_1">
+                        <select class="tel_1" id="tel_1" name="tel_1">
                             <option value="">선택</option>
                             <option value="010">010</option>
                             <option value="011">011</option>
@@ -109,17 +115,17 @@
                     <span>-</span>
 
                     <div class="tel_div2">
-                        <input class="tel_2 tel_2_p" type="text" name="tel_2">
+                        <input class="tel_2" type="text" name="tel_2">
                     </div>
 
                     <span>-</span>
                     <div class="tel_div2">
-                         <input class="tel_3 tel_3_p" type="text" name="tel_3">
+                         <input class="tel_3" type="text" name="tel_3">
                     </div>
 
                     <%-- 인증번호받기 버튼--%>
                     <div>
-                        <input class="tel_authentication_btn tel_authentication_btn_p" type="button" name="tel_authentication_btn" value="인증번호">
+                        <input class="tel_authentication_btn" type="button" name="tel_authentication_btn" value="인증번호">
                     </div>
                 </div>
 
@@ -127,7 +133,7 @@
                 <div class="authentication_code_section">
                     <div class="authentication_code_label">인증번호</div>
 
-                    <input class="authentication_code authentication_code_p" type="text" name="authentication_code">
+                    <input class="authentication_code" type="text" name="authentication_code">
 
                     <div class="code_reSend_btn_section">
                         <input class="code_reSend_btn" type="button" name="code_reSend_btn" value="재발송">
