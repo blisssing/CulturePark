@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
+    https://unknown-coding.tistory.com/16--%>
+
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -24,6 +27,7 @@
     <div class="centerContainer">
         <%-- 절대 건드리지말기.  div 따로 만들어주고 건드리기 --%>
 
+        <div class="innerContainer">
 
                 <div class="back_section">
                     <div class="arrow_section">
@@ -32,18 +36,19 @@
                     </div>
                 </div>
 
+            <div class="join_label_section">
+                <div class="join_label">회원 가입</div>
+            </div>
+
+
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <div class="join_section">
-
-                <div class="join_label_section">
-                    <div class="join_label">회원 가입</div>
-                </div>
 
                 <p class="sectionLine_thin"></p>
 
                 <div class="id_section">
                     <div class="id_label">아이디</div>
-                    <input class="id_value_1 id_value_1_p" type="textFiled" name="id_value_1" value="이메일">
+                    <input class="id_value_1 id_value_1_p" type="textFiled" name="id_value_1">
 
 
                     <%-- 아이디 중복확인 버튼 --%>
@@ -56,22 +61,25 @@
                 </div>
 
                 <div class="rePw_section">
-                    <div class="rePw_label">비밀번호 확인</div>
-                    <input class="rePw_value rePw_value_p" type="password" name="rePw_value">
-                    <%-- 비밀번호확인 체크 메세지--%>
-                    <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
+                    <div class="rePw_label">비밀번호확인</div>
+                    <div class="rePw_value_section">
+                        <%-- 비밀번호확인 체크 메세지--%>
+                        <input class="rePw_value rePw_value_p" type="password" name="rePw_value">
+                        <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
+                    </div>
                 </div>
+
+
 
                 <div class="nick_section">
                     <div class="nick_label">닉네임</div>
-                    <input class="nick_value nick_value_p" type="textFiled" name="nick_value">
-                   <%--닉네임 중복확인 버튼--%>
-                    <input class="nick_confirm_btn nick_confirm_btn_p" type="button" name="nick_confirm_btn" value="중복확인">
+                    <div class="nick_confirm_msg_section">
+                        <%-- 닉네임 중복확인 메세지 --%>
+                        <input class="nick_value nick_value_p" type="textFiled" name="nick_value">
+                        <div class="nick_confirm_msg nick_confirm_msg_p" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
+                    </div>
                 </div>
-                <%-- 닉네임 중복확인 메세지 --%>
-                <div class="nick_confirm_msg_section">
-                    <span class="nick_confirm_msg nick_confirm_msg_p">test::닉네임중복확인메세지</span>
-                </div>
+
 
                 <div class="name_section">
                     <div class="name_label">이름</div>
@@ -80,24 +88,39 @@
 
                 <div class="jumin_section">
                     <div class="jumin_label">주민번호</div>
-                    <input class="jumin_value1 jumin_value1_p" type="number" name="jumin_value1" value="주민번호값1" > -
-                    <input class="jumin_value2 jumin_value2_p" type="number" name="jumin_value2" value="주민번호값2" > ******
+                    <input class="jumin_value1 jumin_value1_p" type="textFiled" name="jumin_value1"> -
+                    <input class="jumin_value2 jumin_value2_p" type="textFiled" name="jumin_value2"> ******
                 </div>
 
                 <div class="tel_section">
+
                     <div class="tel_label">전화번호</div>
-                    <select id="tel_1" name="tel_1" >
-                        <option value="">선택</option>
-                        <option value="010">010</option>
-                        <option value="011">011</option>
-                        <option value="016">016</option>
-                        <option value="019">019</option>
-                    </select> -
-                    <input class="tel_2 tel_2_p" type="text" name="tel_2"> -
-                    <input class="tel_3 tel_3_p" type="text" name="tel_3">
+
+                    <div class="tel_div">
+                        <select class="tel_1 tel_1_p" id="tel_1" name="tel_1">
+                            <option value="">선택</option>
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="016">016</option>
+                            <option value="019">019</option>
+                        </select>
+                    </div>
+
+                    <span>-</span>
+
+                    <div class="tel_div2">
+                        <input class="tel_2 tel_2_p" type="text" name="tel_2">
+                    </div>
+
+                    <span>-</span>
+                    <div class="tel_div2">
+                         <input class="tel_3 tel_3_p" type="text" name="tel_3">
+                    </div>
 
                     <%-- 인증번호받기 버튼--%>
-                    <input class="tel_authentication_btn tel_authentication_btn_p" type="button" name="tel_authentication_btn" value="인증번호">
+                    <div>
+                        <input class="tel_authentication_btn tel_authentication_btn_p" type="button" name="tel_authentication_btn" value="인증번호">
+                    </div>
                 </div>
 
                 <%-- 인증번호받기 버튼 클릭시 나타남 --%>
@@ -125,21 +148,23 @@
                     <div class="agree_condition_label">약관동의</div>
                 </div>
 
+                <p class="sectionLine_thin"></p>
+
                 <div class="agree_condition_all_section">
                     <div class="agree_condition_all">
-                        <input type="checkbox" class="checkbox_all">
-                        <span class="checkbox_all_label">전체동의</span>
+                        <input type="checkbox" class="checkbox_all checkbox_all_p">
+                        <span class="checkbox_all_label">전체동의</span><br><br>
                     </div>
                 </div>
 
                 <%-- 이용약관 1 --%>
                 <div class="agree_1">
-                    <div class="agree_1_label">Culture Park 이용약관</div>
+                    <div class="agree_1_label">Culture Park 이용약관</div><br>
 
                     <div class="agree_condition_content" type="textArea">
                         <ul>
                             <li>
-                                <h3>제1조 (목적)</h3>
+                                <h3>제1조 (목적)</h3><br>
                                 <ul>
                                     <li>
                                         이 약관은 ㈜컬쳐파크(이하 "회사"라고 합니다)가 운영하는 인터넷사이트 및 오프라인 영업장을 통하여 제공하는
@@ -149,7 +174,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <h3>제2조 (정의) </h3>
+                                <h3>제2조 (정의) </h3><br>
                                 <ul>
                                     <li>① "컬쳐파크"라 함은 회사가 재화 또는 용역을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 또는 용역을 거래할 수 있도록 설정한
                                         가상의 영업장(www.culturepark.com 또는 www.culturepark.co.kr)을 말하며, 아울러 사이버 몰을 운영하는 사업자의 의미로도 사용합니다.
@@ -176,19 +201,19 @@
 
                     <div class="checkbox_section">
                         <input type="checkbox" class="checkbox_one">
-                        <span class="checkbox_one_label">네,동의하였습니다.</span>
+                        <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
 
                 <%-- 이용약관 2 --%>
                 <div class="agree_2">
-                    <div class="agree_2_label">전자금융거래 이용약관</div>
+                    <div class="agree_2_label">전자금융거래 이용약관</div><br>
 
                     <div class="agree_condition_content" type="textArea">
 
                         <ul>
                             <li>
-                                <h3>제1조 (목적)</h3>
+                                <h3>제1조 (목적)</h3><br>
                                 <ul>
                                     <li>
                                     본 약관은 주식회사 컬쳐파크 (이하 '회사'라 합니다)가 제공하는 전자지급결제대행서비스, 결제대금예치서비스 또는
@@ -199,7 +224,7 @@
                             </li>
 
                             <li>
-                                <h3>제2조(정의</h3>
+                                <h3>제2조(정의</h3><br>
                                 <ul>
                                     <li>
                                         본 약관에서 정하는 용어의 정의는 다음과 같으며, 본 조에서 정한 것을 제외하고는 전자금융거래법 등 관련법령이 정한 바에 의합니다.
@@ -230,13 +255,13 @@
 
                     <div class="checkbox_section">
                         <input type="checkbox" class="checkbox_one">
-                        <span class="checkbox_one_label">네,동의하였습니다.</span>
+                        <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
 
                 <%-- 이용약관 3 --%>
                 <div class="agree_3">
-                    <div class="agree_3_label">개인정보 수집동의서</div>
+                    <div class="agree_3_label">개인정보 수집동의서</div><br>
 
                      <div class="agree_condition_content" type="textArea">
                          <ul>
@@ -251,7 +276,7 @@
 
                     <div class="checkbox_section">
                         <input type="checkbox" class="checkbox_one">
-                        <span class="checkbox_one_label">네,동의하였습니다.</span>
+                        <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
 
@@ -260,6 +285,7 @@
                 <input type="button" class="join_btn" name="join_btn" value="회원가입">
             </div>
 
+        </div> <%-- /innerContainer --%>
     </div><%-- /centerContainer --%>
 </div><%-- /mainContainer --%>
 
