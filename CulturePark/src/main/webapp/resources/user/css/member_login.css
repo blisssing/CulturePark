@@ -168,9 +168,24 @@ m_find {
     display: none;
 }
 
+.header_2 {
+    display: none;
+}
+
+.header_2_logo {
+    display: none;
+}
 
 
 @media screen and (min-width: 500px){
+
+    .back_section {
+        display: none;
+    }
+
+    .function_section {
+        display: none;
+    }
 
 
     .m_culturePark {
