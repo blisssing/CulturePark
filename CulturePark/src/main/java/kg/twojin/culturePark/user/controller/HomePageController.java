@@ -2,7 +2,6 @@ package kg.twojin.culturePark.user.controller;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,7 +69,7 @@ public class HomePageController {
     @RequestMapping(value = "/servicePage.do")
     public ModelAndView getServicePage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("service_main");
+        mv.setViewName("service_faqPage");
         return mv;
     }
 
