@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
+    padding-bottom: 20px;
 }
 
 .guide_content {
@@ -37,4 +38,58 @@
 
 .guide_pc {
     display: none;
+}
+
+.descript_comment , .descript_text {
+    margin-top: 10px;
+
+}
+
+.descript_comment {
+    font-size: 0.8rem;
+}
+
+.guide_wrap02 > * {
+    font-size: 1rem;
+}
+
+.list_header{
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.list_description {
+    line-height: 150%;
+}
+
+.table_type2 {
+    width: 100%;
+}
+
+.table_type2 * {
+    border: 1px solid black;
+    padding: 5px
+}
+
+
+@media screen and (min-width: 700px) {
+
+
+    .descript_list {
+        display: inline-block;
+        width: 40%;
+        height: 600px;
+        margin: 0 20px;
+    }
+
+    .descript_img {
+        width: 100%;
+    }
+
+    .descript_img img {
+        max-height: 300px;
+        min-width: 240px;
+    }
+
+
 }
