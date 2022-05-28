@@ -20,11 +20,17 @@ public class ServicePageController {
         mv.setViewName("service_ticketGuide");
         return mv;
     }
-
-    @RequestMapping(value = "mobileGuide.do")
-    public ModelAndView mobileGuide() {
+    @RequestMapping(value = "faqPage.do")
+    public ModelAndView faqPage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("service_mobileTicket");
+        mv.setViewName("service_faqPage");
+        return mv;
+    }
+
+    @RequestMapping(value = "refundGuide.do")
+    public ModelAndView refundGuide() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("service_refund");
         return mv;
     }
 }
