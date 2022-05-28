@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('.content_container').load("/getMaininfo.do");
 
     $('#btn_mainInfo').click(function () {

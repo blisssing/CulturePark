@@ -33,25 +33,30 @@
             <div class="contentContainer">
                 <ul class="guide_wrap">
                     <li class="guide_list">
-                        <div class="guide_head"> 예매 방법 안내
-                        </div>
-
+                        <div class="guide_head"> 발권 방법 안내</div>
                         <div class="guide_content guide_m">
                             <ul class="description_wrap">
-                                <li class="descript_list">
-                                    <div class="descript_head">Step 1<div class="descript_text">모바일 : 원하는 상품의 예매하기 버튼 클릭</div></div>
+                                <li class="descript_list ">
+                                    <div class="descript_head">Step 1<div class="descript_text">마이페이지의 마이티켓으로 이동</div></div>
                                     <div class="descript_img">
-                                        <img src="/resources/user/resource/service/booking/bookingGuide_m_01.png">
+                                        <img src="/resources/user/resource/service/ticketing/ticketing01.png">
                                     </div>
                                 </li>
                                 <li class="descript_list">
-                                    <div class="descript_head">Step 2 <div class="descript_text">원하는 날짜 선택</div></div>
+                                    <div class="descript_head">Step 2<div class="descript_text">상세보기 클릭</div></div>
                                     <div class="descript_img">
-                                        <img src="/resources/user/resource/service/booking/bookingGuide_m_02.png">
+                                        <img src="/resources/user/resource/service/ticketing/ticketing02.png">
                                     </div>
                                 </li>
-
                             </ul>
+                        </div>
+
+                    </li>
+                    <li class="guide_list">
+                        <div class="guide_head"> 기타 안내 </div>
+                        <div class="guide_content">
+                            * 이미 사용한 것으로 확인되는 티켓은 재사용이 불가능합니다.<br>
+                            * 모바일 티켓은 현장에서 실제 티켓으로 교환한 뒤 사용 가능합니다. 이 점 유의하시길 바랍니다.
                         </div>
                     </li>
                 </ul>
@@ -79,4 +84,7 @@
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/service_common.js" type="text/javascript"></script>
+<script src="/resources/user/js/service_ticketGuide.js" type="text/javascript"></script>
+
+
 </html>
