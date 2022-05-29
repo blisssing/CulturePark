@@ -1,0 +1,35 @@
+/* 메 뉴*/
+
+/* 인 포 */
+
+.footer_p {
+    display: none;
+}
+
+
+@media screen and (min-width: 1200px){
+    .footer_p {
+        display: flex;
+    }
+
+    .info_wrap {
+        width: 33.3333333333333333%;
+    }
+
+    .info_wrap > div {
+        margin: 10px
+    }
+
+    .wrap_title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .wrap_text > div {
+        margin: 5px 0;
+        font-size: 0.8rem;
+    }
+
+}
+
+

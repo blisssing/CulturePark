@@ -2,7 +2,6 @@ package kg.twojin.culturePark.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -49,4 +48,12 @@ public class ServicePageController {
         mv.setViewName("service_faqBoard");
         return mv;
     }
+
+    @RequestMapping(value = "sellerGuide.do")
+    public ModelAndView sellerGuide() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("service_sellerGuide");
+        return mv;
+    }
+
 }

@@ -33,25 +33,31 @@
             <div class="contentContainer">
                 <ul class="guide_wrap">
                     <li class="guide_list">
-                        <div class="guide_head"> 예매 방법 안내
+                        <div class="guide_head"> 판매자입점 방법
                         </div>
 
-                        <div class="guide_content guide_m">
+                        <div class="guide_content">
                             <ul class="description_wrap">
-                                <li class="descript_list">
-                                    <div class="descript_head">Step 1<div class="descript_text">모바일 : 원하는 상품의 예매하기 버튼 클릭</div></div>
+                                <li class="descript_list ">
+                                    <div class="descript_head">Step 1<div class="descript_text">판매자 등록 사이트로 이동 <a href="/registSeller.do">LINK<i class="fa-solid fa-link"></i></a></div></div>
                                     <div class="descript_img">
-                                        <img src="/resources/user/resource/service/booking/bookingGuide_m_01.png">
+                                        <img src="/resources/user/resource/service/ticketing/ticketing01.png">
                                     </div>
                                 </li>
                                 <li class="descript_list">
-                                    <div class="descript_head">Step 2 <div class="descript_text">원하는 날짜 선택</div></div>
+                                    <div class="descript_head">Step 2<div class="descript_text">상세보기 클릭</div></div>
                                     <div class="descript_img">
-                                        <img src="/resources/user/resource/service/booking/bookingGuide_m_02.png">
+                                        <img src="/resources/user/resource/service/ticketing/ticketing02.png">
                                     </div>
                                 </li>
-
                             </ul>
+                        </div>
+                    </li>
+                    <li class="guide_list">
+                        <div class="guide_head"> 판매자 규정
+                        </div>
+
+                        <div class="guide_content">
                         </div>
                     </li>
                 </ul>
@@ -62,6 +68,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 </body>
