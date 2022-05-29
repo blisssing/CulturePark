@@ -65,6 +65,8 @@
     margin-right:10px;
 }
 
+
+/*
 .pw_section > .pw_value {
     width: 120px;
 }
@@ -78,6 +80,11 @@
 }
 
 .name_section > .name_value {
+    width: 120px;
+}*/
+
+/* 진희 : 위의 주석 통합 버전 */
+.input_type01 {
     width: 120px;
 }
 
@@ -104,13 +111,15 @@
     margin-right: 5px;
 }
 
-.tel_2 {
+
+/*진희*/
+.tel_2, .tel_3 {
     width: 45px;
 }
 
-.tel_3 {
+/*.tel_3 {
     width: 45px;
-}
+}*/
 
 .tel_section > span {
     margin: 0 5px;
@@ -142,6 +151,12 @@
      margin-left: 75px;
 }
 
+.section_type01 {
+    display: flex;
+}
+
+/*
+section_type01로 통합
 .id_section {
     display: flex;
 }
@@ -169,6 +184,7 @@
 .tel_section {
     display: flex;
 }
+*/
 
 
 /* 인증번호받기 버튼 클릭시 나타남 */
@@ -261,6 +277,8 @@
 .certifyTime {
     margin-top: -15px;
 }
+
+/* 모바일용 헤더 비활성화*/
 
 .header_2 {
     display: none;

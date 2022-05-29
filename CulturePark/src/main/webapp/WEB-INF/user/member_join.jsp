@@ -52,7 +52,7 @@
 
                 <p class="sectionLine_thin"></p>
 
-                <div class="id_section">
+                <div class="id_section section_type01">
                     <div class="id_label">아이디</div>
                     <input class="id_value_1" type="textFiled" name="id_value_1">
 
@@ -61,44 +61,42 @@
                     <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                 </div>
 
-                <div class="pw_section">
+                <div class="pw_section section_type01">
                     <div class="pw_label">비밀번호</div>
-                    <input class="pw_value " type="password" name="pw_value">
+                    <input class="pw_value input_type01" type="password" name="pw_value">
                 </div>
 
-                <div class="rePw_section">
+                <div class="rePw_section section_type01">
                     <div class="rePw_label">비밀번호확인</div>
                     <div class="rePw_value_section">
                         <%-- 비밀번호확인 체크 메세지--%>
-                        <input class="rePw_value" type="password" name="rePw_value">
+                        <input class="rePw_value input_type01" type="password" name="rePw_value">
                         <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
                     </div>
                 </div>
 
-
-
-                <div class="nick_section">
+                <div class="nick_section section_type01">
                     <div class="nick_label">닉네임</div>
                     <div class="nick_confirm_msg_section">
                         <%-- 닉네임 중복확인 메세지 --%>
-                        <input class="nick_value" type="textFiled" name="nick_value">
+                        <input class="nick_value input_type01" type="textFiled" name="nick_value">
                         <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
                     </div>
                 </div>
 
 
-                <div class="name_section">
+                <div class="name_section section_type01">
                     <div class="name_label">이름</div>
-                    <input class="name_value" type="textFiled" name="name_value">
+                    <input class="name_value input_type01" type="textFiled" name="name_value">
                 </div>
 
-                <div class="jumin_section">
+                <div class="jumin_section section_type01">
                     <div class="jumin_label">주민번호</div>
                     <input class="jumin_value1" type="textFiled" name="jumin_value1"> -
                     <input class="jumin_value2" type="textFiled" name="jumin_value2"> ******
                 </div>
 
-                <div class="tel_section">
+                <div class="tel_section section_type01">
 
                     <div class="tel_label">전화번호</div>
 
@@ -130,7 +128,7 @@
                 </div>
 
                 <%-- 인증번호받기 버튼 클릭시 나타남 --%>
-                <div class="authentication_code_section">
+                <div class="authentication_code_section section_type01">
                     <div class="authentication_code_label">인증번호</div>
 
                     <input class="authentication_code" type="text" name="authentication_code">
