@@ -32,10 +32,9 @@ public class HomePageController {
     @RequestMapping(value = "/myPage.do")
     public ModelAndView getMypage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("myPage");
+        mv.setViewName("myPage_myTicket");
         return mv;
     }
-
 
     @RequestMapping(value = "/reviewPage.do")
     public ModelAndView getReviewPage() {
@@ -44,7 +43,6 @@ public class HomePageController {
         return mv;
     }
 
-
     @RequestMapping(value = "/rankPage.do")
     public ModelAndView getRankpage() {
         ModelAndView mv = new ModelAndView();
@@ -52,14 +50,14 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "/member_login.do")
+    @RequestMapping(value = "/login.do")
     public ModelAndView getLoginPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("member_login");
         return mv;
     }
 
-    @RequestMapping(value = "/member_join.do")
+    @RequestMapping(value = "/join.do")
     public ModelAndView getJoinPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("member_join");
@@ -73,7 +71,19 @@ public class HomePageController {
         return mv;
     }
 
+    @RequestMapping(value="/find_id.do")
+    public ModelAndView getFindId(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_find_id");
+        return mv;
+    }
 
+    @RequestMapping(value="/find_pw.do")
+    public ModelAndView getFindPw(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_find_pw");
+        return mv;
+    }
 
 
 }
