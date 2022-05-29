@@ -27,4 +27,7 @@
         <li class="sideList_m"><a href="/reviewPage.do">리뷰 게시판</a></li>
         <li class="sideList_m"><a href="/servicePage.do">고객센터</a></li>
     </ul>
+    <div class="footerContainer">
+        <%@include file="main_footer.jsp"%>
+    </div>
 </div>

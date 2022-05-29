@@ -1,6 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="header_1">
-
     <div class="pc_header">
         <div class="logo_section">
             <div class="logo">
