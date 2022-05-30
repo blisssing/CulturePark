@@ -54,7 +54,7 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="open_btn">
+                    <button type="button" class="sideMenu_btn">
                         <i class="fa-solid fa-bars"></i>
                         <div class="menu_name">메뉴</div>
                     </button>
@@ -70,11 +70,16 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="myPage_btn">
+                    <button type="button" class="mySide_btn">
                         <i class="fa-solid fa-user"></i>
                         <div class="menu_name">마이메뉴</div>
                     </button>
+                    <%--<button type="button" class="login_btn">
+                        <i class="fa-solid fa-user"></i>
+                        <div class="menu_name">로그인</div>
+                    </button>--%>
                 </div>
+
             </li>
         </ul>
     </div>

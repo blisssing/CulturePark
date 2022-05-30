@@ -6,9 +6,15 @@ $(document).ready(function () {
             var width_size = window.outerWidth;
             var display_status = $('.sideMenu_mobile').css('display')
 
-            if (width_size>=1200 && clickStatus == 0){ // 펼친 상태면 닫아줌
+            if (width_size>=1200 && clickStatus === 0){ // 펼친 상태면 닫아줌
                 side_slideUp();
             }
+
+            if (width_size >= 1200 && my_clickStatus === 0) {
+                mySide_slideUp();
+            }
+
+
 
         });
 
@@ -46,6 +52,7 @@ $(document).ready(function () {
         var my_clickStatus = 1;
 
         $('.sideMenu_btn').click(function () {
+            console.log('슬라이드메뉴 버튼 실행');
             side_slideDown();
         });
 
@@ -58,7 +65,7 @@ $(document).ready(function () {
             mySlide_slideDown();
         });
 
-        $('.mySide_close_btn').click(function () {
+        $('.my_close_btn').click(function () {
             mySide_slideUp();
         });
 
