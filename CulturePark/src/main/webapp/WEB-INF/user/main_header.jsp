@@ -18,9 +18,12 @@
             </ul>
 
             <div class="funcs_mobile">
+
                 <%--   로그인 창으로 이동하는 링크 달아줄 것--%>
-                <button><i class="fa-solid fa-user-large"></i></button>
-                <button type="button" class="open_btn"><i class="fa-solid fa-bars"></i></button>
+<%--                <button type="button" class="login_btn"><i class="fa-solid fa-user-large"></i></button>--%>
+                <button type="button" class="mySide_btn"><i class="fa-solid fa-user-gear"></i></button>
+                <button type="button" class="sideMenu_btn"><i class="fa-solid fa-bars"></i></button>
+
             </div>
         </div>
     </div>
@@ -67,7 +70,7 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="mymenu_btn">
+                    <button type="button" class="myPage_btn">
                         <i class="fa-solid fa-user"></i>
                         <div class="menu_name">마이메뉴</div>
                     </button>

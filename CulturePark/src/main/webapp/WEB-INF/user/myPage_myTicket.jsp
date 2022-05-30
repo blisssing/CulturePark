@@ -12,7 +12,8 @@
 
     <style><%@include file="/resources/common/css/reset.css" %></style>
     <style><%@include file="/resources/common/css/common.css" %></style>
-    <style><%@include file="/resources/common/css/header.css"%></style>
+    <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
     <style><%@include file="/resources/user/css/myPage.css" %></style>
     <style><%@include file="/resources/user/css/myPage_subMenu.css" %></style>
     <style><%@include file="/resources/user/css/myPage_myTicket.css" %></style>
@@ -26,6 +27,7 @@
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <%----%>
         <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+        <script src="/resources/common/js/common.js"></script>
         <script src="/resources/user/js/myPage_myTicket.js"></script>
         <script src="/resources/common/js/two_point_datePicker.js"></script>
 
@@ -40,6 +42,9 @@
     <%-- haader --%>
     <div class="header_container">
         <%@ include file="/WEB-INF/user/main_header.jsp"%>
+        <%--<%@ include file="/WEB-INF/user/main_side.jsp"%>--%>
+        <%@ include file="/WEB-INF/user/myPage_side.jsp"%>
+
     </div>
 
     <%-- center --%>
