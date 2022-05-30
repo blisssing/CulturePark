@@ -11,6 +11,8 @@
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
     <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
     <style><%@include file="/resources/user/css/main_home.css"%></style>
     <style><%@include file="/resources/user/css/board_section.css"%></style>
     <style><%@include file="/resources/user/css/main_pdMainPage.css"%></style>
@@ -437,6 +439,11 @@
         </div>
 
     </div>
+
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
+    </div>
+
 </div>
 
 </body>

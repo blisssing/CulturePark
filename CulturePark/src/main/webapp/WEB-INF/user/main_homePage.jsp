@@ -350,7 +350,7 @@
     </div>
 
     <%-- footer 영역  --%>
-    <div class="footer_container"₩>
+    <div class="footer_container">
         <%@ include file="/WEB-INF/user/main_footer.jsp"%>
     </div>
 
