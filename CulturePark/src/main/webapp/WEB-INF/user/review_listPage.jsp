@@ -10,7 +10,10 @@
     <%--  css 불러오기  --%>
     <style><%@include file="/resources/common/css/reset.css"%></style>
     <style><%@include file="/resources/common/css/common.css"%></style>
+
     <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
 
     <style><%@include file="/resources/user/css/pd_list.css"%></style>
     <style><%@include file="/resources/user/css/review_listPage.css"%></style>
@@ -361,6 +364,10 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
     </div>
 </div>
 

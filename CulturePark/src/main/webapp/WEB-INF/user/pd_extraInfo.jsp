@@ -1,8 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.FileReader" %>
-<%@ page import="java.io.FileNotFoundException" %>
-<%@ page import="java.io.IOException" %>
+
 <div class="infoDetail">
     <%-- 이용 정보 페이지 --%>
     <div class="inner_section">
