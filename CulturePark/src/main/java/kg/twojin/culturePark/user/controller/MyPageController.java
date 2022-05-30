@@ -35,26 +35,31 @@ public class MyPageController {
         return mv;
     }
 
-    @RequestMapping(value="/likeList.do")
+    @RequestMapping(value = "/likeList.do")
     public ModelAndView getLikeList() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage_likeList");
         return mv;
     }
 
-    @RequestMapping(value="/pointPage.do")
-    public ModelAndView getPoint(){
+    @RequestMapping(value = "/pointPage.do")
+    public ModelAndView getPoint() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage_pointPage");
         return mv;
     }
 
-    @RequestMapping(value="/myReview.do")
-    public ModelAndView getReview(){
+    @RequestMapping(value = "/myReview.do")
+    public ModelAndView getReview() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage_myReview");
         return mv;
     }
 
-
+    @RequestMapping(value = "/myInfo.do")
+    public ModelAndView myInfoPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_myInfo");
+        return mv;
+    }
 }
