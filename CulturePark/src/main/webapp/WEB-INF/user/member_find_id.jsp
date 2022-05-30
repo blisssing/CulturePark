@@ -43,30 +43,29 @@
             </div>
 
 
-            <div class="label_section">
-                <div class="label">아이디 찾기</div>
-            </div>
 
-
-
-            <%----- 아이디 찾기 영역 -----%>
-            <div class="find_all_section">
-                <div class="find_section">
-                    <div class="find_label">이름</div>
-                    <input type="textField" class="find_value" id="find_name_value">
+            <%--------- 아이디 찾기 영역 --------%>
+                <div class="label_section">
+                    <div class="label">아이디 찾기</div>
                 </div>
 
-                <div class="find_section">
-                    <div class="find_label">주민번호 앞 6자리</div>
-                    <input type="textField" class="find_value" id="find_jumin_value">
+                <div class="find_all_section">
+                    <div class="find_section">
+                        <div class="find_label">이름</div>
+                        <input type="textField" class="find_value" id="find_name_value">
+                    </div>
+
+                    <div class="find_section">
+                        <div class="find_label">주민번호 앞 6자리</div>
+                        <input type="textField" class="find_value" id="find_jumin_value">
+                    </div>
+
+                    <div class="ok_btn_section">
+                        <input class="ok_btn" id="id_ok_btn" type="submit" value="확인">
+                    </div>
                 </div>
 
-                <div class="ok_btn_section">
-                    <input class="ok_btn" id="id_ok_btn" type="submit" value="확인">
-                </div>
-            </div>
 
-            </div>
         </div> <%-- /content_container --%>
     </div>  <%-- /centerContainer --%>
 </div>  <%-- /mainContainer --%>
@@ -76,6 +75,6 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/member_find_id.js"></script>
+<script src="/resources/user/js/member_find_id_pw.js"></script>
 
 </html>

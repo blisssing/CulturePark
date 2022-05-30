@@ -1,3 +1,7 @@
+.inner_container {
+    max-width: 400px;
+    margin:auto;
+}
 
 .funcs_mobile {
     display: none;
@@ -44,13 +48,12 @@
 
 /* 공백 */
 .find_all_section {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .find_all_section input {
     height: 20px;
 }
-
 
 .find_section {
     display: flex;
@@ -99,15 +102,13 @@
     .content_container{
         display: flex;
         flex-direction: column;
+        margin-top: 50px;
         width: 100%;
-
     }
 
     .inner_container {
-        display: flex;
-        flex-direction: column;
-
-        max-width: 400px;
+        margin: auto;
+        min-width: 30%;
     }
 
 }
