@@ -10,9 +10,10 @@
     <%--  css 불러오기  --%>
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
-    <style><%@include file="/resources/common/css/header.css"%></style>
-    <style><%@include file="/resources/common/css/footer.css"%></style>
-    <style><%@ include file="/resources/user/css/main_home.css"%></style>
+    <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
+    <style><%@include file="/resources/user/css/main_home.css"%></style>
 
     <%--  js 불러오기  --%>
 
