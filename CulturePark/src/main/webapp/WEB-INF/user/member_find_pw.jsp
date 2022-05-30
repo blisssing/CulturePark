@@ -32,6 +32,7 @@
         <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
 
         <div class="content_container">
+            <div class="inner_container">
 
             <%-- 뒤로가기 --%>
             <div class="back_section">
@@ -41,28 +42,35 @@
                 </div>
             </div>
 
+            <div class="label_section">
+                <div class="label">비밀번호 찾기</div>
+            </div>
+
 
             <%---- 비밀번호 찾기 영역 ----%>
             <div class="find_all_section">
                 <div class="find_section">
-                    <div class="find_label">아이디</div>
-                    <input type="textField" class="email_value" id="find_email_value">
+                    <div class="find_label">이메일</div>
+                    <input type="textField" class="input_value" id="find_email_value">
+                    <input type="button" class="code_send_btn" value="인증번호 받기">
                 </div>
 
                 <div class="find_section">
                     <div class="find_label">인증번호</div>
-                    <input type="textField" class="find_value" id="find_code_value">
+                    <input type="textField" class="input_value" id="find_code_value">
+                    <div class="certifyTime_section">
+                        <span class="certifyTime">02:39</span>
+                    </div>
                 </div>
 
-                <div class="certifyTime_section">
-                    <span class="certifyTime">test:02:39</span>
-                </div>
+
 
                 <div class="ok_btn_section">
                     <input class="ok_btn" id=pw_ok_btn" type="submit" value="확인">
                 </div>
             </div>
 
+            </div>
         </div> <%-- /content_container --%>
     </div>  <%-- /centerContainer --%>
 </div>  <%-- /mainContainer --%>
