@@ -71,33 +71,7 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value="/findId.do")
-    public ModelAndView getFindId(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("member_find_id");
-        return mv;
-    }
 
-    @RequestMapping(value="/findPw.do")
-    public ModelAndView getFindPw(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("member_find_pw");
-        return mv;
-    }
-
-    @RequestMapping(value="/findIdResult.do")
-    public ModelAndView getFindIdResult(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("member_find_id_result");
-        return mv;
-    }
-
-    @RequestMapping(value="/findPwResult.do")
-    public ModelAndView getFindPwResult(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("member_find_pw_result");
-        return mv;
-    }
 
 
 }

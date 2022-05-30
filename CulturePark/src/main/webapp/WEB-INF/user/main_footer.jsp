@@ -1,8 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <meta charset="utf-8">
 
-<div class="footer_menu"></div>
-
 <div class="footer_info footer_p">
     <div class="info_wrap">
         <div class="wrap_title">주식회사 투진</div>
