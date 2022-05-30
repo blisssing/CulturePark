@@ -32,7 +32,6 @@
         <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
         <script src="/resources/common/js/common.js"></script>
         <script src="/resources/user/js/myPage_myTicket.js"></script>
-        <script src="/resources/common/js/two_point_datePicker.js"></script>
 
 
     <title>my Ticket</title>
@@ -45,9 +44,7 @@
     <%-- haader --%>
     <div class="header_container">
         <%@ include file="/WEB-INF/user/main_header.jsp"%>
-        <%--<%@ include file="/WEB-INF/user/main_side.jsp"%>--%>
-        <%@ include file="/WEB-INF/user/myPage_side.jsp"%>
-
+        <%@ include file="/WEB-INF/user/main_side.jsp"%>
     </div>
 
     <%-- center --%>
