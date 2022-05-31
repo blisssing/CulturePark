@@ -25,7 +25,6 @@
 
     <dependencies>
 
-
       <!--  &lt;!&ndash; 문자 인증관련 라이브러리 &ndash;&gt;
         <dependency>
             <groupId>net.nurigo</groupId>
