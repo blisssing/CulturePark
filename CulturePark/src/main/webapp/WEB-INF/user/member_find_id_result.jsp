@@ -18,35 +18,47 @@
 
 <%--성공시--%>
 <div class="success_view">
+
     <div class="container_div">
-        <div class="label_section">
-            <span class="user">김진아</span><span>회원님의 아이디는</span>
+
+        <div class="label_section label_div">
+            <div class="label">아이디 찾기</div>
         </div>
 
-        <div class="id_section">
+    <p class="sectionLine_thin"></p>
+
+        <div class="label_section id_section">
+            <span>회원님의 아이디는</span>
+        </div>
+
+        <div class="label_section id_section">
             <span class="user_id">abcdefg12@naver.com</span>
         </div>
 
-        <div class="label_section">
-            <span>입니다.</span>
+        <div class="label_section id_section">
+            <span class="label">입니다.</span>
         </div>
 
+        <p class="sectionLine_thin"></p>
+
         <div class="btn_section">
-            <input type="button" class="ok_btn" value="확인">
-            <input type="button" class="login_btn" value="로그인하러가기">
+            <input type="button" class="btn login_btn" value="로그인">
+            <input type="button" class="btn ok_btn" value="확인">
         </div>
 
     </div>
+
 </div>
 
 <%--실패시--%>
 <div class="fail_view">
     <div class="container_div">
-        <div class="icon_section">
 
+        <div class="icon_section">
+            <i class="fa-solid fa-triangle-exclamation"></i>
         </div>
 
-        <div class="label_section">
+        <div class="label_section_row">
             <span>존재하지 않는 회원정보입니다.</span>
             <span>다시 입력해주세요.</span>
         </div>
@@ -57,6 +69,25 @@
 
     </div>
 </div>
+
+
+
+<%--<%
+    number = fdsafdsa.getParemeter("a");
+
+    if (number == 1) {
+%>
+
+<div> !@!@!@!@!</div>
+
+<%
+    } else if (number == 2) {
+
+%>
+
+
+<div>`11`1실패</div>
+--%>
 
 </body>
 

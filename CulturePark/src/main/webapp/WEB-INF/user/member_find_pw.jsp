@@ -49,11 +49,37 @@
 
             <%---- 비밀번호 찾기 영역 ----%>
             <div class="find_all_section">
+
+                <div class="type_choice">
+                    <input type="radio" class="email_radio" id="email" name="type_chk" value="이메일" checked="checked">
+                    <div class="email_radio_label">이메일</div>
+                    <input type="radio" class="phone_radio" id="phone" name="type_chk" value="휴대폰번호">
+                    <div class="phone_radio_label">휴대폰</div>
+               </div>
+
                 <div class="find_section">
+                    <div class="find_label">이름</div>
+                    <input type="textField" class="input_value" id="find_name_value">
+                </div>
+
+                <%--이메일--%>
+                <div class="find_section email_set">
                     <div class="find_label">이메일</div>
                     <input type="textField" class="input_value" id="find_email_value">
                     <input type="button" class="code_send_btn" value="인증번호 받기">
                 </div>
+
+                <%--번호--%>
+                <div class="find_section phone_set">
+                    <div class="find_label">휴대폰</div>
+                    <input type="textField" class="input_value tel_1" id="find_phone_value_1">
+                    <div class="space">-</div>
+                    <input type="textField" class="input_value tel_2" id="find_phone_value_2">
+                    <div class="space">-</div>
+                    <input type="textField" class="input_value tel_3" id="find_phone_value_3">
+                    <input type="button" class="code_send_btn" value="인증번호 받기">
+                </div>
+
 
                 <div class="find_section">
                     <div class="find_label">인증번호</div>
@@ -66,7 +92,7 @@
 
 
                 <div class="ok_btn_section">
-                    <input class="ok_btn" id=pw_ok_btn" type="submit" value="확인">
+                    <input class="ok_btn find_pw_ok_btn" id=pw_ok_btn" type="submit" value="확인">
                 </div>
             </div>
 
@@ -80,6 +106,6 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/member_find_pw.js"></script>
+<script src="/resources/user/js/member_find_id_pw.js"></script>
 
 </html>

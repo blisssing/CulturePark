@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="ok_btn_section">
-                        <input class="ok_btn" id="id_ok_btn" type="submit" value="확인">
+                        <input class="ok_btn find_id_ok_btn" id="id_ok_btn" type="submit" value="확인">
                     </div>
                 </div>
 

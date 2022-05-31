@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    /* 이전 */
+    $('.back').click(function(){
+        window.history.back();
+    });
+
     /* 체크박스 전체 선택 */
     $('.checkbox_all_p').click(function () {
         if ($(".checkbox_all_p").prop("checked")) {

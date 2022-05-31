@@ -1,3 +1,4 @@
+
 .inner_container {
     max-width: 400px;
     margin:auto;
@@ -53,6 +54,17 @@
     margin-top: 60px;
 }
 
+.type_choice {
+    display: flex;
+    margin-bottom: 30px;
+    font-size:0.8rem;
+}
+
+.email_radio_label {
+    margin-right: 40px;
+}
+
+
 
 .find_section {
     display: flex;
@@ -62,20 +74,39 @@
     font-size: 0.9rem;
 }
 
+.phone_set {
+    display: none;
+    width: 100%;
+}
+
+
 .find_label {
     padding-top: 8px;
-    font-size: 0.8rem;
-    width:20%;
+    font-size: 0.7rem;
+    width: 14%;
 }
 
 .input_value {
-    width:50%;
+    width: 48%;
     height: 20px;
 }
 
+
+.tel_1 {
+    width: 40px;
+}
+
+.tel_2 , .tel_3 {
+    width: 52px;
+}
+
+.space {
+    margin: auto 5px;
+}
+
 .code_send_btn {
-    width: 27%;
-    margin-left:5px;
+    width: 21%;
+    margin-left: 6px;
     font-size: 0.7rem;
 }
 
@@ -85,9 +116,7 @@
     font-size: 0.8rem;
     text-align: center;
     margin-top: 5px;
-
 }
-
 
 .ok_btn_section {
     margin-top: 50px;
