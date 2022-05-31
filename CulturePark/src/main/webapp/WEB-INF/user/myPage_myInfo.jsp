@@ -48,6 +48,7 @@
     <%-- haader --%>
     <div class="header_container">
         <%@ include file="/WEB-INF/user/main_header.jsp" %>
+        <%@ include file="/WEB-INF/user/main_side.jsp"%>
     </div>
 
     <%-- center --%>
@@ -58,21 +59,18 @@
 
         <%-- 내부 영역을 한 번 감싸주는 영역.  --%>
 
-        <div class="innerContainer">
-            <div class="innerContainer">
+            <div class="innerContainrer">
 
                 <div class="subMenu_container">
                     <%@ include file="/WEB-INF/user/myPage_subMenu.jsp" %>
                 </div>
 
-                <div class="content_container">
+                <div class="content_container" id="content">
                   <div class="firstGate_section">
                     <div class="notice_wrap">
                       <div class="notice_icon"><i class="fa-solid fa-lock"></i></div>
                       <div class="notice_text">정보를 안전하게 보호하기 위해 <br> 비밀번호를 다시 한 번 확인합니다</div>
                     </div>
-
-
                     <table class="input_table">
                         <tbody>
                       <tr class="id_wrap">
@@ -96,20 +94,12 @@
 
                         </tbody>
                     </table>
-
-
-
-
                   </div>
-
-                  <div class="secondGate_section"></div>
-
                 </div>
                 <%-- /content_container --%>
 
             </div>
             <%-- /innerContent --%>
-        </div>
         <%-- /centerContainer --%>
     </div>
 </div>

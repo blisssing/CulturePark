@@ -37,6 +37,7 @@
     <%-- haader --%>
     <div class="header_container">
         <%@ include file="/WEB-INF/user/main_header.jsp"%>
+        <%@ include file="/WEB-INF/user/main_side.jsp"%>
     </div>
 
     <%-- center --%>
