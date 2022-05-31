@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.admin.controller;
+package kg.twojin.culturePark.admin.common.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -23,10 +23,5 @@ public class AdHomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "createAd.ado")
-    public ModelAndView AdCreate() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("ad_createAcount");
-        return mv;
-    }
+
 }
