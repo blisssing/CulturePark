@@ -49,3 +49,45 @@ td {
 .secondGate_section {
     display: none;
 }
+
+/* 회정정보 수정 창 */
+
+.section_title {
+    font-size: 2.0rem;
+}
+
+.modi_section > * {
+    margin: 20px 0;
+}
+
+.info_row > td {
+    vertical-align: center;
+}
+
+.info_head {
+    white-space: nowrap;
+}
+
+.pw_content > div {
+    margin: 10px 0px;
+
+}
+
+.content_text {
+    display: inline-block;
+}
+
+
+.alert_text_01, .alert_text_02 {
+    font-size: 0.8rem;
+}
+
+.alert_text_02 {
+    display: none;
+    color: red;
+}
+
+.ph_row > .info_content> * {
+    width: 50px;
+    margin: 5px 0;
+}

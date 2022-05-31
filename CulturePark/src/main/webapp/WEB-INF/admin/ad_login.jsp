@@ -83,13 +83,13 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-<script src="/resources/admin/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/resources/common/js/bootstrap/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="/resources/admin/js/jquery-easing/jquery.easing.min.js"></script>
+<script src="/resources/common/js/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="/resources/admin/js/common/sb-admin-2.min.js"></script>
+<script src="/resources/common/js/common/sb-admin-2.min.js"></script>
 
 </body>
 
