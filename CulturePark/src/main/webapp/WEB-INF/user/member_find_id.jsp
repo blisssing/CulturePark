@@ -75,6 +75,6 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/member_find_id_pw.js"></script>
+<script src="/resources/user/js/member_find_id.js"></script>
 
 </html>
