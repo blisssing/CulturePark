@@ -37,17 +37,74 @@
 
         <!-- Main Content -->
         <div id="content">
-
             <%@include file="/WEB-INF/admin/ad_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-                <div class=""></div>
+                <div class="container">
 
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">관리자 계정 생성</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="FirstName"
+                                                           placeholder="이름">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="LastName"
+                                                           placeholder="성">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" id="InputEmail"
+                                                       placeholder="이메일">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                                       placeholder="010-xxxx-xxxx">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="password" class="form-control form-control-user"
+                                                           id="InputPassword" placeholder="Password">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control form-control-user"
+                                                           id="RepeatPassword" placeholder="Repeat Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="Depart"
+                                                           placeholder="부서">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" id="Position"
+                                                           placeholder="직책">
+                                                </div>
+                                            </div>
 
+                                            <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
+                                        </form>
+                                        <hr>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -98,6 +155,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
+<script src="/resources/admin/js/ad_createAd.js"></script>
 
 </body>
 

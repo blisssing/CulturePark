@@ -3,7 +3,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index.ado">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -75,7 +75,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Admin 관리</h6>
                 <a class="collapse-item" href="utilities-color.html">계정관리</a>
-                <a class="collapse-item" href="utilities-border.html">계정생성</a>
+                <a class="collapse-item" href="/createAd.ado">계정생성</a>
                 <a class="collapse-item" href="utilities-animation.html">권한관리</a>
             </div>
         </div>
@@ -99,7 +99,7 @@
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">상품관리:</h6>
+                <h6 class="collapse-header">상품관리</h6>
                 <a class="collapse-item" href="login.html">요청리스트</a>
                 <a class="collapse-item" href="register.html">생성대기리스트</a>
                 <a class="collapse-item" href="forgot-password.html">진행 중 리스트</a>
