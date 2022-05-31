@@ -140,7 +140,7 @@
                 </div>
                 <%-- 인증 유효시간 --%>
                 <div class="certifyTime">
-                    <span class="time">test::00:00</span>
+                    <span class="time">10:00</span>
                 </div>
 
             </div>

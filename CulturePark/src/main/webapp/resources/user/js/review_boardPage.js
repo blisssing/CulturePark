@@ -22,7 +22,7 @@ function thumbUp() {
         $('.fa-regular').css('color', 'blue');
         $('.thumb_point').text(thumb_point+1);
     } else {    // DB에 좋아요 기록이 있을 경우
-        $('.fa-solidr').toggleClass('.fa-regular');
+        $('.fa-solid').toggleClass('.fa-regular');
         $('.fa-regular').css('color', 'none');
         $('.thumb_point').text(thumb_point-1);
     }

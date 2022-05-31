@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    margin:10px 10px;
+    margin:5px 10px;
     height: 90%;
    /* line-height: 200%;*/
 }
@@ -18,7 +18,7 @@
 }
 
 .booking_label_small {
-    font-size: 11pt;
+    font-size: 1rem;
     margin-top: 10px;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .booking_name_section {
-    margin-bottom: 13px;
+    margin-bottom: 23px;
 }
 
 .booking_name {
-    font-size: 13pt;
+    font-size: 15pt;
 }
 
 .date_section {
@@ -60,6 +60,11 @@
 
 
 /* 2 결제금액 영역 */
+
+.booking_purchase {
+    font-size: 1.1rem;
+}
+
 .cancel_purchase_section {
     display: flex;
     flex-direction: column;
@@ -82,14 +87,14 @@
 .deduction_pay_div_section {
     display: flex;
     justify-content: space-between;
-    font-size: 11pt;
+    font-size: 1.1rem;
 }
 
 /* 취소 수루료 영역 */
 .cancellationPee_div_section {
     display: flex;
     justify-content: space-between;
-    font-size: 11pt;
+    font-size: 1.1rem;
 }
 
 .deduction_pay_div {
@@ -101,6 +106,10 @@
 }
 
 /* 3. 환불금액 영역 */
+
+.refundAmount {
+    font-size: 1.1rem;
+}
 
 .refundAmount_section {
     display: flex;
@@ -127,9 +136,8 @@
 }
 
 .cancel_refund_guide_section {
-
-    margin-top: 10px;
-    font-size: 9pt;
+    margin-top: 12px;
+    font-size: 0.9rem;
 }
 
 .cancel_refund_guide {

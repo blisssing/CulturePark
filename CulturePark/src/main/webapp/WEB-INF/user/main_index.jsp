@@ -30,6 +30,10 @@
     <div class="centerContainer">
         <%-- 이곳에 페이지를 import --%>
     </div>
+
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
+    </div>
 </div>
 
 </body>
