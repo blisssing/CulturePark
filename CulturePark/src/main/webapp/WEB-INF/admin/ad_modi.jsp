@@ -52,7 +52,7 @@
                                 <div class="col-lg-7">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">관리자 계정 수정</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">관리자 정보 변경</h1>
                                         </div>
                                         <form class="user">
                                             <div class="form-group row">
@@ -75,16 +75,28 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="Depart"
-                                                           placeholder="부서">
+                                                    <input type="password" class="form-control form-control-user"
+                                                           id="InputPassword" placeholder="Password">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control form-control-user" id="Position"
-                                                           placeholder="직책">
+                                                    <input type="password" class="form-control form-control-user"
+                                                           id="RepeatPassword" placeholder="Repeat Password">
                                                 </div>
                                             </div>
-
-                                            <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="Depart"
+                                                       placeholder="부서">
+                                            </div>
+                                            <div class="form-group">
+                                                <ul class="col-sm-6 chk_ul">
+                                                    <div>권한</div>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="member">회원관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="manager">매니저관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="product">상품관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
+                                                </ul>
+                                            </div>
+                                            <button  class="btn btn-primary btn-user btn-block btn_regist">변경하기</button>
                                         </form>
                                         <hr>
 
