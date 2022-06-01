@@ -12,16 +12,21 @@ public class AdHomePageController {
     @RequestMapping(value = "index.ado")
     public ModelAndView AdIndex() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("ad_index");
+        mv.setViewName("common_index");
         return mv;
     }
 
     @RequestMapping(value = "login.ado")
     public ModelAndView AdLogin() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("ad_login");
+        mv.setViewName("main_login");
         return mv;
     }
 
-
+    @RequestMapping(value = "indexTable.ado")
+    public ModelAndView AdTable() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("common_table_index");
+        return mv;
+    }
 }

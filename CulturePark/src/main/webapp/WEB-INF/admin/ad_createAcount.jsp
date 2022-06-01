@@ -29,7 +29,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/admin/ad_head&side.jsp"%>
+    <%@include file="/WEB-INF/admin/common_head&side.jsp"%>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -37,7 +37,7 @@
 
         <!-- Main Content -->
         <div id="content">
-            <%@include file="/WEB-INF/admin/ad_topbar.jsp"%>
+            <%@include file="/WEB-INF/admin/comomn_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -89,11 +89,12 @@
                                                            placeholder="부서">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control form-control-user" id="Position"
-                                                           placeholder="직책">
+                                                    <select class="form-control form-control-user " id="Position">
+                                                        <option value="super" selected="selected">슈퍼asdasdasdasdsadsad</option>
+                                                        <option value="member">회원</option>
+                                                    </select>
                                                 </div>
                                             </div>
-
                                             <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
                                         </form>
                                         <hr>
@@ -112,7 +113,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <%@include file="/WEB-INF/admin/ad_footer.jsp"%>
+        <%@include file="/WEB-INF/admin/common_footer.jsp"%>
         <!-- End of Footer -->
 
     </div>

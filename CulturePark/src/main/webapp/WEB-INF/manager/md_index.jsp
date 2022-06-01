@@ -29,7 +29,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/admin/ad_head&side.jsp"%>
+    <%@include file="/WEB-INF/admin/common_head&side.jsp"%>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
         <!-- Main Content -->
         <div id="content">
 
-            <%@include file="/WEB-INF/admin/ad_topbar.jsp"%>
+            <%@include file="/WEB-INF/admin/comomn_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -53,7 +53,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-            <%@include file="/WEB-INF/admin/ad_footer.jsp"%>
+            <%@include file="/WEB-INF/admin/common_footer.jsp"%>
         <!-- End of Footer -->
 
     </div>
