@@ -1,6 +1,7 @@
 package kg.twojin.culturePark.user.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -60,6 +61,13 @@ public class MyPageController {
     public ModelAndView myInfoPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("myPage_myInfo");
+        return mv;
+    }
+
+    @RequestMapping(value = "levelPage.do")
+    public ModelAndView myLevel() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_levelPage");
         return mv;
     }
 }

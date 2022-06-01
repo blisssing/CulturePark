@@ -13,7 +13,7 @@
     <style><%@include file="/resources/user/css/common_header.css"%></style>
     <style><%@include file="/resources/user/css/member_find_id.css" %></style>
 
-    <title>member find id pw</title>
+    <title>member find id </title>
 </head>
 
 <body>
