@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -24,7 +23,7 @@
             <div class="label">아이디 찾기</div>
         </div>
 
-    <p class="sectionLine_thin"></p>
+        <p class="sectionLine_thin"></p>
 
         <div class="label_section id_section">
             <span>회원님의 아이디는</span>
@@ -41,7 +40,7 @@
         <p class="sectionLine_thin"></p>
 
         <div class="btn_section">
-            <input type="button" class="btn login_btn" value="로그인">
+            <input type="button" class="btn login_btn" value="로그인" onClick="window.open('/login.mdo')">
             <input type="button" class="btn ok_btn" value="확인">
         </div>
 
@@ -93,7 +92,6 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/member_find_id.js"></script>
-
+<script src="/resources/manager/js/main_find_id.js"></script>
 
 </html>
