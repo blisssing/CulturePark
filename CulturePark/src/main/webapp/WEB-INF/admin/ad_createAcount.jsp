@@ -15,7 +15,10 @@
     <style><%@include file="/resources/common/css/fontawesome/all.min.css"%></style>
     <!-- Custom styles for this template-->
     <style><%@include file="/resources/common/css/sb-admin-2.min.css"%></style>
+    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
+    <style><%@include file="/resources/admin/css/ad_createAcount.css"%></style>
 
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
     <title> CulturePark 관리자</title>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -83,17 +86,18 @@
                                                            id="RepeatPassword" placeholder="Repeat Password">
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-group">
                                                     <input type="text" class="form-control form-control-user" id="Depart"
                                                            placeholder="부서">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control form-control-user " id="Position">
-                                                        <option value="super" selected="selected">슈퍼asdasdasdasdsadsad</option>
-                                                        <option value="member">회원</option>
-                                                    </select>
-                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <ul class="col-sm-6 chk_ul">
+                                                    <div>권한</div>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="member">회원관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="manager">매니저관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="product">상품관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
+                                                </ul>
                                             </div>
                                             <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
                                         </form>

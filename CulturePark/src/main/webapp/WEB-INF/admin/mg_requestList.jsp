@@ -28,9 +28,9 @@
         <%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css" %>
     </style>
 
-    <style>
-        <%@include file="/resources/admin/css/ad_adminList.css" %>
-    </style>
+    <style><%@include file="/resources/admin/css/mg_mgRequest.css"%></style>
+
+
 
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
@@ -64,17 +64,23 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">관리자 관리</h1>
+                <h1 class="h3 mb-2 text-gray-800">판매자 관리</h1>
                 <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                     For more information about DataTables, please visit the <a target="_blank"
                                                                                href="https://datatables.net">official
                         DataTables documentation</a>.</p>
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn btn-primary btn-sm btn-circle">M</span><span>정보수정</span>
+                        <span class="btn_More_info btn btn-primary btn-sm btn-circle">MI</span>
+                        <span>세부정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_delete_data btn btn-primary btn btn-primary btn-circle btn-sm fas fa-trash"></span><span>삭제</span>
+                        <span class="btn_Agree btn btn-primary btn-sm btn-circle">AG</span>
+                        <span>요청수락</span>
+                    </div>
+                    <div class="descript_wrap">
+                        <span class="btn_Disagree btn btn-primary btn-sm btn-circle">DE</span>
+                        <span>요청거절</span>
                     </div>
 
 
@@ -89,77 +95,46 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>이름</th>
-                                    <th>부서</th>
-                                    <th>번호</th>
+                                    <th>number</th>
+                                    <th>회사</th>
+                                    <th>대표</th>
                                     <th>이메일</th>
-                                    <th>생성일</th>
+                                    <th>구분</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>이름</th>
-                                    <th>부서</th>
-                                    <th>번호</th>
+                                    <th>number</th>
+                                    <th>회사</th>
+                                    <th>대표</th>
                                     <th>이메일</th>
-                                    <th>생성일</th>
+                                    <th>구분</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <form name="frm">
                                     <tr>
-                                        <td class="name">한진희</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">123</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M
-                                                </button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
+                                        <td class="td_seq">
+                                            1
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">김진아</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">456</td>
-                                        <td class="email">blisssing@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <input type="button" class="btn_modi_info btn btn-primary btn-sm btn-circle" value="M">
-                                                <button type="button" class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
+                                        <td class="td_com">
+                                            피크닉
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">789</td>
-                                        <td class="email">HongMin@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
+                                        <td class="td_present">
+                                            동산주
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">한규진</td>
-                                        <td class="depart">C</td>
-                                        <td class="num">101112</td>
-                                        <td class="email">gyujin@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
+                                        <td class="td_email">
+                                            picknic@gmail.com
+                                        </td>
+                                        <td class="td_type">
+                                            전시
+                                        </td>
+                                        <td class="td_func">
+                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle">MI</button>
+                                            <button class="btn_Agree btn btn-primary btn-sm btn-circle">AG</button>
+                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">DE</button>
                                         </td>
                                     </tr>
                                 </form>
@@ -210,6 +185,44 @@
     </div>
 </div>
 
+<div class="modal fade" id="DisagreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="askLabel">정말로 거절하겠습니까??</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">정말로 요청을 거절하시겠습니까?</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                <button class="btn_finalDisagree btn btn-primary" >거절</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AgreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agreeAsk">정말로 수락하시겠습니까?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">정말로 요청을 수락하시겠습니까?</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                <button class="btn_finalAgree btn btn-primary" >수락</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/resources/common/js/bootstrap/bootstrap.bundle.min.js"></script>
@@ -226,6 +239,9 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="/resources/admin/js/ad_adminList.js" type="text/javascript"></script>
+<script src="/resources/admin/js/mg_requestList.js"type="text/javascript"></script>
+
+
 
 </body>
 

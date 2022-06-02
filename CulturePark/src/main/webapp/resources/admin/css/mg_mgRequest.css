@@ -1,0 +1,40 @@
+.btn_wrap {
+    white-space: nowrap;
+}
+
+.btn_wrap > button {
+    margin: 10px 5px;
+}
+
+
+.icon_descript {
+    text-align: right;
+}
+
+.icon_descript > div {
+    display: inline-block;
+    margin: 5px;
+}
+
+.descript_wrap > span {
+    margin: 5px;
+}
+
+.btn_More_info {
+    background-color: orange;
+    color: black;
+}
+
+
+.btn_Agree{
+    background-color: greenyellow;
+    color: black;
+}
+
+.btn_Disagree {
+    background-color: red;
+}
+
+#DisagreeModal {
+    display: none;
+}

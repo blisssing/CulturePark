@@ -8,7 +8,9 @@ $(document).ready(function () {
         var password_01 = $('#InputPassword').val();
         var password_02 = $('#RepeatPassword').val();
         var department = $('#Depart').val();
-        var position = $('#Position').val();
+
+        var chk_list = $('input[name=chk_right]:checked');
+
 
         if (last_name.trim() === '') {
             alert("성을 입력해주세요");
@@ -26,11 +28,11 @@ $(document).ready(function () {
             alert("비밀번호와 재입력이 일치하지 않습니다");
         } else if (department.trim() === '') {
             alert("부서를 입력해주세요");
-        } else if (position.trim() === '') {
-            alert("직책을 입력해주세요.");
+        } else if (chk_list.length === 0) {
+            alert("권한을 최소 한 개 이상 선택해주세요.")
         } else {
             createAccount(last_name, first_name, email, phone, password_01
-                                ,department, position);
+                , department, position);
         }
 
 
