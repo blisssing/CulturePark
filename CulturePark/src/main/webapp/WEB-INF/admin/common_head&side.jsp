@@ -55,7 +55,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manager 관리</h6>
-                <a class="collapse-item" href="../common/buttons.html">파트너요청관리</a>
+                <a class="collapse-item" href="/mgRequest.ado">파트너요청관리</a>
                 <a class="collapse-item" href="../common/buttons.html">파트너 목록</a>
                 <a class="collapse-item" href="../common/buttons.html">생성대기</a>
                 <%--                <a class="collapse-item" href="cards.html">Cards</a>--%>
@@ -76,7 +76,6 @@
                 <h6 class="collapse-header">Admin 관리</h6>
                 <a class="collapse-item" href="/adminList.ado">계정관리</a>
                 <a class="collapse-item" href="/createAd.ado">계정생성</a>
-                <a class="collapse-item" href="utilities-animation.html">권한관리</a>
             </div>
         </div>
     </li>
@@ -90,7 +89,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>

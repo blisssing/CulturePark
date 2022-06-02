@@ -5,3 +5,7 @@
 .chk_list > * {
     margin: 0 10px 0 0;
 }
+
+.col-lg-7 {
+    margin: 0 auto;
+}
