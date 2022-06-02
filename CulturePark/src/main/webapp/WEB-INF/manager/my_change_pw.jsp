@@ -13,10 +13,18 @@
 
     <!-- Custom fonts for this template-->
     <style><%@include file="/resources/common/css/fontawesome/all.min.css"%></style>
+
     <!-- Custom styles for this template-->
     <style><%@include file="/resources/common/css/sb-admin-2.min.css"%></style>
+    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
 
-    <title>CulturePark 관리자</title>
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+
+    <%-- css --%>
+    <style><%@include file="/resources/manager/css/my_change_pw.css"%></style>
+
+
+    <title>manager change password</title>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -29,7 +37,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/admin/common_head&side.jsp"%>
+    <%@include file="/WEB-INF/manager/common_head&side.jsp"%>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -38,13 +46,37 @@
         <!-- Main Content -->
         <div id="content">
 
-            <%@include file="/WEB-INF/admin/comomn_topbar.jsp"%>
+            <%@include file="/WEB-INF/manager/common_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+
+                <div class="inner_section">
+
+                    <div class="icon_section">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+                    <div class="new_pw_section">
+                        <span class="new_pw_label">새비밀번호 입력</span>
+                        <input class="new_pw_value" type="textField">
+                    </div>
+
+                    <div class="new_pw_check_section">
+                        <span class="new_pw_label">새비밀번호 확인</span>
+                        <input class="new_pw_check_value" type="textField">
+                    </div>
+
+                    <div class="btn_section">
+                        <input type="button" class="cancel_btn" value="취소">
+                        <input type="button" class="change_btn" value="변경">
+                    </div>
+
+                </div>
+
+
 
             </div>
             <!-- /.container-fluid -->
@@ -53,7 +85,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-            <%@include file="/WEB-INF/admin/common_footer.jsp"%>
+        <%@include file="/WEB-INF/manager/common_footer.jsp"%>
         <!-- End of Footer -->
 
     </div>
@@ -96,6 +128,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
+
+<%-- script --%>
+<script src="/resources/manager/js/my_change_pw.js"></script>
 
 </body>
 

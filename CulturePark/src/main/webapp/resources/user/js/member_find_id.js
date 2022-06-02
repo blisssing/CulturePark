@@ -12,7 +12,7 @@ $(document).ready(function() {
 
         var result_chk_insert = chkInsert();
 
-        if (result_chk_insert) {
+        if (result_chk_insert) { //true일때
             chkMemberIs(inserted_name, inserted_jumin);
         } else {
             //Todo : 비정상 실행 결과

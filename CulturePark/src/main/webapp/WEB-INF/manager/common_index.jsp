@@ -11,13 +11,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
     <!-- Custom fonts for this template-->
     <style><%@include file="/resources/common/css/fontawesome/all.min.css"%></style>
     <!-- Custom styles for this template-->
     <style><%@include file="/resources/common/css/sb-admin-2.min.css"%></style>
+    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
 
-    <title>CulturePark 관리자</title>
+    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+
+    <title>CulturePark 판매자</title>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -30,7 +32,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/admin/common_head&side.jsp"%>
+    <%@include file="/WEB-INF/manager/common_head&side.jsp"%>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -39,7 +41,7 @@
         <!-- Main Content -->
         <div id="content">
 
-            <%@include file="/WEB-INF/admin/comomn_topbar.jsp"%>
+            <%@include file="/WEB-INF/manager/common_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -54,7 +56,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-            <%@include file="/WEB-INF/admin/common_footer.jsp"%>
+            <%@include file="/WEB-INF/manager/common_footer.jsp"%>
         <!-- End of Footer -->
 
     </div>
@@ -87,7 +89,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
