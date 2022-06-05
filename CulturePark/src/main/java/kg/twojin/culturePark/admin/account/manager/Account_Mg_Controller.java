@@ -14,4 +14,11 @@ public class Account_Mg_Controller {
         mv.setViewName("mg_requestList");
         return mv;
     }
+
+    @RequestMapping(value = "mgWaitList.ado")
+    public ModelAndView mgList() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("mg_waitList");
+        return mv;
+    }
 }

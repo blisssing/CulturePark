@@ -41,6 +41,9 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">--%>
 
+    <%--파일 다운로드--%>
+<%--    https://www.delftstack.com/ko/howto/javascript/javascript-download/--%>
+
 </head>
 
 <body id="page-top">
@@ -65,21 +68,14 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">판매자 관리</h1>
-                <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                    For more information about DataTables, please visit the <a target="_blank"
-                                                                               href="https://datatables.net">official
-                        DataTables documentation</a>.</p>
+
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn_More_info btn btn-primary btn-sm btn-circle">MI</span>
-                        <span>세부정보</span>
+                        <span class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></span>
+                        <span>요청확인</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_Agree btn btn-primary btn-sm btn-circle">AG</span>
-                        <span>요청수락</span>
-                    </div>
-                    <div class="descript_wrap">
-                        <span class="btn_Disagree btn btn-primary btn-sm btn-circle">DE</span>
+                        <span class="btn_Disagree btn btn-primary btn-sm btn-circle">X</span>
                         <span>요청거절</span>
                     </div>
 
@@ -95,7 +91,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>number</th>
+                                    <th>num</th>
                                     <th>회사</th>
                                     <th>대표</th>
                                     <th>이메일</th>
@@ -105,7 +101,7 @@
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>number</th>
+                                    <th>num</th>
                                     <th>회사</th>
                                     <th>대표</th>
                                     <th>이메일</th>
@@ -132,12 +128,54 @@
                                             전시
                                         </td>
                                         <td class="td_func">
-                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle">MI</button>
-                                            <button class="btn_Agree btn btn-primary btn-sm btn-circle">AG</button>
-                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">DE</button>
+                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
+                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td_seq">
+                                            2
+                                        </td>
+                                        <td class="td_com">
+                                            공원
+                                        </td>
+                                        <td class="td_present">
+                                            주산동
+                                        </td>
+                                        <td class="td_email">
+                                            nickpick@gmail.com
+                                        </td>
+                                        <td class="td_type">
+                                            뮤지엄
+                                        </td>
+                                        <td class="td_func">
+                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
+                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td_seq">
+                                            3
+                                        </td>
+                                        <td class="td_com">
+                                            쥬라기공원
+                                        </td>
+                                        <td class="td_present">
+                                            크아앙
+                                        </td>
+                                        <td class="td_email">
+                                            picknic@gmail.com
+                                        </td>
+                                        <td class="td_type">
+                                            뮤지엄
+                                        </td>
+                                        <td class="td_func">
+                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
+                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
                                         </td>
                                     </tr>
                                 </form>
+
                                 </tbody>
                             </table>
                         </div>
@@ -158,12 +196,12 @@
     <!-- End of Content Wrapper -->
 
 </div>
-<!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+
+<%--모--%>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -185,6 +223,7 @@
     </div>
 </div>
 
+<%--거절 모달 --%>
 <div class="modal fade" id="DisagreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -198,12 +237,38 @@
             <div class="modal-body">정말로 요청을 거절하시겠습니까?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                <button class="btn_finalDisagree btn btn-primary" >거절</button>
+                <button class="btn_check_Disagree btn btn-primary" >확인</button>
             </div>
         </div>
     </div>
 </div>
 
+<%--거절 사유 모달--%>
+<div class="modal fade" id="ReasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reasonAsk">거절 사유</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="user modal-body">
+                <div class="form-group">
+                    <div class="form-head">사유를 적어주시오</div>
+                    <input type="text" class="form-control form-control-user" id="refuseReason"></input>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                <button class="btn_finalDisAgree btn btn-primary" >확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%--동의 모달--%>
 <div class="modal fade" id="AgreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -221,6 +286,68 @@
             </div>
         </div>
     </div>
+</div>
+
+<%--세부사항 모달 --%>
+<div class="modal fade card border-0 shadow-lg my-5" id="DetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content ard-body p-0">
+            <div class="modal-header">
+                <h1 class="h4 text-gray-900 mb-4">요청 세부 내역</h1>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="user modal-body">
+                <div class="form-group">
+                    <div class="form-head">회사명</div>
+                    <div class="form-control form-control-user" id="CompanyName"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-head">사업자번호</div>
+                    <div class="form-control form-control-user" id="CompanyNum"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-head">전화번호</div>
+                    <div class="form-control form-control-user" id="PhoneNumber"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-head">이메일</div>
+                    <div class="form-control form-control-user" id="CompanyEmail"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-head">유형</div>
+                    <div class="form-control form-control-user" id="ProdoctType"></div>
+                </div>
+                <div class="form-group">
+                    <div class="button_wrap">
+                        <a href="#" class="btn_file btn btn-info btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fa-regular fa-file"></i>
+                                        </span>
+                            <span class="text">첨부파일 다운로드</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn_Agree2 btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                    <span class="text">수락하기</span>
+                </button>
+                <button href="#" class="btn_Disagree2 btn btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            X
+                                        </span>
+                    <span class="text">거절하기</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -243,6 +370,8 @@
 
 
 
+
 </body>
+
 
 </html>

@@ -28,9 +28,6 @@
         <%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css" %>
     </style>
 
-    <style>
-        <%@include file="/resources/admin/css/ad_adminList.css" %>
-    </style>
 
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
@@ -64,7 +61,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">관리자 관리</h1>
+                <h1 class="h3 mb-2 text-gray-800">대기 목록</h1>
                 <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                     For more information about DataTables, please visit the <a target="_blank"
                                                                                href="https://datatables.net">official
@@ -82,28 +79,28 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">관리자 목록</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">매니저 목록</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>이름</th>
-                                    <th>부서</th>
-                                    <th>번호</th>
-                                    <th>이메일</th>
-                                    <th>생성일</th>
+                                    <th>seq</th>
+                                    <th>회사</th>
+                                    <th>ID</th>
+                                    <th>담당자AD</th>
+                                    <th>승인일</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>이름</th>
-                                    <th>부서</th>
-                                    <th>번호</th>
-                                    <th>이메일</th>
-                                    <th>생성일</th>
+                                    <th>seq</th>
+                                    <th>회사</th>
+                                    <th>ID</th>
+                                    <th>담당자AD</th>
+                                    <th>승인일</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
@@ -171,56 +168,56 @@
                 <%--    수 정 모 달      --%>
                 <div class="modal fade card o-hidden border-0 shadow-lg my-5" id="modifyModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                    <div class="modal-content ard-body p-0">
-                                    <div class="modal-header">
-                                        <h1 class="h4 text-gray-900 mb-4">관리자 정보 변경</h1>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
+                        <div class="modal-content ard-body p-0">
+                            <div class="modal-header">
+                                <h1 class="h4 text-gray-900 mb-4">관리자 정보 변경</h1>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <form class="user modal-body">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="AdminName"
+                                           placeholder="이름">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="InputEmail"
+                                           placeholder="이메일">
+                                </div>
+                                <div class="form-group">
+                                    <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                           placeholder="010-xxxx-xxxx">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="InputPassword" placeholder="Password">
                                     </div>
-                                    <form class="user modal-body">
-                                        <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="AdminName"
-                                                       placeholder="이름">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="InputEmail"
-                                                   placeholder="이메일">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="phone" class="form-control form-control-user" id="InputPhone"
-                                                   placeholder="010-xxxx-xxxx">
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user"
-                                                       id="InputPassword" placeholder="Password">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="password" class="form-control form-control-user"
-                                                       id="RepeatPassword" placeholder="Repeat Password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="Depart"
-                                                   placeholder="부서">
-                                        </div>
-                                        <div class="form-group">
-                                            <ul class="col-sm-6 chk_ul">
-                                                <div>권한</div>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="member">회원관리</li>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="manager">매니저관리</li>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="product">상품관리</li>
-                                                <li class="chk_list"><input id="right_super" type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
-                                            </ul>
-                                        </div>
-                                    </form>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                        <button class="btn btn-primary btn-user btn-block btn_modiDone">수정완료</button>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="RepeatPassword" placeholder="Repeat Password">
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="Depart"
+                                           placeholder="부서">
+                                </div>
+                                <div class="form-group">
+                                    <ul class="col-sm-6 chk_ul">
+                                        <div>권한</div>
+                                        <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="member">회원관리</li>
+                                        <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="manager">매니저관리</li>
+                                        <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="product">상품관리</li>
+                                        <li class="chk_list"><input id="right_super" type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
+                                    </ul>
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                <button class="btn btn-primary btn-user btn-block btn_modiDone">수정완료</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <!-- 삭 제 모 달 -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -304,8 +301,7 @@
 
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
-<script src="/resources/common/js/checkPW.js"></script>
-<script src="/resources/admin/js/ad_adminList.js" type="text/javascript"></script>
+
 
 </body>
 

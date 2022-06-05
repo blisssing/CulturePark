@@ -21,14 +21,12 @@
 }
 
 .btn_More_info {
-    background-color: orange;
-    color: black;
+    background-color: cornflowerblue;
 }
 
 
 .btn_Agree{
-    background-color: greenyellow;
-    color: black;
+    background-color: cornflowerblue;
 }
 
 .btn_Disagree {
@@ -37,4 +35,24 @@
 
 #DisagreeModal {
     display: none;
+}
+
+#DetailModal {
+    display: none;
+}
+
+#ReasonModal {
+    display: none;
+}
+
+.chk_list , .chk_ul {
+    list-style: none;
+}
+
+.chk_list >input{
+    margin-left: 5px;
+}
+
+.button_wrap {
+    margin-top: 15px;
 }

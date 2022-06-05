@@ -7,6 +7,11 @@
 
 <!--    <mvc:annotation-driven/>-->
 
+<!--https://zero-gravity.tistory.com/258-->
+    <!-- 파일 업로드 -->
+
+
+
     <context:component-scan base-package="kg.twojin.culturePark"></context:component-scan>
 
 </beans>
