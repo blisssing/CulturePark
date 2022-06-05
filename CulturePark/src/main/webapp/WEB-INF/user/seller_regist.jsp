@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.multipart.MultipartRequest" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -5,6 +6,13 @@
 <head>
     <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
      https://unknown-coding.tistory.com/16--%>
+
+
+
+    <%--파일업로드--%>
+    <%--https://marinelifeirony.tistory.com/120--%>
+    <%--https://yooniron.tistory.com/45--%>
+     <%-- https://zero-gravity.tistory.com/258--%>
 
     <meta charset="utf-8">
     <meta name="viewport"
@@ -49,7 +57,7 @@
 
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <div class="join_section">
-
+                <form name="join" method="post" enctype="multipart/form-data" action="#">
                 <p class="sectionLine_thin"></p>
 
                 <div class="id_section section_type01">
@@ -138,6 +146,11 @@
                 <div class="certifyTime">
                     <span class="time">test::00:00</span>
                 </div>
+
+                <form name="processFileUpload.jsp" method="post"  enctype="multipart/form-data">
+                    <input type="file" name="imgFile" placeholder="파일선택">
+                    <input type="submit" value="업로드">
+                </form>
 
             </div>
 
@@ -284,6 +297,7 @@
                 <div class="join_btn_section">
                     <input type="button" class="join_btn" name="join_btn" value="회원가입">
                 </div>
+                </form>
 
             </div> <%-- /innerContainer --%>
         </div><%-- /centerContainer --%>

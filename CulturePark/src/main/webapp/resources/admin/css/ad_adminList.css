@@ -28,3 +28,23 @@
 .btn_delete_data {
     background-color: red;
 }
+
+#modifyModal {
+    display: none;
+}
+
+#deleteModal {
+    display: none;
+}
+
+
+
+.chk_list , .chk_ul {
+    list-style: none;
+}
+
+.chk_list > input {
+    margin-right: 10px;
+}
+
+
