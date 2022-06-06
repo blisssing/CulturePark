@@ -58,5 +58,32 @@ public class MgHomePageController {
         return mv;
     }
 
+    @RequestMapping(value = "/pdEx.mdo")
+    public ModelAndView mgPdEx() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_ex");
+        return mv;
+    }
+
+    @RequestMapping(value = "/pdMu.mdo")
+    public ModelAndView mgPdMu() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_mu");
+        return mv;
+    }
+
+    @RequestMapping(value = "/refuse.mdo")
+    public ModelAndView mgRefuse() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_refuse_pop");
+        return mv;
+    }
+
+    @RequestMapping(value = "/adminInfo.mdo")
+    public ModelAndView mgAdminInfo() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_adminInfo_pop");
+        return mv;
+    }
 
 }

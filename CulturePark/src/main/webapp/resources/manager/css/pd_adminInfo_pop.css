@@ -1,0 +1,54 @@
+.popup_container {
+    display: flex;
+    flex-direction: column;
+    line-height: 200%;
+    margin: 10px 10px;
+    font-size: 0.8rem;
+}
+
+.icon_section {
+    display: flex;
+    font-size: 2rem;
+    margin: 10px 0px 25px 0px;
+    justify-content: center;
+
+}
+
+
+.adminEmail_section {
+    display: flex;
+    justify-content: center;
+}
+
+.title_label {
+    width: 25%;
+    font-weight: bold;
+}
+
+.title_value {
+    width: 50%;
+}
+
+
+.adminTel_section {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.btn_section {
+    display: flex;
+    margin-top: 45px;
+    justify-content: center;
+    width: 100%;
+}
+
+.ok_btn {
+    width: 16%;
+    height: 27px;
+    border-radius: 1rem;
+    border: lightgray;
+    background-color: #d2e3fc;
+    cursor: pointer;
+}
+

@@ -1,0 +1,29 @@
+.card-body {
+    font-size:0.9rem;
+}
+
+.card-header {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.text-primary {
+ color: black !important;
+ font-weight: lighter !important;
+}
+
+.card-header .requesting_btn {
+    font-size: 0.9rem;
+    color: #6e707e;
+    background-color: whitesmoke;
+    border: 1px solid #d1d3e2;
+    border-radius: 1rem;
+    padding: 5px 10px;
+}
+
+.status_btn , .adminInfo_btn {
+    color: #858796;
+    font-weight: bold;
+    cursor: pointer;
+}
+

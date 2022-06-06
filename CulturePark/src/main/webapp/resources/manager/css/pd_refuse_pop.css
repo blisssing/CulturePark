@@ -1,0 +1,53 @@
+.popup_container {
+    display: flex;
+    flex-direction: column;
+    line-height: 200%;
+    margin: 10px 10px;
+    font-size: 0.8rem;
+}
+
+.sectionLine_thin {
+    border: 0.5px solid lightgray;
+}
+
+.name_section {
+    display: flex;
+    margin-right: 10px;
+}
+
+.title_label {
+    width: 20%;
+    font-weight: bold;
+}
+
+.title_value {
+    width: 100%;
+}
+
+.title_value_text {
+    height: 90px;
+}
+
+.refuse_section {
+    display: flex;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+
+.btn_section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.ok_btn {
+    width: 16%;
+    height: 27px;
+    border-radius: 1rem;
+    border: lightgray;
+    background-color: #d2e3fc;
+    cursor: pointer;
+}
+
+
