@@ -15,10 +15,17 @@ public class Account_Mg_Controller {
         return mv;
     }
 
-    @RequestMapping(value = "mgWaitList.ado")
+    @RequestMapping(value = "mgPartner.ado")
+    public ModelAndView partnerList() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("mg_partnerList");
+        return mv;
+    }
+
+    @RequestMapping(value = "mgManager.ado")
     public ModelAndView mgList() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("mg_waitList");
+        mv.setViewName("mg_managerList");
         return mv;
     }
 }

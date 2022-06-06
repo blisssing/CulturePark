@@ -78,13 +78,11 @@
                         <span class="btn_Disagree btn btn-primary btn-sm btn-circle">X</span>
                         <span>요청거절</span>
                     </div>
-
-
                 </div>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">관리자 목록</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">파트너 요청 목록</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -201,153 +199,158 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<%--모--%>
+<%--모달--%>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <%--거절 모달 --%>
-<div class="modal fade" id="DisagreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="askLabel">정말로 거절하겠습니까??</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">정말로 요청을 거절하시겠습니까?</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                <button class="btn_check_Disagree btn btn-primary" >확인</button>
+    <div class="modal fade" id="DisagreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="askLabel">정말로 거절하겠습니까??</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">정말로 요청을 거절하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="btn_check_Disagree btn btn-primary" >확인</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <%--거절 사유 모달--%>
-<div class="modal fade" id="ReasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="reasonAsk">거절 사유</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="user modal-body">
-                <div class="form-group">
-                    <div class="form-head">사유를 적어주시오</div>
-                    <input type="text" class="form-control form-control-user" id="refuseReason"></input>
+    <div class="modal fade" id="ReasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reasonAsk">거절 사유</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                <button class="btn_finalDisAgree btn btn-primary" >확인</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<%--동의 모달--%>
-<div class="modal fade" id="AgreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="agreeAsk">정말로 수락하시겠습니까?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">정말로 요청을 수락하시겠습니까?</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                <button class="btn_finalAgree btn btn-primary" >수락</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<%--세부사항 모달 --%>
-<div class="modal fade card border-0 shadow-lg my-5" id="DetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content ard-body p-0">
-            <div class="modal-header">
-                <h1 class="h4 text-gray-900 mb-4">요청 세부 내역</h1>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="user modal-body">
-                <div class="form-group">
-                    <div class="form-head">회사명</div>
-                    <div class="form-control form-control-user" id="CompanyName"></div>
-                </div>
-                <div class="form-group">
-                    <div class="form-head">사업자번호</div>
-                    <div class="form-control form-control-user" id="CompanyNum"></div>
-                </div>
-                <div class="form-group">
-                    <div class="form-head">전화번호</div>
-                    <div class="form-control form-control-user" id="PhoneNumber"></div>
-                </div>
-                <div class="form-group">
-                    <div class="form-head">이메일</div>
-                    <div class="form-control form-control-user" id="CompanyEmail"></div>
-                </div>
-                <div class="form-group">
-                    <div class="form-head">유형</div>
-                    <div class="form-control form-control-user" id="ProdoctType"></div>
-                </div>
-                <div class="form-group">
-                    <div class="button_wrap">
-                        <a href="#" class="btn_file btn btn-info btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fa-regular fa-file"></i>
-                                        </span>
-                            <span class="text">첨부파일 다운로드</span>
-                        </a>
+                <div class="user modal-body">
+                    <div class="form-group">
+                        <div class="form-head">사유를 적어주시오</div>
+                        <input type="text" class="form-control form-control-user" id="refuseReason"></input>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn_Agree2 btn btn-success btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-check"></i>
-                                        </span>
-                    <span class="text">수락하기</span>
-                </button>
-                <button href="#" class="btn_Disagree2 btn btn-danger btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            X
-                                        </span>
-                    <span class="text">거절하기</span>
-                </button>
-
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="btn_finalDisAgree btn btn-primary" >확인</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+<%--동의 모달--%>
+    <div class="modal fade" id="AgreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agreeAsk">정말로 수락하시겠습니까?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">정말로 요청을 수락하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="btn_finalAgree btn btn-primary" >수락</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%--세부사항 모달 --%>
+    <div class="modal fade card border-0 shadow-lg my-5" id="DetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content ard-body p-0">
+                <div class="modal-header">
+                    <h1 class="h4 text-gray-900 mb-4">요청 세부 내역</h1>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="user modal-body">
+                    <div class="form-group">
+                        <div class="form-head">회사명</div>
+                        <div class="form-control form-control-user" id="CompanyName"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-head">사업자명</div>
+                        <div class="form-control form-control-user" id="PresentName"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-head">사업자번호</div>
+                        <div class="form-control form-control-user" id="CompanyNum"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-head">전화번호</div>
+                        <div class="form-control form-control-user" id="PhoneNumber"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-head">이메일</div>
+                        <div class="form-control form-control-user" id="CompanyEmail"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-head">유형</div>
+                        <div class="form-control form-control-user" id="ProdoctType"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="button_wrap">
+                            <a href="#" class="btn_file btn btn-info btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fa-regular fa-file"></i>
+                                            </span>
+                                <span class="text">첨부파일 다운로드</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn_Agree2 btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                        <span class="text">수락하기</span>
+                    </button>
+                    <button href="#" class="btn_Disagree2 btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                X
+                                            </span>
+                        <span class="text">거절하기</span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Bootstrap core JavaScript-->

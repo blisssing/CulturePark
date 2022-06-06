@@ -55,9 +55,10 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manager 관리</h6>
-                <a class="collapse-item" href="/mgRequest.ado">파트너요청관리</a>
-                <a class="collapse-item" href="../common/buttons.html">파트너 목록</a>
-                <a class="collapse-item" href="../common/buttons.html">생성대기</a>
+                <a class="collapse-item" href="/mgRequest.ado">파트너 요청 관리</a>
+                <a class="collapse-item" href="/mgPartner.ado">파트너 목록</a>
+                <a class="collapse-item" href="/mgManager.ado">매니저 목록</a>
+
                 <%--                <a class="collapse-item" href="cards.html">Cards</a>--%>
             </div>
         </div>
@@ -99,8 +100,8 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">상품관리</h6>
-                <a class="collapse-item" href="login.html">요청리스트</a>
-                <a class="collapse-item" href="register.html">생성대기리스트</a>
+                <a class="collapse-item" href="/pdCreateRequest.ado">생성대기리스트</a>
+                <a class="collapse-item" href="/pdRequest.ado">요청리스트</a>
                 <a class="collapse-item" href="forgot-password.html">진행 중 리스트</a>
 
                 <div class="collapse-divider"></div>

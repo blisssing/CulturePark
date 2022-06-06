@@ -91,11 +91,21 @@ $(document).ready(function () {
                     return 0;
                 } else if (pw1 === pw2) {
                     var result_chkPW = chkPW(pw1);
-                    if (result_chkPW) {
+                    if (result_chkPW===1) {
                         console.log('정규식 통과');
                         return 2;
                     } else {
+                        if (result_chkPW === -1) {
+                            alert("8자리 ~ 20자리 이내로 입력해주세요");
+                        } else if (result_chkPW === -2) {
+                            alert('비밀번호는 공백없이 입력해주세요!');
+                        } else if (result_chkPW === -3) {
+                            alert("영문 숫자, 특수문자를 혼합하여 입력해주세요.");
+                        }
                         console.log('정규식 불통');
+
+
+
                         return 0;
                     }
                 }
