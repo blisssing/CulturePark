@@ -31,7 +31,78 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
 
+    <style>
 
+        th {
+            white-space: nowrap;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            vertical-align:middle;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        p {
+            margin:0px;
+            display:inline-block;
+            font-size:0.8rem;
+            font-weight:bold;
+        }
+    </style>
 
 
 
@@ -68,21 +139,26 @@
 
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></span>
-                        <span>승인자 정보</span>
+                        <span class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></span>
+                        <span>회사 정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></span>
-                        <span>매니저 생성</span>
+                        <span class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
+                        <span>매니저 정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></span>
-                        <span>파트너 취소</span>
+                        <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
+                        <span>담당 상품</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></span>
-                        <span>매니저 목록 조회</span>
+                        <span class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></span>
+                        <span>매니저 삭제</span>
                     </div>
+
+<%--                    <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>--%>
+<%--                    <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>--%>
+<%--                    <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>--%>
+<%--                    <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>--%>
 
                 </div>
                 <!-- DataTales Example -->
@@ -101,6 +177,7 @@
                                     <th>이메일</th>
                                     <th>휴대전화</th>
                                     <th>권한</th>
+                                    <th>활성</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
@@ -112,6 +189,7 @@
                                     <th>이메일</th>
                                     <th>휴대전화</th>
                                     <th>권한</th>
+                                    <th>활성</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
@@ -119,70 +197,105 @@
                                 <form name="frm">
                                     <tr>
                                         <input type="hidden" class="comp_num" value="100">
+                                        <input type="hidden" class="manager_num" value="100">
                                         <td class="seq">1</td>
                                         <td class="comp">투진컴퍼니</td>
                                         <td class="name">한진희</td>
                                         <td class="email">taran@gmail.com</td>
                                         <td class="phone">01098888888</td>
                                         <td class="right">root</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle ">회사조회</button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm ">매니저정보</button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-
+                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
+                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="comp_num" value="200">
+                                        <input type="hidden" class="manager_num" value="300">
                                         <td class="seq">3</td>
                                         <td class="comp">진투컴퍼니</td>
                                         <td class="name">김진아</td>
                                         <td class="email">jinah@gmail.com</td>
                                         <td class="phone">01044448888</td>
                                         <td class="right">root</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
+                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
+                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="comp_num" value="400">
+                                        <input type="hidden" class="manager_num" value="100">
                                         <td class="seq">2</td>
                                         <td class="comp">지민컴퍼니</td>
                                         <td class="name" id="3">홍민지</td>
                                         <td class="email">jinah@gmail.com</td>
                                         <td class="phone">01022228888</td>
                                         <td class="right">normal</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
+                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
+                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="comp_num" value="600">
+                                        <input type="hidden" class="manager_num" value="100">
                                         <td class="seq">5</td>
                                         <td class="comp">진규컴퍼니</td>
                                         <td class="name">한규진</td>
                                         <td class="email">jinah@gmail.com</td>
                                         <td class="phone">01022229999</td>
                                         <td class="right">normal</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
+                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
+                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -193,30 +306,33 @@
                     </div>
                 </div>
 
-                <%-- 어 드 민 정 보  모 달 --%>
-                <div class="modal fade card border-0 shadow-lg my-5" id="AdminInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <%-- 회 사 정 보  모 달 --%>
+                <div class="modal fade border-0 shadow-lg my-5" id="CompanyInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                            style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">담 당 자 정 보</h1>
+                                <h1 class="h4 text-gray-900 mb-4">업 체 정 보</h1>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body">
+                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
-                                    <select name="sel_admin">
-                                        <option >어드민 1</option>
-                                        <option >어드민 2</option>
-                                    </select>
+                                    <span>업체번호 : </span>
+                                    <span id="CompanySeq">#12</span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <div class="form-head">담당자ID</div>
+                                    <div class="form-head">업체명</div>
                                     <div class="form-control form-control-user" id="CompanyName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-head">담당자 이름</div>
+                                    <div class="form-head">사업자명</div>
+                                    <div class="form-control form-control-user" id="PresentName"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">사업자번호</div>
                                     <div class="form-control form-control-user" id="CompanyNum"></div>
                                 </div>
                                 <div class="form-group">
@@ -228,8 +344,22 @@
                                     <div class="form-control form-control-user" id="CompanyEmail"></div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="form-head">유형</div>
+                                    <div class="form-control form-control-user" id="ProdoctType"></div>
+                                </div>
+                                <div class="form-group">
                                     <div class="form-head">승인날짜</div>
                                     <div class="form-control form-control-user" id="AgreementDate"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="button_wrap">
+                                        <a href="#" class="btn_file btn btn-info btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fa-regular fa-file"></i>
+                                            </span>
+                                            <span class="text">첨부파일 다운로드</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -245,51 +375,46 @@
                     </div>
                 </div>
 
-                <%-- 매 니 저 생 성 모 달  --%>
-                <div class="modal fade card o-hidden border-0 shadow-lg my-5" id="CreateModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <%-- 매 니 저 정 보 모 달  --%>
+                <div class="modal fade  border-0 shadow-lg my-5" id="ManagerInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                            style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">루트 매니저 생성</h1>
+                                <h1 class="h4 text-gray-900 mb-4">매니저 정보</h1>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
 
                             </div>
-                            <form class="user modal-body">
+                            <form class="user modal-body" style="max-height: 600px; overflow: scroll">
                                 <div class="form-group">
                                     <span class="head_comp_name"></span>  #<span class="head_comp_num"></span>
-
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="ManagerName"
-                                           placeholder="매니저 이름">
+                                    <div class="form-head">루트매니저</div>
+                                    <div type="text" class="form-control form-control-user" id="RootManagerName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="ManagerEmail">
+                                    <div class="form-head">이름</div>
+                                    <div type="text" class="form-control form-control-user" id="ManagerName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="phone" class="form-control form-control-user" id="ManagerPhone"
-                                           placeholder="010-xxxx-xxxx">
-
+                                    <div class="form-head">이메일</div>
+                                    <div type="email" class="form-control form-control-user" id="ManagerEmail"></div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="Password" placeholder="Password" name="password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="RepeatPassword" placeholder="Repeat Password" name="password">
-                                    </div>
-                                    <div class="event_pw">비밀번호를 입력해주세요.</div>
+                                <div class="form-group">
+                                    <div class="form-head">전화번호</div>
+                                    <div type="phone" class="form-control form-control-user" id="ManagerPhone"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">권한</div>
+                                    <div type="phone" class="form-control form-control-user" id="ManagerRight"></div>
                                 </div>
                             </form>
                             <div class="modal-footer">
-
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                <button class="btn btn-primary btn-block btn_createDone">생성하기</button>
                             </div>
                         </div>
                     </div>
@@ -376,8 +501,10 @@
 <script src="/resources/common/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
+<script src="/resources/admin/js/mg_managerList.js"></script>
+
+
 
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 

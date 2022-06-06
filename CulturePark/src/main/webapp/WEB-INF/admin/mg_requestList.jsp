@@ -298,7 +298,7 @@
                 </div>
                 <div class="user modal-body">
                     <div class="form-group">
-                        <div class="form-head">회사명</div>
+                        <div class="form-head">업체명</div>
                         <div class="form-control form-control-user" id="CompanyName"></div>
                     </div>
                     <div class="form-group">
