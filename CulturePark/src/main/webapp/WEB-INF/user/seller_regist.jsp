@@ -61,12 +61,8 @@
                 <p class="sectionLine_thin"></p>
 
                 <div class="id_section section_type01">
-                    <div class="id_label">아이디</div>
+                    <div class="id_label">이메일</div></div>
                     <input class="id_value_1" type="textFiled" name="id_value_1">
-
-
-                    <%-- 아이디 중복확인 버튼 --%>
-                    <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                 </div>
 
                 <div class="pw_section section_type01">

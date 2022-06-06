@@ -35,14 +35,12 @@ $(document).ready(function () {
 
     $('.btn_finalDisAgree').click(function () {
         var text = $('#refuseReason').val();
-
         if (chk_reason(text)) {
             removeRow(eventRow);
             $('#ReasonModal').modal('hide');
         } else {
             console.log('실행취소');
         }
-
     });
 
     function removeRow(row) {
