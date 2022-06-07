@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.admin.account.manager;
+package kg.twojin.culturePark.admin.manager.controller;
 
 
 import org.springframework.stereotype.Controller;

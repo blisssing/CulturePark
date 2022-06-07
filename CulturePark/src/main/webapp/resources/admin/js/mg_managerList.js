@@ -79,7 +79,7 @@ function clearValuesCompany() {
     $('#CompanyNum').text('');
     $('#PhoneNumber').text('');
     $('#CompanyEmail').text('');
-    $('#ProdoctType').text('');
+    $('#ProductType').text('');
     $('#AgreementDate').text('');
 
 
