@@ -49,12 +49,19 @@
             <span>QnA 관리</span></a>
     </li>
 
-
-    <!-- Nav Item - Tables -->
+    <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-controls="collapseTwo">
             <i class="fa-solid fa-user-group"></i>
-            <span>매니저 계정관리</span></a>
+            <span>매니저 계정관리</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">관리 목록</h6>
+                <a class="collapse-item" href="mAccountList.mdo">계정목록</a>
+                <a class="collapse-item" href="mAccountAdd.mdo">계정생성</a>
+            </div>
+        </div>
     </li>
 
 

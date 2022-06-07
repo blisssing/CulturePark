@@ -1,0 +1,22 @@
+.card-header {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.card-header .requesting_btn {
+    font-size: 0.9rem;
+    color: #6e707e;
+    background-color: whitesmoke;
+    border: 1px solid #d1d3e2;
+    border-radius: 1rem;
+    padding: 5px 10px;
+}
+
+.text_primary {
+    margin:10px !important;
+}
+
+.icon_descript {
+    display: flex;
+    font-size:0.6rem;
+}
