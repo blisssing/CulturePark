@@ -80,9 +80,23 @@ public class MgHomePageController {
     }
 
     @RequestMapping(value = "/adminInfo.mdo")
-    public ModelAndView mgAdminInfo() {
+    public ModelAndView mgManagerInfo() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pd_adminInfo_pop");
+        return mv;
+    }
+
+    @RequestMapping(value = "/mAccountList.mdo")
+    public ModelAndView mgMAccountList() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("m_account_list");
+        return mv;
+    }
+
+    @RequestMapping(value = "/mAccountAdd.mdo")
+    public ModelAndView mgMAccountAdd() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("m_account_add");
         return mv;
     }
 

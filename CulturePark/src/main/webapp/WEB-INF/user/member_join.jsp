@@ -5,7 +5,7 @@
 <head>
    <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
     https://unknown-coding.tistory.com/16--%>
-
+    <%--!!!!!!!!!!!!!  정규식 적용할 것 !!!!!!!!!!!!! --%>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
