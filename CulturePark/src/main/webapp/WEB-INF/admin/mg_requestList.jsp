@@ -319,7 +319,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-head">유형</div>
-                        <div class="form-control form-control-user" id="ProdoctType"></div>
+                        <div class="form-control form-control-user" id="ProductType"></div>
                     </div>
                     <div class="form-group">
                         <div class="button_wrap">

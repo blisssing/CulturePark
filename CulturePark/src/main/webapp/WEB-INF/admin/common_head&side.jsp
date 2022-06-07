@@ -39,9 +39,10 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">유저관리</h6>
-                <a class="collapse-item" href="../common/buttons.html">회원조회</a>
-                <a class="collapse-item" href="../common/buttons.html">고객문의</a>
-                <a class="collapse-item" href="../common/buttons.html">블랙리스트</a>
+                <a class="collapse-item" href="/memberListPage.ado">회원조회</a>
+                <a class="collapse-item" href="/questionPage.ado">고객문의</a>
+                <h6 class="collapse-header">규제관리</h6>
+                <a class="collapse-item" href="/dicipPage.ado">규제회원조회</a>
 <%--                <a class="collapse-item" href="cards.html">Cards</a>--%>
             </div>
         </div>
@@ -91,6 +92,37 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseforth"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>결제 관리</span>
+        </a>
+        <div id="collapseforth" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">결제 관리</h6>
+                <a class="collapse-item" href="/paymentPage.ado">결제내역조회</a>
+                <a class="collapse-item" href="/#">환불 처리 조회</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesixth"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>리뷰 관리</span>
+        </a>
+        <div id="collapsesixth" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">리뷰 관리</h6>
+                <a class="collapse-item" href="/paymentPage.ado">리뷰조회</a>
+                <a class="collapse-item" href="/reportPage.ado">신고목록</a>
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
@@ -138,4 +170,3 @@
 
 </ul>
 <!-- End of Sidebar -->
-

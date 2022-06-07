@@ -31,21 +31,7 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
 
-    <style>
-
-        .btn_report {
-            border: none;
-            background-color: white;
-        }
-
-    </style>
-
-
     <title>CulturePark 관리자</title>
-
-    <%--<link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">--%>
 
 </head>
 
@@ -74,27 +60,18 @@
 
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></span>
-                        <span>정보 수정</span>
+                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
+                        <span>유저정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-key"></span>
-                        <span>임시비밀번호 발급</span>
+                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></span>
+                        <span>상세내용 및 답변</span>
                     </div>
-                    <div class="descript_wrap">
-                        <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-list"></span>
-                        <span>결제 정보</span>
-                    </div>
-                    <div class="descript_wrap">
-                        <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></span>
-                        <span>유저 징계</span>
-                    </div>
-
                 </div>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">회원 목록</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">고객 문의 목록</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -102,26 +79,24 @@
                                 <thead>
                                 <tr>
                                     <th>seq</th>
-                                    <th>이메일</th>
-                                    <th>별명</th>
-                                    <th>이름</th>
-                                    <th>휴대전화</th>
-                                    <th>가입날짜</th>
-                                    <th>신고</th>
+                                    <th>분야</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>날짜</th>
                                     <th>상태</th>
+                                    <th>담당AD</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>seq</th>
-                                    <th>이메일</th>
-                                    <th>별명</th>
-                                    <th>이름</th>
-                                    <th>휴대전화</th>
-                                    <th>가입날짜</th>
-                                    <th>신고</th>
+                                    <th>분야</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>날짜</th>
                                     <th>상태</th>
+                                    <th>담당AD</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
@@ -129,79 +104,69 @@
                                 <form name="frm">
                                     <tr>
                                         <input type="hidden" class="user_num" value="100">
+                                        <input type="hidden" class="question_num" value="101">
                                         <td class="seq">1</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="nick">희야</td>
-                                        <td class="name">한*희</td>
-                                        <td class="phone">01098888888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">0</button></td>
-                                        <td class="status">normal</td>
+                                        <td class="class">티켓오류</td>
+                                        <td class="board_title">표가 정상적으로 출력이 안 돼 요ㅜㅜ</td>
+                                        <td class="board_writer">희야</td>
+                                        <td class="board_date">2022.10.10</td>
+                                        <td class="response_status">미처리</td>
+                                        <td class="admin_email">없음</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_answer btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">2</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">뺙이</td>
-                                        <td class="name">김진아</td>
-                                        <td class="phone">01044448888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">0</button></td>
-                                        <td class="status">normal</td>
+                                        <input type="hidden" class="question_num" value="101">
+                                        <td class="seq">1</td>
+                                        <td class="class">티켓오류</td>
+                                        <td class="board_title">표가 정상적으로 출력이 안 돼 요ㅜㅜ</td>
+                                        <td class="board_writer">희야</td>
+                                        <td class="board_date">2022.10.10</td>
+                                        <td class="response_status">처리</td>
+                                        <td class="admin_email">taran0913</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_answer btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">3</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">홍민</td>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="phone">01022228888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">1</button></td>
-                                        <td class="status">정지</td>
+                                        <input type="hidden" class="question_num" value="101">
+                                        <td class="seq">1</td>
+                                        <td class="class">티켓오류</td>
+                                        <td class="board_title">표가 정상적으로 출력이 안 돼 요ㅜㅜ</td>
+                                        <td class="board_writer">희야</td>
+                                        <td class="board_date">2022.10.10</td>
+                                        <td class="response_status">미처리</td>
+                                        <td class="admin_email">none</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_answer btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">5</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">규찌</td>
-                                        <td class="name">한*진</td>
-                                        <td class="phone">01022229999</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report" >
-                                            <button class="btn_report">1</button>
-                                        </td>
-                                        <td class="status">영구정지</td>
+                                        <input type="hidden" class="question_num" value="101">
+                                        <td class="seq">1</td>
+                                        <td class="class">티켓오류</td>
+                                        <td class="question_title">표가 정상적으로 출력이 안 돼 요ㅜㅜ</td>
+                                        <td class="question_writer">희야</td>
+                                        <td class="question_date">2022.10.10</td>
+                                        <td class="response_status">처리</td>
+                                        <td class="admin_email">taran0913</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_answer btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -212,7 +177,7 @@
                     </div>
                 </div>
 
-                <%-- 유 저 정 보  모 달 --%>
+                <%--유 저 정 보 모 달 --%>
                 <div class="modal fade border-0 shadow-lg my-5" id="UserInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
                     <div class="modal-dialog">
@@ -225,7 +190,7 @@
                             </div>
                             <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
-                                    <span>유저번호번호 : </span>
+                                    <span>유저번호 : </span>
                                     <span id="UserSeq">#12</span>
                                 </div>
                                 <hr>
@@ -264,76 +229,61 @@
                     </div>
                 </div>
 
-                <!-- 임 시 키 모 달 -->
-                <div class="modal fade" id="TempKeyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                <%--문 의 상 세 모 달 --%>
+                <div class="modal fade border-0 shadow-lg my-5" id="QuestionDetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
+                     style="display: none">
+                    <div class="modal-dialog">
+                        <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h5 class="modal-title">임시 비밀번호 발급</h5>
+                                <h1 class="h4 text-gray-900 mb-4">문 의 정 보</h1>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body">
-                                유저에게 임시 비밀번호를 지급할 것입니까?
-                            </div>
-
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button class="btn_finalTempKey btn btn-primary" >발급하기</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <%-- 징 계 모 달 --%>
-                <div class="modal fade" id="DicipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">유 저 징 계</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="user modal-body">
+                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
-                                    <span>유저 Email : </span>
-                                    <span class="userEmail"></span>
+                                    <span>문의번호  : </span>
+                                    <span class="question_num">#12</span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <span class="form-head">징계사유</span>
-                                        <span>
-                                            <select class="select_dicip">
-                                                <option name="slc_dicip" value="case1" >사유1</option>
-                                                <option name="slc_dicip" value="case2">사유2</option>
-                                                <option name="slc_dicip" value="direct" selected="selected">직접입력</option>
-                                            </select>
-                                        </span>
-                                    <input class="form-control form-control-user" id="DicipReason" style="margin-top: 10px;">
+                                    <div class="form-head">분야 <span class="class"></span></div>
+                                    <div class="userEmail form-control form-control-user" id="QuestionClass"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-head">징계수위</div>
-                                    <select id="SelectLevel" class="form-control form-control-user">
-                                        <option name="slc_level" value="one">1일 정지</option>
-                                        <option name="slc_level" value="three">3일 정지</option>
-                                        <option name="slc_level" value="sept">7일 정지</option>
-                                        <option name="slc_level" value="thirty">30일 정지</option>
-                                        <option name="slc_level" value="inf">영구 정지</option>
-                                    </select>
+                                    <div class="form-head">제목</div>
+                                    <div class="userEmail form-control form-control-user" id="QuestionTitle"></div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <div class="form-head">문의내용</div>
+                                    <input class="form-control form-control-user" id="QuestionContent">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">답변작성</div>
+                                    <textarea class="form-control form-control-user" id="QuestionAnswer"></textarea>
+                                </div>
 
+
+                            </div>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button class="btn_finalDicip btn btn-primary" >결정하기</button>
+                                <button  class="btn_modal_close btn btn-info btn-icon-split">
+                                            <span class="icon fa-solid fa-reply">
+                                            </span>
+                                    <span class="text">답장하기</span>
+                                </button>
+                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                X
+                                            </span>
+                                    <span class="text">닫기</span>
+                                </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+
 
             </div>
             <!-- /.container-fluid -->
@@ -391,11 +341,11 @@
 
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
-<script src="/resources/admin/js/ur_memberList.js"></script>
 
 
 
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+<script src="/resources/admin/js/ur_questionList.js"></script>
 
 
 

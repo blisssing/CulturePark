@@ -85,7 +85,7 @@
                     </div>
                     <div class="descript_wrap">
                         <span class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></span>
-                        <span>상품 생성</span>
+                        <span>상품 목록</span>
                     </div>
                 </div>
                 <!-- DataTales Example -->

@@ -147,13 +147,14 @@
                         <span>매니저 정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
-                        <span>담당 상품</span>
-                    </div>
-                    <div class="descript_wrap">
                         <span class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></span>
                         <span>매니저 삭제</span>
                     </div>
+                    <div class="descript_wrap">
+                        <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
+                        <span>담당 상품</span>
+                    </div>
+
 
 <%--                    <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>--%>
 <%--                    <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>--%>
@@ -345,7 +346,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">유형</div>
-                                    <div class="form-control form-control-user" id="ProdoctType"></div>
+                                    <div class="form-control form-control-user" id="ProductType"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">승인날짜</div>
