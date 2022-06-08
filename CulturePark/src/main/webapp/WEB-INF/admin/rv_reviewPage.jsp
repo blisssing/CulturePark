@@ -31,10 +31,75 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
     <style>
-        .btn_print {
+
+        th {
+            white-space: nowrap;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            vertical-align:middle;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
             position: absolute;
-            top: 15px;
-            right: 10px;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        p {
+            margin:0px;
+            display:inline-block;
+            font-size:0.8rem;
+            font-weight:bold;
         }
     </style>
 
@@ -63,24 +128,29 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">결제 관리</h1>
-
-
+                <h1 class="h3 mb-2 text-gray-800">리뷰 관리</h1>
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
-                        <span>유저정보</span>
+                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-list"></span>
+                        <span>리뷰 이동</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></span>
-                        <span>상세내용 및 답변</span>
+                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
+                        <span>유저 정보</span>
+                    </div>
+                    <div class="descript_wrap">
+                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-trash"></span>
+                        <span>삭제</span>
+                    </div>
+                    <div class="descript_wrap">
+                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-exclamation"></span>
+                        <span>신고 조회</span>
                     </div>
                 </div>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">결제내역목록</h6>
-                        <button class="btn_print btn btn-primary btn-icon-split">출력하기</button>
+                        <h6 class="m-0 font-weight-bold text-primary">리뷰 목록</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -89,10 +159,10 @@
                                 <tr>
                                     <th>seq</th>
                                     <th>분야</th>
-                                    <th>업체명</th>
-                                    <th>기한</th>
+                                    <th>이름</th>
                                     <th>회원이메일</th>
-                                    <th>구매날짜</th>
+                                    <th>게시날짜</th>
+                                    <th>신고</th>
                                     <th>상태</th>
                                     <th>기능</th>
                                 </tr>
@@ -101,10 +171,10 @@
                                 <tr>
                                     <th>seq</th>
                                     <th>분야</th>
-                                    <th>업체명</th>
-                                    <th>기한</th>
+                                    <th>이름</th>
                                     <th>회원이메일</th>
-                                    <th>구매날짜</th>
+                                    <th>게시날짜</th>
+                                    <th>신고</th>
                                     <th>상태</th>
                                     <th>기능</th>
                                 </tr>
@@ -114,72 +184,108 @@
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
-                                        <input type="hidden" class="purchase_code" value="52">
+                                        <input type="hidden" class="review_code" value="52">
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
-                                        <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
+                                        <td class="review_date">2022.01.02</td>
+                                        <td class="isReport">0</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
+                                                <button class="btn_movePage btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
                                                 <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
+                                                <button class="btn_trash btn btn-primary btn-circle btn-sm fa-solid fa-trash"></button>
+                                                <button class="btn_report btn btn-primary btn-circle btn-sm fa-solid fa-exclamation"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
-                                        <input type="hidden" class="purchase_code" value="52">
+                                        <input type="hidden" class="review_code" value="52">
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
-                                        <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
+                                        <td class="review_date">2022.01.02</td>
+                                        <td class="isReport">0</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
+                                                <button class="btn_movePage btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
                                                 <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
+                                                <button class="btn_trash btn btn-primary btn-circle btn-sm fa-solid fa-trash"></button>
+                                                <button class="btn_report btn btn-primary btn-circle btn-sm fa-solid fa-exclamation"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
-                                        <input type="hidden" class="purchase_code" value="52">
+                                        <input type="hidden" class="review_code" value="52">
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
-                                        <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
+                                        <td class="review_date">2022.01.02</td>
+                                        <td class="isReport">0</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
+                                                <button class="btn_movePage btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
                                                 <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
+                                                <button class="btn_trash btn btn-primary btn-circle btn-sm fa-solid fa-trash"></button>
+                                                <button class="btn_report btn btn-primary btn-circle btn-sm fa-solid fa-exclamation"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
-                                        <input type="hidden" class="purchase_code" value="52">
+                                        <input type="hidden" class="review_code" value="52">
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
-                                        <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
+                                        <td class="review_date">2022.01.02</td>
+                                        <td class="isReport">0</td>
+                                        <td class="status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <p class="toggle_p">활성화</p>
+                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                        </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
+                                                <button class="btn_movePage btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
                                                 <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
+                                                <button class="btn_trash btn btn-primary btn-circle btn-sm fa-solid fa-trash"></button>
+                                                <button class="btn_report btn btn-primary btn-circle btn-sm fa-solid fa-exclamation"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -204,7 +310,7 @@
                             <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
                                     <span>유저번호 : </span>
-                                    <span id="UserSeq">#12</span>
+                                    <span id="user_code"></span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
@@ -242,61 +348,34 @@
                     </div>
                 </div>
 
-                <div class="modal fade border-0 shadow-lg my-5" id="RefundModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
-                     style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content ard-body p-0">
+                <%--삭 제 확 인 모 달--%>
+
+                <div class="modal fade" id="ChkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">결 제 정 보</h1>
+                                <h5 class="modal-title" id="deleteLavel">리뷰 삭제</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '리뷰를 삭제합니다'를 입력해주세요
                                 <div class="form-group">
-                                    <span>결제번호 : </span>
-                                    <span class="payment_code">#12</span>
+                                    <input type="text" class="form-control form-control-user" id="decideDelete"
+                                           placeholder="입력해주세요">
                                 </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-head">이메일</div>
-                                    <input class="userEmail form-control form-control-user">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">티켓날짜</div>
-                                    <div class="form-control form-control-user" id="TicketDate"></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">결제날짜</div>
-                                    <div class="form-control form-control-user" id="PaymentDate"></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">환불가능여부</div>
-                                    <div class="form-control form-control-user" id="CanRefund"></div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button  class="btn_final_refund btn btn-info btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">환불하기</span>
-                                </button>
-                                <button  class="btn_strong_refund btn btn-warning btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">강제환불하기</span>
-                                </button>
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                X
-                                            </span>
-                                    <span class="text">닫기</span>
-                                </button>
+                            </form>
 
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn_finalDelete btn btn-primary" >삭제하기</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
 
 
 
@@ -360,7 +439,12 @@
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
-<script src="/resources/admin/js/pm_paymentList.js"></script>
+<script src="/resources/admin/js/rv_reviewPage.js"></script>
+
+
+
+
+
 
 
 

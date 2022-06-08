@@ -28,7 +28,7 @@ public class Account_Ur_Controller {
     @RequestMapping(value = "reportPage.ado")
     public ModelAndView reportPage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("ur_reportList");
+        mv.setViewName("rv_reportList");
         return mv;
     }
 

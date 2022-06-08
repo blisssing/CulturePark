@@ -101,7 +101,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">결제 관리</h6>
                 <a class="collapse-item" href="/paymentPage.ado">결제내역조회</a>
-                <a class="collapse-item" href="/#">환불 처리 조회</a>
+                <a class="collapse-item" href="/refundPage.ado">환불 처리 조회</a>
             </div>
         </div>
     </li>
@@ -115,7 +115,7 @@
         <div id="collapsesixth" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">리뷰 관리</h6>
-                <a class="collapse-item" href="/paymentPage.ado">리뷰조회</a>
+                <a class="collapse-item" href="/reviewListPage.ado">리뷰조회</a>
                 <a class="collapse-item" href="/reportPage.ado">신고목록</a>
 
             </div>
