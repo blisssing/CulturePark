@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             console.log(tel);
             $('#ManagerEmail').val(comp_email);
-            $('#ManagerPhone').val(parseInt(tel));
+            $('#ManagerPhone').val(tel);
             $('.head_comp_name').text(compName);
             $('.head_comp_num').text(comp_num);
 

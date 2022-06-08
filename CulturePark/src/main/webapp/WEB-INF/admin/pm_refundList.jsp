@@ -31,6 +31,14 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
 
+    <style>
+        .btn_print {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+        }
+    </style>
+
     <title>CulturePark 관리자</title>
 
 </head>
@@ -58,20 +66,12 @@
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">결제 관리</h1>
 
-                <div class="icon_descript">
-                    <div class="descript_wrap">
-                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
-                        <span>유저정보</span>
-                    </div>
-                    <div class="descript_wrap">
-                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-user-edit"></span>
-                        <span>상세내용 및 답변</span>
-                    </div>
-                </div>
+
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">환불내역목록</h6>
+                        <button class="btn_print btn btn-primary btn-icon-split">출력하기</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -84,7 +84,6 @@
                                     <th>회원이메일</th>
                                     <th>처리날짜</th>
                                     <th>처리인</th>
-                                    <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -95,7 +94,6 @@
                                     <th>회원이메일</th>
                                     <th>처리날짜</th>
                                     <th>처리인</th>
-                                    <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -105,72 +103,45 @@
                                         <input type="hidden" class="user_code" value="51">
                                         <input type="hidden" class="refund_code" value="52">
                                         <td class="seq">1</td>
-                                        <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
-                                            </div>
-                                        </td>
+                                        <td class="ticket_status">taran0913</td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
                                         <input type="hidden" class="refund_code" value="52">
                                         <td class="seq">1</td>
-                                        <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
-                                            </div>
-                                        </td>
+                                        <td class="ticket_status">taran0913</td>
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
                                         <input type="hidden" class="refund_code" value="52">
                                         <td class="seq">1</td>
-                                        <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
-                                            </div>
-                                        </td>
+                                        <td class="ticket_status">taran0913</td>
+
                                     </tr>
                                     <tr>
                                         <input type="hidden" class="pd_code" value="50">
                                         <input type="hidden" class="user_code" value="51">
                                         <input type="hidden" class="refund_code" value="52">
                                         <td class="seq">1</td>
-                                        <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">2022.03.1 - 2022.03.05</td>
+                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
-                                        <td class="ticket_status">환불가능</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_user_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_refund btn btn-primary btn-circle btn-sm fa-solid fa-receipt"></button>
-                                            </div>
-                                        </td>
+                                        <td class="ticket_status">taran0913</td>
                                     </tr>
                                 </form>
                                 </tbody>
