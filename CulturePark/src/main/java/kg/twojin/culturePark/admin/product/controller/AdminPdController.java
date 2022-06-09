@@ -21,7 +21,7 @@ public class AdminPdController {
         return mv;
     }
 
-    @RequestMapping(value = "pdProgressList.ado")
+    @RequestMapping(value = "pdList.ado")
     public ModelAndView pdManageList() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pd_progressList");
