@@ -1,61 +1,57 @@
-// 매니저 계정 생성하기
-$('.btn_create').click(function () {
-    clearValues();
-    eventRow = $(this).closest('tr');
-    var comp_num = eventRow.children('.comp_num').val();
-    var compName = eventRow.children('.comp').text();
-    var comp_email = eventRow.children('.email').text();
-    var tel = eventRow.children('.phone').text();
+$(document).ready(function () {
 
-    console.log(tel);
-    $('#ManagerEmail').val(comp_email);
-    $('#ManagerPhone').val(parseInt(tel));
-    $('.head_comp_name').text(compName);
-    $('.head_comp_num').text(comp_num);
+    $('.btn_regist').click(function () {
+        var company = $('#InputCompany').val();
+        var name = $('#InputName').val();
+        var email = $('#InputEmail').val();
+        var phone = $('#InputPhone').val();
+        var password_01 = $('#InputPassword').val();
+        var password_02 = $('#RepeatPassword').val();
+        var chk_list = $('input[name=chk_right]:checked');
 
+        if (company.trim() === '') {
+            alert("회사를 입력해주세요");
+        } else if (name.trim() === '') {
+            alert("이름을 입력해주세요.");
+        } else if (email.trim() === '') {
+            alert("이메일을 입력해주세요.");
+        } else if (phone.trim() === '') {
+            alert("휴대전화를 입력해주세요.");
+        }else if (password_01.trim() === '' || password_01.length < 12) {
+            alert("비밀번호를 12자 이상 입력해주세요");
+        } else if (password_02.trim() === '' || password_02.length < 12) {
+            alert("비밀번호 재입력을 12자 이상 입력해주세요");
+        } else if (password_01 !== password_02) {
+            alert("비밀번호와 재입력이 일치하지 않습니다");
+        } else if (chk_list.length === 0) {
+            alert("권한을 최소 한 개 이상 선택해주세요.");
+            /*alert창 뜨면서 데이터가 유지되지않고 지워짐*/
 
-    modal_now = $('#CreateModal');
-    modal_now.modal({});
-});
+        } else {
+            alert("계정생성 성공!");
+            /* alert창 뜨지않음 */
+            createAccount(company, name, email, phone, password_01, position);
 
-$('.btn_createDone').click(function () {
-    var comp_num = $('.head_comp_num').text();
-    var manager_name = $('#ManagerName').val();
-    var manager_email = $('#ManagerEmail').val();
-    var manager_tel = $('#ManagerPhone').val();
+           /* clearValues();*/
+        }
+    });
 
-    var result_values  = chkValues(manager_name, manager_email, manager_tel);
+    function createAccount(company,name,email,phoneNumber,pw,pos) {
+        //Todo : DB에 값을 넣어주는 동작구현을 해줄 것
+    }
 
-    if (result_values) {
-        createManager(comp_num, manager_name, manager_email, manager_tel);
-        alert('계정생성 성공!');
-        closeModal(modal_now);
-        reloadPage();
-    } else {
-
+    function chkPhone() {
+        //Todo 올바른 휴대전화 입력 확인 기능 만들 것
     }
 
 });
 
-
-// 키보드 이벤트
-
-function chkValues(name, email, tel) {
-    if (name.trim() === '' || email.trim() === '' || tel.trim() === '') {
-        alert("빈칸이 확인됐습니다. 입력칸을 확인해주세요.");
-        return false;
-    } else {
-        return true;
-    }
-}
-
-// Todo : 매니저 계정을 생성해주는 코드를 구현해주기
-function createManager(comp_num , name, email, tel) {
-
-}
 
 function clearValues() {
-    $('#ManagerName').val('');
-    $('#ManagerEmail').val('');
-    $('#ManagerPhone').val('');
+    $('#InputCompany').val('');
+    $('#InputName').val('');
+    $('#InputEmail').val('');
+    $('#InputPhone').val('');
+    $('#InputPassword').val('');
+    $('#RepeatPassword').val('');
 }

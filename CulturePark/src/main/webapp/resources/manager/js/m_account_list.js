@@ -1,14 +1,29 @@
 //매니저 수정
-$('.btn_mg_info').click(function() {
+$('.btn_update_manager').click(function() {
     eventRow = $(this).closest('tr');
-    modal_now = $('#ManagerInfoModal');
+    modal_now = $('#UpdateModal');
+
+    var comp_num = eventRow.children('.comp_num');
+    var name = eventRow.children('.name').text();
+    var email = eventRow.children('.email').text();
+    var phone = eventRow.children('.phone').text();
+
+
+    $('#ManagerName').val(name);
+    $('#ManagerEmail').val(email);
+    $('#ManagerPhone').val(phone);
+
     modal_now.modal({});
 });
 
 $('.update_btn').click(function() {
-
+    alert('수정되었습니다');
+    reloadPage();
 });
 
+$('.btn_modal_close').click(function () {
+    closeModal(modal_now);
+});
 
 
 
@@ -32,6 +47,7 @@ $('.btn_finalDelete').click(function () {
         eventRow.remove();
         closeModal(modal_now);
         alert("성공적으로 매니저를 삭제했습니다");
+        reloadPage();
     } else {
         alert("잘못 입력했습니다. 다시 확인해주세요.")
     }

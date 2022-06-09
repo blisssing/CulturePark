@@ -7,3 +7,15 @@ function refuse_popup() {
 function adminInfo_popup() {
     window.open( "/adminInfo.mdo", "pd_adminInfo_pop", "width=500px, height=200px");
 }
+
+
+/*요청하기 모달*/
+$(document).ready(function () {
+
+$('.requesting_btn').click(function () {
+    eventData = $(this);
+    eventRow = $(this).closest('tr');
+    $('#RequestingModal').modal({});
+});
+
+});

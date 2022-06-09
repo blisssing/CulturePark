@@ -59,7 +59,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">관리 목록</h6>
                 <a class="collapse-item" href="mAccountList.mdo">계정목록</a>
-                <a class="collapse-item" href="mAccountAdd.mdo">계정생성</a>
+                <a class="collapse-item create_account_manager" href="mAccountAdd.mdo">계정생성</a>
             </div>
         </div>
     </li>
