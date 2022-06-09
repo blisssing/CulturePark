@@ -441,13 +441,6 @@
 
 <script src="/resources/admin/js/rv_reviewPage.js"></script>
 
-
-
-
-
-
-
-
 </body>
 
 </html>
