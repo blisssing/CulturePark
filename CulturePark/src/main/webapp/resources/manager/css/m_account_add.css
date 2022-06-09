@@ -1,0 +1,20 @@
+.chk_ul,.chk_list {
+    list-style: none;
+}
+
+.chk_list > * {
+    margin: 0 10px 0 0;
+}
+
+.col-lg-7 {
+    margin: 0 auto;
+
+}
+
+.row {
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}

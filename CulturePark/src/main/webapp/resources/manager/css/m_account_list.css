@@ -20,3 +20,10 @@
     display: flex;
     font-size:0.6rem;
 }
+
+
+.update_btn {
+    color: #fff;
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}

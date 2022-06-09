@@ -10,11 +10,11 @@
 
 .card-header .requesting_btn {
     font-size: 0.9rem;
-    color: #6e707e;
-    background-color: whitesmoke;
-    border: 1px solid #d1d3e2;
-    border-radius: 1rem;
-    padding: 5px 10px;
+    color: white;
+    background-color: #4e73df;
+    border: 1px solid;
+    border-radius: 2rem;
+    padding: 7px 13px;
 }
 
 .status_btn , .adminInfo_btn {

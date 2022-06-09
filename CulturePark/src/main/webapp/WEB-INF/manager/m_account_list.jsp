@@ -49,12 +49,10 @@
 
         <!-- Main Content -->
         <div id="content">
-
             <%@include file="/WEB-INF/manager/common_topbar.jsp"%>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -64,11 +62,11 @@
                         <div class="icon_descript">
 
                             <div class="descript_wrap">
-                                <span class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
+                                <span class="btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
                                 <span>담당 상품</span>
                             </div>
                             <div class="descript_wrap">
-                                <span class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
+                                <span class="btn_update btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
                                 <span>매니저 수정</span>
                             </div>
                             <div class="descript_wrap">
@@ -115,7 +113,7 @@
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_update_manager btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                                 <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
 
                                             </div>
@@ -141,7 +139,7 @@
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_update_manager btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                                 <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
                                             </div>
                                         </td>
@@ -166,7 +164,7 @@
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_update_manager btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                                 <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
                                             </div>
                                         </td>
@@ -191,7 +189,7 @@
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_update_manager btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                                 <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
                                             </div>
                                         </td>
@@ -206,7 +204,7 @@
 
 
                 <%-- 수 정 모 달  --%>
-                <div class="modal fade  border-0 shadow-lg my-5" id="ManagerInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                <div class="modal fade  border-0 shadow-lg my-5" id="UpdateModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
                      style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
@@ -219,13 +217,9 @@
                             </div>
                             <form class="user modal-body" style="max-height: 600px; overflow: scroll">
                                 <div class="form-group">
-                                    <span class="head_comp_name"></span>  #<span class="head_comp_num"></span>
+                                    <span class="head_man_name"></span>  #<span class="head_man_num"></span>
                                 </div>
                                 <hr>
-                                <div class="form-group">
-                                    <div class="form-head">매니저</div>
-                                    <input type="text" class="form-control form-control-user" id="RootManagerName">
-                                </div>
                                 <div class="form-group">
                                     <div class="form-head">이름</div>
                                     <input type="text" class="form-control form-control-user" id="ManagerName">
@@ -242,9 +236,9 @@
                                     <div class="form-head">권한</div>
                                     <select class="authority" id="authority" name="authority">
                                         <option value="">선택</option>
-                                        <option value="샘플1"></option>
-                                        <option value="샘플2"></option>
-                                        <option value="샘플3"></option>
+                                        <option value="샘플1">샘플1</option>
+                                        <option value="샘플2">샘플2</option>
+                                        <option value="샘플3">샘플3</option>
                                     </select>
                                 </div>
                             </form>
@@ -253,7 +247,7 @@
                                 <button class="btn btn-secondary update_btn" type="button" data-dismiss="modal">수정</button>
                             </div>
                         </div>
-                    </div>
+                    </div>ㅁ
                 </div>
 
 
@@ -278,8 +272,8 @@
                             </form>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button class="btn_finalDelete btn btn-primary" >삭제하기</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                <button class="btn_finalDelete btn btn-primary" >삭제</button>
                             </div>
                         </div>
                     </div>
