@@ -137,7 +137,9 @@
                 <a class="collapse-item" href="/pdList.ado">진행 중 리스트</a>
 
                 <div class="collapse-divider"></div>
-                <h6 class="collapse-header">프로모션 관리</h6><a class="collapse-item" href="/ingProm.ado">진행목록</a>
+                <h6 class="collapse-header">프로모션 관리</h6>
+                <a class="collapse-item" href="/requestProm.ado">요청목록</a>
+                <a class="collapse-item" href="/ingProm.ado">진행목록</a>
                 <a class="collapse-item" href="/expirProm.ado">만료목록</a>
             </div>
         </div>
