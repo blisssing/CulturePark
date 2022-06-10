@@ -29,4 +29,11 @@ public class PromotionMenuController {
         mv.setViewName("pr_expirList");
         return mv;
     }
+
+    @RequestMapping(value = "requestProm.ado")
+    public ModelAndView requestProm() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pr_requestList");
+        return mv;
+    }
 }
