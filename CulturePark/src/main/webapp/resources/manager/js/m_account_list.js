@@ -8,7 +8,6 @@ $('.btn_update_manager').click(function() {
     var email = eventRow.children('.email').text();
     var phone = eventRow.children('.phone').text();
 
-
     $('#ManagerName').val(name);
     $('#ManagerEmail').val(email);
     $('#ManagerPhone').val(phone);
@@ -24,9 +23,6 @@ $('.update_btn').click(function() {
 $('.btn_modal_close').click(function () {
     closeModal(modal_now);
 });
-
-
-
 
 
 
@@ -51,9 +47,8 @@ $('.btn_finalDelete').click(function () {
     } else {
         alert("잘못 입력했습니다. 다시 확인해주세요.")
     }
-
-
 });
+
 
 // 매니저 삭제 확인 메시지
 function chkText(text) {

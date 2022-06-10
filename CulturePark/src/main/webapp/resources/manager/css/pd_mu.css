@@ -1,3 +1,13 @@
+.modal-header {
+    padding: 1rem 1rem 0 1rem;
+}
+
+.h4 {
+    font-size:1.1rem !important;
+    margin: 5px 0 20px 190px !important;
+}
+
+
 .card-body {
     font-size:0.9rem;
 }
@@ -7,19 +17,162 @@
     justify-content: space-between !important;
 }
 
+.text-primary {
+    color: dimgray !important;
+    font-weight: lighter !important;
+    font-size:1.2rem !important;
+}
+
 
 .card-header .requesting_btn {
     font-size: 0.9rem;
-    color: white;
-    background-color: #4e73df;
-    border: 1px solid;
-    border-radius: 2rem;
-    padding: 7px 13px;
+    color: dimgray;
+    background-color: white;
+    border: white;
+    border-bottom: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    padding: 6px 8px;
+    border-radius: 1rem;
 }
+
+/*.requesting_btn:hover {
+    color: dimgray;
+    border: 2px solid dimgray;
+}*/
+
+
 
 .status_btn , .adminInfo_btn {
     color: #858796;
     font-weight: bold;
     cursor: pointer;
 }
+
+.modal-content{
+    width: 100%;
+}
+
+.section_label {
+    font-size: 1rem;
+    margin:15px 0;
+    font-weight: 100;
+}
+
+.row_all {
+    display: flex;
+    /*margin: auto;*/
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.row1 , .row2 {
+    border-right: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.row1 {
+    width:50%;
+}
+
+.row2 {
+    width:50%;
+}
+
+/*수정함*/
+.modal > .table {
+    display: flex;
+    flex-direction: column;
+}
+.modal > thead {
+    display: flex;
+    flex-direction: column;
+}
+.modal > th {
+    display: flex;
+}
+
+.modal > tr {
+    display: flex;
+}
+
+.td_0 {
+    width: 30%;
+    font-size:0.9rem;
+}
+
+.modal > .table td, .table th {
+    padding:0.5rem;
+}
+
+.td_1 {
+    width:40%;
+    font-size:0.9rem;
+}
+
+.td_1 > input {
+    width: 80%;
+    margin-right:4px;
+}
+
+
+.btn_Agree2 {
+    background-color: #81c995;
+}
+
+.btn_Disagree2 {
+    background-color: lightgray;
+}
+
+.chkbox {
+    margin-right: 5px;
+}
+
+.chkLabel {
+    margin-left: 15px;
+}
+
+.margin-left {
+    margin-left:5px;
+}
+
+.choice {
+    width:100%;
+}
+
+.file_padding input {
+    padding: 5px 5px 40px 5px;
+}
+
+.modal-footer {
+    margin: 30px 0 50px 0px;
+}
+
+.btn_adminInfo, .btn_refuse {
+    border-radius: 1rem;
+    border:white;
+}
+
+.btn-danger {
+    border-color: white;
+}
+
+.btn-success {
+    border-color: white;
+}
+
+.btn-danger:hover {
+    background-color: gray;
+    border-color: gray;
+}
+
+.btn_success:hover {
+    color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.row0 {
+    border-bottom: 1px solid #e3e6f0;
+    margin-bottom: 40px;
+}
+
 

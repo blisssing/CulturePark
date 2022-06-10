@@ -9,7 +9,7 @@ function adminInfo_popup() {
 }
 
 
-/*요청하기 모달*/
+/* 요청하기 모달 */
 $(document).ready(function () {
 
 $('.requesting_btn').click(function () {

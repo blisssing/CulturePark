@@ -63,7 +63,7 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">매니저 계정 생성</h1>
                                         </div>
-                                        <form class="user">
+                                      <%--  <form class="user">--%>
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" id="InputCompany"
@@ -105,7 +105,8 @@
                                                 </ul>
                                             </div>
                                             <button  class="btn btn-primary btn-user btn-block btn_regist">등록</button>
-                                        </form>
+
+                                   <%--     </form>--%>
                                         <hr>
 
                                     </div>
