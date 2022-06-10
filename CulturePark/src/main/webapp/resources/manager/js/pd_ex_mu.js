@@ -16,6 +16,52 @@ $('.requesting_btn').click(function () {
     eventData = $(this);
     eventRow = $(this).closest('tr');
     $('#RequestingModal').modal({});
+
 });
 
+  /* /!* day 선택시 오픈,마감시간 비활성화 *!/
+    $('#request_day').click(function(){
+        $(".tck_openTime").attr("disabled",false); //입력불가
+        $(".tck_closeTime").attr("disabled",false);
+    });
+
+    /!* time 선택시 오픈,마감시간 활성화 *!/
+    $('#request_time').click(function(){
+        $(".tck_openTime").attr("disabled",false);
+        $(".tck_closeTime").attr("disabled",false);
+    });*/
+
+
+        $(document).on("change", "select[name=choice]", function(){
+            var value = $(this).find("option:selected").val();
+            var inputText = $(this).closest('.selectBox').find('.inputText');
+            var flag = false;
+            if (value == 0) {
+                flag = true;
+                $(inputText).val('');
+            }
+
+            $(inputText).attr("disabled", flag);
+        });
+
+
+       /* $('#choice2').on('input change', function () {
+            if ($(this).val() == '#request_day') {
+                $('.tck_openTime').attr('disabled', false);
+                $(".tck_closeTime").attr("disabled",false);
+            }
+            else if ($(this).val() == '#request_time') {
+                $('.tck_openTime').attr('disabled', true);
+                $(".tck_closeTime").attr("disabled", true);
+            }
+        });
+*/
+
+        $('.btn_Agree2').click(function(){
+           alert('변경되었습니다.');
+        });
+
+        $('.cancel_btn').click(function(){
+            $('.modal').modal('hide');
+        });
 });

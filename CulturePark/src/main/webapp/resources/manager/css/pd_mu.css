@@ -2,14 +2,19 @@
     padding: 1rem 1rem 0 1rem;
 }
 
-.h4 {
-    font-size:1.1rem !important;
-    margin: 5px 0 20px 190px !important;
+.table {
+    border-left: 0.5px solid #e3e6f0;
+    border-right: 0.5px solid #e3e6f0;
+    margin-bottom: 0;
 }
 
+.h4 {
+    font-size:1.1rem !important;
+    margin: 5px 0 20px 200px !important;
+}
 
 .card-body {
-    font-size:0.9rem;
+    font-size: 0.9rem;
 }
 
 .card-header {
@@ -20,7 +25,7 @@
 .text-primary {
     color: dimgray !important;
     font-weight: lighter !important;
-    font-size:1.2rem !important;
+    font-size: 1.2rem !important;
 }
 
 
@@ -35,13 +40,6 @@
     border-radius: 1rem;
 }
 
-/*.requesting_btn:hover {
-    color: dimgray;
-    border: 2px solid dimgray;
-}*/
-
-
-
 .status_btn , .adminInfo_btn {
     color: #858796;
     font-weight: bold;
@@ -49,7 +47,7 @@
 }
 
 .modal-content{
-    width: 100%;
+    width: 110%;
 }
 
 .section_label {
@@ -60,7 +58,6 @@
 
 .row_all {
     display: flex;
-    /*margin: auto;*/
     width: 100%;
     margin-bottom: 40px;
 }
@@ -97,7 +94,7 @@
 
 .td_0 {
     width: 30%;
-    font-size:0.9rem;
+    font-size: 1rem;
 }
 
 .modal > .table td, .table th {
@@ -136,7 +133,7 @@
 }
 
 .choice {
-    width:100%;
+    width: 95%;
 }
 
 .file_padding input {
