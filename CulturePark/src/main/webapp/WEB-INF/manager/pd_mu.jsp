@@ -57,12 +57,16 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <div class="div_col">
-                        <h5 class="m-0 font-weight-bold text-primary">뮤지엄 관리</h5>
-                        <div class="label_en">museum management</div>
+                        <div class="div1">
+                            <h5 class="m-0 font-weight-bold text-primary">뮤지엄 관리</h5>
                         </div>
-                        <input type="button" class="requesting_btn" value="요청하기">
+
+                        <div class="div2">
+                            <div class="label_en">museum management</div>
+                            <input type="button" class="requesting_btn" value="요청하기">
+                        </div>
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -145,11 +149,11 @@
 </div>
 
 <%--세부사항 모달 --%>
-<div class="modal fade card border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content ard-body p-0">
             <div class="modal-header">
-                <h6 class="h4 text-gray-900 mb-4">요청 페이지</h6>
+                <h2 class="h4 text-gray-900 mb-4">요청 페이지</h2>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -176,24 +180,24 @@
 
                             <tbody>
                             <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk">구분없음</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
+                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
                             </tr>
 
 
                             <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk">성인</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
+                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
                             </tr>
 
                             <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk">청소년</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
+                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
                             </tr>
 
                             <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk">어린이</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
+                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
                             </tr>
                             </tbody>
 
@@ -255,12 +259,12 @@
 
                             <tbody>
 
-                            <tr class="list1">
+                            <tr>
                                 <td colspan="2">타입선택</td>
                             </tr>
-                            <tr class="list1">
+                            <tr>
                                 <td colspan="2">
-                                    <select class="choice" id="choice1" name="choice">
+                                    <select class="choice" id="choice1" disabled="disabled">
                                         <option value="">선택</option>
                                         <option value="day">일별(day)</option>
                                         <option value="time">시간대별(time)</option>
@@ -268,25 +272,25 @@
                                 </td>
                             </tr>
 
-                            <tr class="list2">
+                            <tr>
                                 <td colspan="2">티켓 max</td>
                             </tr>
-                            <tr class="list2">
-                                <td colspan="2"><input type="text" class="tck_max"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
-                            <tr class="list3">
+                            <tr>
                                 <td colspan="2">오픈시간대</td>
                             </tr>
-                            <tr class="list3">
-                                <td colspan="2"><input type="text" class="tck_openTime"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
-                            <tr class="list4">
+                            <tr>
                                 <td colspan="2">마감시간대</td>
                             </tr>
-                            <tr class="list4">
-                                <td colspan="2"><input type="text" class="tck_closeTime"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
                             </tbody>
@@ -307,37 +311,37 @@
                             <tbody>
 
                             <tr>
-                                <td class="list" colspan="2">타입선택</td>
+                                <td colspan="2">타입선택</td>
                             </tr>
-                            <tr class="list">
+                            <tr>
                                 <td colspan="2">
                                     <select class="choice" id="choice2" name="choice">
                                         <option value="">선택</option>
-                                        <option value="day">일별(day)</option>
-                                        <option value="time">시간대별(time)</option>
+                                        <option value="day" id="request_day" name="choice">일별(day)</option>
+                                        <option value="time" id="request_time" name="choice">시간대별(time)</option>
                                     </select>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">티켓 max</td>
+                                <td colspan="2">티켓 max</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_max"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_day inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">오픈시간대</td>
+                                <td colspan="2">오픈시간대</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_openTime"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">마감시간대</td>
+                                <td colspan="2">마감시간대</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_closeTime"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
                             </tr>
 
                             </tbody>

@@ -173,7 +173,7 @@
                             <tr class="table_row_section">
                                 <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
                                 <td class="pd_name_watched">사울레이터</td>
-                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                                <td><button class="write_review_btn"><a href="/writeReview.do">리뷰쓰기</a></button></td>
                             </tr>
                         </div>
 
@@ -181,7 +181,7 @@
                             <tr>
                                 <td class="watched_pd_type_value"><span>[</span><span class="type">뮤지엄</span><span>]</span></td>
                                 <td class="pd_name_watched">허브아일랜드</td>
-                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                                <td><button class="write_review_btn"><a href="/writeReview.do">리뷰쓰기</a></button></td>
                             </tr>
                        </div>
 
@@ -189,7 +189,7 @@
                             <tr>
                                 <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
                                 <td class="pd_name_watched">라이프 사진전</td>
-                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                                <td><button class="write_review_btn"><a href="/writeReview.do">리뷰쓰기</a></button></td>
                             </tr>
                         </div>
 
@@ -197,7 +197,7 @@
                             <tr>
                                 <td class="watched_pd_type_value"><span>[</span><span class="type">뮤지엄</span><span>]</span></td>
                                 <td class="pd_name_watched">박물관이 살아있다</td>
-                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                                <td><button class="write_review_btn"><a href="/writeReview.do">리뷰쓰기</a></button></td>
                             </tr>
                         </div>
 
@@ -205,7 +205,7 @@
                             <tr>
                                 <td class="watched_pd_type_value"><span>[</span><span class="type">전시</span><span>]</span></td>
                                 <td class="pd_name_watched">스누피</td>
-                                <td><button class="write_review_btn"><a href="#리뷰쓰기페이지">리뷰쓰기</a></button></td>
+                                <td><button class="write_review_btn"><a href="/writeReview.do">리뷰쓰기</a></button></td>
                             </tr>
                         </div>
                         </tbody>

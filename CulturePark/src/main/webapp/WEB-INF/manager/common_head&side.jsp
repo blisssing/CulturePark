@@ -49,7 +49,9 @@
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fa-solid fa-clipboard-question"></i>
-            <span>QnA 관리</span></a>
+            <span>QnA 관리</span>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+</span>
+        </a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->

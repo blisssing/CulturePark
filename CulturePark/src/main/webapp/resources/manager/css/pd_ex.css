@@ -18,15 +18,22 @@
 }
 
 .card-header {
-    display: flex !important;
-    justify-content: space-between !important;
+    display: flex;
+    flex-direction: column;
 }
 
+.text-primary{
+    color: dimgrey !important;
+}
 
-.label_en {
-    margin-top:5px;
-    font-size:0.9rem !important;
-    color: dimgray !important;
+.div2{
+    display: flex;
+    justify-content: space-between;
+    vertical-align: bottom;
+}
+
+.label_en{
+    padding-top: 7px;
 }
 
 .card-header .requesting_btn {
@@ -174,7 +181,7 @@
     margin-bottom: 40px;
 }
 
-.tck_max , .tck_openTime , .tck_closeTime {
+.tck {
     width: 95%;
     height: 27px;
 }
