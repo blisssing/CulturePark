@@ -320,21 +320,21 @@
                                 <td class="list" colspan="2">티켓 max</td>
                             </tr>
                             <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_max inputText"></td>
+                                <td colspan="2"><input type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
                                 <td class="list" colspan="2">오픈시간대</td>
                             </tr>
                             <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_openTime inputText"></td>
+                                <td colspan="2"><input type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
                                 <td class="list" colspan="2">마감시간대</td>
                             </tr>
                             <tr class="list">
-                                <td colspan="2"><input type="text" class="tck_closeTime inputText"></td>
+                                <td colspan="2"><input type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
                             </tr>
 
                             </tbody>
