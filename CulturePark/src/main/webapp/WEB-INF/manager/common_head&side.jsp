@@ -34,9 +34,12 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">생성</h6>
+                <a class="collapse-item" href="pd_add">신규요청</a>
                 <h6 class="collapse-header">관리 목록</h6>
                 <a class="collapse-item" href="pdEx.mdo">전시</a>
                 <a class="collapse-item" href="pdMu.mdo">뮤지엄</a>
+
             </div>
         </div>
     </li>
@@ -58,8 +61,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">관리 목록</h6>
-                <a class="collapse-item" href="mAccountList.mdo">계정목록</a>
                 <a class="collapse-item create_account_manager" href="mAccountAdd.mdo">계정생성</a>
+                <a class="collapse-item" href="mAccountList.mdo">계정목록</a>
+
             </div>
         </div>
     </li>
