@@ -133,14 +133,14 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">상품관리</h6>
                 <a class="collapse-item" href="/pdCreateRequest.ado">생성대기리스트</a>
-                <a class="collapse-item" href="/pdRequest.ado">요청리스트</a>
+                <a class="collapse-item" href="/pdModifyRequest.ado">요청리스트</a>
                 <a class="collapse-item" href="/pdList.ado">진행 중 리스트</a>
 
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">프로모션 관리</h6>
                 <a class="collapse-item" href="/requestProm.ado">요청목록</a>
                 <a class="collapse-item" href="/ingProm.ado">진행목록</a>
-                <a class="collapse-item" href="/expirProm.ado">만료목록</a>
+                <a class="collapse-item" href="/expirProm.ado">완료목록</a>
             </div>
         </div>
     </li>

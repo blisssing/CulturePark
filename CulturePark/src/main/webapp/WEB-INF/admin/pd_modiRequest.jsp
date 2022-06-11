@@ -30,13 +30,78 @@
 
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
-
     <style>
-        .btn_print {
-            position: absolute;
-            top: 15px;
-            right: 10px;
+
+        th {
+            white-space: nowrap;
         }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            vertical-align:middle;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        p {
+            margin:0px;
+            display:inline-block;
+            font-size:0.8rem;
+            font-weight:bold;
+        }
+    </style>
     </style>
 
     <title>CulturePark 관리자</title>
@@ -64,27 +129,26 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">프로모션 관리</h1>
+                <h1 class="h3 mb-2 text-gray-800">상품 관리</h1>
                 <div class="icon_descript">
                     <div class="descript_wrap">
-                        <span class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-gift"></span>
-                        <span>요청 정보</span>
+                        <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
+                        <span> 상품 정보 </span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></span>
-                        <span>상품 정보</span>
+                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></span>
+                        <span> 요청 내역 </span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></span>
-                        <span>최종 수락</span>
+                        <span class="btn_Dicip_cancel btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
+                        <span> 매니저 정보 </span>
                     </div>
 
                 </div>
-
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">요청목록</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">요청 목록</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -92,100 +156,96 @@
                                 <thead>
                                 <tr>
                                     <th>seq</th>
-                                    <th>업체명</th>
+                                    <th>회사명</th>
                                     <th>상품명</th>
-                                    <th>프로모션 기간</th>
                                     <th>요청날짜</th>
-                                    <th>상태</th>
+                                    <th>처리날짜</th>
+                                    <th>처리상태</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>seq</th>
-                                    <th>업체명</th>
+                                    <th>회사명</th>
                                     <th>상품명</th>
-                                    <th>프로모션 기간</th>
                                     <th>요청날짜</th>
-                                    <th>상태</th>
+                                    <th>처리날짜</th>
+                                    <th>처리상태</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <form name="frm">
                                     <tr>
-                                        <input type="hidden" class="comp_code">
-                                        <input type="hidden" class="pd_code">
-                                        <input type="hidden" class="root_code">
-                                        <input type="hidden" class="request_pr_code">
+                                        <input type="hidden" class="pd_code" value="50">
+                                        <input type="hidden" class="pd_modi_request" value="50">
+                                        <input type="hidden" class="comp_code" value="51">
                                         <td class="seq">1</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="prom_period">2022.01.02 - 2022.03.03</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">처리대기</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
+                                        <td class="request_date">2022.01-03</td>
+                                        <td class="handle_date"></td>
+                                        <td class="request_status">대기</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
+                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
+                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <input type="hidden" class="comp_code">
-                                        <input type="hidden" class="pd_code">
-                                        <input type="hidden" class="root_code">
-                                        <input type="hidden" class="request_pr_code">
+                                        <input type="hidden" class="pd_code" value="50">
+                                        <input type="hidden" class="pd_modi_request" value="50">
+                                        <input type="hidden" class="comp_code" value="51">
                                         <td class="seq">1</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="prom_period">2022.01.02 - 2022.03.03</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">처리중</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
+                                        <td class="request_date">2022.01.03</td>
+                                        <td class="handle_date">2022.01.04</td>
+                                        <td class="request_status">거절</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
+                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
+                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <input type="hidden" class="comp_code">
-                                        <input type="hidden" class="pd_code">
-                                        <input type="hidden" class="root_code">
-                                        <input type="hidden" class="request_pr_code">
+                                        <input type="hidden" class="pd_code" value="50">
+                                        <input type="hidden" class="pd_modi_request" value="50">
+                                        <input type="hidden" class="comp_code" value="51">
                                         <td class="seq">1</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="prom_period">2022.01.02 - 2022.03.03</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">요청수락</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
+                                        <td class="request_date">2022.01.03</td>
+                                        <td class="handle_date">2022.01.04</td>
+                                        <td class="request_status">승인</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
+                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
+                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <input type="hidden" class="comp_code">
-                                        <input type="hidden" class="pd_code">
-                                        <input type="hidden" class="root_code">
-                                        <input type="hidden" class="request_pr_code">
+                                        <input type="hidden" class="pd_code" value="50">
+                                        <input type="hidden" class="pd_modi_request" value="50">
+                                        <input type="hidden" class="comp_code" value="51">
                                         <td class="seq">1</td>
                                         <td class="comp_name">피크닉</td>
-                                        <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="prom_period">2022.01.02 - 2022.03.03</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">요청거절</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
+                                        <td class="request_date">2022.01-03</td>
+                                        <td class="handle_date"></td>
+                                        <td class="request_status">대기</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
+                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
+                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -202,68 +262,84 @@
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">요 청 내 용</h1>
+                                <h1 class="h4 text-gray-900 mb-4">요 청 정 보</h1>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
-                                    <span>요청번호 : </span>
-                                    <span class="pr_reqeust_code">#12</span>
+                                    <div>
+                                        <span>요청번호 : </span>
+                                        <span id="request_code"></span>
+                                    </div>
                                 </div>
                                 <hr>
+                                <div class="form-group">
+                                    <div class="form-head">업체명</div>
+                                    <div class="form-control form-control-user" id="comp_name"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">상품명</div>
+                                    <div class="form-control form-control-user" id="pd_title"></div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">업체명</div>
-                                        <div class="form-control form-control-user" id="CompName" >전시</div>
+                                        <div class="form-head">분야</div>
+                                        <div class="form-control form-control-user" id="pd_class_1" >전시</div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-head">상품명</div>
-                                        <div class="form-control form-control-user" id="ProductTitle">퓨전</div>
+                                        <div class="form-head">장르</div>
+                                        <div class="form-control form-control-user" id="pd_class_2">퓨전</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">매니저 이메일</div>
-                                        <div class="form-control form-control-user" id="ManagerEmail" >taran0913@wwww.wwww</div>
+                                        <div class="form-head">시작일</div>
+                                        <div class="form-control form-control-user" id="start_date" >2022.03.03</div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-head">매니저 TEL</div>
-                                        <div class="form-control form-control-user" id="ManagerTel">01000000000</div>
+                                        <div class="form-head">2차 분야</div>
+                                        <div class="form-control form-control-user" id="end_date" >2022.06.02</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">홍보 페이지 선택</div>
-                                        <div class="form-control form-control-user" id="SelectPage" >메인홈페이지 </div>
+                                        <div class="form-head">장소</div>
+                                        <div class="form-control form-control-user" id="pd_place" >장소</div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-head">홍보 기간</div>
-                                        <div class="form-control form-control-user" id="PromotionPeriod"> 2022.02.03-2022.03.03</div>
+                                        <div class="form-head">연령</div>
+                                        <div class="form-control form-control-user" id="pd_minAge">15세 이상</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">모바일 창 이미지</div>
+                                        <div class="form-head">썸네일</div>
                                         <a class="form-control form-control-user" id="pd_img1" >상품이미지1</a>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-head">메인 창 이미지</div>
+                                        <div class="form-head">메인 이미지</div>
                                         <a class="form-control form-control-user" id="pd_img2">상품이미지2</a>
-
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="form-head">설명 파일 </div>
+                                    <div class="form-control form-control-user" id="pd_description">설명 파일 첨부</div>
+                                </div>
+
 
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn_accept_request btn btn-info btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
+                                <button  class="btn_modal_agree btn btn-info btn-icon-split">
+                                            <span class="icon text-white-50">
+
                                             </span>
-                                    <span class="text">요청접수</span>
+                                    <span class="text">요청수락</span>
                                 </button>
-                                <button  class="btn_disagree btn btn-warning btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
+                                <button  class="btn_modal_disagree btn btn-warning btn-icon-split">
+                                            <span class="icon text-white-50">
+
                                             </span>
                                     <span class="text">요청거절</span>
                                 </button>
@@ -273,52 +349,49 @@
                                             </span>
                                     <span class="text">닫기</span>
                                 </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <%--요 청 거 절 내 용 전 달--%>
-                <div class="modal fade border-0 shadow-lg my-5" id="RefuseRequestModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
-                     style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content ard-body p-0">
+
+                <%--삭 제 확 인 모 달--%>
+
+                <div class="modal fade" id="ChkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">유 저 정 보</h1>
+                                <h5 class="modal-title" id="deleteLavel">리뷰 삭제</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '리뷰를 삭제합니다'를 입력해주세요
                                 <div class="form-group">
-                                    <span>요청번호 : </span>
-                                    <span class="pr_reqeust_code">#12</span>
+                                    <input type="text" class="form-control form-control-user" id="decideDelete"
+                                           placeholder="입력해주세요">
                                 </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-head">거절 사유</div>
-                                    <textarea class="userEmail form-control form-control-user"></textarea>
-                                </div>
+                            </form>
 
-                            </div>
                             <div class="modal-footer">
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                X
-                                            </span>
-                                    <span class="text">닫기</span>
-                                </button>
-                                <button  class="btn_disagree btn btn-warning btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">요청거절</span>
-                                </button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn_finalDelete btn btn-primary" >삭제하기</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
             </div>
             <!-- /.container-fluid -->
+
         </div>
         <!-- End of Main Content -->
 
@@ -373,8 +446,8 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-
-<script src="/resources/admin/js/pr_requestList.js"></script>
+<script src="/resources/admin/js/pd_pdList.js"></script>
+<script src="/resources/common/js/toggleBtn.js"></script>
 
 
 

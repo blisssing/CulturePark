@@ -22,7 +22,6 @@ $(document).ready(function () {
 
     // 진희
     $('#choice2').change(function () {
-
         var selected_val = $('#choice2 option:selected').val();
         console.log(selected_val);
 
@@ -31,16 +30,10 @@ $(document).ready(function () {
             $('.tck_time').attr('disabled', true);
         } else if (selected_val === 'time') {
             $('.tck_day').attr('disabled', true);
-
             $('.tck_time').attr('disabled', false);
         } else {
             $('.tck').attr('disabled', true);
         }
-
-
-
-
-
     });
 
       /* /!* day 선택시 오픈,마감시간 비활성화 *!/

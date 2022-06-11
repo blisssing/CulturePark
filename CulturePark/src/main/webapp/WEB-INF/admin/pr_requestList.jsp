@@ -78,17 +78,8 @@
                         <span class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></span>
                         <span>최종 수락</span>
                     </div>
-                    <div class="descript_wrap">
-                        <span class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
-                        <span>매니저 정보</span>
-                    </div>
 
                 </div>
-
-<%--                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>--%>
-<%--                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>--%>
-<%--                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>--%>
-
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -137,8 +128,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -157,8 +147,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -177,8 +166,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -197,8 +185,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_final_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -291,7 +278,6 @@
                     </div>
                 </div>
 
-
                 <%--요 청 거 절 내 용 전 달--%>
                 <div class="modal fade border-0 shadow-lg my-5" id="RefuseRequestModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
@@ -305,29 +291,13 @@
                             </div>
                             <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
                                 <div class="form-group">
-                                    <span>유저번호 : </span>
-                                    <span id="UserSeq">#12</span>
+                                    <span>요청번호 : </span>
+                                    <span class="pr_reqeust_code">#12</span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <div class="form-head">이메일</div>
-                                    <input class="userEmail form-control form-control-user">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">이름</div>
-                                    <input class="form-control form-control-user" id="UserName">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">닉네임</div>
-                                    <input class="form-control form-control-user" id="UserNick">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">전화번호</div>
-                                    <input class="form-control form-control-user" id="UserTel">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">가입날짜</div>
-                                    <div class="form-control form-control-user" id="JoinDate"></div>
+                                    <div class="form-head">거절 사유</div>
+                                    <textarea class="userEmail form-control form-control-user"></textarea>
                                 </div>
 
                             </div>
@@ -338,73 +308,17 @@
                                             </span>
                                     <span class="text">닫기</span>
                                 </button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <%--매 니 저 정 보 모 달 --%>
-                <div class="modal fade border-0 shadow-lg my-5" id="UserInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
-                     style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content ard-body p-0">
-                            <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">유 저 정 보</h1>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
-                                <div class="form-group">
-                                    <span>유저번호 : </span>
-                                    <span id="UserSeq">#12</span>
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-head">이메일</div>
-                                    <input class="userEmail form-control form-control-user">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">이름</div>
-                                    <input class="form-control form-control-user" id="UserName">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">닉네임</div>
-                                    <input class="form-control form-control-user" id="UserNick">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">전화번호</div>
-                                    <input class="form-control form-control-user" id="UserTel">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">가입날짜</div>
-                                    <div class="form-control form-control-user" id="JoinDate"></div>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                X
+                                <button  class="btn_disagree btn btn-warning btn-icon-split">
+                                            <span class="icon fa-solid fa-receipt">
                                             </span>
-                                    <span class="text">닫기</span>
+                                    <span class="text">요청거절</span>
                                 </button>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
 

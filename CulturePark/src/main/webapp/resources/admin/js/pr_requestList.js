@@ -23,9 +23,20 @@ $(document).ready(function () {
 
     $('.btn_disagree').click(function () {
         closeModal(modal_now);
-
         modal_now = $('#RefuseRequestModal');
         modal_now.modal({});
+    });
+
+
+    // 최종수락
+
+    $('.btn_final_agree').click(function () {
+        var text_status = $(this).closest('tr').children('.request_status').text();
+        if (text_status === '처리중') {
+            //Todo : 프로모션 대기 목록에 올려주는 동작 수행
+        } else {
+            alert('처리 중인 요청이 아닙니다! 먼저 요청을 확인해주세요.');
+        }
     });
 
 
