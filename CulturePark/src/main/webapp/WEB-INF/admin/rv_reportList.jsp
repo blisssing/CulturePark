@@ -129,9 +129,8 @@
                                         <td class="report_date">2022.01.02</td>
                                         <td class="report_status">
                                             <select class="select_status">
-                                                <option name="slc_status">1</option>
-                                                <option name="slc_status">2</option>
-                                                <option name="slc_status">3</option>
+                                                <option name="slc_status" value="0">대기중</option>
+                                                <option name="slc_status" value="1">처리완료</option>
                                             </select>
                                         </td>
                                         <td class="btn_section">
@@ -156,9 +155,8 @@
                                         <td class="report_date">2022.01.02</td>
                                         <td class="report_status">
                                             <select class="select_status">
-                                                <option name="slc_status">1</option>
-                                                <option name="slc_status">2</option>
-                                                <option name="slc_status">3</option>
+                                                <option name="slc_status" value="0">대기중</option>
+                                                <option name="slc_status" value="1">처리완료</option>
                                             </select>
                                         </td>
                                         <td class="btn_section">
@@ -183,9 +181,8 @@
                                         <td class="report_date">2022.01.02</td>
                                         <td class="report_status">
                                             <select class="select_status">
-                                                <option name="slc_status">1</option>
-                                                <option name="slc_status">2</option>
-                                                <option name="slc_status">3</option>
+                                                <option name="slc_status" value="0">대기중</option>
+                                                <option name="slc_status" value="1">처리완료</option>
                                             </select>
                                         </td>
                                         <td class="btn_section">
@@ -210,9 +207,8 @@
                                         <td class="report_date">2022.01.02</td>
                                         <td class="report_status">
                                             <select class="select_status">
-                                                <option name="slc_status">1</option>
-                                                <option name="slc_status">2</option>
-                                                <option name="slc_status">3</option>
+                                                <option name="slc_status" value="0">대기중</option>
+                                                <option name="slc_status" value="1">처리완료</option>
                                             </select>
                                         </td>
                                         <td class="btn_section">

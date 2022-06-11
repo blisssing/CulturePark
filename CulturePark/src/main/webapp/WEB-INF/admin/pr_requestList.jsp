@@ -75,10 +75,14 @@
                         <span>상품 정보</span>
                     </div>
                     <div class="descript_wrap">
+                        <span class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></span>
+                        <span>최종 수락</span>
+                    </div>
+                    <div class="descript_wrap">
                         <span class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>
                         <span>매니저 정보</span>
-
                     </div>
+
                 </div>
 
 <%--                <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>--%>
@@ -128,13 +132,12 @@
                                         <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="prom_period">2022.01.02 - 2022.03.03</td>
                                         <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">
-                                            처리대기
-                                        </td>
+                                        <td class="request_status">처리대기</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
+                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                                 <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
@@ -149,13 +152,12 @@
                                         <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="prom_period">2022.01.02 - 2022.03.03</td>
                                         <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">
-                                            처리대기
-                                        </td>
+                                        <td class="request_status">처리중</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
+                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                                 <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
@@ -170,13 +172,12 @@
                                         <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="prom_period">2022.01.02 - 2022.03.03</td>
                                         <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">
-                                            처리대기
-                                        </td>
+                                        <td class="request_status">요청수락</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
+                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                                 <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
@@ -191,13 +192,12 @@
                                         <td class="pd_period">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="prom_period">2022.01.02 - 2022.03.03</td>
                                         <td class="request_date">2022.01.02</td>
-                                        <td class="request_status">
-                                            처리대기
-                                        </td>
+                                        <td class="request_status">요청거절</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_request_info btn btn-primary btn-sm btn-circle fa-solid fa-gift"></button>
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
+                                                <button class="btn_agree btn btn-primary btn-circle btn-sm fa-solid fa-check"></button>
                                                 <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
@@ -210,7 +210,7 @@
                 </div>
 
                 <%--요 청 정 보 모 달 --%>
-                <div class="modal fade border-0 shadow-lg my-5" id="ReqeustInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
+                <div class="modal fade border-0 shadow-lg my-5" id="RequestInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
@@ -246,26 +246,92 @@
                                         <div class="form-control form-control-user" id="ManagerTel">01000000000</div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-head">홍보 기간</div>
-                                    <div class="form-control form-control-user" id="PromotionPeriod"></div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="form-head">홍보 페이지 선택</div>
+                                        <div class="form-control form-control-user" id="SelectPage" >메인홈페이지 </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-head">홍보 기간</div>
+                                        <div class="form-control form-control-user" id="PromotionPeriod"> 2022.02.03-2022.03.03</div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-head"></div>
-                                    <div class="form-control form-control-user" id="PaymentDate"></div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-head">모바일 창 이미지</div>
+                                            <a class="form-control form-control-user" id="pd_img1" >상품이미지1</a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                            <div class="form-head">메인 창 이미지</div>
+                                            <a class="form-control form-control-user" id="pd_img2">상품이미지2</a>
+
+                                    </div>
                                 </div>
+
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn_final_refund btn btn-info btn-icon-split">
+                                <button  class="btn_accept_request btn btn-info btn-icon-split">
                                             <span class="icon fa-solid fa-receipt">
                                             </span>
-                                    <span class="text">환불하기</span>
+                                    <span class="text">요청접수</span>
                                 </button>
-                                <button  class="btn_strong_refund btn btn-warning btn-icon-split">
+                                <button  class="btn_disagree btn btn-warning btn-icon-split">
                                             <span class="icon fa-solid fa-receipt">
                                             </span>
-                                    <span class="text">강제환불하기</span>
+                                    <span class="text">요청거절</span>
                                 </button>
+                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                X
+                                            </span>
+                                    <span class="text">닫기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <%--요 청 거 절 내 용 전 달--%>
+                <div class="modal fade border-0 shadow-lg my-5" id="RefuseRequestModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
+                     style="display: none">
+                    <div class="modal-dialog">
+                        <div class="modal-content ard-body p-0">
+                            <div class="modal-header">
+                                <h1 class="h4 text-gray-900 mb-4">유 저 정 보</h1>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                                <div class="form-group">
+                                    <span>유저번호 : </span>
+                                    <span id="UserSeq">#12</span>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="form-head">이메일</div>
+                                    <input class="userEmail form-control form-control-user">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">이름</div>
+                                    <input class="form-control form-control-user" id="UserName">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">닉네임</div>
+                                    <input class="form-control form-control-user" id="UserNick">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">전화번호</div>
+                                    <input class="form-control form-control-user" id="UserTel">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">가입날짜</div>
+                                    <div class="form-control form-control-user" id="JoinDate"></div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
                                 <button  class="btn_modal_close btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
                                                 X
