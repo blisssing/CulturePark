@@ -57,7 +57,10 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">작품 관리 [전시]</h6>
+                            <div class="div_col">
+                            <h5 class="m-0 font-weight-bold text-primary">전시 관리</h5>
+                            <div class="label_en">exhibition management</div>
+                            </div>
                             <input type="button" class="requesting_btn" value="요청하기">
                         </div>
                         <div class="card-body">

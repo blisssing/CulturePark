@@ -13,6 +13,11 @@
     margin: 5px 0 20px 200px !important;
 }
 
+.div_col {
+    display: flex;
+    flex-direction: column;
+}
+
 .card-body {
     font-size: 0.9rem;
 }
@@ -22,12 +27,12 @@
     justify-content: space-between !important;
 }
 
-.text-primary {
-    color: dimgray !important;
-    font-weight: lighter !important;
-    font-size: 1.2rem !important;
-}
 
+.label_en {
+    margin-top:5px;
+    font-size:0.9rem !important;
+    color: dimgray !important;
+}
 
 .card-header .requesting_btn {
     font-size: 0.9rem;
