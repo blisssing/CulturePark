@@ -43,10 +43,10 @@
     font-size:11pt;
 }
 
-.culture_beginner {
-    margin:5px 0px;
+.culture_level {
+    margin:15px 0px;
     color: #81c995;
-    font-size:14pt;
+    font-size: 1rem;
 }
 
 /* <등급별 혜택 버튼 영역> */

@@ -12,15 +12,15 @@
     <div class="myInfo_txt">
         <div class="info_descript">
             <span class="myName">김진아</span> 님은 현재<br>
-            <a href="#현재등급정보+다음등급까지의게이지" class="grade" target="_blank">
-                <div class="culture_beginner">Culture Beginner</div>
+            <a href="/levelPage.do" class="grade" target="_blank">
+                <div class="culture_level">Culture BEGINNER</div>
             </a>
             <span>회원입니다</span>
         </div>
 
         <div class="level_section">
             <div class="level_btn">
-                <a href="#고객센터_마이멤버십" id="level_label" target="_blank" alt="등급별 혜택">등급별 혜택</a>
+                <a href="/levelPage.do" id="level_label" target="_blank" alt="등급별 혜택">등급별 혜택</a>
             </div>
         </div>
 

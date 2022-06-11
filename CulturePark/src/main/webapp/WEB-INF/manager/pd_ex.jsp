@@ -57,12 +57,16 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <div class="div_col">
-                            <h5 class="m-0 font-weight-bold text-primary">전시 관리</h5>
-                            <div class="label_en">exhibition management</div>
+                            <div class="div1">
+                                <h5 class="m-0 font-weight-bold text-primary">전시 관리</h5>
                             </div>
-                            <input type="button" class="requesting_btn" value="요청하기">
+
+                            <div class="div2">
+                                <div class="label_en">exhibition management</div>
+                                <input type="button" class="requesting_btn" value="요청하기">
+                            </div>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -145,7 +149,7 @@
 </div>
 
 <%--세부사항 모달 --%>
-<div class="modal fade card border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content ard-body p-0">
             <div class="modal-header">
@@ -255,12 +259,12 @@
 
                             <tbody>
 
-                            <tr class="list1">
+                            <tr>
                                 <td colspan="2">타입선택</td>
                             </tr>
-                            <tr class="list1">
+                            <tr>
                                 <td colspan="2">
-                                    <select class="choice" id="choice1" name="choice" disabled="disabled">
+                                    <select class="choice" id="choice1" disabled="disabled">
                                     <option value="">선택</option>
                                     <option value="day">일별(day)</option>
                                     <option value="time">시간대별(time)</option>
@@ -268,25 +272,25 @@
                                 </td>
                             </tr>
 
-                            <tr class="list2">
+                            <tr>
                                 <td colspan="2">티켓 max</td>
                             </tr>
-                            <tr class="list2">
-                                <td colspan="2"><input type="text" class="tck_max" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
-                            <tr class="list3">
+                            <tr>
                                 <td colspan="2">오픈시간대</td>
                             </tr>
-                            <tr class="list3">
-                                <td colspan="2"><input type="text" class="tck_openTime" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
-                            <tr class="list4">
+                            <tr>
                                 <td colspan="2">마감시간대</td>
                             </tr>
-                            <tr class="list4">
-                                <td colspan="2"><input type="text" class="tck_closeTime" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
                             </tr>
 
                             </tbody>
@@ -307,9 +311,9 @@
                             <tbody>
 
                             <tr>
-                                <td class="list" colspan="2">타입선택</td>
+                                <td colspan="2">타입선택</td>
                             </tr>
-                            <tr class="list">
+                            <tr>
                                 <td colspan="2">
                                     <select class="choice" id="choice2" name="choice">
                                         <option value="">선택</option>
@@ -320,24 +324,24 @@
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">티켓 max</td>
+                                <td colspan="2">티켓 max</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_day inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">오픈시간대</td>
+                                <td colspan="2">오픈시간대</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
                             </tr>
 
                             <tr>
-                                <td class="list" colspan="2">마감시간대</td>
+                                <td colspan="2">마감시간대</td>
                             </tr>
-                            <tr class="list">
-                                <td colspan="2"><input type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
+                            <tr>
+                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
                             </tr>
 
                             </tbody>

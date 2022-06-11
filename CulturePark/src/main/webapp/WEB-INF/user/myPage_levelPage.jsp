@@ -75,8 +75,8 @@
                 </div>
 
                 <div class="label_text_section">
-                    <div class="label_text">Culture Beginner</div>
-                    <div class="label_text">Culture People</div>
+                    <div class="label_text">Culture BEGINNER</div>
+                    <div class="label_text">Culture PEOPLE</div>
                 </div>
 
                 <div class="myLevel_section">
@@ -88,8 +88,8 @@
                 </div>
 
                 <div class="label_text_section">
-                    <div class="label_text">Culture Beginner</div>
-                    <div class="label_text">Culture People</div>
+                    <div class="label_text">Culture PEOPLE</div>
+                    <div class="label_text">Culture LOVER</div>
                 </div>
 
 

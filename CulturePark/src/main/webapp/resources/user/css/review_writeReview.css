@@ -249,27 +249,32 @@ star-input>.input.focus{
     margin:10px 0px;
 }
 
+.div > ul > li {
+    font-size: 1rem !important;
+}
+
+
 @media screen and (min-width:1200px) {
 
-    .m_upload_btn_section {
-        display: none;
-    }
+.m_upload_btn_section {
+    display: none;
+}
 
-    .upload_btn_section {
-        display: flex;
-        width: 100%;
-        justify-content: right;
-    }
+.upload_btn_section {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
 
-    .upload_btn {
-        display: inline-block;
-        border: 1px solid black;
-        padding: 10px 15px;
-        margin: 20px 0px;
-        height: 40px;
-        text-align: center;
-        cursor: pointer;
-    }
+.upload_btn {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin: 20px 0px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
 }
 
 
