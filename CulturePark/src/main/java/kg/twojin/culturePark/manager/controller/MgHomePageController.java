@@ -100,5 +100,12 @@ public class MgHomePageController {
         return mv;
     }
 
+    @RequestMapping(value = "/qnaManage.mdo")
+    public ModelAndView mgQnaManage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("qna_manage");
+        return mv;
+    }
+
 
 }

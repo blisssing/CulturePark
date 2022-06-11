@@ -22,10 +22,11 @@
     justify-content: space-between !important;
 }
 
-.text-primary {
+
+.label_en {
+    margin-top:5px;
+    font-size:0.9rem !important;
     color: dimgray !important;
-    font-weight: lighter !important;
-    font-size:1.2rem !important;
 }
 
 .card-header .requesting_btn {
