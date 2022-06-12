@@ -1,47 +1,118 @@
-$(document).click(function(){
+$(document).ready(function(){
 
+    /*var body_size = $('.booking_body').css('width').replace(/[^0-9]/g, "");*/
+    /*$('div.ui-datepicker').css('font-size', body_size/10/2);*/
+
+    /*$.datepicker.setDefaults($.datepicker.regional['ko']);
+*/
     $('#date_start').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        dayNames:['일','월','화','수','목','금','토'],
+        dayNamesShort:['일','월','화','수','목','금','토'],
+        dayNamesMin: ['일','월','화','수','목','금','토'],
+        showMonthAfterYear: false,
+        yearSuffix: '년',
+        maxDate:0,
+
+        onSelect: function (d) {
+            var chose_date = new Date($('#datepicker').datepicker({
+                dateFormat: "yyyy/mm/dd"
+            }).val());
+            var day = chose_date.getDay();
+            var year = chose_date.getFullYear();
+            var month = chose_date.getMonth() + 1;
+            var date = chose_date.getDate();
+
+            var dayList = new Array('일','월','화','수','목','금','토');
+            var day_kor =  dayList[day];
+
+            var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
+
+            // $('.schedule_date').text(today_str);
+            nextLevel();
+        },
     });
 
     $('#date_end').datepicker({
-    });
-
-    $.datepicker.setDefaults($.datepicker.regional['ko']);
-
-    $( "#date_start" ).datepicker({
-        changeMonth: true,
-        changeYear: true,
-        nextText: '다음 달',
+        dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
-        dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dateFormat: "yymmdd",
-        maxDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-        onClose: function( selectedDate ) {
-            //시작일(startDate) datepicker가 닫힐때
-            //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-            $("#date_end").datepicker( "option", "minDate", selectedDate );
-        }
+        nextText: '다음 달',
+        monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        dayNames:['일','월','화','수','목','금','토'],
+        dayNamesShort:['일','월','화','수','목','금','토'],
+        dayNamesMin: ['일','월','화','수','목','금','토'],
+        showMonthAfterYear: false,
+        yearSuffix: '년',
+        maxDate:0,
+        onSelect: function (d) {
+            var chose_date = new Date($('#datepicker').datepicker({
+                dateFormat: "yyyy/mm/dd"
+            }).val());
+            var day = chose_date.getDay();
+            var year = chose_date.getFullYear();
+            var month = chose_date.getMonth() + 1;
+            var date = chose_date.getDate();
+
+            var dayList = new Array('일','월','화','수','목','금','토');
+            var day_kor =  dayList[day];
+
+            var today_str = year+'.'+month+'.'+date+'('+day_kor+')';
+
+            // $('.schedule_date').text(today_str);
+            nextLevel();
+        },
     });
 
-    $( "#date_end" ).datepicker({
-        changeMonth: true,
-        changeYear: true,
-        nextText: '다음 달',
-        prevText: '이전 달',
-        dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dateFormat: "yymmdd",
-        maxDate: 0,                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-        onClose: function( selectedDate ) {
-            // 종료일(endDate) datepicker가 닫힐때
-            // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-            $("#date_start").datepicker( "option", "maxDate", selectedDate );
-        }
+
+    /* 답변달기 modal */
+    $('.re_btn').click(function(){
+
+        $('#commentModal').modal({
+            fadeDuration: 300,
+            showClose:false
+        });
     });
+
+    /* 수정 modal */
+    $('.upd_btn').click(function(){
+
+        $('#updateModal').modal({
+            fadeDuration: 300,
+            showClose:false
+        });
+    });
+
+    /* 삭제 modal */
+    $('.del_btn').click(function(){
+        eventRow = $(this).closest('tr');
+        modal_now = $('#deleteModal');
+        modal_now.modal({});
+    });
+
+
+    $('.comment_btn').click(function(){
+        alert('등록되었습니다.')
+    });
+
+    $('.update_btn').click(function(){
+        alert('수정되었습니다.')
+    });
+
 
 });
+
+
+
+// 모달 닫기 기능
+function closeModal(modal_now) {
+    modal_now.modal('hide');
+}
+
+function reloadPage() {
+    location.reload();
+}

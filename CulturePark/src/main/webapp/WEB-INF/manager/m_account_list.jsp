@@ -247,7 +247,7 @@
                                 <button class="btn btn-secondary update_btn" type="button" data-dismiss="modal">수정</button>
                             </div>
                         </div>
-                    </div>ㅁ
+                    </div>
                 </div>
 
 
