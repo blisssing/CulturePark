@@ -34,6 +34,12 @@
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 
+    <%-- datepicker --%>
+
+
+    <%--<script type="text/javascript">jQuery.browser = {};(function () {jQuery.browser.msie = false; jQuery.browser.version = 0; if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {jQuery.browser.msie = true; jQuery.browser.version = RegExp.$1;}})();</script>--%>
+
+
 </head>
 
 
@@ -56,6 +62,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
+
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">QnA 관리</h6>
@@ -77,9 +84,9 @@
                                     <input type="button" class="btn_check" id="btn_three_weeks" value="3주일">
                                 </div>
                                 <div class="div_col_row2">
-                                    <input type="text" class="date_select" id="date_start" value="">
+                                    <input class="date_select" id="date_start">
                                     <span class="wave">~</span>
-                                    <input type="text" class="date_select" id="date_end" value="">
+                                    <input class="date_select" id="date_end">
                                     <button class="fa-solid fa-magnifying-glass btn_period btn_btn btn"></button>
                                 </div>
                             </div>
@@ -236,88 +243,107 @@
             </div>
 
 
-                <%-- 수 정 모 달  --%>
-                <div class="modal fade  border-0 shadow-lg my-5" id="UpdateModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            <%-- 답변달기 모달 --%>
+                <div class="modal fade  border-0 shadow-lg my-5" id="commentModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
                      style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">매니저 정보</h1>
+                                <h3 class="h4 text-gray-900 mb-4">답변달기</h3>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
 
                             </div>
                             <form class="user modal-body" style="max-height: 600px; overflow: scroll">
-                                <div class="form-group">
-                                    <span class="head_man_name"></span>  #<span class="head_man_num"></span>
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-head">이름</div>
-                                    <input type="text" class="form-control form-control-user" id="ManagerName">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">이메일</div>
-                                    <input type="email" class="form-control form-control-user" id="ManagerEmail">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">전화번호</div>
-                                    <input type="phone" class="form-control form-control-user" id="ManagerPhone">
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">권한</div>
-                                    <select class="authority" id="authority" name="authority">
-                                        <option value="">선택</option>
-                                        <option value="샘플1">샘플1</option>
-                                        <option value="샘플2">샘플2</option>
-                                        <option value="샘플3">샘플3</option>
-                                    </select>
+                                <div class="modal_content">
+                                    <%-- 제목 영역 --%>
+                                    <div class="title_section">
+                                        <span class="title_label">제목</span>
+                                        <input type="text" class="review_title" type="textFiled" aria-placeholder="제목입력"></input>
+                                    </div>
+                                    <%-- 감상평 등록 영역 --%>
+                                    <div class="content_section">
+                                        <input type="textArea" class="content_text" aria-placeholder="내용입력"></input>
+                                    </div>
                                 </div>
                             </form>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                <button class="btn btn-secondary update_btn" type="button" data-dismiss="modal">수정</button>
-                            </div>
-                        </div>
-                    </div>ㅁ
-                </div>
-
-
-
-
-                <!-- 삭 제 모 달 -->
-                <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteLavel">매니저 삭제</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '매니저를 삭제합니다'를 입력해주세요
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="decideDelete"
-                                           placeholder="입력해주세요">
-                                </div>
-                            </form>
-
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                <button class="btn_finalDelete btn btn-primary" >삭제</button>
+                                <button class="btn btn-secondary qna_btn" type="button" data-dismiss="modal">취소</button>
+                                <button class="btn btn-secondary qna_btn comment_btn" type="button" data-dismiss="modal">등록</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-            </div>
-            <!-- /.container-fluid -->
+                <%-- 수 정 모 달  --%>
+                <div class="modal fade  border-0 shadow-lg my-5" id="updateModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                     style="display: none">
+                    <div class="modal-dialog">
+                        <div class="modal-content ard-body p-0">
+                            <div class="modal-header">
+                                <h3 class="h4 text-gray-900 mb-4">답변수정</h3>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
 
-        </div>
-        <!-- End of Main Content -->
+                            </div>
+                            <form class="user modal-body" style="max-height: 600px; overflow: scroll">
+                                <div class="modal_content">
+                                    <%-- 제목 영역 --%>
+                                    <div class="title_section">
+                                        <span class="title_label">제목</span>
+                                        <div class="review_title" type="textFiled" aria-placeholder="제목입력"></div>
+                                    </div>
+                                    <%-- 감상평 등록 영역 --%>
+                                    <div class="content_section">
+                                        <div type="textArea" class="content_text" aria-placeholder="내용입력"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary qna_btn" type="button" data-dismiss="modal">취소</button>
+                                <button class="btn btn-secondary qna_btn update_btn" type="button" data-dismiss="modal">수정</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- 삭 제 모 달 -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true" style="display: none">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteLavel">QnA 삭제</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '삭제합니다'를 입력해주세요
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="decideDelete"
+                                       placeholder="입력해주세요">
+                            </div>
+                        </form>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                            <button class="btn_finalDelete btn btn-primary" >삭제</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </div> <!--/.container-fluid -->
+
+        </div> <!-- End of Main Content -->
 
         <!-- Footer -->
         <%@include file="/WEB-INF/manager/common_footer.jsp"%>
@@ -329,7 +355,7 @@
 </div>
 <!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
+<!-- Scroll to Top Button -->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
@@ -355,29 +381,37 @@
 </div>
 
 
-<%-- datepicker --%>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+
+
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
-<!-- Bootstrap core JavaScript-->
+<!-- Bootstrap core JavaScript -->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-
 <script src="/resources/common/js/bootstrap/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
+<!-- Core plugin JavaScript -->
 <script src="/resources/common/js/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
+<!-- Custom scripts for all pages -->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
 
+<%-- 부트 스트랩 --%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+
 <!-- Page level plugins -->
-<script src="/resources/common/vendor/datatables/jquery.dataTables.min.js"></script>
+<%--<script src="/resources/common/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="/resources/common/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="/resources/common/js/demo/datatables-demo.js"></script>
+<script src="/resources/common/js/demo/datatables-demo.js"></script>--%>
+
 <script src="/resources/manager/js/qna_manage.js"></script>
+
+
 
 </body>
 
