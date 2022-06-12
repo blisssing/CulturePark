@@ -31,77 +31,176 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
     <style>
-
-        th {
-            white-space: nowrap;
+        .modal-header {
+            padding: 1rem 1rem 0 1rem;
         }
 
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 20px;
-            vertical-align:middle;
+        .table {
+            border-left: 0.5px solid #e3e6f0;
+            border-right: 0.5px solid #e3e6f0;
+            margin-bottom: 0;
         }
 
-        /* Hide default HTML checkbox */
-        .switch input {display:none;}
-
-        /* The slider */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
+        .h4 {
+            font-size:1.1rem !important;
+            margin: 5px 0 20px 200px !important;
         }
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 13px;
-            width: 13px;
-            left: 2px;
-            bottom: 4px;
+        .card-body {
+            font-size:0.9rem;
+        }
+
+        .card-header {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+
+        .text-primary {
+            color: dimgray !important;
+            font-weight: lighter !important;
+            font-size:1.2rem !important;
+        }
+
+        .card-header .requesting_btn {
+            font-size: 0.9rem;
+            color: dimgray;
             background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
+            border: white;
+            border-bottom: 2px solid lightgray;
+            border-right: 2px solid lightgray;
+            padding: 6px 8px;
+            border-radius: 1rem;
         }
 
-        input:checked + .slider {
-            background-color: #2196F3;
+
+        .status_btn , .adminInfo_btn {
+            color: #858796;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
+        .modal-content{
+            width: 110%;
         }
 
-        input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
+
+        .section_label {
+            font-size:1rem;
+            margin:15px 0;
+            font-weight: 100;
         }
 
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
+        .row_all {
+            display: flex;
+            width: 100%;
+            margin-bottom: 40px;
         }
 
-        .slider.round:before {
-            border-radius: 50%;
+        .row1 , .row2 {
+            border-right: 1px solid #e3e6f0;
+            border-bottom: 1px solid #e3e6f0;
         }
 
-        p {
-            margin:0px;
-            display:inline-block;
-            font-size:0.8rem;
-            font-weight:bold;
+        .row1 {
+            width:50%;
         }
-    </style>
+
+        .row2 {
+            width:50%;
+        }
+
+
+        .modal > .table {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal > thead {
+            display: flex;
+            flex-direction: column;
+        }
+        .modal > th {
+            display: flex;
+        }
+
+        .modal > tr {
+            display: flex;
+        }
+
+        .td_0 {
+            width: 30%;
+            font-size: 1rem;
+        }
+
+        .modal > .table td, .table th {
+            padding:0.5rem;
+        }
+
+        .td_1 {
+            width:40%;
+            font-size:0.9rem;
+        }
+
+        .td_1 > input {
+            width: 80%;
+            margin-right:4px;
+        }
+
+        .btn_Agree2 {
+            background-color: #81c995;
+        }
+
+        .btn_Disagree2 {
+            background-color: lightgray;
+        }
+
+        .chkbox {
+            margin-right: 5px;
+        }
+
+        .chkLabel {
+            margin-left: 15px;
+        }
+
+
+        .choice {
+            width: 95%;
+        }
+
+        .file_padding input {
+            padding: 5px 5px 40px 5px;
+        }
+
+
+        .modal-footer {
+            margin: 30px 0 50px 0px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+
+        .btn-danger {
+            border-color: white;
+        }
+
+        .btn-success {
+            border-color: white;
+        }
+
+
+        .row0 {
+            border-bottom: 1px solid #e3e6f0;
+            margin-bottom: 40px;
+        }
+
+        .tck_max , .tck_openTime , .tck_closeTime {
+            width: 95%;
+            height: 27px;
+        }
+
+
+
     </style>
 
     <title>CulturePark 관리자</title>
@@ -191,7 +290,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                                 <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -209,7 +308,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                                 <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -227,7 +326,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                                 <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -245,7 +344,7 @@
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                                 <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manger_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -257,137 +356,333 @@
                 </div>
 
                 <%--요 청 정 보 모 달 --%>
-                <div class="modal fade border-0 shadow-lg my-5" id="RequestInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
+                <div class="modal fade border-0 shadow-lg my-5" id="RequestInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content ard-body p-0">
+                            <div class="modal-header">
+                                <h2 class="h4 text-gray-900 mb-4">요청 페이지</h2>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="user modal-body" style="max-height: 500px; overflow-y: scroll;">
+
+
+                                <%------------ 1. 유형 구분 -------------%>
+                                <div class="section_div">
+                                    <div class="section_label">유형 구분</div>
+                                </div>
+
+                                <div class="row_all">
+                                    <%--기존 --%>
+                                    <div class="row1">
+                                        <table class="table" id="table1">
+
+                                            <thead>
+                                            <tr>
+                                                <th class="center" colspan="2">기존</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                    <%-- 요청 --%>
+                                    <div class="row2">
+                                        <table class="table" id="table2">
+
+                                            <thead>
+                                            <tr>
+                                                <th class="center" colspan="2">요청</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
+                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                            </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <%-------------- 2. 티켓 타입 ---------------%>
+                                <div class="section_div">
+                                    <div class="section_label">티켓 타입</div>
+                                </div>
+
+                                <div class="row_all">
+                                    <%--기존--%>
+                                    <div class="row1">
+                                        <table class="table" id="table3">
+
+                                            <thead>
+                                            <tr>
+                                                <th class="center" colspan="2">기존</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            <tr class="list1">
+                                                <td colspan="2">타입선택</td>
+                                            </tr>
+                                            <tr class="list1">
+                                                <td colspan="2">
+                                                    <select class="choice" id="choice1" name="choice" disabled="disabled">
+                                                        <option value="">선택</option>
+                                                        <option value="day">일별(day)</option>
+                                                        <option value="time">시간대별(time)</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="list2">
+                                                <td colspan="2">티켓 max</td>
+                                            </tr>
+                                            <tr class="list2">
+                                                <td colspan="2"><input type="text" class="tck_max" disabled="disabled"></td>
+                                            </tr>
+
+                                            <tr class="list3">
+                                                <td colspan="2">오픈시간대</td>
+                                            </tr>
+                                            <tr class="list3">
+                                                <td colspan="2"><input type="text" class="tck_openTime" disabled="disabled"></td>
+                                            </tr>
+
+                                            <tr class="list4">
+                                                <td colspan="2">마감시간대</td>
+                                            </tr>
+                                            <tr class="list4">
+                                                <td colspan="2"><input type="text" class="tck_closeTime" disabled="disabled"></td>
+                                            </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                    <%--요청--%>
+                                    <div class="row2">
+                                        <table class="table" id="table4">
+
+                                            <thead>
+                                            <tr>
+                                                <th class="center" colspan="2">요청</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            <tr>
+                                                <td class="list" colspan="2">타입선택</td>
+                                            </tr>
+                                            <tr class="list">
+                                                <td colspan="2">
+                                                    <select class="choice" id="choice2" name="choice" disabled="disabled">
+                                                        <option value="">선택</option>
+                                                        <option value="day" id="request_day" name="choice">일별(day)</option>
+                                                        <option value="time" id="request_time" name="choice">시간대별(time)</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="list" colspan="2">티켓 max</td>
+                                            </tr>
+                                            <tr class="list">
+                                                <td colspan="2"><input type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="list" colspan="2">오픈시간대</td>
+                                            </tr>
+                                            <tr class="list">
+                                                <td colspan="2"><input type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="list" colspan="2">마감시간대</td>
+                                            </tr>
+                                            <tr class="list">
+                                                <td colspan="2"><input type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
+                                            </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <%-------------- 3. 기타 설정 ---------------%>
+                                <%--여기서부터 테이블 1개--%>
+
+                                <div class="section_div_no_row">
+                                    <div class="section_label">기타 설정</div>
+
+                                    <div class="row0">
+                                        <table class="table" id="table5">
+
+                                            <tr class="list1">
+                                                <td class="label">썸네일</td>
+                                                <td class="file_padding"><input type="file"></td>
+                                            </tr>
+
+                                            <tr class="list2">
+                                                <td class="label">설명파일</td>
+                                                <td class="file_padding"><input type="file"></td>
+                                            </tr>
+
+                                            <tr class="list3">
+                                                <td colspan="2" class="label">태그</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                                <%------------- 휴관요일 -------------%>
+                                <%--테이블 1개--%>
+                                <div class="section_div_no_row">
+                                    <div class="section_label">휴관 요일</div>
+
+                                    <div class="row0">
+                                        <table class="table" id="table6">
+                                            <tr>
+                                                <td colspan="2" class="chkbox_day">
+                                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox" disabled="disabled">일
+                                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox" disabled="disabled">월
+                                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox" disabled="disabled">화
+                                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox" disabled="disabled">수
+                                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox" disabled="disabled">목
+                                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox" disabled="disabled">금
+                                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox" disabled="disabled">토
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button href="#" class="btn_close_modal btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                X
+                                            </span>
+                                    <span class="text cancel_btn">취소하기</span>
+                                </button>
+
+                                <button class="btn_refuse btn btn-warning btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-xmark"></i>
+                                            </span>
+                                    <span class="text refuse_request_btn">거절하기</span>
+                                </button>
+
+                                <button class="btn_Agree2 btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                    <span class="text update_btn">변경하기</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <%--매 니 저 정 보 모 달--%>
+                <div class="modal fade  border-0 shadow-lg my-5" id="ManagerInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
                      style="display: none">
                     <div class="modal-dialog">
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">요 청 정 보</h1>
+                                <h1 class="h4 text-gray-900 mb-4">매니저 정보</h1>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
+
                             </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                            <form class="user modal-body" style="max-height: 600px; overflow: scroll">
                                 <div class="form-group">
-                                    <div>
-                                        <span>요청번호 : </span>
-                                        <span id="request_code"></span>
-                                    </div>
+                                    <span class="head_comp_name"></span>  #<span class="head_comp_num"></span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <div class="form-head">업체명</div>
-                                    <div class="form-control form-control-user" id="comp_name"></div>
+                                    <div class="form-head">루트매니저</div>
+                                    <div type="text" class="form-control form-control-user" id="RootManagerName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-head">상품명</div>
-                                    <div class="form-control form-control-user" id="pd_title"></div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">분야</div>
-                                        <div class="form-control form-control-user" id="pd_class_1" >전시</div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-head">장르</div>
-                                        <div class="form-control form-control-user" id="pd_class_2">퓨전</div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">시작일</div>
-                                        <div class="form-control form-control-user" id="start_date" >2022.03.03</div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-head">2차 분야</div>
-                                        <div class="form-control form-control-user" id="end_date" >2022.06.02</div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">장소</div>
-                                        <div class="form-control form-control-user" id="pd_place" >장소</div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-head">연령</div>
-                                        <div class="form-control form-control-user" id="pd_minAge">15세 이상</div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <div class="form-head">썸네일</div>
-                                        <a class="form-control form-control-user" id="pd_img1" >상품이미지1</a>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-head">메인 이미지</div>
-                                        <a class="form-control form-control-user" id="pd_img2">상품이미지2</a>
-                                    </div>
+                                    <div class="form-head">이름</div>
+                                    <div type="text" class="form-control form-control-user" id="ManagerName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-head">설명 파일 </div>
-                                    <div class="form-control form-control-user" id="pd_description">설명 파일 첨부</div>
+                                    <div class="form-head">이메일</div>
+                                    <div type="email" class="form-control form-control-user" id="ManagerEmail"></div>
                                 </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button  class="btn_modal_agree btn btn-info btn-icon-split">
-                                            <span class="icon text-white-50">
-
-                                            </span>
-                                    <span class="text">요청수락</span>
-                                </button>
-                                <button  class="btn_modal_disagree btn btn-warning btn-icon-split">
-                                            <span class="icon text-white-50">
-
-                                            </span>
-                                    <span class="text">요청거절</span>
-                                </button>
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                X
-                                            </span>
-                                    <span class="text">닫기</span>
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <%--삭 제 확 인 모 달--%>
-
-                <div class="modal fade" id="ChkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteLavel">리뷰 삭제</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '리뷰를 삭제합니다'를 입력해주세요
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="decideDelete"
-                                           placeholder="입력해주세요">
+                                    <div class="form-head">전화번호</div>
+                                    <div type="phone" class="form-control form-control-user" id="ManagerPhone"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-head">권한</div>
+                                    <div type="phone" class="form-control form-control-user" id="ManagerRight"></div>
                                 </div>
                             </form>
-
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button class="btn_finalDelete btn btn-primary" >삭제하기</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
 
             </div>
             <!-- /.container-fluid -->
@@ -446,7 +741,7 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="/resources/admin/js/pd_pdList.js"></script>
+<script src="/resources/admin/js/pd_modiRequest.js"></script>
 <script src="/resources/common/js/toggleBtn.js"></script>
 
 

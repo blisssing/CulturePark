@@ -65,7 +65,6 @@
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">결제 관리</h1>
 
-
                 <div class="icon_descript">
                     <div class="descript_wrap">
                         <span class="btn_Dicip_detail btn btn-primary btn-circle btn-sm fa-solid fa-user"></span>

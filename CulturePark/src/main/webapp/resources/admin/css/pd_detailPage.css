@@ -1,0 +1,9 @@
+.context_head {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.card{
+    margin: 0 auto !important;
+    max-width: 700px;
+}

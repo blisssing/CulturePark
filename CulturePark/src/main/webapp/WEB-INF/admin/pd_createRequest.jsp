@@ -30,14 +30,6 @@
 
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
-    <style>
-        .rv_title {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-    </style>
-
     <title>CulturePark 관리자</title>
 
 </head>
@@ -201,7 +193,7 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                            <div class="user modal-body" style="max-height: 500px; overflow: scroll;">
                                 <div class="form-group">
                                     <div>
                                         <span>요청번호 : </span>
