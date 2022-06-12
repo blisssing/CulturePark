@@ -72,6 +72,13 @@ public class MgHomePageController {
         return mv;
     }
 
+    @RequestMapping(value = "/pdCreate.mdo")
+    public ModelAndView mgPdCreate() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_create");
+        return mv;
+    }
+
     @RequestMapping(value = "/refuse.mdo")
     public ModelAndView mgRefuse() {
         ModelAndView mv = new ModelAndView();
@@ -99,6 +106,7 @@ public class MgHomePageController {
         mv.setViewName("m_account_add");
         return mv;
     }
+
 
     @RequestMapping(value = "/qnaManage.mdo")
     public ModelAndView mgQnaManage() {

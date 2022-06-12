@@ -63,7 +63,6 @@
 
                             <div class="div2">
                                 <div class="label_en">exhibition management</div>
-                                <input type="button" class="requesting_btn" value="요청하기">
                             </div>
                         </div>
 
@@ -77,6 +76,7 @@
                                         <th>요청 날짜</th>
                                         <th>상태</th>
                                         <th>관리자 아이디</th>
+                                        <th>기능</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -86,6 +86,7 @@
                                         <td>2022.05.04</td>
                                         <td>수락</td>
                                         <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
+                                        <td><input type="button" class="td_update_btn" value="수정"></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -93,6 +94,7 @@
                                         <td>2022.04.11</td>
                                         <td class="status_btn" onclick="refuse_popup()"><button class="btn_refuse">거절</button></td>
                                         <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
+                                        <td><input type="button" class="td_update_btn" value="수정"></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -100,6 +102,7 @@
                                         <td>2022.03.08</td>
                                         <td class="status_btn" onclick="refuse_popup()"><button class="btn_refuse">거절</button></td>
                                         <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin2</button></td>
+                                        <td><input type="button" class="td_update_btn" value="수정"></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -153,7 +156,7 @@
     <div class="modal-dialog">
         <div class="modal-content ard-body p-0">
             <div class="modal-header">
-                <h2 class="h4 text-gray-900 mb-4">요청 페이지</h2>
+                <h2 class="h4 text-gray-900 mb-4">수정 페이지</h2>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>

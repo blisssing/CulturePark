@@ -38,7 +38,7 @@
                 <a class="collapse-item" href="pdEx.mdo">전시</a>
                 <a class="collapse-item" href="pdMu.mdo">뮤지엄</a>
                 <h6 class="collapse-header">생성</h6>
-                <a class="collapse-item" href="pd_add">신규 요청</a>
+                <a class="collapse-item" href="pdCreate.mdo">신규 요청</a>
 
             </div>
         </div>

@@ -1,25 +1,57 @@
-.modal-header {
-    padding: 1rem 1rem 0 1rem;
+
+
+.section_div_top {
+    display: flex;
+    flex-direction: column;
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
 }
 
-.table {
-    border-left: 0.5px solid #e3e6f0;
-    border-right: 0.5px solid #e3e6f0;
-    margin-bottom: 0;
+.genre_section, .pd_name_section {
+    margin-bottom:10px;
 }
 
-.h4 {
-    font-size:1.1rem !important;
-    margin: 5px 0 20px 200px !important;
+.top_section {
+    border-bottom: 1px solid #e3e6f0;
+    margin-bottom: 40px;
+}
+
+.div_row {
+    display: flex;
+    margin: 10px 0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_label_section {
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_label {
+    padding: 10px 10px;
+}
+
+.pd_name_label {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_select {
+    width: 150px;
+    height: 25px;
+    margin: 10px 10px;
+}
+
+.pd_name_text {
+    width: 450px;
+    height: 29px;
+   margin: 10px 10px;
 }
 
 .card-body {
     font-size:0.9rem;
-}
-
-.card-header {
-    display: flex;
-    flex-direction: column;
+    padding: 0.5rem 1rem 1rem 1rem;
 }
 
 .text-primary{
@@ -28,7 +60,6 @@
 
 .div2{
     display: flex;
-    justify-content: space-between;
     vertical-align: bottom;
 }
 
@@ -36,15 +67,16 @@
     padding-top: 7px;
 }
 
-.card-header .td_update_btn {
+.card-header {
+    display: flex;
+    flex-direction: column;
     font-size: 0.9rem;
     color: dimgray;
-    background-color: white;
+    background-color: #f8f9fc;
     border: white;
-    border-bottom: 2px solid lightgray;
-    border-right: 2px solid lightgray;
-    padding: 6px 8px;
+    padding: 1rem 1rem;
     border-radius: 1rem;
+    border-bottom: 1px solid  #e3e6f0;
 }
 
 
@@ -71,17 +103,14 @@
     margin-bottom: 40px;
 }
 
-.row1 , .row2 {
-    border-right: 1px solid #e3e6f0;
+.row2 {
+
     border-bottom: 1px solid #e3e6f0;
 }
 
-.row1 {
-    width:50%;
-}
 
 .row2 {
-    width:50%;
+    width:100%;
 }
 
 
@@ -130,7 +159,7 @@
 }
 
 .chkbox {
-    margin-right: 5px;
+    margin-right: 15px;
 }
 
 .chkLabel {
@@ -142,7 +171,9 @@
 }
 
 .choice {
-    width: 95%;
+    width: 150px;
+    height: 25px;
+
 }
 
 .file_padding input {
@@ -186,3 +217,7 @@
     height: 27px;
 }
 
+.btn_section {
+   text-align: end
+;
+}
