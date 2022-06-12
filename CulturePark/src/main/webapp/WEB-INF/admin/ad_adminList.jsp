@@ -178,7 +178,7 @@
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <form class="user modal-body">
+                        <div class="user modal-body" style="max-height: 500px; overflow: scroll;">
                                         <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" id="AdminName"
                                                        placeholder="이름">

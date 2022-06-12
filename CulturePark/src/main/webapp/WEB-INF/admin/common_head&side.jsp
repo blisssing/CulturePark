@@ -32,7 +32,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>유저관리</span>
         </a>
 
@@ -50,7 +50,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-user-tie"></i>
             <span>Manager 관리</span>
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -69,7 +69,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-user-gear"></i>
             <span>Admin 관리</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -94,7 +94,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseforth"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-ticket"></i>
             <span>결제 관리</span>
         </a>
         <div id="collapseforth" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -109,7 +109,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesixth"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-list"></i>
             <span>리뷰 관리</span>
         </a>
         <div id="collapsesixth" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -125,7 +125,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
            aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-fw fa-cube"></i>
             <span>상품관리</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
@@ -138,9 +138,9 @@
 
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">프로모션 관리</h6>
+                <a class="collapse-item" href="/expirProm.ado">개요</a>
                 <a class="collapse-item" href="/requestProm.ado">요청목록</a>
                 <a class="collapse-item" href="/ingProm.ado">진행목록</a>
-                <a class="collapse-item" href="/expirProm.ado">완료목록</a>
             </div>
         </div>
     </li>

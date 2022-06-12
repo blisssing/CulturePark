@@ -60,6 +60,7 @@
 
             <%@include file="/WEB-INF/admin/comomn_topbar.jsp" %>
 
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -277,7 +278,6 @@
                         </div>
                     </div>
                 </div>
-
                 <%--요 청 거 절 내 용 전 달--%>
                 <div class="modal fade border-0 shadow-lg my-5" id="RefuseRequestModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
@@ -317,6 +317,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- /.container-fluid -->
         </div>

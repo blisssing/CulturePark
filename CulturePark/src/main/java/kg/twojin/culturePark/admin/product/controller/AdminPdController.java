@@ -27,4 +27,11 @@ public class AdminPdController {
         mv.setViewName("pd_progressList");
         return mv;
     }
+
+    @RequestMapping(value = "pdDetail.ado")
+    public ModelAndView pdDetail() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("pd_detailPage");
+        return mv;
+    }
 }

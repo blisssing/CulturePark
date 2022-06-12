@@ -257,21 +257,22 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn_accept_request btn btn-info btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">요청접수</span>
-                                </button>
-                                <button  class="btn_disagree btn btn-warning btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">요청거절</span>
-                                </button>
                                 <button  class="btn_modal_close btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
                                                 X
                                             </span>
                                     <span class="text">닫기</span>
+                                    <button  class="btn_disagree btn btn-warning btn-icon-split">
+                                            <span class="icon fa-solid fa-receipt">
+                                            </span>
+                                        <span class="text">요청거절</span>
+                                    </button>
+                                    <button  class="btn_accept_request btn btn-info btn-icon-split">
+                                            <span class="icon fa-solid fa-receipt">
+                                            </span>
+                                        <span class="text">요청접수</span>
+                                    </button>
+
                                 </button>
                             </div>
                         </div>
