@@ -12,17 +12,41 @@
     <meta name="author" content="">
 
     <!-- Custom fonts for this template-->
-    <style><%@include file="/resources/common/css/fontawesome/all.min.css"%></style>
+    <style>
+        <%@include file="/resources/common/css/fontawesome/all.min.css" %>
+    </style>
     <!-- Custom styles for this template-->
-    <style><%@include file="/resources/common/css/sb-admin-2.min.css"%></style>
-    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
-    <style><%@include file="/resources/admin/css/ad_createAcount.css"%></style>
+    <style>
+        <%@include file="/resources/common/css/sb-admin-2.min.css" %>
+    </style>
+    <!-- Custom styles for this page -->
+    <style>
+        <%@include file="/resources/common/vendor/datatables/dataTables.bootstrap4.min.css" %>
+    </style>
 
-    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-    <title> CulturePark 관리자</title>
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
+    <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css" %></style>
+
+    <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
+
+
+    <style>
+
+        .context_head {
+            margin-bottom: 10px;
+            margin-left: 10px;
+        }
+
+        .card{
+            margin: 0 auto !important;
+            max-width: 700px;
+        }
+
+         table>tr>td{
+            text-align: right;
+        }
+    </style>
+
+    <title>CulturePark 관리자</title>
 
 </head>
 
@@ -32,7 +56,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/admin/common_head&side.jsp"%>
+    <%@include file="/WEB-INF/admin/common_head&side.jsp" %>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -40,84 +64,92 @@
 
         <!-- Main Content -->
         <div id="content">
-            <%@include file="/WEB-INF/admin/comomn_topbar.jsp"%>
+
+            <%@include file="/WEB-INF/admin/comomn_topbar.jsp" %>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="container">
 
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <!-- Nested Row within Card Body -->
-                            <div class="row">
-                                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                                <div class="col-lg-7">
-                                    <div class="p-5">
-                                        <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4"> 프로모션 생성</h1>
+                <!-- Page Heading -->
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+
+                            <div class="card-body">
+                                <div class="p-5">
+                                    <div class="text-left">
+                                        <h1 class="h4 text-gray-900 mb-4">프로모션 신청</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="context_head">상품명</div>
+                                                <div class="form-control " id="CompanyName"></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="context_head">상품코드</div>
+                                                <div class="form-control" id="CompanyCode"></div>
+                                            </div>
                                         </div>
-                                        <form class="user">
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="FirstName"
-                                                           placeholder="이름">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="text" class="form-control form-control-user" id="LastName"
-                                                           placeholder="성">
-                                                </div>
+
+                                        <div class="form-group">
+                                            <div class="context_head">홍보페이지 선택</div>
+                                            <select class="form-control" id="ProductClass">
+                                                <option class="slc_page" name="slc_page" value="0">선택</option>
+                                                <option class="slc_page" name="slc_page" value="home">홈</option>
+                                                <option class="slc_page" name="slc_page" value="main">메인</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="context_head">시작날짜</div>
+                                                <input class="form-control " id="start_date">
                                             </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="InputEmail"
-                                                       placeholder="이메일">
+                                            <div class="col-sm-6">
+                                                <div class="context_head">종료날짜</div>
+                                                <input class="form-control" id="end_date">
                                             </div>
-                                            <div class="form-group">
-                                                <input type="phone" class="form-control form-control-user" id="InputPhone"
-                                                       placeholder="010-xxxx-xxxx">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="context_head">이미지1</div>
+                                                <input type="file" class=" ">
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="InputPassword" placeholder="Password">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="RepeatPassword" placeholder="Repeat Password">
-                                                </div>
+                                            <div class="col-sm-6">
+                                                <div class="context_head">이미지2</div>
+                                                <input type="file" class="">
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="Depart"
-                                                       placeholder="부서">
-                                            </div>
-                                            <div class="form-group">
-                                                <ul class="col-sm-6 chk_ul">
-                                                    <div>권한</div>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="member">회원관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="manager">매니저관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="product">상품관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
-                                                </ul>
-                                            </div>
-                                            <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
-                                        </form>
+                                        </div>
+
                                         <hr>
 
-                                    </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <button type="button" class="btn_sendRequest btn btn-success btn-user btn-block ">요청</button>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn_back btn btn-danger btn-user btn-block ">뒤로가기</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <%@include file="/WEB-INF/admin/common_footer.jsp"%>
+        <%@include file="/WEB-INF/admin/common_footer.jsp" %>
         <!-- End of Footer -->
 
     </div>
@@ -153,14 +185,31 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-
 <script src="/resources/common/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="/resources/common/js/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
-<script src="/resources/admin/js/ad_createAd.js"></script>
+
+<!-- Page level plugins -->
+<script src="/resources/common/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/resources/common/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
+<%--DatePicker--%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+<!-- Page level custom scripts -->
+<script src="/resources/common/js/demo/datatables-demo.js"></script>
+<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+<script src="/resources/admin/js/pr_requestProm.js"></script>
+
+
+
+
 
 </body>
 
