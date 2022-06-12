@@ -41,7 +41,7 @@
     padding-top: 7px;
 }
 
-.card-header .requesting_btn {
+.card-header .td_update_btn {
     font-size: 0.9rem;
     color: dimgray;
     background-color: white;
