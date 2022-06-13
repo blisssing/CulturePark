@@ -15,6 +15,11 @@
     <style><%@include file="/resources/user/css/common_side.css"%></style>
     <style><%@include file="/resources/user/css/main_home.css"%></style>
 
+    <%-- google font link--%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+
     <%--  js 불러오기  --%>
 
 
