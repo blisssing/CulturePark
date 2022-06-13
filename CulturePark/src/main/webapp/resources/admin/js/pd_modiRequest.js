@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    $('.btn_pd_info').click(function () {
+        location.href="/pdDetail.ado"
+    });
+
+
     $('.btn_request_info').click(function () {
         selectedRow = $(this).closest('tr');
         modal_now = $('#RequestInfoModal');

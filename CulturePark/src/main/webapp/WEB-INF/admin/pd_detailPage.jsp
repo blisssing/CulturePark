@@ -91,9 +91,23 @@
                                                 <div class="form-control form-control-user" id="CompanyCode"></div>
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="context_head">루트매니저 계정</div>
+                                                <div class="form-control form-control-user" id="RootMail"></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="context_head">매니저 코드</div>
+                                                <div class="form-control form-control-user" id="RootCode"></div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div class="context_head">이름</div>
                                             <div  class="form-control form-control-user" id="ProductTitle"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="context_head">장소</div>
+                                            <div  class="form-control form-control-user" id="ProductPlace"></div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -103,6 +117,16 @@
                                             <div class="col-sm-6">
                                                 <div class="context_head">장르</div>
                                                 <div class="form-control form-control-user" id="ProductGenre"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="context_head">시작일</div>
+                                                <div class="form-control form-control-user" id="ProductStartDate"></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="context_head">종료일</div>
+                                                <div class="form-control form-control-user" id="ProductEndDate"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -178,17 +202,7 @@
                                             <button  class="btn btn-primary btn-user btn-block">다운로드</button>
                                         </div>
 
-                                        <hr>
 
-
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <button type="button" class="btn btn-success btn-user btn-block ">요청수락</button>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <button type="button" class="btn btn-danger btn-user btn-block ">요청거절</button>
-                                            </div>
-                                        </div>
                                     </form>
 
 
@@ -198,48 +212,6 @@
                     </div>
                 </div>
 
-                <%--요 청 정 보 모 달 --%>
-
-
-                <%--요 청 거 절 내 용 전 달--%>
-                <div class="modal fade border-0 shadow-lg my-5" id="RefuseRequestModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
-                     style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content ard-body p-0">
-                            <div class="modal-header">
-                                <h1 class="h4 text-gray-900 mb-4">유 저 정 보</h1>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
-                                <div class="form-group">
-                                    <span>요청번호 : </span>
-                                    <span class="pr_reqeust_code">#12</span>
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-head">거절 사유</div>
-                                    <textarea class="userEmail form-control form-control-user"></textarea>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                X
-                                            </span>
-                                    <span class="text">닫기</span>
-                                </button>
-                                <button  class="btn_disagree btn btn-warning btn-icon-split">
-                                            <span class="icon fa-solid fa-receipt">
-                                            </span>
-                                    <span class="text">요청거절</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -296,10 +268,6 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-
-<script src="/resources/admin/js/pr_requestList.js"></script>
-
-
 
 </body>
 
