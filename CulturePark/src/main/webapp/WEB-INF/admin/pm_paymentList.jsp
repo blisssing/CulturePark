@@ -89,6 +89,7 @@
                                     <th>seq</th>
                                     <th>분야</th>
                                     <th>업체명</th>
+                                    <th>상품명</th>
                                     <th>기한</th>
                                     <th>회원이메일</th>
                                     <th>구매날짜</th>
@@ -101,6 +102,7 @@
                                     <th>seq</th>
                                     <th>분야</th>
                                     <th>업체명</th>
+                                    <th>상품명</th>
                                     <th>기한</th>
                                     <th>회원이메일</th>
                                     <th>구매날짜</th>
@@ -117,6 +119,7 @@
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="pd_period">2022.03.1 - 2022.03.05</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
@@ -135,6 +138,7 @@
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="pd_period">2022.03.1 - 2022.03.05</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
@@ -153,6 +157,7 @@
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="pd_period">2022.03.1 - 2022.03.05</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>
@@ -171,6 +176,7 @@
                                         <td class="seq">1</td>
                                         <td class="class">전시</td>
                                         <td class="comp_name">피크닉</td>
+                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
                                         <td class="pd_period">2022.03.1 - 2022.03.05</td>
                                         <td class="user_email">taran0913@gmail.com</td>
                                         <td class="ticket_date">2022.01.02</td>

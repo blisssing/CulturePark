@@ -12,7 +12,10 @@ $(document).ready(function () {
         } else {
             alert('요청이 성공적으로 수행되었습니다');
         }
+    });
 
+    $('.btn_back').click(function () {
+        history.back();
     });
 
 
