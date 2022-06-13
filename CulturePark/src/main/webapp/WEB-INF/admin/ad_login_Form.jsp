@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kor">
@@ -42,14 +42,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">CulturePark</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" method="post" action="/loginProc.ado">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
+                                        <input type="email" name="ad_email" class="form-control form-control-user"
                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Enter Email Address...">
+                                               placeholder="이메일을 입력하시오">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" name="ad_pw" class="form-control form-control-user"
                                                id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
@@ -59,9 +59,9 @@
                                                 Me</label>
                                         </div>
                                     </div>
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">
                                         Login
-                                    </a>
+                                    </button>
 
                                 </form>
                                 <hr>

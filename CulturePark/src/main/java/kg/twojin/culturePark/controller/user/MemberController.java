@@ -8,6 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 
+    @RequestMapping(value = "/login.do")
+    public ModelAndView getLoginPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_login");
+        return mv;
+    }
+
     @RequestMapping(value="/findId.do")
     public ModelAndView getFindId(){
         ModelAndView mv = new ModelAndView();

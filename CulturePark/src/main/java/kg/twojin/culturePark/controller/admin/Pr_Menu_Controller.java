@@ -1,12 +1,11 @@
+// 프로모션 컨트롤러
 package kg.twojin.culturePark.controller.admin;
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class PromotionMenuController {
+public class Pr_Menu_Controller {
 
 
     @RequestMapping(value = "createProm.ado")

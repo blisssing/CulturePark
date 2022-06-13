@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.controller.manager.loginService;
+package kg.twojin.culturePark.controller.manager;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ public class LoginServiceController {
     @RequestMapping(value = "/login.mdo")
     public ModelAndView mgLogin() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("main_login");
+        mv.setViewName("ad_login_Form");
         return mv;
     }
 

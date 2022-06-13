@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kor">
@@ -57,7 +57,7 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">관리자 계정 생성</h1>
                                         </div>
-                                        <form class="user">
+                                        <form class="user" method="post" action="">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                                     <input type="text" class="form-control form-control-user" id="FirstName"
