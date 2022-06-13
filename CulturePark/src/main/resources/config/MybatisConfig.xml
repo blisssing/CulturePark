@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+
+    <typeAliases>
+        <typeAlias type="kg.twojin.culturePark.vo.admin.AdminVO" alias="adminVO"></typeAlias>
+    </typeAliases>
+
+<!--   <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driverClassName}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.user}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+    <mappers>
+        <mapper resource="mapping/user/user-mapper.xml"/>
+        <mapper resource="mapping/admin/admin-mapper.xml"/>
+        <mapper resource="mapping/manager/manager-mapper.xml"/>
+    </mappers>
+
+    <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->
+    <!-- applicationConfig와 비슷한 목적을 가진 페이지로, 환경을 미리 셋팅 해준다. -->
+
+</configuration>

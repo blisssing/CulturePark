@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.admin">
+
+    <resultMap id="adResult" type="adminVO">
+        <result property="ad_code"  column="ad_code"></result>
+        <result property="ad_email" column="ad_email"></result>
+        <result property="ad_name"  column="ad_name"></result>
+        <result property="ad_tel"   column="ad_tel"></result>
+        <result property="ad_is"    column="ad_is"></result>
+        <result property="ad_createDate" column="ad_createDate"></result>
+    </resultMap>
+    
+    <select id="selectAdmin" parameterType="adminVO" resultType="adminVO">
+        select *
+        from admin_account
+        where id = #{adminVO.getAdminEmail}, pw = #{adminVO.getAdminPw};
+    </select>
+
+    <insert id="createAdmin" parameterType="adminVO">
+
+    </insert>
+
+    <!--     int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
+
+
+</mapper>
