@@ -1,6 +1,7 @@
 package kg.twojin.culturePark.user.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,4 +36,38 @@ public class MyPageController {
         return mv;
     }
 
+    @RequestMapping(value = "/likeList.do")
+    public ModelAndView getLikeList() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_likeList");
+        return mv;
+    }
+
+    @RequestMapping(value = "/pointPage.do")
+    public ModelAndView getPoint() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_pointPage");
+        return mv;
+    }
+
+    @RequestMapping(value = "/myReview.do")
+    public ModelAndView getReview() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_myReview");
+        return mv;
+    }
+
+    @RequestMapping(value = "/myInfo.do")
+    public ModelAndView myInfoPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_myInfo");
+        return mv;
+    }
+
+    @RequestMapping(value = "levelPage.do")
+    public ModelAndView myLevel() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("myPage_levelPage");
+        return mv;
+    }
 }

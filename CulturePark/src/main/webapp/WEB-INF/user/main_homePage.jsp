@@ -10,12 +10,14 @@
     <%--  css 불러오기  --%>
     <style><%@include file="/resources/common/css/reset.css"%> </style>
     <style><%@include file="/resources/common/css/common.css"%></style>
-    <style><%@include file="/resources/common/css/header.css"%></style>
-    <style><%@ include file="/resources/user/css/main_home.css"%></style>
+    <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
+    <style><%@include file="/resources/user/css/main_home.css"%></style>
 
     <%--  js 불러오기  --%>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
     <title>CulturePark 우리들의 문화공간</title>
 </head>
@@ -57,7 +59,7 @@
         <div class="ex_promotion_section">
             <div class="section_name">
                 <span class="section_title"><a href="/exhibitMain.do">전시</a></span>
-                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+                <span class="prom_link"><a href="exhibitMain.do">전 체 보 기</a></span>
 
             </div>
 
@@ -211,8 +213,8 @@
         </div>
         <div class="mu_promotion_section">
             <div class="section_name">
-                <span class="section_title"><a href="/museumPage.do">뮤지엄</a></span>
-                <span class="prom_link"><a href="#">전 체 보 기</a></span>
+                <span class="section_title"><a href="/museumMain.do">뮤지엄</a></span>
+                <span class="prom_link"><a href="/museumMain.do">전 체 보 기</a></span>
             </div>
 
             <div class="section_page">
@@ -346,12 +348,19 @@
 
 
     </div>
+
+    <%-- footer 영역  --%>
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
+    </div>
+
 </div>
 
 </body>
 
 
 <%--js  불러오기 --%>
+<script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/main_home.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>

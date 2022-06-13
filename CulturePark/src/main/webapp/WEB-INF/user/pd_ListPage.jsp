@@ -10,7 +10,11 @@
     <%--  css 불러오기  --%>
     <style><%@include file="/resources/common/css/reset.css"%></style>
     <style><%@include file="/resources/common/css/common.css"%></style>
-    <style><%@include file="/resources/common/css/header.css"%></style>
+
+    <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
+
     <style><%@include file="/resources/user/css/pd_list.css"%></style>
     <style><%@include file="/resources/user/css/board_section_2.css"%></style>
 
@@ -50,7 +54,11 @@
     <%-- Contents 영역 --%>
     <div class="centerContainer">
         <div class="search_section">
-            <div class="section_name"> 필터 </div>
+            <div class="section_head">
+                <span>필터</span>
+                <button class="filter_slide_btn slide_down"><i class="fa-solid fa-angle-down"></i></button>
+                <button class="filter_slide_btn slide_up" ><i class="fa-solid fa-angle-up"></i></button>
+            </div>
             <div class="search_table">
                 <div class="search_row_01">
                     <div class="search_select_01" id="search_kind">
@@ -691,6 +699,10 @@
             </div>
         </div>
     </div>
+
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
+    </div>
 </div>
 
 </body>
@@ -699,7 +711,7 @@
 <%--js  불러오기 --%>
 
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="/resources/common/js/common.js" type="text/javascript"></script>
     <script src="/resources/user/js/pd_filter.js" type="text/javascript"></script>
 

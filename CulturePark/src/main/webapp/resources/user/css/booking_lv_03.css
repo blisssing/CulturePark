@@ -1,0 +1,43 @@
+body {
+    min-width: 300px;
+}
+
+.select_ticket, .select_box, .select_class {
+    width: 100%;
+}
+
+.select_class {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.case_wrap {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.case {
+    width: 30%;
+}
+
+.select_status {
+    width: 30%;
+}
+
+
+
+.select_cnt_box {
+    width: 30%;
+}
+
+.select_cnt_box > input {
+    width: 30%;
+}
+
+.msg_goBook {
+    display: none;
+}

@@ -1,0 +1,30 @@
+.round_section {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+
+table, tr , th, td {
+    padding: 10px 10px;
+    font-size: 1.2rem;
+}
+
+tr {
+    width: 100%;
+}
+
+
+.round_table {
+    width: 100%;
+
+}
+
+tbody{
+    width: 100%;
+}
+
+
+.btn_next, .disable_btn {
+    width: 100%;
+}

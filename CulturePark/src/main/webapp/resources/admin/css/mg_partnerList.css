@@ -1,0 +1,36 @@
+#AdminInfoModal {
+    display: none;
+}
+
+#CreateModal{
+    display: none;
+}
+
+.event_pw {
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+.btn_create {
+    background-color:  #0f9d58;
+}
+
+.btn_delete_partner {
+    background-color:  red;
+}
+
+.btn_ad_info {
+    background-color:  coral;
+}
+
+.btn_search_manager {
+    background-color:  pink;
+}
+
+.correctPw {
+    color: #1a73e8;
+}
+
+.wrongPw1, .wrongPw2 {
+    color: red;
+}

@@ -53,7 +53,9 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:servlet/user-servlet.xml</param-value>
         </init-param>
+
     </servlet>
+
 
     <servlet-mapping>
         <servlet-name>admin-servlet</servlet-name>

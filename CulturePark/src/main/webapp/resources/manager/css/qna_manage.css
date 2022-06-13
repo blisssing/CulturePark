@@ -1,0 +1,186 @@
+.div_top{
+    border: 1px solid #e3e6f0;;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+
+.div_row {
+    display: flex;
+
+}
+
+.check_period_div_row1 , .search_choice_div_row1 {
+    vertical-align: middle;
+    margin: 10px 10px;
+}
+
+.check_period_div_row2 , .search_choice_div_row2 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sectionLine_thin {
+    border: 0.1px solid #e3e6f0;;
+    margin: 10px 0px;
+
+}
+
+.div_col_row1 , .div_col_row2 {
+    margin: 10px 10px;
+    display: flex;
+}
+
+.search_select {
+    margin-right: 5px;
+}
+
+.center_row {
+    padding: 20px 0 10px 0;
+}
+
+.btn_btn {
+    color: #4e73df;
+    margin-left: 5px;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.re_btn  {
+    margin-left: 5px;
+    width: 75px;
+    height: 30px;
+    color: dimgrey;
+    background-color: ghostwhite;
+    border: 2px solid #aecbfa;
+    border-radius: 0.5rem;
+    font-size: 11pt;
+}
+
+.upd_btn {
+    margin-left: 5px;
+    width: 50px;
+    height: 30px;
+    color: dimgrey;
+    background-color: ghostwhite;
+    border: 2px solid #aecbfa;
+    border-radius: 0.5rem;
+    font-size:11pt;
+}
+
+.del_btn {
+    float:right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.re_label {
+    display: inline-block;
+    border: 1px solid slategray;
+    border-radius: 0.5rem;
+    width: 50px;
+    background-color: #4e73df;;
+    color:white;
+    margin-right:15px;
+    text-align: center;
+
+}
+
+
+/*버튼 애니메이션*/
+.btn_check{
+    margin-right:5px;
+    background-color: white;
+    font-size: 10pt;
+    position:relative;
+    display:block;
+    width:60px;
+    height:30px;
+    text-align:center;
+    border : 1.5px solid dimgrey;
+    text-decoration:none;
+    color: black;
+    transition: all  0.3s;
+}
+
+.btn_check:after{
+    content:"";
+    position: absolute;
+    top:5px; left:5px;
+    width:100%; height:100%;
+    border-bottom:2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.btn_check:active{
+    top:5px;
+    left:5px;
+}
+
+.btn_check:active:after{
+    border:0;
+}
+
+.date_select {
+    width: 130px;
+    height: 27px;
+    font-size: 11pt;
+}
+
+.wave {
+    margin: 0 10px;
+}
+
+.search_select {
+    width: 80px;
+    height: 27px;
+    font-size: 11pt;
+}
+
+.search_text {
+    width: 230px;
+    height: 27px;
+    font-size: 11pt;
+}
+
+
+/* 모달 */
+
+.modal-header {
+    padding: 1rem 1rem 0 1rem;
+}
+
+.text-gray-900 {
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+.modal_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title_section {
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.title_label {
+    margin-right: 15px;
+}
+
+.review_title {
+    width: 60%;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.content_section {
+    margin: 10px 0;
+    width:100%;
+    height: 150px;
+    border: 1px solid black;
+    text-align: center;
+}

@@ -20,9 +20,19 @@
     <div class="viewTicket_container">
 
         <%-- 1. 예약번호 --%>
+
         <div class="booking_no_section">
-            <span>No.</span>
-            <span class="booking_no">267595037</span>
+            <div class="arrow_div">
+                <i class="fa-solid fa-arrow-left" onclick="self.close()"></i>
+            </div>
+
+            <div class="number_section">
+                <div class="no_section">
+                    <span>No.</span>
+                    <span class="booking_no">267595037</span>
+                </div>
+            </div>
+
         </div>
 
             <p class="sectionLine"></p>
@@ -74,8 +84,6 @@
                 </div>
 
 
-
-
                 <div class="product_unit_section">
                 </div>
 
@@ -93,6 +101,6 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/myPage_viewDetail_viewTicket.js"></script>
+<script src="/resources/user/js/myPage_myTicket.js"></script>
 
 </html>

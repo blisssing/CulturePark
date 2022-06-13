@@ -33,7 +33,9 @@
         <p class="sectionLine"></p>
 
             <div class="booking_title_section">
+              <div class="no_section">
                <span>No.</span><span id="booking_no">267595037</span>
+              </div>
                 <span id="booking_name">사울레이터 창문을 통해 어렴풋이</span>
             </div>
 
@@ -128,7 +130,7 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/myPage_viewDetail_viewTicket.js"></script>
+<script src="/resources/user/js/myPage_myTicket.js"></script>
 
 
 </html>

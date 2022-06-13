@@ -1,10 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="header_1">
-
     <div class="pc_header">
         <div class="logo_section">
             <div class="logo">
-                <a href="#">
+                <a href="/home.do">
                     <p class="main_title">Culture Park</p>
                     <p class="sub_title"> 우리들의 문화공간</p>
                 </a>
@@ -12,16 +11,19 @@
         </div>
         <div class="function_section">
             <ul class="funcs_pc">
-                <li><a class="func_list" href="#">로그인</a></li>
-                <li><a class="func_list" href="#">회원가입</a></li>
-                <li><a class="func_list" href="#">마이페이지</a></li>
-                <li><a class="func_list" href="#">마이티켓</a></li>
+                <li><a class="func_list" href="/member_login_do">로그인</a></li>
+                <li><a class="func_list" href="/member_join.do">회원가입</a></li>
+                <li><a class="func_list" href="/myPage.do">마이페이지</a></li>
+                <li><a class="func_list" href="/myTicket.do">마이티켓</a></li>
             </ul>
 
             <div class="funcs_mobile">
+
                 <%--   로그인 창으로 이동하는 링크 달아줄 것--%>
-                <button><i class="fa-solid fa-user-large"></i></button>
-                <button type="button" class="open_btn"><i class="fa-solid fa-bars"></i></button>
+<%--                <button type="button" class="login_btn"><i class="fa-solid fa-user-large"></i></button>--%>
+                <button type="button" class="mySide_btn"><i class="fa-solid fa-user-gear"></i></button>
+                <button type="button" class="sideMenu_btn"><i class="fa-solid fa-bars"></i></button>
+
             </div>
         </div>
     </div>
@@ -30,7 +32,7 @@
 <div class="header_2_logo">
     <div class="logo_section">
         <div class="logo">
-            <a href="#">
+            <a href="/home.do">
                 <p class="main_title">Culture Park</p>
                 <p class="sub_title"> 우리들의 문화공간</p>
             </a>
@@ -52,7 +54,7 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="open_btn">
+                    <button type="button" class="sideMenu_btn">
                         <i class="fa-solid fa-bars"></i>
                         <div class="menu_name">메뉴</div>
                     </button>
@@ -68,11 +70,16 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="mymenu_btn">
+                    <button type="button" class="mySide_btn">
                         <i class="fa-solid fa-user"></i>
                         <div class="menu_name">마이메뉴</div>
                     </button>
+                    <%--<button type="button" class="login_btn">
+                        <i class="fa-solid fa-user"></i>
+                        <div class="menu_name">로그인</div>
+                    </button>--%>
                 </div>
+
             </li>
         </ul>
     </div>

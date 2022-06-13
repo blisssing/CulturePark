@@ -1,0 +1,81 @@
+.sectionLine_thin{
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+
+.beginner_bar > .ui-widget-header {
+    background-image: linear-gradient(to right, #81c995, #aecbfa) !important;
+}
+
+.people_bar > .ui-widget-header {
+    background-image: linear-gradient(to right, #aecbfa, #FBCBB1) !important;
+}
+
+/*palegoldenrod*/
+
+.description_section {
+    display: flex;
+    margin-top: 50px;
+}
+
+.progress_table {
+    width: 100%;
+    margin: 2px 4px;
+}
+
+tbody  tr {
+    line-height: 300%;
+}
+
+td {
+    border: 0.5px solid black;
+    font-size: 0.6rem;
+    justify-content: space-around;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+.fa-seedling {
+    color: #81c995;
+}
+
+.fa-child-reaching {
+    color: cornflowerblue;
+}
+
+.fa-heart {
+    /*color: lightcoral*/
+    color: #FBCBB1;
+}
+
+.label_text_section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label_text {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.myLevel_section {
+    display: flex;
+    margin: 40px 0px 10px 0px;
+}
+
+.myLevel {
+    font-size: 1rem;
+}
+
+hr {
+    margin-top: 50px;
+}
+@media screen and (min-width:1200px){
+
+td {
+    font-size: 0.9rem;
+}
+
+}

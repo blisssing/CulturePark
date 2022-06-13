@@ -1,0 +1,53 @@
+.inner_section {
+    display: flex;
+    flex-direction: column;
+    line-height: 160%;
+    text-align: center;
+    margin:auto;
+}
+
+
+.icon_section {
+    margin: 130px 0 60px 0;
+    font-size: 2.2rem;
+}
+
+
+.new_pw_label {
+    font-size: .8rem;
+    color: #6e707e;
+}
+
+
+.inner_section input {
+    color: #6e707e;
+    background-color: #fff;
+    border: 1px solid #d1d3e2;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.btn_section {
+    width: 100%;
+    margin-top: 50px;
+    font-size: .9rem;
+}
+
+.btn_section button {
+
+    color: #6e707e;
+    background-color: #fff;
+    border: 1px solid #d1d3e2;
+}
+
+.cancel_btn {
+    width:70px;
+    border-radius: 1rem;
+
+    margin-right: 20px;
+}
+
+.change_btn {
+    width:70px;
+    border-radius: 1rem;
+}

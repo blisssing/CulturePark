@@ -1,0 +1,161 @@
+.header_container {
+    width: 100%;
+}
+
+.header_1 {
+    display: none;
+}
+
+/* 헤더 2 설정 */
+    .header_2 {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5rem;
+        background-color: black;
+        z-index: 10;
+    }
+
+    .header_2_logo {
+        display: block;
+    }
+
+    .menu_bottom_bar {
+        height: 100%;
+    }
+
+    .bar_icons {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bar_icons >li {
+        width: 25%;
+        text-align: center;
+    }
+
+    .bar_icons >li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        height: 100%;
+        line-height: 150%;
+    }
+
+    .btn_box {
+        width: 100%;
+        height: 100%;
+        font-size: 1.5rem;
+    }
+
+    .btn_box>button {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        font-size: 2.0rem;
+    }
+
+
+
+
+
+
+
+
+    .menu_name {
+        font-size: 0.8rem;
+    }
+
+
+
+
+/* pc 메인헤드 */
+
+.pc_header {
+    display: flex;
+    height: 100px;
+}
+
+
+/* 로고 */
+
+.logo_section {
+    min-width: 130px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 150%;
+
+}
+
+.main_title {
+    font-size: 1.5rem;
+    color: cornflowerblue;
+}
+.sub_title {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    color: black;
+}
+
+/*우측 상단 바로가기*/
+.function_section {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 100%;
+    float: right;
+}
+
+
+
+/* header jsp : functions pc*/
+.funcs_pc {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: auto;
+}
+
+.func_list {
+    margin-right: 20px;
+    font-size: 0.8rem;
+}
+
+.func_list:hover {
+    color: orange;
+}
+
+
+
+
+
+
+@media screen and (min-width: 500px){
+    .header_2 {
+        display: none;
+    }
+
+    .header_2_logo {
+        display: none;
+    }
+    .header_1 {
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+
+    /* 헤더 우측상단 기능 모바일-pc 스위칭*/
+    .funcs_pc {
+        display: flex;
+    }
+
+
+
+}

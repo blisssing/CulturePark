@@ -24,6 +24,16 @@
     </properties>
 
     <dependencies>
+
+      <!--  &lt;!&ndash; 문자 인증관련 라이브러리 &ndash;&gt;
+        <dependency>
+            <groupId>net.nurigo</groupId>
+            <artifactId>javaSDK</artifactId>
+            <version>2.2</version>
+        </dependency>
+        출처: https://unknown-coding.tistory.com/16 [RamG's Programming:티스토리]
+-->
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>

@@ -1,0 +1,58 @@
+.btn_wrap {
+    white-space: nowrap;
+}
+
+.btn_wrap > button {
+    margin: 10px 5px;
+}
+
+
+.icon_descript {
+    text-align: right;
+}
+
+.icon_descript > div {
+    display: inline-block;
+    margin: 5px;
+}
+
+.descript_wrap > span {
+    margin: 5px;
+}
+
+.btn_More_info {
+    background-color: cornflowerblue;
+}
+
+
+.btn_Agree{
+    background-color: cornflowerblue;
+}
+
+.btn_Disagree {
+    background-color: red;
+}
+
+#DisagreeModal {
+    display: none;
+}
+
+#DetailModal {
+    display: none;
+}
+
+#ReasonModal {
+    display: none;
+}
+
+.chk_list , .chk_ul {
+    list-style: none;
+}
+
+.chk_list >input{
+    margin-left: 5px;
+}
+
+.button_wrap {
+    margin-top: 15px;
+}

@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
     $('#fast_btn_01').click(function () {
-        location.replace('url');
+        location.replace('pdList.do');
     });
 
     $('#fast_btn_02').click(function () {
-        location.replace('url');
+        location.replace('rankPage.do');
     });
 
     $('#fast_btn_03').click(function () {
-        location.replace('url');
+        location.replace('reviewPage.do');
     });
 
 

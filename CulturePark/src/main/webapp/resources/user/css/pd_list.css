@@ -1,3 +1,6 @@
+
+
+
 /*Layout*/
 
 .centerContainer {
@@ -37,6 +40,22 @@
     margin-bottom: 10px;
 
 }
+
+/*section Head*/
+
+.section_head {
+    min-width: 278.16px;
+}
+
+.section_head > button{
+    float: right;
+}
+
+.slide_down {
+    display: none;
+}
+
+
 
 /* row 1 */
 
@@ -79,14 +98,6 @@
     height: 100%;
 }
 
-.keyword_area {
-    width: 70%;
-}
-
-.keyword_area > input{
-    width: 100%;
-}
-
 /* row : tag*/
 
 .tag_box {
@@ -119,6 +130,11 @@
 .search_row_03 > button{
     background-color: rgba(100,149,237, 0.9);
     width: 100%;
+}
+
+.search_row_03 {
+    display: flex;
+    justify-content: space-between;
 }
 
 

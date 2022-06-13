@@ -11,7 +11,9 @@
     <%-- css 불러오기 --%>
     <style><%@include file="/resources/common/css/reset.css" %></style>
     <style><%@include file="/resources/common/css/common.css" %></style>
-    <style><%@include file="/resources/common/css/header.css"%></style>
+    <style><%@include file="/resources/user/css/common_header.css"%></style>
+    <style><%@include file="/resources/user/css/common_footer.css"%></style>
+    <style><%@include file="/resources/user/css/common_side.css"%></style>
     <style><%@include file="/resources/user/css/myPage.css" %></style>
     <style><%@include file="/resources/user/css/myPage_subMenu.css" %></style>
 
@@ -49,15 +51,20 @@
 
         <%-- content --%>
         <%-- include 하지않고, 직접 기재 (content관련 css는 myPage.css) --%>
-            <div class="content_container"><div style="clear:both;"></div>
+            <div class="content_container">
 
-                <img src="/resources/user/resource/myPage/love.PNG" style= "width: 807.792px; height: 800px;">
+                <%@ include file="/WEB-INF/user/myPage_myTicket.jsp"%>
+                <%--<img src="/resources/user/resource/myPage/love.PNG" style= "width: 807.792px; height: 800px;">--%>
 
             </div> <%-- /content_container --%>
 
         </div> <%-- /innerContent --%>
     </div> <%-- /centerContainer --%>
 </div> <%-- /mainContainer --%>
+
+    <div class="footer_container">
+        <%@ include file="/WEB-INF/user/main_footer.jsp"%>
+    </div>
 
 </body>
 </html>

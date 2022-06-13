@@ -1,12 +1,13 @@
+
 .viewDetail_container {
     display: flex;
     flex-direction: column;
-    margin: 10px 10px 10px 10px;
+    margin: 0px 10px 10px 10px;
     height: 90%;
 }
 
 .viewDetail_container > div {
-    margin:20px 0px;
+    margin:23px 0px;
 }
 
 .sectionLine {
@@ -31,7 +32,7 @@
 
 .check_div {
     position: absolute;
-    left: 43%;
+    left: 40%;
     display: inline-block;
     width:100px;
 }
@@ -45,15 +46,20 @@
 .booking_title_section {
     display: flex;
     flex-direction: column;
-
+    margin: 10px 0px;
 }
+
+.no_section {
+    display: flex;
+}
+
 
 /* 전시 제목 */
 #booking_name {
     margin-top: 15px;
-    font-size: 13pt;
-}
+    font-size: 14pt;
 
+}
 
 /* 일정/내역 영역 */
 .booking_info_section {
@@ -99,7 +105,7 @@
     width: 95%;
     border: 1px solid black;
     margin: 0px 5px 5px 10px;
-    padding: 4px 0px 4px 0px;
+    padding: 8px 0px 8px 0px;
 
     font-size:11pt;
 }
@@ -137,11 +143,12 @@
 
 .purchase_section {
     float: right;
-    margin-top: 20px;
+    margin: 30px 15px 10px 0px;
+    font-size: 15pt;
 }
 
 .booking_purchase {
-    font-size: 13pt;
+    font-size: 15pt;
 
 }
 

@@ -239,7 +239,7 @@ $RECYCLE.BIN/
 
 
 # 추적 안 함
-
+*.properties
 .idea/
 target/
 CulturePark/.idea/

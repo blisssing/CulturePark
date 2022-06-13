@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij,windows,macos
 
+# 프로펄티스
+*.properties
+
+
 ### Eclipse ###
 .metadata
 bin/

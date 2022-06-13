@@ -1,0 +1,223 @@
+
+
+.section_div_top {
+    display: flex;
+    flex-direction: column;
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_section, .pd_name_section {
+    margin-bottom:10px;
+}
+
+.top_section {
+    border-bottom: 1px solid #e3e6f0;
+    margin-bottom: 40px;
+}
+
+.div_row {
+    display: flex;
+    margin: 10px 0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_label_section {
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_label {
+    padding: 10px 10px;
+}
+
+.pd_name_label {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.genre_select {
+    width: 150px;
+    height: 25px;
+    margin: 10px 10px;
+}
+
+.pd_name_text {
+    width: 450px;
+    height: 29px;
+   margin: 10px 10px;
+}
+
+.card-body {
+    font-size:0.9rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.text-primary{
+    color: dimgrey !important;
+}
+
+.div2{
+    display: flex;
+    vertical-align: bottom;
+}
+
+.label_en{
+    padding-top: 7px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: dimgray;
+    background-color: #f8f9fc;
+    border: white;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    border-bottom: 1px solid  #e3e6f0;
+}
+
+
+.status_btn , .adminInfo_btn {
+    color: #858796;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content{
+    width: 110%;
+}
+
+
+.section_label {
+    font-size:1rem;
+    margin:15px 0;
+    font-weight: 100;
+}
+
+.row_all {
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.row2 {
+
+    border-bottom: 1px solid #e3e6f0;
+}
+
+
+.row2 {
+    width:100%;
+}
+
+
+.modal > .table {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal > thead {
+    display: flex;
+    flex-direction: column;
+}
+.modal > th {
+    display: flex;
+}
+
+.modal > tr {
+    display: flex;
+}
+
+.td_0 {
+    width: 30%;
+    font-size: 1rem;
+}
+
+.modal > .table td, .table th {
+    padding:0.5rem;
+}
+
+.td_1 {
+    width:40%;
+    font-size:0.9rem;
+}
+
+.td_1 > input {
+    width: 80%;
+    margin-right:4px;
+}
+
+.btn_Agree2 {
+    background-color: #81c995;
+}
+
+.btn_Disagree2 {
+    background-color: lightgray;
+}
+
+.chkbox {
+    margin-right: 15px;
+}
+
+.chkLabel {
+    margin-left: 15px;
+}
+
+.margin-left {
+    margin-left:5px;
+}
+
+.choice {
+    width: 150px;
+    height: 25px;
+
+}
+
+.file_padding input {
+    padding: 5px 5px 40px 5px;
+}
+
+.modal-footer {
+    margin: 30px 0 50px 0px;
+}
+
+.btn_adminInfo, .btn_refuse {
+    border-radius: 1rem;
+    border:white;
+}
+
+.btn-danger {
+    border-color: white;
+}
+
+.btn-success {
+    border-color: white;
+}
+
+.btn-danger:hover {
+    background-color: gray;
+    border-color: gray;
+}
+
+.btn_success:hover {
+    color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.row0 {
+    border-bottom: 1px solid #e3e6f0;
+    margin-bottom: 40px;
+}
+
+.tck {
+    width: 95%;
+    height: 27px;
+}
+
+.btn_section {
+   text-align: end
+;
+}

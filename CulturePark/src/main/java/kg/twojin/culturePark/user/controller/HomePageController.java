@@ -22,19 +22,58 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "/museumPage.do")
-    public ModelAndView getMusiumPage() {
+    @RequestMapping(value = "/museumMain.do")
+    public ModelAndView getMuseumPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("main_museumPage");
         return mv;
     }
 
     @RequestMapping(value = "/myPage.do")
-    public ModelAndView goToMypage() {
+    public ModelAndView getMypage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("myPage");
+        mv.setViewName("myPage_myTicket");
         return mv;
     }
+
+    @RequestMapping(value = "/reviewPage.do")
+    public ModelAndView getReviewPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("review_listPage");
+        return mv;
+    }
+
+    @RequestMapping(value = "/rankPage.do")
+    public ModelAndView getRankpage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("main_rankPage");
+        return mv;
+    }
+
+    @RequestMapping(value = "/login.do")
+    public ModelAndView getLoginPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_login");
+        return mv;
+    }
+
+    @RequestMapping(value = "/join.do")
+    public ModelAndView getJoinPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("member_join");
+        return mv;
+    }
+
+    @RequestMapping(value = "/servicePage.do")
+    public ModelAndView getServicePage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("service_faqPage");
+        return mv;
+    }
+
+
+
+
 }
 
 

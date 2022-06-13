@@ -1,0 +1,281 @@
+.modalContainer {
+    display: none;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+.table_section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.view_btn {
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* 리뷰작성 라벨 */
+.writeReview_label {
+    font-size: 1.2rem;
+    padding: 25px 0px;
+}
+
+/* 작품이름~ 별점전까지의 영역 */
+.booking_info_section {
+    display: flex;
+    flex-direction: column;
+    line-height: 130%;
+}
+
+/* 작품이름 및 유의사항 모달 영역 */
+.pd_label_section {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.pd_name {
+    width: 60%;
+    font-size: 1.3rem;
+}
+
+.modal_href {
+    float: right;
+    padding: 8px 8px;
+/*    border: 1px solid black;*/
+    font-size: 1.1rem;
+}
+
+
+.label_section {
+    margin: 5px 0px;
+}
+
+
+/* 별점 */
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{
+    display: inline-block;
+    vertical-align:middle;
+    background:url('/resources/user/resource/myPage/grade_img.png')no-repeat;
+}
+.star-input{
+    display:inline-block;
+    white-space:nowrap;
+    width:225px;
+    height:40px;
+    padding: 30px 0px;
+    line-height:30px;
+}
+.star-input>.input{
+    display:inline-block;
+    width:150px;
+    background-size:150px;
+    height:28px;
+    white-space:nowrap;
+    overflow:hidden;
+    position: relative;
+}
+.star-input>.input>input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+}
+star-input>.input.focus{
+    outline:1px dotted #ddd;
+}
+.star-input>.input>label{
+    width:30px;
+    height:0;
+    padding:28px 0 0 0;
+    overflow: hidden;
+    float:left;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{
+    background-size: 150px;
+    background-position: 0 bottom;
+}
+.star-input>.input>label:hover~label{
+    background-image: none;
+}
+.star-input>.input>label[for="p1"]{
+    width:30px;
+    z-index:5;
+}
+.star-input>.input>label[for="p2"]{
+    width:60px;
+    z-index:4;
+}
+.star-input>.input>label[for="p3"]{
+    width:90px;
+    z-index:3;
+}
+.star-input>.input>label[for="p4"]{
+    width:120px;
+    z-index:2;
+}
+.star-input>.input>label[for="p5"]{
+    width:150px;
+    z-index:1;
+}
+.star-input>output{
+    display:inline-block;
+    width:60px;
+    font-size:18px;
+    text-align:right;
+    vertical-align:middle;
+}
+/*별점끝*/
+
+
+
+/* 리뷰 쓰기 제목 영역 */
+.review_title_section {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    justify-content: space-between;
+
+}
+
+.title_section {
+    display: flex;
+
+    width: 100%;
+}
+
+/* 제목 */
+.title_label {
+    margin-right: 15px;
+
+}
+
+/* 제목 text box */
+.review_title {
+    width: 60%;
+    height: 30px;
+    border: 1px solid black;
+}
+
+/* 업로드 영역 */
+.photo_section {
+    display: flex;
+}
+
+.upload_label {
+    margin-left: 15px;
+    margin-right: 25px;
+
+}
+
+/* 사진업로드 */
+.fileUpload_section {
+    width: 60%;
+}
+
+/* 내용 영역 */
+.content_section {
+    width:100%;
+    height: 150px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.m_upload_btn_section {
+    display: flex;
+}
+
+.m_upload_btn{
+    display: inline-block;
+    border: 1px solid black;
+    margin: 20px 0px;
+    padding: 10px 10px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload_btn_section {
+    display: none;
+}
+
+.table_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:30px 0px;
+}
+
+.view_btn {
+    padding: 7px 35px;
+}
+
+.modalContainer{
+    line-height: 130%;
+}
+
+.modal_content li {
+    list-style: disc;
+}
+
+.ul_list li {
+    list-style-type: '- ';
+}
+
+.modal_title {
+    font-size: 13pt;
+}
+
+.modal_content {
+    margin:0px 20px;
+}
+
+.modal_head {
+    margin:10px 0px;
+}
+
+.div > ul > li {
+    font-size: 1rem !important;
+}
+
+
+@media screen and (min-width:1200px) {
+
+.m_upload_btn_section {
+    display: none;
+}
+
+.upload_btn_section {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.upload_btn {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin: 20px 0px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+}
+
+
+

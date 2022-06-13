@@ -1,0 +1,204 @@
+.menu_section {
+    display: flex;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.sectionLine1{
+    margin-left:10px;
+
+}
+
+.menu_btn {
+ /*   padding: 5px 5px;*/
+}
+
+#all_view_btn {
+
+    border-right: 1px solid black;
+    margin-right: 5px;
+}
+
+#exhibit_btn {
+
+    border-right: 1px solid black;
+    margin-right: 5px;
+}
+
+#museum_btn {
+/*
+    border-right: 1px solid black;*/
+}
+
+.cal_check {
+  margin-top: 5px;
+}
+
+.check_one {
+    margin-top: 10px;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
+
+.table_section {
+   /* display: flex;*/
+    flex-direction: column;
+    width: 100%;
+    margin: 40px 0px 10px 0px;
+    text-align: center;
+}
+
+.table > thead {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.table > tbody {
+    margin: 15px 0px;
+    border-bottom: 1px solid;
+}
+
+td, th {
+    /*padding: 2px 12px;*/
+    text-align: center;
+    vertical-align:middle;
+}
+
+.view_btn_section {
+    display: none;
+}
+
+.sectionLine_ {
+    border: 0.5px solid black;
+    margin-top: 3%;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+.pd_delete {
+    margin: 20px 0px 10px 0px;
+}
+
+.pd_delete > span {
+    font-size: 10pt;
+}
+
+.delete_btn {
+    border: 1px solid black;
+    margin-left: 10px;
+    padding:2px 4px;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 250%;
+}
+
+.table_section {
+    line-height: 180%;
+}
+
+/* table */
+.check_all, .check_one {
+    float:left;
+
+}
+
+.cal_check {
+    max-width: 100px;
+}
+
+.seq {
+    max-width: 100px;
+}
+
+.pd_name {
+    width: 65%;
+
+}
+
+.pd_price {
+    width: 150px;
+}
+
+.view_btn_section{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    margin: 20px 0px 0px 1px;
+}
+
+.view_btn {
+    border: 1px solid black;
+    margin: 0 5px;
+    padding: 3px 20px 3px 20px;
+}
+
+.table_row_section {
+    border-bottom: 1px dashed black;
+}
+
+.label_exhibit_section {
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.label_museum_section {
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.label_div_section {
+    margin-top: 5px;
+}
+
+.sectionLine_thin {
+    border: 0.4px solid black;
+    margin-top: 10px;
+}
+
+/* 고정영역 */
+.fix_relative {
+    position: relative;
+}
+
+.table_list {
+    width: 100%;
+    line-height: 180%;
+}
+
+.table_list thead tr {
+    position: sticky;
+    top: 0px;
+    border-bottom: 0.5px solid black;
+
+    background-color: lightgray;
+}
+
+
+
+.scroll_section {
+    overflow-y: scroll;
+    max-height: 200px;
+    border-bottom: 0.5px solid black;
+    /* overflow: auto;*/
+}
+
+
+@media screen and (min-width:1200px) {
+
+    .menu_section {
+        display: flex;
+        width: 100%;
+        margin-top: 3%;
+    }
+
+}

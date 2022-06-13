@@ -1,0 +1,93 @@
+.firstGate_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
+}
+
+
+.notice_wrap {
+    height: 20%;
+    margin: 70px 0 40px 0;
+}
+
+.notice_wrap > div {
+}
+
+.notice_icon {
+    text-align: center;
+    font-size: 3.0rem;
+}
+
+.notice_text {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 150%;
+    margin: 35px 0  ;
+}
+
+
+.input_box {
+    height: 80%;
+}
+
+.input_table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 20px
+}
+
+.btn_wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.secondGate_section {
+    display: none;
+}
+
+/* 회정정보 수정 창 */
+
+.section_title {
+    font-size: 2.0rem;
+}
+
+.modi_section > * {
+    margin: 20px 0;
+}
+
+.info_row > td {
+    vertical-align: center;
+}
+
+.info_head {
+    white-space: nowrap;
+}
+
+.pw_content > div {
+    margin: 10px 0px;
+
+}
+
+.content_text {
+    display: inline-block;
+}
+
+
+.alert_text_01, .alert_text_02 {
+    font-size: 0.8rem;
+}
+
+.alert_text_02 {
+    display: none;
+    color: red;
+}
+
+.ph_row > .info_content> * {
+    width: 50px;
+    margin: 5px 0;
+}

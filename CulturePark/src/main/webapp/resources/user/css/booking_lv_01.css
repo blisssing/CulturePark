@@ -1,0 +1,43 @@
+#datepicker {
+    margin: 0 auto;
+}
+
+.btn_bar {
+    display: inline-block;
+    justify-content: normal;
+    text-align: center;
+}
+
+.btn_bar > div {
+    display: inline-block;
+}
+
+#book_level {
+
+}
+#close_btn {
+    float: right;
+}
+
+
+
+/*
+
+
+@media screen and (min-width: 500px){
+    #datepicker {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 700px){
+    #datepicker {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    #datepicker {
+        font-size:  ;
+    }
+}*/
