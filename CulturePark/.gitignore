@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij,windows,macos
 
 # 프로펄티스
-.properties
+*.properties
 
 
 ### Eclipse ###
