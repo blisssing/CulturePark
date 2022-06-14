@@ -17,11 +17,10 @@ public class AdminDAOImpl implements AdminDAO{
     @Override
     public AdminVO loginAdmin(AdminVO adminVO) {
         AdminVO vo = null;
-
         try {
             vo = sqlSessionTemplate.selectOne("mapper.admin.selectAdmin", adminVO);
         } catch (Exception e) {
-            return vo;
+            e.printStackTrace();
         }
         return vo;
     }

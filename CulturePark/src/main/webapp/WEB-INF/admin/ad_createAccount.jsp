@@ -87,10 +87,10 @@
                                             <div class="form-group">
                                                 <ul class="col-sm-6 chk_ul">
                                                     <div>권한</div>
-                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="member">회원관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="manager">매니저관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="product">상품관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="ad_right_super" value="super" id="chk_super">슈퍼</li>
+                                                    <li class="chk_list"><input type="checkbox" name="check_is" value="member" class="chk_normal">회원관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="check_is" value="manager" class="chk_normal">매니저관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="check_is" value="product" class="chk_normal">상품관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="check_is" value="super" id="chk_super">슈퍼</li>
                                                 </ul>
                                             </div>
                                             <button  type="button" class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>

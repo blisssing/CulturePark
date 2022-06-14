@@ -10,7 +10,7 @@ $(document).ready(function () {
         } else if (pw.trim() === '') {
             alert("비밀번호를 입력해주세요");
         } else {
-            frm.attr("action", "/loginProc.ado");
+            frm.attr("action", "/culturePark/admin/loginProc.ado");
             frm.submit();
         }
 
