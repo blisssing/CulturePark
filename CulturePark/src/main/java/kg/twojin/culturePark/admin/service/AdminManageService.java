@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface AdminManageService {
 
-    void adminLogin(AdminVO adminVO);
+    AdminVO adminLogin(AdminVO adminVO);
 
-    List selectAllAdmins();
+
+
+    List adminList();
 
     int insertAdmin(AdminVO adminVO);
 

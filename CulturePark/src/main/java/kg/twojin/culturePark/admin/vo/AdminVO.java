@@ -11,5 +11,5 @@ import java.util.Date;
 public class AdminVO {
     String ad_email, ad_pw, ad_name, ad_tel, ad_is, ad_depart;
     Date ad_createDate;
-    int ad_code;
+    int ad_seq;
 }

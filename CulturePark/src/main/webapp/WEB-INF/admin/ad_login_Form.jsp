@@ -27,6 +27,8 @@
 
 <div class="container">
 
+    <c:set var="result" value="${param.result}"></c:set>
+
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
@@ -40,9 +42,9 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">CulturePark</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">CulturePark 관리자 모드</h1>
                                 </div>
-                                <form class="user" method="post" action="/loginProc.ado">
+                                <form id="frm" class="user" method="post">
                                     <div class="form-group">
                                         <input type="email" name="ad_email" class="form-control form-control-user"
                                                id="exampleInputEmail" aria-describedby="emailHelp"
@@ -53,13 +55,13 @@
                                                id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Remember
-                                                Me</label>
-                                        </div>
+                                        <c:choose>
+                                            <c:when test="${result=='loginFailed'}">
+                                                <label style="color: red; font-size: 0.8rem; margin-left: 10px;" >로그인에 실패하였습니다</label>
+                                            </c:when>
+                                        </c:choose>
                                     </div>
-                                    <button class="btn btn-primary btn-user btn-block" type="submit">
+                                    <button class="btn_login btn btn-primary btn-user btn-block" type="button">
                                         Login
                                     </button>
 
@@ -87,6 +89,8 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
+<script src="/resources/admin/js/ad_login.js"></script>
+
 
 </body>
 

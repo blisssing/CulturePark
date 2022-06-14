@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository("adminDAO")
@@ -15,7 +16,13 @@ public class AdminDAOImpl implements AdminDAO{
 
     @Override
     public AdminVO loginAdmin(AdminVO adminVO) {
-        AdminVO vo = sqlSessionTemplate.selectOne("mapper.admin.selectAdmin", adminVO);
+        AdminVO vo = null;
+
+        try {
+            vo = sqlSessionTemplate.selectOne("mapper.admin.selectAdmin", adminVO);
+        } catch (Exception e) {
+            return vo;
+        }
         return vo;
     }
 

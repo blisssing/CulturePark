@@ -89,9 +89,9 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
+                                    <th>번호</th>
                                     <th>이름</th>
                                     <th>부서</th>
-                                    <th>번호</th>
                                     <th>이메일</th>
                                     <th>생성일</th>
                                     <th>기능</th>
@@ -99,9 +99,9 @@
                                 </thead>
                                 <tfoot>
                                 <tr>
+                                    <th>번호</th>
                                     <th>이름</th>
                                     <th>부서</th>
-                                    <th>번호</th>
                                     <th>이메일</th>
                                     <th>생성일</th>
                                     <th>기능</th>
@@ -110,16 +110,19 @@
                                 <tbody>
                                 <c:forEach var="admin" items="${adminList}">
                                     <tr>
+
                                         <form name="frm">
+                                            <td class="num">${admin.ad_seq}</td>
+                                            <input type="hidden" class="tel" value="${admin.ad_tel}">
+                                            <input type="hidden" class="is" value="${admin.ad_is}">
                                         <td class="name">${admin.ad_name}</td>
                                         <td class="depart">${admin.ad_depart}</td>
-                                        <td class="num">${admin.ad_code}</td>
                                         <td class="email">${admin.ad_email}</td>
                                         <td class="create_date">${admin.ad_createDate}</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
+                                                <button type="button" class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
+                                                <button type="button" class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
                                             </div>
                                         </td>
                                         </form>
