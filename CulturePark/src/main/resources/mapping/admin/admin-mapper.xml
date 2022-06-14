@@ -3,25 +3,42 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.user">
+<mapper namespace="mapper.admin">
 
     <!--Sample-->
     <!--    <select id="selectBlog" parameterType="int" resultType="Blog">-->
     <!--        select * from Blog where id = #{id}-->
     <!--    </select>-->
     <resultMap id="adResult" type="adminVO">
-        <result property="ad_code"  column="ad_code"></result>
+        <result property="ad_seq"  column="ad_seq"></result>
         <result property="ad_email" column="ad_email"></result>
+        <result property="ad_pw" column="ad_pw"></result>
         <result property="ad_name"  column="ad_name"></result>
         <result property="ad_tel"   column="ad_tel"></result>
         <result property="ad_is"    column="ad_is"></result>
-        <result property="ad_createDate" column="ad_createDate"></result>
+        <result property="ad_depart" column="ad_depart"></result>
+        <result property="ad_createDate" column="ad_createdate"></result>
     </resultMap>
-    
-    <select id="selectAdmin" parameterType="adminVO" resultType="adminVO">
-        select *
-        from admin_account
-        where id = #{adminVO.getAdminEmail}, pw = #{adminVO.getAdminPw};
+
+
+    <insert id="insertAdmin" parameterType="adminVO">
+        INSERT INTO ADMIN_ACCOUNT
+            (AD_EMAIL,AD_PW,AD_NAME,AD_TEL,AD_IS,AD_DEPART)
+            VALUES
+            (
+                #{ad_email},
+                #{ad_pw},
+                #{ad_name},
+                #{ad_tel},
+                #{ad_is},
+                #{ad_depart}
+            );
+    </insert>
+
+    <select id="selectAllAdminList" resultMap="adResult">
+    <![CDATA[]]
+        SELECT * FROM ADMIN_ACCOUNT;
+    ]]>
     </select>
 
 

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,60 +108,23 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach var="admin" items="${adminList}">
                                     <tr>
-                                        <td class="name">한진희</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">123</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="create_date">2022.02.02</td>
+                                        <form name="frm">
+                                        <td class="name">${admin.ad_name}</td>
+                                        <td class="depart">${admin.ad_depart}</td>
+                                        <td class="num">${admin.ad_code}</td>
+                                        <td class="email">${admin.ad_email}</td>
+                                        <td class="create_date">${admin.ad_createDate}</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
                                                 <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
                                             </div>
                                         </td>
+                                        </form>
                                     </tr>
-                                    <tr>
-                                        <td class="name">김진아</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">456</td>
-                                        <td class="email">blisssing@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="depart">A</td>
-                                        <td class="num">789</td>
-                                        <td class="email">HongMin@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">한규진</td>
-                                        <td class="depart">C</td>
-                                        <td class="num">101112</td>
-                                        <td class="email">gyujin@gmail.com</td>
-                                        <td class="create_date">2021.01.01</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
-                                                <button class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
