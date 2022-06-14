@@ -8,29 +8,34 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <context:component-scan base-package="kg.twojin.culturePark.admin.controller"></context:component-scan>
-    <bean id="adminLoginController" class="kg.twojin.culturePark.admin.controller.Admin_LoginController">
+    <!--Authentication : 인증
 
-    </bean>
-    
-    <!--https://kimcoder.tistory.com/245-->
 
-    <s:http auto-config="true" use-expressions="true">
-        <s:intercept-url pattern=".do" access="permitAll()"/>
-        <s:intercept-url pattern=".ado" access="hasRole('ROLE_ADMIN')"/>
-<!--        <s:intercept-url pattern=".mdo" access="hasRole('ROLE_MANAGER')"/>-->
-        <s:form-login login-page="/loginForm.ado"
-                      username-parameter="ad_email"
-                      login-processing-url="/loginProc.ado"
-                      default-target-url="/"/>
 
-        <!--  최대 한 개 의 세션만 생성    -->
-        <s:session-management invalid-session-url="/loginForm.ado">
-            <s:concurrency-control max-sessions="1"
-                                   expired-url="/loginForm.ado"
-                                   error-if-maximum-exceeded="true"/>
-        </s:session-management>
+        Autorization : 인가-->
+    <s:http>
+        <!--url 패턴 별 접근 가능한 권한-->
+        <s:intercept-url pattern="/all" access="permitAll()"/>
+        <s:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <s:intercept-url pattern="/manager" access="hasRole('ROLE_MANAGER')"/>
+
+        <s:form-login login-page="/culturePark/all/loginForm.ado"/>
+
+        <!--에러 메시지 처리 url -->
+        <!--<s:access-denied-handler error-page="/accessError"/>-->
+
+        <!--csrf 설정 -->
+        <s:csrf disabled="true"/>
 
     </s:http>
+    <s:authentication-manager>
+
+    </s:authentication-manager>
+
+
+
+    <!--https://kimcoder.tistory.com/245-->
+
 
 
 

@@ -110,16 +110,15 @@
                                 <tbody>
                                 <c:forEach var="admin" items="${adminList}">
                                     <tr>
-
                                         <form name="frm">
-                                            <td class="num">${admin.ad_seq}</td>
                                             <input type="hidden" class="tel" value="${admin.ad_tel}">
                                             <input type="hidden" class="is" value="${admin.ad_is}">
-                                        <td class="name">${admin.ad_name}</td>
-                                        <td class="depart">${admin.ad_depart}</td>
-                                        <td class="email">${admin.ad_email}</td>
-                                        <td class="create_date">${admin.ad_createDate}</td>
-                                        <td class="btn_section">
+                                            <td class="num">${admin.ad_seq}</td>
+                                            <td class="name">${admin.ad_name}</td>
+                                            <td class="depart">${admin.ad_depart}</td>
+                                            <td class="email">${admin.ad_email}</td>
+                                            <td class="create_date">${admin.ad_createDate}</td>
+                                            <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button type="button" class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
                                                 <button type="button" class="btn_delete_data btn btn-primary btn-circle btn-sm fas fa-trash"></button>
@@ -135,7 +134,7 @@
                 </div>
 
                 <%--    수 정 모 달      --%>
-                <div class="modal fade card o-hidden border-0 shadow-lg my-5" id="modifyModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade o-hidden border-0 shadow-lg my-5" id="modifyModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content ard-body p-0">
                                     <div class="modal-header">
@@ -182,8 +181,8 @@
                                         </div>
                                     </form>
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                        <button class="btn btn-primary btn-user btn-block btn_modiDone">수정완료</button>
+                                                <button class="btn btn-secondary btn-user btn-block" type="button" data-dismiss="modal">취소</button>
+                                                <button class="btn btn-primary btn-user btn-block btn_modiDone">수정완료</button>
                                     </div>
                     </div>
                 </div>

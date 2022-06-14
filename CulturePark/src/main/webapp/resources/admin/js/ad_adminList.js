@@ -14,11 +14,15 @@ $(document).ready(function () {
         var depart = eventRow.children('.depart').text();
         var email = eventRow.children('.email').text();
         var num = eventRow.children('.num').text();
+        var tel = eventRow.children('.tel').text();
+        var is = eventRow.children('.is').text();
+
+
 
 
         //Todo : 데이터를 담아서 권한 체크박스와 전화번호 칸에 셋팅 해줄 것.
         getData(num);
-        setModal(name, depart, email); //Todo : 인자값으로 전화번호를 추가해줄 것
+        setModal(name, depart, email,tel,is); //Todo : 인자값으로 전화번호를 추가해줄 것
 
         // 모달 창 띄우기
         $('#modifyModal').modal({});
@@ -176,10 +180,13 @@ $(document).ready(function () {
 
     // 모달에 데이터 셋팅
     //Todo : 인자값으로 전화번호를 추가해줄 것
-    function setModal(name, email,depart) {
+    function setModal(name, email,depart,tel,is) {
         $('#AdminName').val(name);
         $('#InputEmail').val(email);
         $('#Depart').val(depart);
+        $('#InputPhone').val(tel);
+
+        var isList = is.split('/');
     }
 
     // 수정한 내용 DB에 넣기

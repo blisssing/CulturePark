@@ -33,7 +33,7 @@ public class Admin_LoginController {
 
 
     // 처음 로그인할 때 들어오는 페이지
-    @RequestMapping(value = "/loginForm.ado")
+    @RequestMapping(value = "/culturePark/all/loginForm.ado")
     public ModelAndView adLoginForm(HttpServletRequest request, HttpServletResponse response)
             throws Exception{
         ModelAndView mv = new ModelAndView();
@@ -43,7 +43,7 @@ public class Admin_LoginController {
 
 
     // 파라미터의 키값에 해당하는 val을 자동적으로 변수(adminID, adminPW)에 담음. 변수들을 mv에 보낸 다음 페이지 이름과 함께 return
-    @RequestMapping(value = "/loginProc.ado", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/culturePark/admin/loginProc.ado", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView adLoginProc(@ModelAttribute("adminVO") AdminVO adminVO,
                                     RedirectAttributes rAttr, // 로그인 실패 시 다시 로그인 창으로 리다이렉트
                                     HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -51,19 +51,24 @@ public class Admin_LoginController {
         System.out.println("로그인 동작 수행 !!");
 
         request.setCharacterEncoding("utf-8");
-        String password = adminVO.getAd_pw();
+
         ModelAndView mv = new ModelAndView();
 
         // DB에서 조회해서 가져온 어드민 vo
         AdminVO vo = adminManageService.adminLogin(adminVO);
 
-
-        if (adminVO != null) {
+        if (vo != null) { // null => 값을 가져오는 데에 실패함 -> DB에 일치하는 데이터가 없음
 
             // DB에서 입력한 email과 일치하는 데이터가 있다면 비밀번호를 비교해야 함
             // matches(입력한 비밀번호, 이미 암호화된 비밀번호) = > true : 일치 = > 로그인 성공
-            String dbPw = vo.getAd_pw();
-            if (passwordEncoder.matches(adminVO.getAd_pw(), vo.getAd_pw())) {
+
+            String dbPw = vo.getAd_pw();            // 암호화된 pw
+            String password = adminVO.getAd_pw();   // 입력된 pw
+
+            //            System.out.println("db암호화 : " + dbPw);
+            //            System.out.println("입력된 비밀번호 : " + password);
+
+            if (passwordEncoder.matches(password, dbPw)) {
                 System.out.println("로그인성공");
                 HttpSession session = request.getSession();
                 session.setAttribute("admin", adminVO);
@@ -72,11 +77,11 @@ public class Admin_LoginController {
             } else {
                 System.out.println("로그인실패");
                 rAttr.addAttribute("result", "loginFailed");
-                mv.setViewName("redirect:/loginForm.ado");
+                mv.setViewName("redirect:/culturePark/all/loginForm.ado");
             }
         } else {
             rAttr.addAttribute("result", "loginFailed");
-            mv.setViewName("redirect:/loginForm.ado");
+            mv.setViewName("redirect:/culturePark/all/loginForm.ado");
         }
 
         return mv;

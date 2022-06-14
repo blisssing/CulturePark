@@ -8,7 +8,8 @@ $(document).ready(function () {
         var password_02 = $('#RepeatPassword').val();
         var department = $('#Depart').val();
 
-        var chk_list = $('input[name=ad_is]:checked');
+        var chk_list = $('input[name=check_is]:checked');
+        var chk_super = $('input[name=check_super]:checked');
 
         var frm = $('#frm');
 
@@ -48,6 +49,17 @@ $(document).ready(function () {
 
 
     });
+
+    $('#chk_super').change(function () {
+        if ($('#chk_super').prop("checked")) {
+            $('.chk_normal').attr('disabled', 'disabled');
+            $('.chk_normal').prop('checked', false);
+        } else {
+            $('.chk_normal').prop('disabled', false);
+        }
+    });
+
+
 
     function createAccount(name,email,phoneNumber,pw,depart,pos) {
 
