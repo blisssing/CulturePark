@@ -57,28 +57,22 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">관리자 계정 생성</h1>
                                         </div>
-                                        <form class="user" method="post" action="">
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="FirstName"
-                                                           placeholder="이름">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="text" class="form-control form-control-user" id="LastName"
-                                                           placeholder="성">
-                                                </div>
+                                        <form id="frm" class="user" method="post" >
+                                            <div class="form-group">
+                                                <input name="ad_name" type="text" class="form-control form-control-user" id="InputName"
+                                                       placeholder="이름">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="InputEmail"
+                                                <input name="ad_email" type="email" class="form-control form-control-user" id="InputEmail"
                                                        placeholder="이메일">
                                             </div>
                                             <div class="form-group">
-                                                <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                                <input name="ad_tel" type="phone" class="form-control form-control-user" id="InputPhone"
                                                        placeholder="010-xxxx-xxxx">
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" class="form-control form-control-user"
+                                                    <input name="ad_pw" type="password" class="form-control form-control-user"
                                                            id="InputPassword" placeholder="Password">
                                                 </div>
                                                 <div class="col-sm-6">
@@ -87,19 +81,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" id="Depart"
+                                                    <input name="ad_depart" type="text" class="form-control form-control-user" id="Depart"
                                                            placeholder="부서">
                                             </div>
                                             <div class="form-group">
                                                 <ul class="col-sm-6 chk_ul">
                                                     <div>권한</div>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="member">회원관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="manager">매니저관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="product">상품관리</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
+                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="member">회원관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="manager">매니저관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="ad_is" value="product">상품관리</li>
+                                                    <li class="chk_list"><input type="checkbox" name="ad_right_super" value="super" id="chk_super">슈퍼</li>
                                                 </ul>
                                             </div>
-                                            <button  class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
+                                            <button  type="button" class="btn btn-primary btn-user btn-block btn_regist">등록하기</button>
                                         </form>
                                         <hr>
 
@@ -160,7 +154,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/admin/js/ad_createAd.js"></script>
+
 
 </body>
 

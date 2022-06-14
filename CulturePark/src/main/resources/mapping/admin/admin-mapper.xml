@@ -6,23 +6,36 @@
 <mapper namespace="mapper.admin">
 
     <resultMap id="adResult" type="adminVO">
-        <result property="ad_code"  column="ad_code"></result>
+        <result property="ad_seq"  column="ad_seq"></result>
         <result property="ad_email" column="ad_email"></result>
+        <result property="ad_pw" column="ad_pw"></result>
         <result property="ad_name"  column="ad_name"></result>
         <result property="ad_tel"   column="ad_tel"></result>
         <result property="ad_is"    column="ad_is"></result>
-        <result property="ad_createDate" column="ad_createDate"></result>
+        <result property="ad_depart" column="ad_depart"></result>
+        <result property="ad_createDate" column="ad_createdate"></result>
     </resultMap>
-    
-    <select id="selectAdmin" parameterType="adminVO" resultType="adminVO">
-        select *
-        from admin_account
-        where id = #{adminVO.getAdminEmail}, pw = #{adminVO.getAdminPw};
-    </select>
 
-    <insert id="createAdmin" parameterType="adminVO">
 
+    <insert id="insertAdmin" parameterType="adminVO">
+        INSERT INTO ADMIN_ACCOUNT
+            (AD_EMAIL,AD_PW,AD_NAME,AD_TEL,AD_IS,AD_DEPART)
+            VALUES
+            (
+                #{ad_email},
+                #{ad_pw},
+                #{ad_name},
+                #{ad_tel},
+                #{ad_is},
+                #{ad_depart}
+            );
     </insert>
+
+    <select id="selectAllAdminList" resultMap="adResult">
+    <![CDATA[]]
+        SELECT * FROM ADMIN_ACCOUNT;
+    ]]>
+    </select>
 
     <!--     int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
 

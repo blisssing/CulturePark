@@ -35,7 +35,7 @@ https://zero-gravity.tistory.com/258
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:config/MybatisConfig.xml" />
+        <property name="configLocation" value="classpath:config/mybatis-config.xml" />
     </bean>
     <!-- mybatis.xml환경 + dataSource를 묶어서 하나의 객체로 만드는것. 객체로서 mybaits의 메소드(기능)들을 쓸수있게됨 -->
     <!-- mybatis는 DB라이브러리 -->
@@ -60,6 +60,6 @@ https://zero-gravity.tistory.com/258
     </bean>
 
 
-    <context:component-scan base-package="kg.twojin.culturePark"></context:component-scan>
+    <context:component-scan base-package="kg.twojin.culturePark.*"></context:component-scan>
 
 </beans>
