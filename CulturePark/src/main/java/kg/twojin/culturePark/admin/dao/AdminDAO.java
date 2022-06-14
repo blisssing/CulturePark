@@ -13,4 +13,11 @@ public interface AdminDAO {
 
     List listAdmins();
 
+    // 암호화
+
+//    public void userSignUp(String username, String password, char enable);
+//
+//    public void giveAuth(String username, String authority);
+
+
 }

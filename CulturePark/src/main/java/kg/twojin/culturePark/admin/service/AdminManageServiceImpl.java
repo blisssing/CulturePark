@@ -15,13 +15,14 @@ public class AdminManageServiceImpl implements AdminManageService{
 
 
     @Override
-    public void adminLogin(AdminVO adminVO) {
-
+    public AdminVO adminLogin(AdminVO adminVO) {
+        AdminVO vo = adminDAO.loginAdmin(adminVO);
+        return vo;
     }
 
     @Override
-    public List selectAllAdmins() {
-        List adminList = null;
+    public List adminList() {
+        List <AdminVO> adminList = null;
         adminList = adminDAO.listAdmins();
         return adminList;
     }

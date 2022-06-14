@@ -5,6 +5,7 @@ import kg.twojin.culturePark.admin.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
 import kg.twojin.culturePark.admin.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,10 @@ public class Account_Ad_Controller {
     @Autowired
     AdminManageService adminManageService;
 
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
+
+    // 계정생성 페이지 들어오기
     @RequestMapping(value = "/createAd.ado")
     public ModelAndView createAd() {
         ModelAndView mv = new ModelAndView();
@@ -31,6 +36,7 @@ public class Account_Ad_Controller {
         return mv;
     }
 
+    // 계정생성 동작 수행
     @RequestMapping(value = "/createAdProc.ado")
     public ModelAndView createAdProc(
             // 1번 방법
@@ -53,6 +59,18 @@ public class Account_Ad_Controller {
 
         System.out.println("Proc 실행!");
         ModelAndView mv = new ModelAndView("redirect:/adminList.ado");
+
+        // 입력 받은 암호 문자열
+        String password = adminVO.getAd_pw();
+
+        // Security Encoder 를 활용한 암호화
+        String encryptPassword = passwordEncoder.encode(password);
+
+
+        // 암호화 한 비밀번호를 vo에 셋팅
+        adminVO.setAd_pw(encryptPassword);
+
+        // db에 넣어주기
         int result = adminManageService.insertAdmin(adminVO);
         return mv;
     }
@@ -61,7 +79,7 @@ public class Account_Ad_Controller {
     @RequestMapping(value = "/adminList.ado")
     public ModelAndView adminList(HttpServletRequest request , HttpServletResponse response) throws Exception{
         ModelAndView mv = new ModelAndView();
-        List<AdminVO> adminList = adminManageService.selectAllAdmins();
+        List<AdminVO> adminList = adminManageService.adminList();
         mv.addObject("adminList", adminList);
         mv.setViewName("ad_adminList");
         return mv;
@@ -73,4 +91,6 @@ public class Account_Ad_Controller {
         mv.setViewName("ad_modi");
         return mv;
     }
+
+
 }

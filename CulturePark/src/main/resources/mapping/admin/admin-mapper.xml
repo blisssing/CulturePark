@@ -16,6 +16,22 @@
         <result property="ad_createDate" column="ad_createdate"></result>
     </resultMap>
 
+    <select id="selectAllAdmin" resultMap="adResult">
+    <![CDATA[
+        SELECT * FROM ADMIN_ACCOUNT;
+        ]]>
+    </select>
+
+    <select id="selectAdmin"  resultType="adminVO" parameterType="adminVO" >
+    <![CDATA[
+        SELECT *
+        FROM ADMIN_ACCOUNT
+        WHERE AD_EMAIL = #{ad_email};
+    ]]>
+
+
+    </select>
+
 
     <insert id="insertAdmin" parameterType="adminVO">
         INSERT INTO ADMIN_ACCOUNT
@@ -31,11 +47,7 @@
             );
     </insert>
 
-    <select id="selectAllAdminList" resultMap="adResult">
-    <![CDATA[]]
-        SELECT * FROM ADMIN_ACCOUNT;
-    ]]>
-    </select>
+
 
     <!--     int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
 
