@@ -24,12 +24,8 @@
         where id = #{adminVO.getAdminEmail}, pw = #{adminVO.getAdminPw};
     </select>
 
-<<<<<<< HEAD
-    <!-- int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
-    
-=======
+
     <!--     int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
 
 
->>>>>>> 6612379e38e6c7f8db5cc4a5a02323e550b9b06d
 </mapper>
