@@ -53,6 +53,21 @@ public class Account_Ad_Controller {
                             @RequestParam List <String> check_is,
                             HttpServletResponse response , HttpServletRequest request) {
 
+        /*ModelAttribute("A") {자료형} 변수명*
+
+            파라미터 key(name) 값과 {자료형} 내부의 변수이름이 같으면,
+            자동적으로 자료형 내부의 변수에 값을 기입하고,
+            새로운 객체 하나(adminVO)를 만들어줌.
+
+            그래서 생성자 주입이나 setter 과정을 거치지 않았는데도
+            adminVO 안에 값이 셋팅돼 있는 것을 확인할 수 있음
+
+            ==> 확인
+            System.print.out(adminVO.getAd_email);
+            System.print.out(adminVO.getAd_pw);
+
+         */
+
         // 1번 방법
 //        AdminVO vo = new AdminVO();
 //            vo.setAd_email(ad_email);
@@ -114,7 +129,7 @@ public class Account_Ad_Controller {
     @RequestMapping(value = "/adminList.ado")
     public ModelAndView adminList(HttpServletRequest request , HttpServletResponse response) throws Exception{
         ModelAndView mv = new ModelAndView();
-        List<AdminVO> adminList = adminManageService.adminList();
+        List<AdminVO> adminList = adminManageService.getAdminList();
 
 //        if (adminList != null) {
 //            int length = adminList.size();
