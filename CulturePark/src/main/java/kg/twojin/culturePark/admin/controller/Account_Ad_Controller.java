@@ -23,7 +23,7 @@ import java.util.List;
 public class Account_Ad_Controller {
 
     @Autowired
-    AdminDAO adminDAO ;
+    AdminDAO adminDAO;
 
     @Autowired
     AdminManageService adminManageService;
@@ -49,9 +49,9 @@ public class Account_Ad_Controller {
 //                            @RequestParam("ad_depart") String ad_depart,
 //                            @RequestParam("ad_right") String ad_right,
             // 2번 방법
-                            @ModelAttribute("adminVO") AdminVO adminVO,
-                            @RequestParam List <String> check_is,
-                            HttpServletResponse response , HttpServletRequest request) {
+            @ModelAttribute("adminVO") AdminVO adminVO,
+            @RequestParam List<String> check_is,
+            HttpServletResponse response, HttpServletRequest request) {
 
         /*ModelAttribute("A") {자료형} 변수명*
 
@@ -80,14 +80,14 @@ public class Account_Ad_Controller {
         //암호화 작업
 
 
-            // 입력 받은 암호 문자열
-            String password = adminVO.getAd_pw();
+        // 입력 받은 암호 문자열
+        String password = adminVO.getAd_pw();
 
-            // Security Encoder 를 활용한 암호화
-            String encryptPassword = passwordEncoder.encode(password);
+        // Security Encoder 를 활용한 암호화
+        String encryptPassword = passwordEncoder.encode(password);
 
-            // 암호화 한 비밀번호를 vo에 셋팅
-            adminVO.setAd_pw(encryptPassword);
+        // 암호화 한 비밀번호를 vo에 셋팅
+        adminVO.setAd_pw(encryptPassword);
 
         //  권환 확인
 
@@ -127,7 +127,7 @@ public class Account_Ad_Controller {
 
 
     @RequestMapping(value = "/adminList.ado")
-    public ModelAndView adminList(HttpServletRequest request , HttpServletResponse response) throws Exception{
+    public ModelAndView adminList(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<AdminVO> adminList = adminManageService.getAdminList();
 
@@ -153,4 +153,11 @@ public class Account_Ad_Controller {
     }
 
 
+    // Todo : 서비스랑 dao 만들어줄 것!!
+    @RequestMapping(value = "/deleteAdminProc.ado")
+    public ModelAndView deleteAdmin(HttpServletRequest request, HttpServletResponse response,
+                                    @ModelAttribute("adminVO") AdminVO adminVO) {
+        ModelAndView mv = new ModelAndView();
+        return mv;
+    }
 }

@@ -26,6 +26,17 @@
 
 <body id="page-top">
 
+<%
+    if (session.getAttribute("isLogOn") == null) {
+%>
+
+<%--<h1><a href="/culturePark/all/loginForm.ado">비로그인 회원 접속</a></h1>--%>
+<script type="text/javascript">
+    location.href="/culturePark/all/loginForm.ado";
+</script>
+<%
+    } else{
+%>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -45,7 +56,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                <h1 class="h3 mb-4 text-gray-800">hi</h1>
 
             </div>
             <!-- /.container-fluid -->
@@ -57,10 +68,15 @@
             <%@include file="/WEB-INF/admin/common_footer.jsp"%>
         <!-- End of Footer -->
 
+
     </div>
     <!-- End of Content Wrapper -->
 
 </div>
+<%
+    }
+%>
+
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->

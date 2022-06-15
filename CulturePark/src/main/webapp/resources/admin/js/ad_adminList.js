@@ -4,25 +4,19 @@ $(document).ready(function () {
     // 수정 버튼
     $('.btn_modi_info').click(function () {
 
-
-
         eventData = $(this); // 버튼 이벤트가 발생한 지역
         eventRow = $(this).closest('tr'); // 버튼 이벤트가 발생한 행
-
 
         var name = eventRow.children('.name').text();
         var depart = eventRow.children('.depart').text();
         var email = eventRow.children('.email').text();
         var num = eventRow.children('.num').text();
-        var tel = eventRow.children('.tel').text();
-        var is = eventRow.children('.is').text();
-
-
-
+        var tel = eventRow.children('.tel').val();
+        var is = eventRow.children('.is').val();
+        var date = eventRow.children('.create_date').val();
 
         //Todo : 데이터를 담아서 권한 체크박스와 전화번호 칸에 셋팅 해줄 것.
-        getData(num);
-        setModal(name, depart, email,tel,is); //Todo : 인자값으로 전화번호를 추가해줄 것
+        setModal(name, email,depart,tel,is); //Todo : 인자값으로 전화번호를 추가해줄 것
 
         // 모달 창 띄우기
         $('#modifyModal').modal({});
@@ -55,6 +49,15 @@ $(document).ready(function () {
             console.log("코드가 비 정상적으로 수행 됨");
         }
 
+    });
+
+    $('#chk_super').change(function () {
+        if ($('#chk_super').prop("checked")) {
+            $('.chk_normal').attr('disabled', 'disabled');
+            $('.chk_normal').prop('checked', false);
+        } else {
+            $('.chk_normal').prop('disabled', false);
+        }
     });
 
         function chk_values(name, email, phone, pw1, pw2, depart, chk_right) {
@@ -148,6 +151,7 @@ $(document).ready(function () {
         email = $(this).closest('.email').text();
         create_date = $(this).closest('.create_date').text();
         selectedRow = $(this).closest("tr");
+        selectedFrm = $(this).closest('.frm');
         $('#deleteModal').modal({});
     });
 
@@ -157,9 +161,8 @@ $(document).ready(function () {
 
         if (text.trim() === '관리자를 삭제합니다') {
             selectedRow.remove();
-            console.log("실행 확인!");
-
-            $('#deleteModal').modal('hide');
+            frm.attr("action","/deleteAdminProc.ado");
+            frm.submit();
             return true;
         } else {
             alert("다시 입력해주세요!")
@@ -169,19 +172,31 @@ $(document).ready(function () {
 
     });
 
-    function chkRepeat(text) {
-
-    }
-
     // 모달에 데이터 셋팅
     //Todo : 인자값으로 전화번호를 추가해줄 것
     function setModal(name, email,depart,tel,is) {
-        $('#AdminName').val(name);
-        $('#InputEmail').val(email);
+        $('#AdminName').text(name);
+        $('#InputEmail').text(email);
         $('#Depart').val(depart);
         $('#InputPhone').val(tel);
 
         var isList = is.split('/');
+
+        for (var isRight in isList) {
+
+            console.log(isRight);
+            if (isRight === 'member') {
+                $('#chk_member').prop('checked', true);
+            } else if (isRight === 'manager') {
+                $('#chk_manager').prop('checked', true);
+            } else if (isRight === 'product') {
+                $('#chk_product').prop('checked', true);
+            } else if (isRight === 'super') {
+                $('#chk_super').prop('checked', true);
+            }
+
+        }
+
     }
 
     // 수정한 내용 DB에 넣기

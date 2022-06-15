@@ -19,6 +19,8 @@ public interface AdminDAO {
     List listAdmins();
     /* 관리자 목록*/
 
+    int removeAdmin(AdminVO adminVO);
+
     // 암호화
 
 //    public void userSignUp(String username, String password, char enable);

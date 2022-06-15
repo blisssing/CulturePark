@@ -112,14 +112,14 @@
                                 <c:forEach var="admin" items="${adminList}">
                                     <tr>
                                         <fmt:formatDate var="formatRegDate" value="${admin.ad_createDate}" pattern="yyyy-MM-dd"/>
-                                        <form name="frm">
+                                        <form name="frm" class="frm">
                                             <input type="hidden" class="tel" value="${admin.ad_tel}">
                                             <input type="hidden" class="is" value="${admin.ad_is}">
                                             <input type="hidden" class="date" value="${admin.ad_createDate}">
                                             <td class="num">${admin.ad_seq}</td>
                                             <td class="name">${admin.ad_name}</td>
                                             <td class="depart">${admin.ad_depart}</td>
-                                            <td class="email">${formatRegDate}</td>
+                                            <td class="email">${admin.ad_email}</td>
                                             <td class="create_date">
                                                     ${formatRegDate}
                                             </td>
@@ -150,15 +150,13 @@
                                     </div>
                         <div class="user modal-body" style="max-height: 500px; overflow: scroll;">
                                         <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="AdminName"
-                                                       placeholder="이름">
+                                            <div class="form-control form-control-user" id="AdminName"></div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="InputEmail"
-                                                   placeholder="이메일">
+                                            <div class="form-control form-control-user" id="InputEmail"></div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                            <input type="text" class="form-control form-control-user" id="InputPhone"
                                                    placeholder="010-xxxx-xxxx">
                                         </div>
                                         <div class="form-group row">
@@ -178,10 +176,10 @@
                                         <div class="form-group">
                                             <ul class="col-sm-6 chk_ul">
                                                 <div>권한</div>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="member">회원관리</li>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="manager">매니저관리</li>
-                                                <li class="chk_list"><input class="chk_right" type="checkbox" name="chk_right" value="product">상품관리</li>
-                                                <li class="chk_list"><input id="right_super" type="checkbox" name="chk_right_super" value="super" id="chk_super">슈퍼</li>
+                                                <li class="chk_list"><input type="checkbox" name="check_is" value="member"  class="chk_normal" id="chk_member">회원관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="check_is" value="manager" class="chk_normal" id="chk_manager">매니저관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="check_is" value="product" class="chk_normal" id="chk_product">상품관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="check_is" value="super" id="chk_super">슈퍼</li>
                                             </ul>
                                         </div>
                                     </form>

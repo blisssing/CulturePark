@@ -53,6 +53,13 @@
             );
     </insert>
 
+    <delete id="deleteAdmin" parameterType="adminVO">
+        <![CDATA[
+            DELETE * FROM ADMIN_ACCOUNT
+            WHERE AD_SEQ=#{AD_SEQ};
+        ]]>
+    </delete>
+
 
 
 
