@@ -73,7 +73,7 @@ public class Admin_LoginController {
                 System.out.println("로그인성공");
                 HttpSession session = request.getSession();
                 session.setAttribute("admin", adminVO);
-                session.setAttribute("isLogOn", true);
+                session.setAttribute("isLogOn", vo.getAd_is());
                 mv.setViewName("redirect:/index.ado");
             } else {
                 System.out.println("로그인실패");

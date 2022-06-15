@@ -31,6 +31,14 @@ public class AdminDAOImpl implements AdminDAO{
         return sqlSessionTemplate.insert("mapper.admin.insertAdmin", adminVO);
     }
 
+
+    @Override
+    public int removeAdmin(AdminVO adminVO) {
+
+
+        return 0;
+    }
+
     @Override
     public List listAdmins() {
         List<AdminVO> adminList = null;
