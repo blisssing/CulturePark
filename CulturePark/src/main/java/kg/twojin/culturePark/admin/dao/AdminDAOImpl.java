@@ -15,12 +15,13 @@ public class AdminDAOImpl implements AdminDAO{
     SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public AdminVO loginAdmin(AdminVO adminVO) {
-        AdminVO vo = null;
+    public AdminVO loginAdmin(AdminVO adminVO) {  // (AdminVO의 변수이름 adminVO)
+        AdminVO vo = null; //오류일경우 null을 담는다
         try {
             vo = sqlSessionTemplate.selectOne("mapper.admin.selectAdmin", adminVO);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e) { // admin-mapper.xml안에 selectAdmin의 아이디를 가진 쿼리문을 담는 변수에
+            //adminVO의 반환값으로 반환한다.
+            e.printStackTrace(); //회원이 없을경우 vo에 null이 그대로 유지된다.
         }
         return vo;
     }

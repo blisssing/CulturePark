@@ -40,10 +40,12 @@
     <!-- mybatis.xml환경 + dataSource를 묶어서 하나의 객체로 만드는것. 객체로서 mybaits의 메소드(기능)들을 쓸수있게됨 -->
     <!-- mybatis는 DB라이브러리 -->
 
+
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"> </constructor-arg>
     </bean>
     <!-- sqlSessionFactoryBean을 참조하는 sqlSession틀 -->
+    <!-- 간편화된 db연동 작업들과 datasource를 연결 해주는 클래스 -->
 
     <!--// DB-->
 
