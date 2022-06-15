@@ -1,24 +1,16 @@
 package kg.twojin.culturePark.manager.controller;
 
-
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
-public class MgHomePageController {
+public class Mg_qnaController {
 
-
-    @RequestMapping(value = "/index.mdo")
-    public ModelAndView mgHomePage() {
+    @RequestMapping(value = "/qnaManage.mdo")
+    public ModelAndView mgQnaManage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("common_index");
+        mv.setViewName("qna_manage");
         return mv;
     }
-
-
-
-
 
 
 }
