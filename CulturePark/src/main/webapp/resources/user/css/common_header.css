@@ -75,7 +75,7 @@
 
 .pc_header {
     display: flex;
- /*   font-family: 'Joan', serif;*/
+    font-family: 'Joan', serif;
     height: 100px;
 }
 
@@ -157,11 +157,13 @@ style attribute {
     position: absolute;
     right: 0;
     left: auto;
+    margin-right: 30px;
 }
 
 .func_list {
     margin-right: 20px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    /*font-family: Product Sans,Arial,Helvetica,sans-serif;*/
 }
 
 .func_list:hover {

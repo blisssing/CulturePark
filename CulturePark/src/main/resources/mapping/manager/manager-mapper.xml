@@ -3,11 +3,49 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.user">
+<mapper namespace="mapper.manager">
 
     <!--Sample-->
     <!--    <select id="selectBlog" parameterType="int" resultType="Blog">-->
     <!--        select * from Blog where id = #{id}-->
     <!--    </select>-->
+
+<resultMap id="mgResult" type="managerVO">
+    <result property="mg_seq" column="mg_seq"></result>
+    <result property="mg_email" column="mg_email"></result>
+    <result property="mg_pw" column="mg_pw"></result>
+    <result property="mg_name" column="mg_name"></result>
+    <result property="mg_tel" column="mg_tel"></result>
+    <result property="mg_is" column="mg_is"></result>
+    <result property="mg_createDate" column="mg_createdate"></result>
+</resultMap>
+
+<select id="selectAllManager" resultMap="mgResult">
+    <![CDATA[
+        SELECT * FROM MANAGER_ACCOUNT;
+    ]]>
+</select>
+
+<select id="selectManager" resultType="managerVO" parameterType="managerVO">
+    <![CDATA[
+        SELECT * FROM MANAGER_ACCOUNT
+        WHERE MG_EMAIL = #{mg_email};
+    ]]>
+</select>
+
+
+<insert id="insertManager" parameterType="managerVO">
+    INSERT INTO MANAGER_ACCOUNT
+    (MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
+    VALUE
+    (
+        #{mg_email},
+        #{mg_pw},
+        #{mg_name},
+        #{mg_tel},
+        #{mg_is},
+        #{mg_createDate}
+    );
+</insert>
 
 </mapper>

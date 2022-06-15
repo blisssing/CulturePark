@@ -65,46 +65,49 @@
                                         </div>
                                       <%--  <form class="user">--%>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="InputCompany"
-                                                       placeholder="회사">
-                                            </div>
+                                        <input type="hidden" class="comp_num" value="1">
+                                        <input type="hidden" class="manager_num" value="300">
 
-                                            <div class="form-group">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" id="InputName"
-                                                           placeholder="이름">
-                                                </div>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="InputEmail"
+                                                   placeholder="이메일">
+                                        </div>
 
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="InputEmail"
-                                                       placeholder="이메일">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" class="form-control form-control-user"
+                                                       id="InputPassword" placeholder="Password">
                                             </div>
-                                            <div class="form-group">
-                                                <input type="phone" class="form-control form-control-user" id="InputPhone"
-                                                       placeholder="010-xxxx-xxxx">
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control form-control-user"
+                                                       id="RepeatPassword" placeholder="Repeat Password">
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="InputPassword" placeholder="Password">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="RepeatPassword" placeholder="Repeat Password">
-                                                </div>
-                                            </div>
+                                        </div>
 
+                                        <div class="form-group">
                                             <div class="form-group">
-                                                <ul class="col-sm-6 chk_ul">
-                                                    <div>권한</div>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="member">샘플1</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="manager">샘플2</li>
-                                                    <li class="chk_list"><input type="checkbox" name="chk_right" value="product">샘플3</li>
-                                                </ul>
+                                                <input type="text" class="form-control form-control-user" id="InputName"
+                                                       placeholder="이름">
                                             </div>
-                                            <button  class="btn btn-primary btn-user btn-block btn_regist">등록</button>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                                   placeholder="010-xxxx-xxxx">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <ul class="col-sm-6 chk_ul">
+                                                <div>권한</div>
+                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="chart">수익조회</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="pdManage">작품관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="qnaManage">QnA관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="accountManage">계정관리</li>
+                                            </ul>
+                                        </div>
+
+                                        <button  class="btn btn-primary btn-user btn-block btn_regist">등록</button>
 
                                    <%--     </form>--%>
                                         <hr>
