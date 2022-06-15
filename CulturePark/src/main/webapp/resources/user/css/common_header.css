@@ -7,6 +7,7 @@
     display: none;
 }
 
+
 /* 헤더 2 설정 */
     .header_2 {
         position: fixed;
@@ -63,12 +64,6 @@
     }
 
 
-
-
-
-
-
-
     .menu_name {
         font-size: 0.8rem;
     }
@@ -80,7 +75,7 @@
 
 .pc_header {
     display: flex;
-    font-family: 'Joan', serif;
+ /*   font-family: 'Joan', serif;*/
     height: 100px;
 }
 
@@ -101,15 +96,50 @@
 }
 
 .main_title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: black;
+   /* font-family: 'Gothic A1', sans-serif;*/
+    font-weight: 500;
 }
+
 .sub_title {
-    font-size: 0.8rem;
-    margin-top: 10px;
-    margin-left: 38px;
+    font-size: 0.4rem;
+    margin-top: -4px;
+    margin-left: 77px;
     color: black;
+    font-family: math;
+    font-weight: 300;
 }
+
+
+/* 모바일 메뉴 바 */
+.MenuModule .mobile .open-menu-button {
+    background-color: white;
+    position: absolute;
+    right: 38px;
+    top: 12px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.MenuModule {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+style attribute {
+     visibility: visible;
+ }
+/* /모바일 메뉴바 */
+
+
+
+
+
 
 /*우측 상단 바로가기*/
 .function_section {
@@ -162,6 +192,22 @@
     /* 헤더 우측상단 기능 모바일-pc 스위칭*/
     .funcs_pc {
         display: flex;
+    }
+
+    .main_title {
+        font-size: 2.2rem;
+        color: black;
+        /* font-family: 'Gothic A1', sans-serif;*/
+        font-weight: 500;
+    }
+
+    .sub_title {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        margin-left: 146px;
+        color: black;
+        font-family: math;
+        font-weight: 300;
     }
 
 

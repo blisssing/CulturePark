@@ -217,11 +217,13 @@ $(document).ready(function () {
 
     }
 
-
-
 });
 
 
 function setObj(obj) {
     nodename = obj.parentElement.parentElement.firstElementChild.id;
 }
+
+
+
+
