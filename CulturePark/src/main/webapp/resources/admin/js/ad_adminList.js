@@ -173,11 +173,6 @@ $(document).ready(function () {
 
     }
 
-    // number를 통해서 데이터 값을 가져오는 코드
-    function getData(num) {
-        //Todo : DB에서 값을 가져오는 코드를 작성해줄 것
-    }
-
     // 모달에 데이터 셋팅
     //Todo : 인자값으로 전화번호를 추가해줄 것
     function setModal(name, email,depart,tel,is) {
