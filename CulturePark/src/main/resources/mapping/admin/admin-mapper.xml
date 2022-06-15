@@ -9,6 +9,7 @@
     <!--    <select id="selectBlog" parameterType="int" resultType="Blog">-->
     <!--        select * from Blog where id = #{id}-->
     <!--    </select>-->
+
     <resultMap id="adResult" type="adminVO">
         <result property="ad_seq"  column="ad_seq"></result>
         <result property="ad_email" column="ad_email"></result>
