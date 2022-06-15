@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,14 +111,18 @@
                                 <tbody>
                                 <c:forEach var="admin" items="${adminList}">
                                     <tr>
+                                        <fmt:formatDate var="formatRegDate" value="${admin.ad_createDate}" pattern="yyyy-MM-dd"/>
                                         <form name="frm">
                                             <input type="hidden" class="tel" value="${admin.ad_tel}">
                                             <input type="hidden" class="is" value="${admin.ad_is}">
+                                            <input type="hidden" class="date" value="${admin.ad_createDate}">
                                             <td class="num">${admin.ad_seq}</td>
                                             <td class="name">${admin.ad_name}</td>
                                             <td class="depart">${admin.ad_depart}</td>
-                                            <td class="email">${admin.ad_email}</td>
-                                            <td class="create_date">${admin.ad_createDate}</td>
+                                            <td class="email">${formatRegDate}</td>
+                                            <td class="create_date">
+                                                    ${formatRegDate}
+                                            </td>
                                             <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button type="button" class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>
@@ -186,10 +191,12 @@
                                     </div>
                     </div>
                 </div>
+                    </div>
                 </div>
+
                 <!-- 삭 제 모 달 -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
+                     aria-hidden="true" style="display: none">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">

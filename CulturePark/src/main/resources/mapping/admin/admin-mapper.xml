@@ -35,7 +35,7 @@
 
     <insert id="insertAdmin" parameterType="adminVO">
         INSERT INTO ADMIN_ACCOUNT
-            (AD_EMAIL,AD_PW,AD_NAME,AD_TEL,AD_IS,AD_DEPART)
+            (AD_EMAIL,AD_PW,AD_NAME,AD_TEL,AD_IS,AD_DEPART, AD_CREATEDATE)
             VALUES
             (
                 #{ad_email},
@@ -43,7 +43,8 @@
                 #{ad_name},
                 #{ad_tel},
                 #{ad_is},
-                #{ad_depart}
+                #{ad_depart},
+                #{ad_createDate}
             );
     </insert>
 

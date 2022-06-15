@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -77,6 +79,7 @@ public class Account_Ad_Controller {
         int chk_len = check_is.size();
         String chk_str = "";
 
+
         for (int i = 0; i < chk_len; i++) {
 
             if (i > 0) {
@@ -87,6 +90,12 @@ public class Account_Ad_Controller {
         }
         // 권한 문자열 셋팅
         adminVO.setAd_is(chk_str);
+
+
+        // 생성 날짜 셋팅
+
+        Date date = new Date();
+        adminVO.setAd_createDate(date);
 
         // db에 넣어주기
         int result = adminManageService.insertAdmin(adminVO);
@@ -106,6 +115,16 @@ public class Account_Ad_Controller {
     public ModelAndView adminList(HttpServletRequest request , HttpServletResponse response) throws Exception{
         ModelAndView mv = new ModelAndView();
         List<AdminVO> adminList = adminManageService.adminList();
+
+//        if (adminList != null) {
+//            int length = adminList.size();
+//            for (int i = 0; i < length; i++) {
+//                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//                String str= simpleDateFormat.format(adminList.get(i).getAd_createDate());
+//                Date date = new Date(str);
+//                adminList.get(i).setAd_createDate(date);
+//            }
+//        }
         mv.addObject("adminList", adminList);
         mv.setViewName("ad_adminList");
         return mv;
