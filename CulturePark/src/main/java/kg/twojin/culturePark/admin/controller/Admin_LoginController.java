@@ -56,7 +56,7 @@ public class Admin_LoginController {
         ModelAndView mv = new ModelAndView();
 
         // DB에서 조회해서 가져온 어드민 vo
-        AdminVO vo = adminManageService.adminLogin(adminVO);
+        AdminVO vo = adminManageService.loginAdmin(adminVO);
 
         if (vo != null) { // null => 값을 가져오는 데에 실패함 -> DB에 일치하는 데이터가 없음
 
