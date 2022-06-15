@@ -11,10 +11,10 @@
         </div>
         <div class="function_section">
             <ul class="funcs_pc">
-                <li><a class="func_list" href="/member_login_do">로그인</a></li>
-                <li><a class="func_list" href="/member_join.do">회원가입</a></li>
-                <li><a class="func_list" href="/myPage.do">마이페이지</a></li>
-                <li><a class="func_list" href="/myTicket.do">마이티켓</a></li>
+                <li><a class="func_list" href="/member_login_do">login</a></li>
+                <li><a class="func_list" href="/member_join.do">join</a></li>
+                <li><a class="func_list" href="/myPage.do">my page</a></li>
+                <li><a class="func_list" href="/myTicket.do">my ticket</a></li>
             </ul>
 
             <div class="funcs_mobile">
