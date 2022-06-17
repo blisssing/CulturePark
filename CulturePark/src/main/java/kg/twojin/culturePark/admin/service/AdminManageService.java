@@ -12,6 +12,10 @@ public interface AdminManageService {
 
     int insertAdmin(AdminVO adminVO);
 
+    int updateAdminWithPw(AdminVO adminVO);
+
+    int updateAdminWithoutPw(AdminVO adminVO);
+
     int removeAdmin(AdminVO adminVO);
 
 

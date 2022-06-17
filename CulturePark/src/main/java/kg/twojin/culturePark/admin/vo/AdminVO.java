@@ -1,12 +1,14 @@
 package kg.twojin.culturePark.admin.vo;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 
 import java.util.Date;
 
+@ToString
 @Data
 @Component
 public class AdminVO {

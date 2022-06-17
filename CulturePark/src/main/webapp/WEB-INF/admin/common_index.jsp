@@ -27,7 +27,7 @@
 <body id="page-top">
 
 <%
-    if (session.getAttribute("isLogOn") == null) {
+    if (session.getAttribute("isLogOn") == null || session.getAttribute("isLogOn")!="super") {
 %>
 
 <%--<h1><a href="/culturePark/all/loginForm.ado">비로그인 회원 접속</a></h1>--%>

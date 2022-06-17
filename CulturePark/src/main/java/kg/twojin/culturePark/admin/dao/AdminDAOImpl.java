@@ -26,18 +26,54 @@ public class AdminDAOImpl implements AdminDAO{
         return vo;
     }
 
+    // 계정생성
     @Override
     public int insertAdmin(AdminVO adminVO) {
         return sqlSessionTemplate.insert("mapper.admin.insertAdmin", adminVO);
     }
 
+    //계정 수정 1 : 비밀번호 변경 포함
+
 
     @Override
-    public int removeAdmin(AdminVO adminVO) {
-
-
-        return 0;
+    public int updateAdminWithPw(AdminVO adminVO) {
+        int result=0;
+        try {
+            result = sqlSessionTemplate.update("mapper.admin.updateAdminWithPw", adminVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
+
+    //계정 수정 2 : 비밀번호 미변경
+    @Override
+    public int updateAdminWithoutPw(AdminVO adminVO) {
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.admin.updateAdminWithoutPw", adminVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    // 계정삭제
+    @Override
+    public int removeAdmin(AdminVO adminVO) {
+        int result = 0;
+        try {
+
+            result = sqlSessionTemplate.delete("mapper.admin.deleteAdmin", adminVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+
+
 
     @Override
     public List listAdmins() {

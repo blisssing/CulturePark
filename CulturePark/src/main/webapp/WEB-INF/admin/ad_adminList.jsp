@@ -46,6 +46,18 @@
 
 <body id="page-top">
 
+<%
+    if (session.getAttribute("isLogOn") == null) {
+%>
+
+<script type="text/javascript">
+    location.href="/culturePark/all/loginForm.ado";
+</script>
+
+<%
+} else{
+%>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -109,14 +121,16 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <c:forEach var="admin" items="${adminList}">
+                                <c:forEach var="admin" items="${adminList}" varStatus="status">
                                     <tr>
                                         <fmt:formatDate var="formatRegDate" value="${admin.ad_createDate}" pattern="yyyy-MM-dd"/>
+                                        <c:set var="count" value="${count + 1}"/>
                                         <form name="frm" class="frm">
-                                            <input type="hidden" class="tel" value="${admin.ad_tel}">
-                                            <input type="hidden" class="is" value="${admin.ad_is}">
-                                            <input type="hidden" class="date" value="${admin.ad_createDate}">
-                                            <td class="num">${admin.ad_seq}</td>
+                                            <input name="ad_seq" type="hidden" class="seq" value="${admin.ad_seq}">
+                                            <input name="" type="hidden" class="tel" value="${admin.ad_tel}">
+                                            <input name="" type="hidden" class="is" value="${admin.ad_is}">
+                                            <input name="" type="hidden" class="date" value="${admin.ad_createDate}">
+                                            <td class="num">${count}</td>
                                             <td class="name">${admin.ad_name}</td>
                                             <td class="depart">${admin.ad_depart}</td>
                                             <td class="email">${admin.ad_email}</td>
@@ -149,19 +163,27 @@
                                         </button>
                                     </div>
                         <div class="user modal-body" style="max-height: 500px; overflow: scroll;">
+                            <form class="modal_frm" name="modal_frm">
+                                <input type="hidden" name="ad_email" class="modal_ad_email"/>
+                                <input type="hidden" name="ad_name" class="modal_ad_name"/>
+                                <input type="hidden" name="ad_seq" class="modal_ad_seq"/>
                                         <div class="form-group">
+                                            <div class="context_head">관리자 이름</div>
                                             <div class="form-control form-control-user" id="AdminName"></div>
                                         </div>
                                         <div class="form-group">
+                                            <div class="context_head">관리자 메일</div>
                                             <div class="form-control form-control-user" id="InputEmail"></div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="InputPhone"
+                                            <div class="context_head">전화번호</div>
+                                            <input name="ad_tel" type="text" class="form-control form-control-user" id="InputPhone"
                                                    placeholder="010-xxxx-xxxx">
                                         </div>
+                                        <div class="context_head">비밀번호 변경</div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user"
+                                                <input name="ad_pw" type="password" class="form-control form-control-user"
                                                        id="InputPassword" placeholder="Password">
                                             </div>
                                             <div class="col-sm-6">
@@ -170,7 +192,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="Depart"
+                                            <input name="ad_depart" type="text" class="form-control form-control-user" id="Depart"
                                                    placeholder="부서">
                                         </div>
                                         <div class="form-group">
@@ -182,14 +204,16 @@
                                                 <li class="chk_list"><input type="checkbox" name="check_is" value="super" id="chk_super">슈퍼</li>
                                             </ul>
                                         </div>
-                                    </form>
+
                                     <div class="modal-footer">
                                                 <button class="btn btn-secondary btn-user btn-block" type="button" data-dismiss="modal">취소</button>
                                                 <button class="btn btn-primary btn-user btn-block btn_modiDone">수정완료</button>
                                     </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                    </div>
+
                 </div>
 
                 <!-- 삭 제 모 달 -->
@@ -232,6 +256,9 @@
     <!-- End of Content Wrapper -->
 
 </div>
+<%
+    }
+%>
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
