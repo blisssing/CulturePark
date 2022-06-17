@@ -1,9 +1,14 @@
 package kg.twojin.culturePark.user.service;
 
-import kg.twojin.culturePark.user.vo.MemberVO;
+import kg.twojin.culturePark.vo.MemberVO;
+import org.springframework.stereotype.Service;
 
-public class MemberJoinServiceImpl {
+@Service("memberJoinService")
+public class MemberJoinServiceImpl implements MemberJoinService{
 
-
+    @Override
+    public int joinMember(MemberVO memberVO) {
+        return 0;
+    }
 
 }

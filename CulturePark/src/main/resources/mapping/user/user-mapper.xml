@@ -10,4 +10,22 @@
 <!--        select * from Blog where id = #{id}-->
 <!--    </select>-->
 
+    <insert id="insertMember" parameterType="memberVO">
+        INSERT INTO MEMBER_ACCOUNT
+        (
+         MB_EMAIL, MB_PW, MB_NICK, MB_NAME,MB_BIRTH,MB_GENDER, MB_TEL, MB_CREATEDATE
+        )
+        VALUES
+        (
+         #{mb_email},
+         #{mb_pw},
+         #{mb_nick},
+         #{mb_name},
+         #{mb_birth},
+         #{mb_gender},
+         #{mb_tel},
+         #{mb_createDate}
+        );
+    </insert>
+
 </mapper>

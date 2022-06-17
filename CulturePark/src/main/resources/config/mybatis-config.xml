@@ -5,8 +5,9 @@
 <configuration>
 
     <typeAliases>
-        <typeAlias alias="adminVO" type="kg.twojin.culturePark.admin.vo.AdminVO" ></typeAlias>
+        <typeAlias alias="adminVO" type="kg.twojin.culturePark.vo.AdminVO" ></typeAlias>
         <typeAlias alias="managerVO" type="kg.twojin.culturePark.manager.vo.ManagerVO" ></typeAlias>
+        <typeAlias alias="memberVO" type="kg.twojin.culturePark.vo.MemberVO"/>
     </typeAliases>
 
 

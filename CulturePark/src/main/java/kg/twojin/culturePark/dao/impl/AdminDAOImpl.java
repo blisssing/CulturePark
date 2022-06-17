@@ -1,15 +1,15 @@
-package kg.twojin.culturePark.admin.dao;
+package kg.twojin.culturePark.dao.impl;
 
-import kg.twojin.culturePark.admin.vo.AdminVO;
+import kg.twojin.culturePark.dao.AdminDAO;
+import kg.twojin.culturePark.vo.AdminVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository("adminDAO")
-public class AdminDAOImpl implements AdminDAO{
+public class AdminDAOImpl implements AdminDAO {
 
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
