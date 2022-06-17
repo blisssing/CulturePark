@@ -27,6 +27,24 @@ public class AdminManageServiceImpl implements AdminManageService{
         return adminList;
     }
 
+
+    // 계정 수정
+
+    @Override
+    public int updateAdminWithPw(AdminVO adminVO) {
+
+        int result = adminDAO.updateAdminWithPw(adminVO);
+        System.out.println("서비스 결과 값 : " + result);
+        return result;
+    }
+
+    @Override
+    public int updateAdminWithoutPw(AdminVO adminVO) {
+        int result = adminDAO.updateAdminWithoutPw(adminVO);
+        System.out.println("서비스 결과 값 : " + result);
+        return result;
+    }
+
     @Override
     public int insertAdmin(AdminVO adminVO) {
         return adminDAO.insertAdmin(adminVO);
@@ -34,6 +52,7 @@ public class AdminManageServiceImpl implements AdminManageService{
 
     @Override
     public int removeAdmin(AdminVO adminVO) {
-        return 1;
+        int result= adminDAO.removeAdmin(adminVO);
+        return result;
     }
 }

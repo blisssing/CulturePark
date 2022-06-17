@@ -33,8 +33,18 @@
         FROM ADMIN_ACCOUNT
         WHERE AD_EMAIL = #{ad_email};
     ]]>
+    </select>
 
+    <select id="updateAdminWithPw" parameterType="adminVO">
+        UPDATE ADMIN_ACCOUNT
+        SET  ad_pw=#{ad_pw},ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}
+        WHERE ad_seq=#{ad_seq};
+    </select>
 
+    <select id="updateAdminWithoutPw" parameterType="adminVO">
+        UPDATE ADMIN_ACCOUNT
+        SET ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}
+        WHERE ad_seq=#{ad_seq};
     </select>
 
 
@@ -55,8 +65,8 @@
 
     <delete id="deleteAdmin" parameterType="adminVO">
         <![CDATA[
-            DELETE * FROM ADMIN_ACCOUNT
-            WHERE AD_SEQ=#{AD_SEQ};
+            DELETE FROM ADMIN_ACCOUNT
+            WHERE AD_SEQ=#{ad_seq};
         ]]>
     </delete>
 

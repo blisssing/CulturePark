@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
+    var frm = $('#frm');
+
     /* 이전 */
+
     $('.back').click(function(){
         window.history.back();
     });
@@ -24,6 +27,17 @@ $(document).ready(function() {
         } else {
             $(".checkbox_all_p").prop("checked", true);
         }
+    });
+
+
+    // 버튼 동작
+
+
+    // 1. 중복확인
+
+    $('.id_confirm_btn').click(function () {
+        frm.attr('action',);
+        frm.submit();
     });
 
 });

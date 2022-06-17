@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +49,8 @@
 
 
             <%-- -------------- 회원정보입력 영역 --------------- --%>
+            <form id="frm">
             <div class="join_section">
-
                 <p class="sectionLine_thin"></p>
 
                 <div class="id_section section_type01">
@@ -144,7 +145,7 @@
                 </div>
 
             </div>
-
+            </form>
 
             <%-- ---------------- 약관동의 영역 ------------------ --%>
             <div class="agree_condition_section">

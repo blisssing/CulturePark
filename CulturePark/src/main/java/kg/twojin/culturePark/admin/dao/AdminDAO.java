@@ -21,6 +21,11 @@ public interface AdminDAO {
 
     int removeAdmin(AdminVO adminVO);
 
+    int updateAdminWithPw(AdminVO adminVO);
+
+    int updateAdminWithoutPw(AdminVO adminVO);
+
+
     // 암호화
 
 //    public void userSignUp(String username, String password, char enable);
