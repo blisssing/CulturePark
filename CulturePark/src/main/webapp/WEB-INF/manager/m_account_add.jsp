@@ -24,7 +24,6 @@
     <style><%@include file="/resources/common/vendor/datatables/dataTables.bootstrap4.min.css"%></style>
     <style><%@include file="/resources/common/css/common_togglebtn.css"%></style>
     <style><%@include file="/resources/common/css/common_tableStyle.css"%></style>
-
     <style><%@include file="/resources/manager/css/m_account_add.css"%></style>
 
     <title>manager account add</title>
@@ -63,19 +62,20 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">매니저 계정 생성</h1>
                                         </div>
-                                      <%--  <form class="user">--%>
 
-                                        <input type="hidden" class="comp_num" value="1">
-                                        <input type="hidden" class="manager_num" value="300">
+                                    <form  id="frm" class="manager" method="post">
+
+                                        <input type="hidden" class="comp_seq" value="1">
+                                        <input type="hidden" class="mg_seq" value="300">
 
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="InputEmail"
+                                            <input name="mg_email" type="email" class="form-control form-control-user" id="InputEmail"
                                                    placeholder="이메일">
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user"
+                                                <input name="mg_pw" type="password" class="form-control form-control-user"
                                                        id="InputPassword" placeholder="Password">
                                             </div>
                                             <div class="col-sm-6">
@@ -86,13 +86,13 @@
 
                                         <div class="form-group">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="InputName"
+                                                <input name="mg_name" type="text" class="form-control form-control-user" id="InputName"
                                                        placeholder="이름">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="phone" class="form-control form-control-user" id="InputPhone"
+                                            <input name="mg_tel" type="phone" class="form-control form-control-user" id="InputTel"
                                                    placeholder="010-xxxx-xxxx">
                                         </div>
 
@@ -100,16 +100,17 @@
                                         <div class="form-group">
                                             <ul class="col-sm-6 chk_ul">
                                                 <div>권한</div>
-                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="chart">수익조회</li>
-                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="pdManage">작품관리</li>
-                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="qnaManage">QnA관리</li>
-                                                <li class="chk_list"><input type="checkbox" name="chk_right" value="accountManage">계정관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_is" value="chart">수익조회</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_is" value="pdManage">작품관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_is" value="qnaManage">QnA관리</li>
+                                                <li class="chk_list"><input type="checkbox" name="chk_is" value="accountManage">계정관리</li>
                                             </ul>
                                         </div>
 
                                         <button  class="btn btn-primary btn-user btn-block btn_regist">등록</button>
 
-                                   <%--     </form>--%>
+                                    </form>
+
                                         <hr>
 
                                     </div>
@@ -171,7 +172,9 @@
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
 
 <%-- script --%>
+<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/manager/js/m_account_add.js"></script>
+
 
 </body>
 

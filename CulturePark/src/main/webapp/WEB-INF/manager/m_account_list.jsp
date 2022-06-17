@@ -13,25 +13,18 @@
 
     <!-- Custom fonts for this template-->
     <style><%@include file="/resources/common/css/fontawesome/all.min.css"%></style>
-
-    <!-- Custom styles for this template-->
     <style><%@include file="/resources/common/css/sb-admin-2.min.css"%></style>
     <style><%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css"%></style>
 
-    <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-
-    <%-- css --%>
     <!-- Custom styles for this page -->
     <style><%@include file="/resources/common/vendor/datatables/dataTables.bootstrap4.min.css"%></style>
-    <style><%@include file="/resources/manager/css/m_account_list.css"%></style>
     <style><%@include file="/resources/common/css/common_togglebtn.css"%></style>
     <style><%@include file="/resources/common/css/common_tableStyle.css"%></style>
 
+    <%-- css --%>
+    <style><%@include file="/resources/manager/css/m_account_list.css"%></style>
 
     <title>manager account list</title>
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
 
 </head>
 
@@ -321,9 +314,9 @@
     </div>
 </div>
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-
 <script src="/resources/common/js/bootstrap/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
@@ -339,10 +332,9 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 
-
 <%-- script --%>
 <script src="/resources/manager/js/m_account_list.js"></script>
-
+<script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
 </body>
 
