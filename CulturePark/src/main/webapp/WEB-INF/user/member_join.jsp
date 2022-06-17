@@ -33,9 +33,7 @@
 
     <div class="centerContainer">
         <%-- 절대 건드리지말기.  div 따로 만들어주고 건드리기 --%>
-
         <div class="innerContainer">
-
                 <div class="back_section">
                     <div class="arrow_section">
                         <i class="fa-solid fa-arrow-left"></i>
@@ -46,7 +44,6 @@
             <div class="join_label_section">
                 <div class="join_label">회원 가입</div>
             </div>
-
 
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <form id="frm">

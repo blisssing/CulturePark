@@ -1,15 +1,14 @@
 package kg.twojin.culturePark.admin.controller;
 
-import kg.twojin.culturePark.admin.dao.AdminDAO;
+import kg.twojin.culturePark.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
-import kg.twojin.culturePark.admin.vo.AdminVO;
+import kg.twojin.culturePark.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -73,7 +72,7 @@ public class Admin_LoginController {
                 System.out.println("로그인성공");
                 HttpSession session = request.getSession();
                 session.setAttribute("admin", adminVO);
-                session.setAttribute("isLogOn", vo.getAd_is());
+                session.setAttribute("isLogOn", ""+vo.getAd_is());
                 mv.setViewName("redirect:/index.ado");
             } else {
                 System.out.println("로그인실패");

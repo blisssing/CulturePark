@@ -1,9 +1,9 @@
 package kg.twojin.culturePark.admin.controller;
 
 
-import kg.twojin.culturePark.admin.dao.AdminDAO;
+import kg.twojin.culturePark.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
-import kg.twojin.culturePark.admin.vo.AdminVO;
+import kg.twojin.culturePark.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;

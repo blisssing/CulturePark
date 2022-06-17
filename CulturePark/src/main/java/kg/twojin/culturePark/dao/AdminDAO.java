@@ -1,6 +1,6 @@
-package kg.twojin.culturePark.admin.dao;
+package kg.twojin.culturePark.dao;
 
-import kg.twojin.culturePark.admin.vo.AdminVO;
+import kg.twojin.culturePark.vo.AdminVO;
 
 import java.util.List;
 

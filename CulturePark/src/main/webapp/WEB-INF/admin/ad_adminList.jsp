@@ -45,13 +45,14 @@
 </head>
 
 <body id="page-top">
-
 <%
-    if (session.getAttribute("isLogOn") == null) {
+    String logStatus = (String) session.getAttribute("isLogOn");
+    if (!logStatus.equals("super")) {
+        session.setAttribute("errorName", "SUPER_ONLY");
 %>
 
 <script type="text/javascript">
-    location.href="/culturePark/all/loginForm.ado";
+    location.href="/culturePark/all/accessError.ado";
 </script>
 
 <%

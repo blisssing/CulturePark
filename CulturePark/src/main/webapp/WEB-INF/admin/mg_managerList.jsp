@@ -1,3 +1,4 @@
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -116,6 +117,29 @@
 
 <body id="page-top">
 
+<%
+    String logStatus = (String) session.getAttribute("isLogOn");
+    boolean resultCheck= false;
+
+    if (logStatus.contains("/")) {
+        String [] is_ary = logStatus.split("/");
+        for (int i = 0; i < is_ary.length; i++) {
+            String ad_is = is_ary[i];
+            if (ad_is.equals("manager")||ad_is.equals("super")) {
+                resultCheck = true;
+                break;
+            }
+        }
+    }
+    if (resultCheck) {
+%>
+<script type="text/javascript">
+    location.href="/culturePark/all/accessError.ado";
+</script>
+<%
+    }
+%>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -155,12 +179,6 @@
                         <span>담당 상품</span>
                     </div>
 
-
-<%--                    <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>--%>
-<%--                    <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>--%>
-<%--                    <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>--%>
-<%--                    <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>--%>
-
                 </div>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -195,112 +213,38 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
-                                    <tr>
-                                        <input type="hidden" class="comp_num" value="100">
-                                        <input type="hidden" class="manager_num" value="100">
-                                        <td class="seq">1</td>
-                                        <td class="comp">투진컴퍼니</td>
-                                        <td class="name">한진희</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="phone">01098888888</td>
-                                        <td class="right">root</td>
-                                        <td class="status">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="comp_num" value="200">
-                                        <input type="hidden" class="manager_num" value="300">
-                                        <td class="seq">3</td>
-                                        <td class="comp">진투컴퍼니</td>
-                                        <td class="name">김진아</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">01044448888</td>
-                                        <td class="right">root</td>
-                                        <td class="status">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="comp_num" value="400">
-                                        <input type="hidden" class="manager_num" value="100">
-                                        <td class="seq">2</td>
-                                        <td class="comp">지민컴퍼니</td>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">01022228888</td>
-                                        <td class="right">normal</td>
-                                        <td class="status">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="comp_num" value="600">
-                                        <input type="hidden" class="manager_num" value="100">
-                                        <td class="seq">5</td>
-                                        <td class="comp">진규컴퍼니</td>
-                                        <td class="name">한규진</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">01022229999</td>
-                                        <td class="right">normal</td>
-                                        <td class="status">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
-                                                <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                                <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                    <c:forEach var="managerVO" items="managerList" varStatus="managerStatus">
+                                        <c:set var="count" value="${count+1}"/>
+                                        <tr>
+                                            <form name="frm">
+                                            <input type="hidden" class="comp_num" value="${managerVO.comp_seq}">
+                                            <input type="hidden" class="manager_num" value="${managerVO.mg_seq}">
+                                            <td class="seq">${count}</td>
+                                            <td class="comp">투진컴퍼니</td>
+                                            <td class="name">${managerVO.mg_name}</td>
+                                            <td class="email">${managerVO.mg_email}</td>
+                                            <td class="phone">${managerVO.mg_tel}</td>
+                                            <td class="right">${managerVO.mg_is}</td>
+                                            <td class="status">
+                                                <label class="switch">
+                                                    <input type="checkbox" checked="checked">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p class="toggle_p">활성화</p>
+                                                <p class="toggle_p" style="display:none;">비활성</p>
+                                            </td>
+                                            <td class="btn_section">
+                                                <div class="btn_wrap">
+                                                    <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
+                                                    <button class="btn_mg_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                    <button class="btn_delete_manager btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                    <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
+                                                </div>
+                                            </td>
+                                            </form>
+                                        </tr>
+                                    </c:forEach>
+
                                 </tbody>
                             </table>
                         </div>

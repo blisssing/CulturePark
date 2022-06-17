@@ -1,8 +1,8 @@
 package kg.twojin.culturePark.admin.controller;
 
-import kg.twojin.culturePark.admin.dao.AdminDAO;
+import kg.twojin.culturePark.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
-import kg.twojin.culturePark.admin.vo.AdminVO;
+import kg.twojin.culturePark.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @Controller

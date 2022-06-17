@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.admin.vo;
+package kg.twojin.culturePark.vo;
 
 import lombok.Data;
 import lombok.ToString;
