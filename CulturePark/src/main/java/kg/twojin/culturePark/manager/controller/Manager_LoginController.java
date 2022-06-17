@@ -10,7 +10,7 @@ public class Manager_LoginController {
     @RequestMapping(value = "/login.mdo")
     public ModelAndView mgLogin() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("ad_login_Form");
+        mv.setViewName("main_login");
         return mv;
     }
 

@@ -2,18 +2,19 @@
 .sideMenu_pc {
     display: none;
     width: 100%;
-    border-top : 0.5px solid black;
+/*    border-top : 0.5px solid black;*/
     margin: 0 5px;
 }
 .side_section {
+    margin-left: 19px;
     display: flex;
     width: 100%;
 }
 
 .sideList {
-    margin: 10px 0;
+    margin: -73px 10px;
     text-align: center;
-    width: 100%;
+  /*  width: 100%;*/
 }
 
 /* 사이드 모바일 */
@@ -54,6 +55,7 @@
     position: absolute;
     top: 15px;
     right: 0;
+    padding: 0 20px;
 }
 
 .funcs_mobile > button {
@@ -110,8 +112,8 @@
 }
 
 div > ul > li {
-    font-size: 1.2rem;
-    margin: auto 0;
+    font-size: 0.9rem;
+    /*margin: auto 0;*/
 }
 
 

@@ -26,6 +26,7 @@
 
         <!--csrf 설정 -->
         <s:csrf disabled="true"/>
+        <!-- 우회 공격 -->
 
     </s:http>
     <s:authentication-manager>
