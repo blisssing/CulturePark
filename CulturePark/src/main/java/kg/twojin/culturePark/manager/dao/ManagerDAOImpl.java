@@ -30,13 +30,36 @@ public class ManagerDAOImpl implements ManagerDAO {
 
     @Override
     public int insertManager(ManagerVO managerVO) {
-        return sqlSessionTemplate.insert("mapper.manager.insertManager",managerVO);
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.insert("mapper.manager.insertManager", managerVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
-    public List listManagers() {
-        List<ManagerVO> managerList = null;
-        managerList = sqlSessionTemplate.selectList("mapper.manager.selectAllManager");
+    public int updateManager(ManagerVO managerVO) {  /* managerVO 의 인자값을 받은 updateManager메소드의 기능 */
+        int result = 0;
+        try {                             /*  mapper에 정의 되어있는 기능을 찾아간다. managerVO의 값을 넘긴다*/
+            result = sqlSessionTemplate.update("mapper.manager.updateManager", managerVO);
+        }catch(Exception e) {                  /* manager-mapper.xml에서 지정해 준 namespace : mapper.manager */
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public List selectAllManagers() {
+         List <ManagerVO> managerList = null;
+        try {
+            managerList = sqlSessionTemplate.selectList("mapper.manager.selectAllManager");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return managerList;
     }
+
+
 }

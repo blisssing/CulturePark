@@ -25,13 +25,27 @@ public class ManagerManageServiceImpl implements ManagerManageService {
     @Override
     public List getManagerList() {
         List <ManagerVO> managerList = null;
-        managerList = managerDAO.listManagers();
+        try {
+            managerList = managerDAO.selectAllManagers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return managerList;
     }
 
     @Override
     public int insertManager(ManagerVO managerVO) {
-        return managerDAO.insertManager(managerVO);
+        int result =0;
+        result = managerDAO.insertManager(managerVO);
+        return result;
+    }
+
+    @Override
+    public int updateManager(ManagerVO managerVO) {
+        int result = 0;
+        result = managerDAO.updateManager(managerVO);
+        /* managerDAO의 updateManager메서드를 (managerVO)의 인자값을 받아서 이동한다 */
+        return result;
     }
 
     @Override

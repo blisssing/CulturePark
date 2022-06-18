@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>--%> <%-- << for문 사용시 --%>
 <!DOCTYPE html>
 <html lang="kor">
 
@@ -63,8 +64,9 @@
                                             <h1 class="h4 text-gray-900 mb-4">매니저 계정 생성</h1>
                                         </div>
 
-                                    <form  id="frm" class="manager" method="post">
+                                    <form  id="frm" class="manager" method="post" action="/mAccountAddProc.mdo" >
 
+                                        <%-- !수정! 불러와서 셋팅해주는 형식으로 수정해줄 것--%>
                                         <input type="hidden" class="comp_seq" value="1">
                                         <input type="hidden" class="mg_seq" value="300">
 
@@ -92,7 +94,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input name="mg_tel" type="phone" class="form-control form-control-user" id="InputTel"
+                                            <input name="mg_tel" type="text" class="form-control form-control-user" id="InputTel"
                                                    placeholder="010-xxxx-xxxx">
                                         </div>
 
@@ -107,7 +109,7 @@
                                             </ul>
                                         </div>
 
-                                        <button  class="btn btn-primary btn-user btn-block btn_regist">등록</button>
+                                        <button type="button" class="btn btn-primary btn-user btn-block btn_regist">등록</button>
 
                                     </form>
 
