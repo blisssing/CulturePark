@@ -52,7 +52,7 @@
 
                 <div class="id_section section_type01">
                     <div class="id_label">아이디</div>
-                    <input class="id_value_1" type="textFiled" name="id_value_1">
+                    <input class="id_value_1" type="email" name="mb_email">
 
 
                     <%-- 아이디 중복확인 버튼 --%>
@@ -61,15 +61,15 @@
 
                 <div class="pw_section section_type01">
                     <div class="pw_label">비밀번호</div>
-                    <input class="pw_value input_type01" type="password" name="pw_value">
+                    <input class="input_pw pw_value input_type01" type="password" name="mb_pw">
                 </div>
 
                 <div class="rePw_section section_type01">
                     <div class="rePw_label">비밀번호확인</div>
                     <div class="rePw_value_section">
                         <%-- 비밀번호확인 체크 메세지--%>
-                        <input class="rePw_value input_type01" type="password" name="rePw_value">
-                        <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
+                        <input class="input_pw rePw_value input_type01" type="password" name="rePw_value">
+                        <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
                     </div>
                 </div>
 
@@ -77,7 +77,8 @@
                     <div class="nick_label">닉네임</div>
                     <div class="nick_confirm_msg_section">
                         <%-- 닉네임 중복확인 메세지 --%>
-                        <input class="nick_value input_type01" type="textFiled" name="nick_value">
+                        <input class="nick_value input_type01" type="textFiled" name="mb_nick">
+                            <input class="nick_confirm_btn" type="button" name="nick_confirm_btn" value="중복확인">
                         <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
                     </div>
                 </div>
@@ -85,13 +86,13 @@
 
                 <div class="name_section section_type01">
                     <div class="name_label">이름</div>
-                    <input class="name_value input_type01" type="textFiled" name="name_value">
+                    <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">
                 </div>
 
                 <div class="jumin_section section_type01">
                     <div class="jumin_label">주민번호</div>
-                    <input class="jumin_value1" type="textFiled" name="jumin_value1"> -
-                    <input class="jumin_value2" type="textFiled" name="jumin_value2"> ******
+                    <input class="jumin_value1" type="textFiled" name="jumin_value1" maxlength="6"> -
+                    <input class="jumin_value2" type="textFiled" name="jumin_value2" maxlength="1"> ******
                 </div>
 
                 <div class="tel_section section_type01">
@@ -99,8 +100,8 @@
                     <div class="tel_label">전화번호</div>
 
                     <div class="tel_div">
-                        <select class="tel_1" id="tel_1" name="tel_1">
-                            <option value="">선택</option>
+                        <select class="tel tel_1" id="tel_1" name="tel_1">
+                            <option type="text" value="0">선택</option>
                             <option value="010">010</option>
                             <option value="011">011</option>
                             <option value="016">016</option>
@@ -111,17 +112,18 @@
                     <span>-</span>
 
                     <div class="tel_div2">
-                        <input class="tel_2" type="text" name="tel_2">
+                        <input class="tel tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                     </div>
 
                     <span>-</span>
                     <div class="tel_div2">
-                         <input class="tel_3" type="text" name="tel_3">
+                         <input class="tel tel_3" type="text" name="tel_3"maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                     </div>
 
                     <%-- 인증번호받기 버튼--%>
                     <div>
-                        <input class="tel_authentication_btn" type="button" name="tel_authentication_btn" value="인증번호">
+                        <input type="button" class="tel_authentication_btn btn_authen" type="button" value="인증번호"/>
+
                     </div>
                 </div>
 
@@ -129,11 +131,11 @@
                 <div class="authentication_code_section section_type01">
                     <div class="authentication_code_label">인증번호</div>
 
-                    <input class="authentication_code" type="text" name="authentication_code">
+                    <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
 
                     <div class="code_reSend_btn_section">
-                        <input class="code_reSend_btn" type="button" name="code_reSend_btn" value="재발송">
-                        <input class="code_ok_btn" type="button" name="code_ok_btn" value="확인">
+                        <input class="code_reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
+                        <input class="code_ok_btn" disabled="disabled" type="button" name="code_ok_btn" value="확인">
                     </div>
                 </div>
                 <%-- 인증 유효시간 --%>
@@ -143,7 +145,6 @@
 
             </div>
             </form>
-
             <%-- ---------------- 약관동의 영역 ------------------ --%>
             <div class="agree_condition_section">
                 <div class="agree_condition_label_section">
@@ -154,7 +155,7 @@
 
                 <div class="agree_condition_all_section">
                     <div class="agree_condition_all">
-                        <input type="checkbox" class="checkbox_all checkbox_all_p">
+                        <input type="checkbox" class="checkbox_agree checkbox_all checkbox_all_p">
                         <span class="checkbox_all_label">전체동의</span><br><br>
                     </div>
                 </div>
@@ -202,7 +203,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -256,7 +257,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -277,7 +278,7 @@
                      </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -296,6 +297,7 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/user/js/member_join.js"></script>
 
 </html>
