@@ -28,4 +28,16 @@
         );
     </insert>
 
+    <select id="selectExistEmail" parameterType="string">
+        SELECT MB_EMAIL
+        FROM MEMBER_ACCOUNT
+        WHERE MB_EMAIL = ${mb_email};
+    </select>
+
+    <select id="selectNickName" parameterType="string">
+        SELECT MB_NICK
+        FROM MEMBER_ACCOUNT
+        WHERE MB_NICK = ${mb_nick};
+    </select>
+
 </mapper>
