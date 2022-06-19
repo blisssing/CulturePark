@@ -193,6 +193,8 @@
                                 </button>
                             </div>
                             <form class="user modal-body frm_delete_modal">정말로 삭제하시길 원한다면 입력칸에 '매니저를 삭제합니다'를 입력해주세요
+
+                                <input type="hidden" name="mg_seq"  class="mg_seq" />
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user check_text" id="decideDelete"
                                            placeholder="입력해주세요">

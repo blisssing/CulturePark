@@ -41,7 +41,7 @@
 
 <delete id="deleteManager" parameterType="managerVO">
     DELETE FROM MANAGER_ACCOUNT
-    WHERE MG_EMAIL=#{mg_email};
+    WHERE MG_SEQ=#{mg_seq};
 </delete>
 
 <select id="selectAllManager" resultMap="mgResult">
