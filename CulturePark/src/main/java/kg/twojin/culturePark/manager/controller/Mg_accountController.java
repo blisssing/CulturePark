@@ -1,16 +1,13 @@
 package kg.twojin.culturePark.manager.controller;
 
-
 import kg.twojin.culturePark.manager.service.ManagerManageService;
 import kg.twojin.culturePark.manager.vo.ManagerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -131,20 +128,28 @@ public class Mg_accountController {
         return mv;
     }
 
+
     @RequestMapping("mAccountDelete.mdo")
-    public ModelAndView mgAccountDelete(@ModelAttribute("managerVO") ManagerVO deleteVO,
-                                        @RequestParam String chk_text,
+    public ModelAndView mgAccountDelete(@ModelAttribute("mg_seq") ManagerVO deleteVO,
                                         HttpServletRequest request, HttpServletResponse response) {
 
         System.out.println("delete 동작 확인");
         ModelAndView mv = new ModelAndView();
-        String chk_text_check = chk_text;
-        String chk_text_ok = "매니저를 삭제합니다";
+       /* String chk_text_check = chk_text;
+        String chk_text_ok = "매니저를 삭제합니다";*/
 
 
         int result = managerManageService.deleteManager(deleteVO);
 
-        if(chk_text_check == chk_text_ok) {
+        if (result == 1) {
+            mv.setViewName("redirect:/mAccountList.mdo");
+        } else {
+            mv.setViewName("redirect:/index.mdo");
+        }
+
+        return mv;
+
+        /*if(chk_text_check == chk_text_ok) {
             result = 1;
         }else {
            result = 0;
@@ -156,9 +161,10 @@ public class Mg_accountController {
             mv.setViewName("redirect:/index.mdo");
         }
 
-        return mv;
+        return mv;*/
     }
 
 }
+
 
 
