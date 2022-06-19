@@ -39,6 +39,11 @@
            MG_IS=#{mg_is};
 </update>
 
+<delete id="deleteManager" parameterType="managerVO">
+    DELETE FROM MANAGER_ACCOUNT
+    WHERE MG_EMAIL=#{mg_email};
+</delete>
+
 <select id="selectAllManager" resultMap="mgResult">
     <![CDATA[
     SELECT * FROM MANAGER_ACCOUNT

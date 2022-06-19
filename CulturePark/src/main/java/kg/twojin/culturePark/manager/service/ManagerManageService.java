@@ -14,6 +14,6 @@ public interface ManagerManageService {
 
     int updateManager(ManagerVO managerVO);
 
-    int removeManager(ManagerVO managerVO);
+    int deleteManager(ManagerVO managerVO);
 
 }

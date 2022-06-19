@@ -192,16 +192,16 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '매니저를 삭제합니다'를 입력해주세요
+                            <form class="user modal-body frm_delete_modal">정말로 삭제하시길 원한다면 입력칸에 '매니저를 삭제합니다'를 입력해주세요
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="decideDelete"
+                                    <input type="text" class="form-control form-control-user check_text" id="decideDelete"
                                            placeholder="입력해주세요">
                                 </div>
                             </form>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                                <button class="btn_finalDelete btn btn-primary" >삭제</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                <button type="button" class="btn_finalDelete btn btn-primary" >삭제</button>
                             </div>
                         </div>
                     </div>

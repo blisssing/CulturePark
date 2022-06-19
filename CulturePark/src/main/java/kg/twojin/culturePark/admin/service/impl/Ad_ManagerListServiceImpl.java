@@ -1,3 +1,4 @@
+/*
 package kg.twojin.culturePark.admin.service.impl;
 
 import kg.twojin.culturePark.admin.service.Ad_ManagerListService;
@@ -30,3 +31,4 @@ public class Ad_ManagerListServiceImpl implements Ad_ManagerListService {
         return 0;
     }
 }
+*/
