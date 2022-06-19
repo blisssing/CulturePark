@@ -1,7 +1,7 @@
 package kg.twojin.culturePark.manager.service;
 
-import kg.twojin.culturePark.manager.dao.ManagerDAO;
-import kg.twojin.culturePark.manager.vo.ManagerVO;
+import kg.twojin.culturePark.common.dao.ManagerDAO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

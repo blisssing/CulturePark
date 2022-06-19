@@ -6,6 +6,7 @@
 <head>
    <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
     https://unknown-coding.tistory.com/16--%>
+`<%--    https://velog.io/@aloha006/spring-문자-API-사용--%>
     <%--!!!!!!!!!!!!!  정규식 적용할 것 !!!!!!!!!!!!! --%>
     <meta charset="utf-8">
     <meta name="viewport"
