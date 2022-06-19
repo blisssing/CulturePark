@@ -49,7 +49,9 @@ public class ManagerManageServiceImpl implements ManagerManageService {
     }
 
     @Override
-    public int removeManager(ManagerVO managerVO) {
-        return 1;
+    public int deleteManager(ManagerVO managerVO) {
+        int result = 0;
+        result = managerDAO.deleteManager(managerVO);
+        return result;
     }
 }

@@ -12,5 +12,7 @@ public interface ManagerDAO {
 
     int updateManager(ManagerVO managerVO);
 
+    int deleteManager(ManagerVO managerVO);
+
     List selectAllManagers();
 }

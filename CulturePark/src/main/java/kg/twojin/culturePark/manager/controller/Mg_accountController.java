@@ -5,6 +5,7 @@ import kg.twojin.culturePark.manager.service.ManagerManageService;
 import kg.twojin.culturePark.manager.vo.ManagerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -119,7 +120,6 @@ public class Mg_accountController {
         // 권한 문자열 셋팅
         updateVO.setMg_is(chk_str);
 
-
         int result = managerManageService.updateManager(updateVO);
 
         if (result == 1) {
@@ -131,6 +131,34 @@ public class Mg_accountController {
         return mv;
     }
 
+    @RequestMapping("mAccountDelete.mdo")
+    public ModelAndView mgAccountDelete(@ModelAttribute("managerVO") ManagerVO deleteVO,
+                                        @RequestParam String chk_text,
+                                        HttpServletRequest request, HttpServletResponse response) {
+
+        System.out.println("delete 동작 확인");
+        ModelAndView mv = new ModelAndView();
+        String chk_text_check = chk_text;
+        String chk_text_ok = "매니저를 삭제합니다";
+
+
+        int result = managerManageService.deleteManager(deleteVO);
+
+        if(chk_text_check == chk_text_ok) {
+            result = 1;
+        }else {
+           result = 0;
+        }
+
+        if (result == 1) {
+            mv.setViewName("redirect:/mAccountList.mdo");
+        } else {
+            mv.setViewName("redirect:/index.mdo");
+        }
+
+        return mv;
     }
+
+}
 
 

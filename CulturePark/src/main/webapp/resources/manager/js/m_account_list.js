@@ -3,7 +3,7 @@ $('.btn_update_manager').click(function() {
     eventRow = $(this).closest('tr');
     modal_now = $('#UpdateModal');
 
-    var comp_num = eventRow.children('.comp_num');
+/*    var comp_num = eventRow.children('.comp_num');*/
     var name = eventRow.children('.name').text();
     var email = eventRow.children('.email').text();
     var phone = eventRow.children('.phone').text();
@@ -53,7 +53,12 @@ $('.btn_finalDelete').click(function () {
         eventRow.remove();
         closeModal(modal_now);
         alert("성공적으로 매니저를 삭제했습니다");
-        reloadPage();
+
+        var frm = $('.frm_delete_modal');
+
+        frm.attr("action","/mAccountDelete.mdo");
+        frm.submit();
+
     } else {
         alert("잘못 입력했습니다. 다시 확인해주세요.")
     }
@@ -74,9 +79,9 @@ function closeModal(modal_now) {
     modal_now.modal('hide');
 }
 
-function reloadPage() {
+/*function reloadPage() {
     location.reload();
-}
+}*/
 
 function rebuildIs(str_is) {
     /* 슬래쉬로 구분돼 있는 문자열을 다시 나눠서 셋팅 하는 방법*/
@@ -106,8 +111,5 @@ function rebuildIs(str_is) {
         }
 
     }
-
-
-
 
 }
