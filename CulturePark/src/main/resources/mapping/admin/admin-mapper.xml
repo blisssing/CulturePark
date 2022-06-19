@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.admin">
+
+    <!--Sample-->
+    <!--    <select id="selectBlog" parameterType="int" resultType="Blog">-->
+    <!--        select * from Blog where id = #{id}-->
+    <!--    </select>-->
+
+    <resultMap id="adResult" type="adminVO">
+        <result property="ad_seq"  column="ad_seq"></result>
+        <result property="ad_email" column="ad_email"></result>
+        <result property="ad_pw" column="ad_pw"></result>
+        <result property="ad_name"  column="ad_name"></result>
+        <result property="ad_tel"   column="ad_tel"></result>
+        <result property="ad_is"    column="ad_is"></result>
+        <result property="ad_depart" column="ad_depart"></result>
+        <result property="ad_createDate" column="ad_createdate"></result>
+    </resultMap>
+
+    <select id="selectAllAdmin" resultMap="adResult">
+    <![CDATA[
+        SELECT * FROM ADMIN_ACCOUNT;
+        ]]>
+    </select>
+
+    <select id="selectAdmin"  resultType="adminVO" parameterType="adminVO" >
+    <![CDATA[
+        SELECT *
+        FROM ADMIN_ACCOUNT
+        WHERE AD_EMAIL = #{ad_email};
+    ]]>
+    </select>
+
+    <select id="updateAdminWithPw" parameterType="adminVO">
+        UPDATE ADMIN_ACCOUNT
+        SET  ad_pw=#{ad_pw},ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}
+        WHERE ad_seq=#{ad_seq};
+    </select>
+
+    <select id="updateAdminWithoutPw" parameterType="adminVO">
+        UPDATE ADMIN_ACCOUNT
+        SET ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}
+        WHERE ad_seq=#{ad_seq};
+    </select>
+
+
+    <insert id="insertAdmin" parameterType="adminVO">
+        INSERT INTO ADMIN_ACCOUNT
+            (AD_EMAIL,AD_PW,AD_NAME,AD_TEL,AD_IS,AD_DEPART, AD_CREATEDATE)
+            VALUES
+            (
+                #{ad_email},
+                #{ad_pw},
+                #{ad_name},
+                #{ad_tel},
+                #{ad_is},
+                #{ad_depart},
+                #{ad_createDate}
+            );
+    </insert>
+
+    <delete id="deleteAdmin" parameterType="adminVO">
+        <![CDATA[
+            DELETE FROM ADMIN_ACCOUNT
+            WHERE AD_SEQ=#{ad_seq};
+        ]]>
+    </delete>
+
+
+
+
+    <!--     int 타입으로 id 값을 검색하여 받은후, blog 타입의 형태로 변환 해준다.-->
+
+
+</mapper>

@@ -9,7 +9,7 @@
 <!--    <mvc:resources mapping="/resources/**" location="/resources/common/"/>-->
 
 
-    <context:component-scan base-package="kg.twojin.culturePark.common.controller"></context:component-scan>
+
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/common/"></property>

@@ -17,14 +17,24 @@
     <%--    <div class="funcs_mobile">--%>
     <%--        <button type="button" class="toggle_btn" id="close_btn"><i class="fa-solid fa-xmark"></i></button>--%>
     <%--    </div>--%>
+
+        <div class="funcs_mobile">
+            <button type="button" class="sideMenu_close_btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+    <div class="side_section_m_div">
+
+        <hr>
     <ul class="side_section_m">
-        <div class="funcs_mobile"><button type="button" class="sideMenu_close_btn"><i class="fa-solid fa-xmark"></i></button></div>
-        <li class="sideList_m"><a href="/exhibitMain.do">전시</a></li>
-        <li class="sideList_m"><a href="/museumMain.do">뮤지엄</a></li>
-        <li class="sideList_m"><a href="/rankPage.do">랭킹</a></li>
-        <li class="sideList_m"><a href="/reviewPage.do">리뷰 게시판</a></li>
-        <li class="sideList_m"><a href="/servicePage.do">고객센터</a></li>
+        <li class="sideList_m"><a href="/exhibitMain.do">Exhibition</a></li>
+        <li class="sideList_m"><a href="/museumMain.do">Museum</a></li>
+        <li class="sideList_m"><a href="/rankPage.do">Ranking</a></li>
+        <li class="sideList_m"><a href="/reviewPage.do">Review</a></li>
+        <li class="sideList_m"><a href="/servicePage.do">QnA</a></li>
     </ul>
+    </div>
+        <hr>
+
     <div class="footerContainer">
         <div class="footer_info footer_m">
             <div class="info_wrap">

@@ -50,12 +50,6 @@ public class HomePageController {
         return mv;
     }
 
-    @RequestMapping(value = "/login.do")
-    public ModelAndView getLoginPage() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("member_login");
-        return mv;
-    }
 
     @RequestMapping(value = "/join.do")
     public ModelAndView getJoinPage() {

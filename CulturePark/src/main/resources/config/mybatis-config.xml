@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <typeAliases>
+        <typeAlias alias="adminVO" type="kg.twojin.culturePark.common.vo.AdminVO" ></typeAlias>
+        <typeAlias alias="managerVO" type="kg.twojin.culturePark.common.vo.ManagerVO" ></typeAlias>
+        <typeAlias alias="memberVO" type="kg.twojin.culturePark.common.vo.MemberVO"/>
+    </typeAliases>
+
+
+    <mappers>
+        <mapper resource="mapping/user/user-mapper.xml"/>
+        <mapper resource="mapping/admin/admin-mapper.xml"/>
+        <mapper resource="mapping/manager/manager-mapper.xml"/>
+    </mappers>
+
+    <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->
+    <!-- applicationConfig와 비슷한 목적을 가진 페이지로, 환경을 미리 셋팅 해준다. -->
+
+</configuration>

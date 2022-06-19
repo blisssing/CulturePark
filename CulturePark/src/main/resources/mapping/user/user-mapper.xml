@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.user">
+
+    <!--Sample-->
+<!--    <select id="selectBlog" parameterType="int" resultType="Blog">-->
+<!--        select * from Blog where id = #{id}-->
+<!--    </select>-->
+
+    <insert id="insertMember" parameterType="memberVO">
+        INSERT INTO MEMBER_ACCOUNT
+        (
+         MB_EMAIL, MB_PW, MB_NICK, MB_NAME,MB_BIRTH,MB_GENDER, MB_TEL, MB_CREATEDATE
+        )
+        VALUES
+        (
+         #{mb_email},
+         #{mb_pw},
+         #{mb_nick},
+         #{mb_name},
+         #{mb_birth},
+         #{mb_gender},
+         #{mb_tel},
+         #{mb_createDate}
+        );
+    </insert>
+
+    <select id="selectExistEmail" parameterType="string">
+        SELECT MB_EMAIL
+        FROM MEMBER_ACCOUNT
+        WHERE MB_EMAIL = ${mb_email};
+    </select>
+
+    <select id="selectNickName" parameterType="string">
+        SELECT MB_NICK
+        FROM MEMBER_ACCOUNT
+        WHERE MB_NICK = ${mb_nick};
+    </select>
+
+</mapper>

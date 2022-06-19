@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.manager">
+
+<resultMap id="mgResult" type="managerVO">
+    <result property="comp_seq" column="comp_seq"></result>
+    <result property="mg_seq" column="mg_seq"></result>
+    <result property="mg_email" column="mg_email"></result>
+    <result property="mg_pw" column="mg_pw"></result>
+    <result property="mg_name" column="mg_name"></result>
+    <result property="mg_tel" column="mg_tel"></result>
+    <result property="mg_is" column="mg_is"></result>
+    <result property="mg_createDate" column="mg_createdate"></result>
+</resultMap>
+
+<insert id="insertManager" parameterType="managerVO">
+    INSERT INTO MANAGER_ACCOUNT
+    (COMP_SEQ, MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
+    VALUES
+    (
+        #{comp_seq},
+        #{mg_email},
+        #{mg_pw},
+        #{mg_name},
+        #{mg_tel},
+        #{mg_is},
+        #{mg_createDate}
+    );
+</insert>
+    <!--/* parameterType : 인자값 */-->
+<update id="updateManager" parameterType="managerVO">
+       UPDATE MANAGER_ACCOUNT
+       set MG_EMAIL=#{mg_email},
+           MG_NAME=#{mg_name},
+           MG_TEL=#{mg_tel},
+           MG_IS=#{mg_is};
+</update>
+
+<delete id="deleteManager" parameterType="managerVO">
+    DELETE FROM MANAGER_ACCOUNT
+    WHERE MG_EMAIL=#{mg_email};
+</delete>
+
+<select id="selectAllManager" resultMap="mgResult">
+    <![CDATA[
+    SELECT * FROM MANAGER_ACCOUNT
+    ]]>
+</select>
+
+</mapper>

@@ -15,7 +15,18 @@
     <style><%@include file="/resources/user/css/common_side.css"%></style>
     <style><%@include file="/resources/user/css/main_home.css"%></style>
 
-    <%--  js 불러오기  --%>
+    <%-- google font link--%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
+
+
+
+<%--  js 불러오기  --%>
 
 
 
@@ -35,7 +46,7 @@
 
         <div class="event_section">
             <div class="section_name">
-                <span class="section_title">이벤트</span>
+                <span class="section_title">이벤트 (뺄것)</span>
             </div>
             <div class="slide_section" id="slide_event">
                 <ul class="img_box">
