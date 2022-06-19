@@ -1,7 +1,7 @@
 package kg.twojin.culturePark.user.service;
 
-import kg.twojin.culturePark.dao.MemberDAO;
-import kg.twojin.culturePark.vo.MemberVO;
+import kg.twojin.culturePark.common.dao.MemberDAO;
+import kg.twojin.culturePark.common.vo.MemberVO;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.json.simple.JSONObject;

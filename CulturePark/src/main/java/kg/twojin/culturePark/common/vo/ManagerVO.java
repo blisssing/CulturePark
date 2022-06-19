@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.manager.vo;
+package kg.twojin.culturePark.common.vo;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;

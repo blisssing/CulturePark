@@ -1,6 +1,6 @@
-package kg.twojin.culturePark.dao.impl;
+package kg.twojin.culturePark.common.dao.impl;
 
-import kg.twojin.culturePark.dao.ProdoctDAO;
+import kg.twojin.culturePark.common.dao.ProdoctDAO;
 import org.springframework.stereotype.Repository;
 
 @Repository("prodocutDAO")

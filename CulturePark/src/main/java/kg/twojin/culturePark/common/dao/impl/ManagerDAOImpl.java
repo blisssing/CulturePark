@@ -1,9 +1,9 @@
-package kg.twojin.culturePark.manager.dao;
+package kg.twojin.culturePark.common.dao.impl;
 
-import kg.twojin.culturePark.manager.vo.ManagerVO;
+import kg.twojin.culturePark.common.dao.ManagerDAO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package kg.twojin.culturePark.user.service;
 
-import kg.twojin.culturePark.vo.MemberVO;
+import kg.twojin.culturePark.common.vo.MemberVO;
 
 
 public interface MemberJoinService {

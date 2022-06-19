@@ -1,4 +1,4 @@
-package kg.twojin.culturePark.vo;
+package kg.twojin.culturePark.common.vo;
 
 import java.util.Date;
 

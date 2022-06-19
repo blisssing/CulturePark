@@ -1,7 +1,7 @@
-package kg.twojin.culturePark.dao;
+package kg.twojin.culturePark.common.dao;
 
 
-import kg.twojin.culturePark.vo.MemberVO;
+import kg.twojin.culturePark.common.vo.MemberVO;
 
 public interface MemberDAO {
 
