@@ -1,7 +1,8 @@
-package kg.twojin.culturePark.user.service;
+package kg.twojin.culturePark.user.service.impl;
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.user.service.MemberJoinService;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.json.simple.JSONObject;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 
 @Service("memberJoinService")
-public class MemberJoinServiceImpl implements MemberJoinService{
+public class MemberJoinServiceImpl implements MemberJoinService {
 
     @Autowired
     MemberDAO memberDAO;
@@ -65,7 +66,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
 
     @Override
     public int joinMember(MemberVO memberVO) {
-        return 0;
+        return memberDAO.insertMember(memberVO);
     }
 
 }

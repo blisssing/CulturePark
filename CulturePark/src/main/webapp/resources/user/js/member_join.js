@@ -1,12 +1,15 @@
 $(document).ready(function() {
 
     var frm = $('#frm');
+
     var code = "";
     var mb_email = "";
     var chk_email_result = "";
     var chk_pw_result = "";
     var chk_nick_result = "";
+    var chk_phone_result = "";
     var chk_agree_result = "";
+    var ajax_result="";
 
     /* 이전 */
 
@@ -123,6 +126,7 @@ $(document).ready(function() {
             alert("인증번호 발송이 완료되었습니다. \n 휴대폰에서 인증번호를 확인해 주십시오");
 
             var phone = first_num + second_num + third_num;
+
             $('.code_reSend_btn').prop("disabled", false);
             $('.authentication_code').prop("disabled", false);
             $('.code_ok_btn').prop("disabled", false);
@@ -131,11 +135,9 @@ $(document).ready(function() {
             $('.tel_3').prop("disabled", true);
             $('.tel_2').prop("disabled", true);
 
-
-
-
-
             // sendSMS(phone);
+            code = "1234"; // 임시 코드
+
         }
     });
 
@@ -144,8 +146,10 @@ $(document).ready(function() {
         var authen_code = $('.authentication_code').val();
 
         if (code === authen_code) {
+            chk_phone_result = "able";
             alert("인증번호가 일치합니다");
         } else {
+            chk_phone_result="disable"
             alert("인증번호가 불일치합니다. 확인해주시기 바랍니다");
         }
 
@@ -153,18 +157,49 @@ $(document).ready(function() {
 
     $('.join_btn').click(function () {
 
-        //Todo : 입력값들 제대로 기입돼 있는지 확인해주는 작업 마무리 해주고 DB에 insert 작업 마무리 해주기
-        if (chk_email_result === 'disable ') {
+        var mb_email = $('.id_value_1').val();
+        var mb_pw = $('.pw_value').val();
+        var mb_nick = $('.nick_value').val();
+        var mb_name = $('.name_value').val();
+        var mb_birth = $('.jumin_value1').val();
+        var mb_gender;
 
-        } else if (chk_pw_result === 'disable') {
+        var mb_jumin2 = $('.jumin_value2').val();
 
-        } else if (chk_nick_result === 'disable') {
-
-        } else if (chk_agree_result === 'disable') {
-
+        if (mb_jumin2 === '1' || mb_jumin2 === '3') {
+            mb_gender = "male";
+        } else {
+            mb_gender = "female";
         }
 
-        console.log(chk_email_result, chk_pw_result,chk_nick_result,chk_agree_result);
+
+        var phoneStr = phoneNumberString();
+        var result_create;
+
+
+        if (chk_email_result !== 'able') {
+            alert("이메일 중복확인을 해주시길 바랍니다");
+        } else if (chk_pw_result !== 'able') {
+            alert("비밀번호 기입을 확인해주시길 바랍니다")
+        } else if (chk_nick_result !== 'able') {
+            alert("닉네임 중복확인을 해주시길 바랍니다");
+        } else if (checkOthers()!==1) {
+            alert("입력을 정상적으로 해주시길 바랍니다");
+        } else if (chk_phone_result !== 'able') {
+            alert("인증번호를 먼저 확인해주시길 바랍니다");
+        } else if (chk_agree_result !== 'able') {
+            alert("동의를 모두 해주시길 바랍니다.")
+        }  else {
+            createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
+            if (ajax_result === 'success') {
+                alert("생성 성공");
+                location.href="/home.do";
+            } else {
+                alert("생성 실패");
+            }
+        }
+
+
 
     });
 
@@ -188,6 +223,7 @@ $(document).ready(function() {
             cache:false,
             data:{mb_email:mb_email},
             success: function (data) {
+                console.log(data);
                 chk_email_result = data;
                 if (chk_email_result === "able") {
                     alert("사용 가능한 주소입니다");
@@ -230,6 +266,16 @@ $(document).ready(function() {
         }
     }
 
+    function phoneNumberString() {
+        var first_num = $('.tel_1').val();
+        var second_num = $('.tel_2').val()
+        var third_num = $('.tel_3').val();
+
+        var phone = first_num + second_num + third_num;
+
+        return phone;
+    }
+
     function sendSMS(phone) {
         $.ajax({
             type: "post",
@@ -246,5 +292,32 @@ $(document).ready(function() {
             }
         });
     }
+
+
+    function createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr) {
+        var all_Data = {"mb_email": mb_email, "mb_pw":mb_pw, "mb_nick":mb_nick, "mb_name":mb_name,
+                        "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+        console.log(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
+
+
+
+        $.ajax({
+            type:"post",
+            dataType:"JSON",
+            data:JSON.stringify(all_Data),
+            cache:false,
+            async:false,
+            contentType: 'application/json; charset=utf-8',
+            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url:"/culturePark/createUserProc.do",
+            success: function (data) {
+                console.log(data);
+                ajax_result = data.result;
+            }
+        });
+
+    }
+
+
 
 });

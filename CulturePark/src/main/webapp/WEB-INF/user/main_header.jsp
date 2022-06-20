@@ -12,7 +12,7 @@
         <div class="function_section">
             <ul class="funcs_pc">
                 <li><a class="func_list" href="/member_login_do">login</a></li>
-                <li><a class="func_list" href="/member_join.do">join</a></li>
+                <li><a class="func_list" href="/join.do">join</a></li>
                 <li><a class="func_list" href="/myPage.do">my page</a></li>
                 <li><a class="func_list" href="/myTicket.do">my ticket</a></li>
             </ul>

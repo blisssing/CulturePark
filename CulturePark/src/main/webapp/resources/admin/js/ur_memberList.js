@@ -1,5 +1,37 @@
 $(document).ready(function () {
 
+
+    // Todo : 활성 - 비활성 토글 적용
+    $('input[name=btn_active]').click(function () {
+        var mb_seq = $(this).attr('.user_num').val();
+        var btn_active = $('input[name=btn_active]');
+        var value = btn_active.val();
+        if (value === 'active') {
+            btn_active.val('inactive');
+        } else {
+            btn_active.val('active');
+        }
+        var new_val = btn_active.val();
+        var map = {"mb_seq":mb_seq,"mb_status": new_val};
+
+        $.ajax({
+            type:"post",
+            dateType:"JSON",
+            data:JSON.stringify(new_val),
+            cache:false,
+            async:false,
+            contentType:'application/json; charset=utf-8',
+            traditional:true,
+            url:"changeMbActive.ado",
+            success: function (data) {
+
+            }
+
+        });
+
+
+    });
+
     $('.btn_modi_info').click(function () {
         clearUserInfo();
         selectedRow = $(this).closest('tr');
@@ -17,7 +49,6 @@ $(document).ready(function () {
         modal_now  = $('#UserInfoModal');
         modal_now.modal({});
     });
-
 
     //  임시 키 발급
     $('.btn_temp_key').click(function () {
@@ -60,7 +91,6 @@ $(document).ready(function () {
         var level = $('#SelectLevel').val();
         alert('단계 : ' + level + "\n reason : " + reason);
     });
-
 
     $('.btn_report').click(function () {
         selectedRow = $(this).closest('tr');
