@@ -296,7 +296,8 @@ $(document).ready(function() {
 
     function createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr) {
         var all_Data = {"mb_email": mb_email, "mb_pw":mb_pw, "mb_nick":mb_nick, "mb_name":mb_name,
-                        "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+            "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+
         console.log(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
 
 

@@ -6,7 +6,10 @@
 
     <typeAliases>
         <typeAlias alias="adminVO" type="kg.twojin.culturePark.common.vo.AdminVO" ></typeAlias>
+
+
         <typeAlias alias="managerVO" type="kg.twojin.culturePark.common.vo.ManagerVO" ></typeAlias>
+
         <typeAlias alias="memberVO" type="kg.twojin.culturePark.common.vo.MemberVO"/>
     </typeAliases>
 

@@ -9,7 +9,11 @@ public interface MemberJoinService {
 
     void certifiedTelNumber(String userPhoneNumber, int randomNumber);
 
+
+    void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
+
     String searchEmailAddress(String userEmail);
 
     String searchNickname(String userNick);
 }
+

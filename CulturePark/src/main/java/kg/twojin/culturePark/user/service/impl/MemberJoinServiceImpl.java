@@ -53,6 +53,28 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     }
 
     @Override
+
+    public void certifiedTelNumber(String userPhoneNumber, int randomNumber) {
+        String api_key = "NCSPDPTUNFAJ7XXO";
+        String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
+        Message coolsms = new Message(api_key, api_secret);
+        HashMap<String, String> set = new HashMap<String, String>();
+        set.put("to", userPhoneNumber);
+        set.put("from", "01098672292");
+        set.put("type", "sms");
+        set.put("text", "[Web 발신] CulturePark 인증번호는 : " + "[" + randomNumber + "]" + "입니다");
+        set.put("app_version", "ver 0.6");
+        try {
+            JSONObject result = coolsms.send(set); // 보내기&전송결과받기
+            System.out.println(result.toString());
+        } catch (CoolsmsException e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getCode());
+        }
+
+    }
+
+    @Override
     public String searchNickname(String userNick) {
         String result= memberDAO.selectNickName(userNick);
 
@@ -68,5 +90,6 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     public int joinMember(MemberVO memberVO) {
         return memberDAO.insertMember(memberVO);
     }
+
 
 }

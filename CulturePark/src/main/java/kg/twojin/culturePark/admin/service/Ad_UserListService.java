@@ -8,3 +8,4 @@ public interface Ad_UserListService {
 
     List<MemberVO> getMemberList();
 }
+

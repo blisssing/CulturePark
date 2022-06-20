@@ -33,9 +33,12 @@ public class Account_UrList_Controller {
 
     @RequestMapping(value = "changeMbActive.ado")
     public void changeMbActive(@RequestParam("mq_seq")int mq_seq,
-                                @RequestParam("mq_status") String mq_status) {
+
+                               @RequestParam("mq_status") String mq_status) {
+
 
 
 
     }
+
 }

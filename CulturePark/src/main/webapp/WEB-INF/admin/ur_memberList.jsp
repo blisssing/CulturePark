@@ -64,6 +64,7 @@
             transition: .4s;
         }
 
+
         .slider:before {
             position: absolute;
             content: "";
@@ -79,6 +80,7 @@
         input:checked + .slider {
             background-color: #2196F3;
         }
+
 
         input:focus + .slider {
             box-shadow: 0 0 1px #2196F3;
@@ -194,11 +196,11 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                    <c:forEach var="userVO" items="${memberVOList}">
-                                        <c:set var="count" value="${count + 1}"/>
-                                        <fmt:formatDate var="formatRegDate" value="${userVO.mb_createDate}" pattern="yyyy-MM-dd"/>
-                                        <tr>
-                                            <form name="frm">
+                                <c:forEach var="userVO" items="${memberVOList}">
+                                    <c:set var="count" value="${count + 1}"/>
+                                    <fmt:formatDate var="formatRegDate" value="${userVO.mb_createDate}" pattern="yyyy-MM-dd"/>
+                                    <tr>
+                                        <form name="frm">
                                             <input type="hidden" class="user_num" value="${userVO.mb_seq}">
                                             <td class="seq">${count}</td>
                                             <td class="email">${userVO.mb_email}</td>
@@ -209,14 +211,15 @@
                                             <td class="report"><button class="btn_report">0</button></td>
                                             <td class="status">
                                                 <label class="switch">
-                                                <c:choose>
-                                                    <c:when test="${userVO.mb_status=='ACTIVE'}">
-                                                        <input type="checkbox" checked="checked" value="active" name="btn_active">
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <input type="checkbox" value="inactive" name="btn_active">
-                                                    </c:otherwise>
-                                                </c:choose>
+                                                    <c:choose>
+                                                        <c:when test="${userVO.mb_status=='ACTIVE'}">
+                                                            <input type="checkbox" checked="checked" value="active" name="btn_active">
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <input type="checkbox" value="inactive" name="btn_active">
+                                                        </c:otherwise>
+                                                    </c:choose>
+
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <c:choose>
@@ -230,17 +233,6 @@
                                                     </c:otherwise>
                                                 </c:choose>
 
-
-
-<%--                                                    <c:otherwise>--%>
-<%--                                                        <label class="switch">--%>
-<%--                                                            <input type="checkbox" name="btn_active" value="1">--%>
-<%--                                                            <span class="slider round"></span>--%>
-<%--                                                        </label>--%>
-<%--                                                        <p class="toggle_p" disabled="none">활성화</p>--%>
-<%--                                                        <p class="toggle_p">비활성</p>--%>
-<%--                                                    </c:otherwise>--%>
-
                                             </td>
                                             <td class="btn_section">
                                                 <div class="btn_wrap">
@@ -250,9 +242,9 @@
                                                     <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
                                                 </div>
                                             </td>
-                                            </form>
-                                        </tr>
-                                    </c:forEach>
+                                        </form>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -353,7 +345,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <span class="form-head">징계사유</span>
-                                        <span>
+                                    <span>
                                             <select class="select_dicip">
                                                 <option name="slc_dicip" value="case1" >사유1</option>
                                                 <option name="slc_dicip" value="case2">사유2</option>
