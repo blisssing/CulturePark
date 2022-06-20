@@ -1,12 +1,23 @@
 package kg.twojin.culturePark.user.controller;
 
+
+import kg.twojin.culturePark.user.service.MemberJoinService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletResponse;
 
 //https://wakestand.tistory.com/361
 @Controller
 public class SellerPageController {
+    @Autowired
+    MemberJoinService memberJoinService;
+
 
     @RequestMapping(value = "/registSeller.do")
     public ModelAndView registSeller() {
@@ -14,6 +25,26 @@ public class SellerPageController {
         mv.setViewName("seller_regist");
         return mv;
     }
+
+    //휴대폰 문자 보내기
+    @RequestMapping(value = "/telCheck.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendSMS(@RequestParam("phone") String userTelNumber) {
+        System.out.println("실행확인");
+
+        int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);//난수생성
+        memberJoinService.certifiedTelNumber(userTelNumber, randomNumber);
+        return Integer.toString(randomNumber);
+    }
+
+/*    @RequestMapping(value = "/culturePark/chkPhone.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendSms(@RequestParam("phone") String phoneNumber, HttpServletResponse response) throws Exception {
+
+        int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000); // 난수 생성
+        memberJoinService.certifiedTelNumber(phoneNumber, randomNumber);
+        return Integer.toString(randomNumber);
+    }*/
 
 //    @RequestMapping(value = "/sellerUpload.do")
 //    public String uploadFile(HttpServletRequest request, @RequestParam("imgFile")MultipartFile imgFile,

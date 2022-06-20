@@ -6,16 +6,15 @@ $(document).ready(function () {
         var password_02 = $('#RepeatPassword').val();
         var name = $('#InputName').val();
         var tel = $('#InputTel').val();
-        var chk_list = $('input[name=chk_right]:checked');
+        var chk_list = $('input[name=chk_is]:checked');
 
-        var frm = $('#frm');
 
        if(email.trim() === '') {
             alert("이메일을 입력해주세요.");
-       }else if (password_01.trim() === '' || password_01.length < 12) {
-           alert("비밀번호를 12자 이상 입력해주세요");
-       } else if (password_02.trim() === '' || password_02.length < 12) {
-           alert("비밀번호 재입력을 12자 이상 입력해주세요");
+       }else if (password_01.trim() === '') {
+           alert("비밀번호를 입력해주세요");
+       } else if (password_02.trim() === '' ) {
+           alert("비밀번호 재입력을 기입해주세요");
        } else if (password_01 !== password_02) {
            alert("비밀번호와 재입력이 일치하지 않습니다");
        } else if (name.trim() === '') {
@@ -37,8 +36,8 @@ $(document).ready(function () {
                alert("비밀번호 숫자와 영어 그리고 특수문자가 최소 1개 이상");
            } else {
                alert("계정생성 성공!");
-               frm.attr("action", "/login.mdo");
-               frm.submit();
+               $('#frm').submit();
+
            }
        }
 

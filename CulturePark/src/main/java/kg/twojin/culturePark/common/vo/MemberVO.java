@@ -12,4 +12,5 @@ public class MemberVO {
             mb_gender, mb_tel, mb_status;
     int mb_seq;
     Date mb_createDate;
+
 }

@@ -1,8 +1,9 @@
 package kg.twojin.culturePark.admin.service.impl;
 
 import kg.twojin.culturePark.admin.service.Ad_ManagerListService;
-import kg.twojin.culturePark.manager.dao.ManagerDAO;
-import kg.twojin.culturePark.manager.vo.ManagerVO;
+
+import kg.twojin.culturePark.common.dao.ManagerDAO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.CompanyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,7 @@ public class Ad_ManagerListServiceImpl implements Ad_ManagerListService {
 
     @Override
     public List<ManagerVO> getManagerList() {
-        return managerDAO.listManagers();
+        return managerDAO.selectAllManagers();
     }
 
     @Override

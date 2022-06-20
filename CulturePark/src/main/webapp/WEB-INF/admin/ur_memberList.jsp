@@ -64,6 +64,7 @@
             transition: .4s;
         }
 
+
         .slider:before {
             position: absolute;
             content: "";
@@ -79,6 +80,7 @@
         input:checked + .slider {
             background-color: #2196F3;
         }
+
 
         input:focus + .slider {
             box-shadow: 0 0 1px #2196F3;
@@ -217,6 +219,7 @@
                                                             <input type="checkbox" value="inactive" name="btn_active">
                                                         </c:otherwise>
                                                     </c:choose>
+
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <c:choose>
@@ -229,17 +232,6 @@
                                                         <p class="toggle_p">비활성</p>
                                                     </c:otherwise>
                                                 </c:choose>
-
-
-
-                                                    <%--                                                    <c:otherwise>--%>
-                                                    <%--                                                        <label class="switch">--%>
-                                                    <%--                                                            <input type="checkbox" name="btn_active" value="1">--%>
-                                                    <%--                                                            <span class="slider round"></span>--%>
-                                                    <%--                                                        </label>--%>
-                                                    <%--                                                        <p class="toggle_p" disabled="none">활성화</p>--%>
-                                                    <%--                                                        <p class="toggle_p">비활성</p>--%>
-                                                    <%--                                                    </c:otherwise>--%>
 
                                             </td>
                                             <td class="btn_section">

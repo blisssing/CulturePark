@@ -7,6 +7,7 @@
     <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
      https://unknown-coding.tistory.com/16--%>
     `<%--    https://velog.io/@aloha006/spring-문자-API-사용--%>
+
     <%--!!!!!!!!!!!!!  정규식 적용할 것 !!!!!!!!!!!!! --%>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -56,6 +57,7 @@
                         <input class="id_value_1" type="email" name="mb_email" maxlength="40">
 
 
+
                         <%-- 아이디 중복확인 버튼 --%>
                         <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                     </div>
@@ -74,6 +76,7 @@
                         </div>
                     </div>
 
+
                     <div class="nick_section section_type01">
                         <div class="nick_label">닉네임</div>
                         <div class="nick_confirm_msg_section">
@@ -83,6 +86,7 @@
                             <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
                         </div>
                     </div>
+
 
 
                     <div class="name_section section_type01">
@@ -96,9 +100,11 @@
                         <input class="jumin_value2" type="textFiled" name="jumin_value2" maxlength="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> ******
                     </div>
 
+
                     <div class="tel_section section_type01">
 
                         <div class="tel_label">전화번호</div>
+
 
                         <div class="tel_div">
                             <select class="tel tel_1" id="tel_1" name="tel_1">
@@ -110,7 +116,9 @@
                             </select>
                         </div>
 
+
                         <span>-</span>
+
 
                         <div class="tel_div2">
                             <input class="tel tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
@@ -132,6 +140,7 @@
                     <div class="authentication_code_section section_type01">
                         <div class="authentication_code_label">인증번호</div>
 
+
                         <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
 
                         <div class="code_reSend_btn_section">
@@ -143,7 +152,6 @@
                     <div class="certifyTime">
                         <span class="time">10:00</span>
                     </div>
-
                 </div>
             </form>
             <%-- ---------------- 약관동의 영역 ------------------ --%>

@@ -18,4 +18,6 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
     public List<MemberVO> getMemberList() {
         return memberDAO.selectAllMember();
     }
+
 }
+

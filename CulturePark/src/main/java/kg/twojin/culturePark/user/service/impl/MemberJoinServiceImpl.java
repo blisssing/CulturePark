@@ -53,6 +53,7 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     }
 
     @Override
+
     public void certifiedTelNumber(String userPhoneNumber, int randomNumber) {
         String api_key = "NCSPDPTUNFAJ7XXO";
         String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
@@ -89,7 +90,6 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     public int joinMember(MemberVO memberVO) {
         return memberDAO.insertMember(memberVO);
     }
-
 
 
 }

@@ -62,10 +62,12 @@ public class MemberDAOImpl implements MemberDAO {
     public String selectNickName(String userNick) {
         String result = null;
         try {
-            result = sqlSessionTemplate.selectOne("mapper.user.selectNickName", userNick);
+
+           result = sqlSessionTemplate.selectOne("mapper.user.selectNickName", userNick);
         } catch (Exception e) {
             System.out.println("조회결과 : 없음");
         }
         return result;
     }
+
 }

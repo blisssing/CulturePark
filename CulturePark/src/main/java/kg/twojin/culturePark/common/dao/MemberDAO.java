@@ -15,4 +15,6 @@ public interface MemberDAO {
 
     String selectNickName(String userNick);
 
+
 }
+
