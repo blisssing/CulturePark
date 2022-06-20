@@ -232,14 +232,17 @@
                                                         <p class="toggle_p">비활성</p>
                                                     </c:otherwise>
                                                 </c:choose>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
                                             </td>
                                             <td class="btn_section">
                                                 <div class="btn_wrap">
-                                                    <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                    <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                    <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                    <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                    <button type="button" class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
+                                                    <button type="button" class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
+                                                    <button type="button" class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
+                                                    <button type="button" class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
                                                 </div>
                                             </td>
                                         </form>
@@ -270,7 +273,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-head">이메일</div>
-                                    <input class="userEmail form-control form-control-user">
+                                    <input class="userEmail form-control form-control-user" id="UserEmail">
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">이름</div>

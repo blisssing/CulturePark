@@ -58,4 +58,16 @@
         WHERE MB_NICK = ${mb_nick};
     </select>
 
+    <update id="updateMemberActive" parameterType="memberVO">
+        UPDATE MEMBER_ACCOUNT
+        SET MB_STATUS=#{mb_status}
+        WHERE MB_SEQ=#{mb_seq};
+    </update>
+
+    <update id="updateMemberPassword" parameterType="memberVO">
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PW=#{mb_pw}
+        WHERE MB_SEQ = #{mb_seq};
+    </update>
+
 </mapper>

@@ -37,12 +37,6 @@ public class MemberDAOImpl implements MemberDAO {
             memberVOList = null;
         }
 
-        int size = memberVOList.size();
-        for (int i = 0; i < size; i++) {
-            System.out.println(memberVOList.get(i).toString());
-
-        }
-
         return memberVOList;
     }
 
@@ -65,9 +59,42 @@ public class MemberDAOImpl implements MemberDAO {
 
            result = sqlSessionTemplate.selectOne("mapper.user.selectNickName", userNick);
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("조회결과 : 없음");
         }
         return result;
     }
 
+<<<<<<< HEAD
+    @Override
+    public int updateMemberActive(MemberVO memberVO) {
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.user.updateMemberActive", memberVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
+
+    @Override
+    public int updateMemberPassword(int mb_seq, String mb_pw) {
+        MemberVO memberVO = new MemberVO();
+        memberVO.setMb_seq(mb_seq);
+        memberVO.setMb_pw(mb_pw);
+
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.user.updateMemberPassword", memberVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = 1;
+        }
+
+        return result;
+    }
 }
+=======
+}
+>>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
