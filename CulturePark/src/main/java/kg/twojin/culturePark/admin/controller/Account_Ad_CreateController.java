@@ -1,7 +1,7 @@
 package kg.twojin.culturePark.admin.controller;
 
 
-import kg.twojin.culturePark.common.dao.AdminDAO;
+
 import kg.twojin.culturePark.admin.service.AdminManageService;
 import kg.twojin.culturePark.common.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,6 @@ import java.util.List;
 
 @Controller
 public class Account_Ad_CreateController {
-
-    @Autowired
-    AdminDAO adminDAO;
 
     @Autowired
     AdminManageService adminManageService;

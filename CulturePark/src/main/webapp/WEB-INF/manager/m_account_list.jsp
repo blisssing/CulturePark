@@ -91,8 +91,8 @@
                                         <c:set var="count" value="${count +1}"/>
                                         <tr>
                                         <form class="row_frm">
-                                            <input type="hidden" class="comp_num" value="${vo.comp_seq}">
-                                            <input type="hidden" class="manager_num" value="${vo.mg_seq}">
+                                            <input type="hidden" name="comp_seq" class="comp_num" value="${vo.comp_seq}">
+                                            <input type="hidden" name="mg_seq"   class="manager_num" value="${vo.mg_seq}">
                                             <td class="seq">${count}</td>
                                             <td class="comp">투진컴퍼니</td>
                                             <td class="name">${vo.mg_name}</td>
@@ -117,7 +117,7 @@
                                                 </div>
                                             </td>
                                         </form>
-                                    </tr>
+                                        </tr>
                                     </c:forEach>
 
                                 </tbody>

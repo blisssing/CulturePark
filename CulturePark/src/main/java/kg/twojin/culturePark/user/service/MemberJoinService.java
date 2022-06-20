@@ -7,7 +7,7 @@ public interface MemberJoinService {
 
     int joinMember(MemberVO memberVO);
 
-    void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
+    void certifiedTelNumber(String userPhoneNumber, int randomNumber);
 
     String searchEmailAddress(String userEmail);
 

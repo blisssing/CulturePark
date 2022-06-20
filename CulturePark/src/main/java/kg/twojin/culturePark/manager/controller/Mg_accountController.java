@@ -1,6 +1,6 @@
 package kg.twojin.culturePark.manager.controller;
 
-
+import kg.twojin.culturePark.common.dao.ManagerDAO;
 import kg.twojin.culturePark.manager.service.ManagerManageService;
 import kg.twojin.culturePark.common.vo.ManagerVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -19,7 +19,11 @@ import java.util.List;
 public class Mg_accountController {
 
     @Autowired
+    ManagerDAO managerDAO;
+
+    @Autowired
     ManagerManageService managerManageService;
+
 
 
     @RequestMapping(value = "/mAccountList.mdo")
@@ -98,7 +102,7 @@ public class Mg_accountController {
         */
 
 
-    @RequestMapping("mAccountModify.mdo")
+    @RequestMapping("mAccountModifyProc.mdo")
     public ModelAndView mgMAccountModify(@ModelAttribute("managerVO") ManagerVO updateVO,
                                          @RequestParam List<String> chk_is,
                                          HttpServletResponse response, HttpServletRequest request) {
@@ -130,34 +134,53 @@ public class Mg_accountController {
         return mv;
     }
 
-    @RequestMapping("mAccountDelete.mdo")
-    public ModelAndView mgAccountDelete(@ModelAttribute("managerVO") ManagerVO deleteVO,
-                                        @RequestParam String chk_text,
-                                        HttpServletRequest request, HttpServletResponse response) {
+// 삭제 1 번 형식 : 기본 형식
+    /*@RequestMapping("mAccountDeleteProc.mdo")
+    public ModelAndView mgAccountDelete(HttpServletRequest request, HttpServletResponse response,
+                                        @ModelAttribute("managerVO") ManagerVO deleteVO) {
+
+        ModelAndView mv = new ModelAndView();
 
         System.out.println("delete 동작 확인");
-        ModelAndView mv = new ModelAndView();
-        String chk_text_check = chk_text;
-        String chk_text_ok = "매니저를 삭제합니다";
-
-
         int result = managerManageService.deleteManager(deleteVO);
 
-        if(chk_text_check == chk_text_ok) {
-            result = 1;
-        }else {
-           result = 0;
-        }
-
         if (result == 1) {
+            System.out.println("삭제 성공");
             mv.setViewName("redirect:/mAccountList.mdo");
         } else {
+            System.out.println("삭제 실패");
             mv.setViewName("redirect:/index.mdo");
         }
-
         return mv;
+
+    }*/
+
+// 삭제 2 번 형식 : Ajax 형식
+    @RequestMapping("/mAccountDeleteProc.mdo")
+    @ResponseBody
+    public String mgAccountDelete(HttpServletRequest request, HttpServletResponse response,
+                                        @RequestParam("mg_seq") String mg_seq) {
+
+        ModelAndView mv = new ModelAndView();
+
+        int int_seq = Integer.parseInt(mg_seq);
+
+        System.out.println("delete 동작 확인");
+        int result = managerManageService.deleteManager(int_seq);
+
+        String result_str = "";
+        if (result == 1) {
+            System.out.println("삭제 성공");
+            result_str = "success";
+        } else {
+            System.out.println("삭제 실패");
+            result_str = "failed";
+        }
+        return result_str;
+
     }
 
 }
+
 
 
