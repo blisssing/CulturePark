@@ -9,12 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class Account_Ur_Controller {
 
 
-    @RequestMapping(value = "memberListPage.ado")
-    public ModelAndView memberList() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("ur_memberList");
-        return mv;
-    }
+
 
 
 

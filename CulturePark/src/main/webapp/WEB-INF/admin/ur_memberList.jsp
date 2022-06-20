@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,15 +31,82 @@
 
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
 
-
     <style>
-
         .btn_report {
             border: none;
             background-color: white;
         }
+        th {
+            white-space: nowrap;
+        }
 
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            vertical-align:middle;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        p {
+            margin:0px;
+            display:inline-block;
+            font-size:0.8rem;
+            font-weight:bold;
+        }
     </style>
+
 
 
     <title>CulturePark 관리자</title>
@@ -126,86 +194,65 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach var="userVO" items="${memberVOList}">
+                                    <c:set var="count" value="${count + 1}"/>
+                                    <fmt:formatDate var="formatRegDate" value="${userVO.mb_createDate}" pattern="yyyy-MM-dd"/>
                                     <tr>
-                                        <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">1</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="nick">희야</td>
-                                        <td class="name">한*희</td>
-                                        <td class="phone">01098888888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">0</button></td>
-                                        <td class="status">normal</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
-                                            </div>
-                                        </td>
+                                        <form name="frm">
+                                            <input type="hidden" class="user_num" value="${userVO.mb_seq}">
+                                            <td class="seq">${count}</td>
+                                            <td class="email">${userVO.mb_email}</td>
+                                            <td class="nick">${userVO.mb_nick}</td>
+                                            <td class="name">${userVO.mb_name}</td>
+                                            <td class="phone">${userVO.mb_tel}</td>
+                                            <td class="joinDate">${formatRegDate}</td>
+                                            <td class="report"><button class="btn_report">0</button></td>
+                                            <td class="status">
+                                                <label class="switch">
+                                                    <c:choose>
+                                                        <c:when test="${userVO.mb_status=='ACTIVE'}">
+                                                            <input type="checkbox" checked="checked" value="active" name="btn_active">
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <input type="checkbox" value="inactive" name="btn_active">
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <c:choose>
+                                                    <c:when test="${userVO.mb_status=='ACTIVE'}">
+                                                        <p class="toggle_p">활성화</p>
+                                                        <p class="toggle_p" style="display:none;">비활성</p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="toggle_p" style="display: none">활성화</p>
+                                                        <p class="toggle_p">비활성</p>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+
+
+                                                    <%--                                                    <c:otherwise>--%>
+                                                    <%--                                                        <label class="switch">--%>
+                                                    <%--                                                            <input type="checkbox" name="btn_active" value="1">--%>
+                                                    <%--                                                            <span class="slider round"></span>--%>
+                                                    <%--                                                        </label>--%>
+                                                    <%--                                                        <p class="toggle_p" disabled="none">활성화</p>--%>
+                                                    <%--                                                        <p class="toggle_p">비활성</p>--%>
+                                                    <%--                                                    </c:otherwise>--%>
+
+                                            </td>
+                                            <td class="btn_section">
+                                                <div class="btn_wrap">
+                                                    <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
+                                                    <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
+                                                    <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
+                                                    <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                </div>
+                                            </td>
+                                        </form>
                                     </tr>
-                                    <tr>
-                                        <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">2</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">뺙이</td>
-                                        <td class="name">김진아</td>
-                                        <td class="phone">01044448888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">0</button></td>
-                                        <td class="status">normal</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">3</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">홍민</td>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="phone">01022228888</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report"><button class="btn_report">1</button></td>
-                                        <td class="status">정지</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="user_num" value="100">
-                                        <td class="seq">5</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="nick">규찌</td>
-                                        <td class="name">한*진</td>
-                                        <td class="phone">01022229999</td>
-                                        <td class="joinDate">2022.10.10</td>
-                                        <td class="report" >
-                                            <button class="btn_report">1</button>
-                                        </td>
-                                        <td class="status">영구정지</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -306,7 +353,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <span class="form-head">징계사유</span>
-                                        <span>
+                                    <span>
                                             <select class="select_dicip">
                                                 <option name="slc_dicip" value="case1" >사유1</option>
                                                 <option name="slc_dicip" value="case2">사유2</option>
@@ -391,7 +438,9 @@
 
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
+<script src="/resources/common/js/toggleBtn.js"></script>
 <script src="/resources/admin/js/ur_memberList.js"></script>
+
 
 
 

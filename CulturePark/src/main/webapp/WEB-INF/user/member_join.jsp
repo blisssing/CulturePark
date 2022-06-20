@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
-    https://unknown-coding.tistory.com/16--%>
+    <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
+     https://unknown-coding.tistory.com/16--%>
+    `<%--    https://velog.io/@aloha006/spring-문자-API-사용--%>
     <%--!!!!!!!!!!!!!  정규식 적용할 것 !!!!!!!!!!!!! --%>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -26,20 +27,20 @@
 <div class="mainContainer">
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
 
-        <%-- haader --%>
-        <div class="header_container">
-            <%@ include file="/WEB-INF/user/main_header.jsp"%>
-        </div>
+    <%-- haader --%>
+    <div class="header_container">
+        <%@ include file="/WEB-INF/user/main_header.jsp"%>
+    </div>
 
     <div class="centerContainer">
         <%-- 절대 건드리지말기.  div 따로 만들어주고 건드리기 --%>
         <div class="innerContainer">
-                <div class="back_section">
-                    <div class="arrow_section">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <div class="back">뒤로가기</div>
-                    </div>
+            <div class="back_section">
+                <div class="arrow_section">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <div class="back">뒤로가기</div>
                 </div>
+            </div>
 
             <div class="join_label_section">
                 <div class="join_label">회원 가입</div>
@@ -47,103 +48,104 @@
 
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <form id="frm">
-            <div class="join_section">
-                <p class="sectionLine_thin"></p>
+                <div class="join_section">
+                    <p class="sectionLine_thin"></p>
 
-                <div class="id_section section_type01">
-                    <div class="id_label">아이디</div>
-                    <input class="id_value_1" type="textFiled" name="id_value_1">
-
-
-                    <%-- 아이디 중복확인 버튼 --%>
-                    <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
-                </div>
-
-                <div class="pw_section section_type01">
-                    <div class="pw_label">비밀번호</div>
-                    <input class="pw_value input_type01" type="password" name="pw_value">
-                </div>
-
-                <div class="rePw_section section_type01">
-                    <div class="rePw_label">비밀번호확인</div>
-                    <div class="rePw_value_section">
-                        <%-- 비밀번호확인 체크 메세지--%>
-                        <input class="rePw_value input_type01" type="password" name="rePw_value">
-                        <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
-                    </div>
-                </div>
-
-                <div class="nick_section section_type01">
-                    <div class="nick_label">닉네임</div>
-                    <div class="nick_confirm_msg_section">
-                        <%-- 닉네임 중복확인 메세지 --%>
-                        <input class="nick_value input_type01" type="textFiled" name="nick_value">
-                        <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
-                    </div>
-                </div>
+                    <div class="id_section section_type01">
+                        <div class="id_label">아이디</div>
+                        <input class="id_value_1" type="email" name="mb_email" maxlength="40">
 
 
-                <div class="name_section section_type01">
-                    <div class="name_label">이름</div>
-                    <input class="name_value input_type01" type="textFiled" name="name_value">
-                </div>
-
-                <div class="jumin_section section_type01">
-                    <div class="jumin_label">주민번호</div>
-                    <input class="jumin_value1" type="textFiled" name="jumin_value1"> -
-                    <input class="jumin_value2" type="textFiled" name="jumin_value2"> ******
-                </div>
-
-                <div class="tel_section section_type01">
-
-                    <div class="tel_label">전화번호</div>
-
-                    <div class="tel_div">
-                        <select class="tel_1" id="tel_1" name="tel_1">
-                            <option value="">선택</option>
-                            <option value="010">010</option>
-                            <option value="011">011</option>
-                            <option value="016">016</option>
-                            <option value="019">019</option>
-                        </select>
+                        <%-- 아이디 중복확인 버튼 --%>
+                        <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                     </div>
 
-                    <span>-</span>
-
-                    <div class="tel_div2">
-                        <input class="tel_2" type="text" name="tel_2">
+                    <div class="pw_section section_type01">
+                        <div class="pw_label">비밀번호</div>
+                        <input class="input_pw pw_value input_type01" type="password" name="mb_pw">
                     </div>
 
-                    <span>-</span>
-                    <div class="tel_div2">
-                         <input class="tel_3" type="text" name="tel_3">
+                    <div class="rePw_section section_type01">
+                        <div class="rePw_label">비밀번호확인</div>
+                        <div class="rePw_value_section">
+                            <%-- 비밀번호확인 체크 메세지--%>
+                            <input class="input_pw rePw_value input_type01" type="password" name="rePw_value">
+                            <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
+                        </div>
                     </div>
 
-                    <%-- 인증번호받기 버튼--%>
-                    <div>
-                        <input class="tel_authentication_btn" type="button" name="tel_authentication_btn" value="인증번호">
+                    <div class="nick_section section_type01">
+                        <div class="nick_label">닉네임</div>
+                        <div class="nick_confirm_msg_section">
+                            <%-- 닉네임 중복확인 메세지 --%>
+                            <input class="nick_value input_type01" type="textFiled" name="mb_nick" maxlength="10">
+                            <input class="nick_confirm_btn" type="button" name="nick_confirm_btn" value="중복확인">
+                            <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
+                        </div>
                     </div>
+
+
+                    <div class="name_section section_type01">
+                        <div class="name_label">이름</div>
+                        <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">
+                    </div>
+
+                    <div class="jumin_section section_type01">
+                        <div class="jumin_label">주민번호</div>
+                        <input class="jumin_value1" type="textFiled" name="jumin_value1" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> -
+                        <input class="jumin_value2" type="textFiled" name="jumin_value2" maxlength="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> ******
+                    </div>
+
+                    <div class="tel_section section_type01">
+
+                        <div class="tel_label">전화번호</div>
+
+                        <div class="tel_div">
+                            <select class="tel tel_1" id="tel_1" name="tel_1">
+                                <option type="text" value="0">선택</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="019">019</option>
+                            </select>
+                        </div>
+
+                        <span>-</span>
+
+                        <div class="tel_div2">
+                            <input class="tel tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+
+                        <span>-</span>
+                        <div class="tel_div2">
+                            <input class="tel tel_3" type="text" name="tel_3"maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+
+                        <%-- 인증번호받기 버튼--%>
+                        <div>
+                            <input type="button" class="tel_authentication_btn btn_authen" type="button" value="인증번호"/>
+
+                        </div>
+                    </div>
+
+                    <%-- 인증번호받기 버튼 클릭시 나타남 --%>
+                    <div class="authentication_code_section section_type01">
+                        <div class="authentication_code_label">인증번호</div>
+
+                        <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
+
+                        <div class="code_reSend_btn_section">
+                            <input class="code_reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
+                            <input class="code_ok_btn" disabled="disabled" type="button" name="code_ok_btn" value="확인">
+                        </div>
+                    </div>
+                    <%-- 인증 유효시간 --%>
+                    <div class="certifyTime">
+                        <span class="time">10:00</span>
+                    </div>
+
                 </div>
-
-                <%-- 인증번호받기 버튼 클릭시 나타남 --%>
-                <div class="authentication_code_section section_type01">
-                    <div class="authentication_code_label">인증번호</div>
-
-                    <input class="authentication_code" type="text" name="authentication_code">
-
-                    <div class="code_reSend_btn_section">
-                        <input class="code_reSend_btn" type="button" name="code_reSend_btn" value="재발송">
-                        <input class="code_ok_btn" type="button" name="code_ok_btn" value="확인">
-                    </div>
-                </div>
-                <%-- 인증 유효시간 --%>
-                <div class="certifyTime">
-                    <span class="time">10:00</span>
-                </div>
-
-            </div>
             </form>
-
             <%-- ---------------- 약관동의 영역 ------------------ --%>
             <div class="agree_condition_section">
                 <div class="agree_condition_label_section">
@@ -154,7 +156,7 @@
 
                 <div class="agree_condition_all_section">
                     <div class="agree_condition_all">
-                        <input type="checkbox" class="checkbox_all checkbox_all_p">
+                        <input type="checkbox" class="checkbox_agree checkbox_all checkbox_all_p">
                         <span class="checkbox_all_label">전체동의</span><br><br>
                     </div>
                 </div>
@@ -202,7 +204,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -218,9 +220,9 @@
                                 <h3>제1조 (목적)</h3><br>
                                 <ul>
                                     <li>
-                                    본 약관은 주식회사 컬쳐파크 (이하 '회사'라 합니다)가 제공하는 전자지급결제대행서비스, 결제대금예치서비스 또는
-                                    선불식전자지급수단의 발행 및 관리 서비스(이하 통칭하여 '전자금융거래서비스'라 합니다)를 ‘이용자’가 이용함에 있어,
-                                    ‘회사’와 ‘이용자’ 간 권리, 의무 및 ‘이용자’의 서비스 이용절차 등에 관한 사항을 정함에 그 목적이 있습니다.
+                                        본 약관은 주식회사 컬쳐파크 (이하 '회사'라 합니다)가 제공하는 전자지급결제대행서비스, 결제대금예치서비스 또는
+                                        선불식전자지급수단의 발행 및 관리 서비스(이하 통칭하여 '전자금융거래서비스'라 합니다)를 ‘이용자’가 이용함에 있어,
+                                        ‘회사’와 ‘이용자’ 간 권리, 의무 및 ‘이용자’의 서비스 이용절차 등에 관한 사항을 정함에 그 목적이 있습니다.
                                     </li>
                                 </ul>
                             </li>
@@ -256,7 +258,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -265,37 +267,38 @@
                 <div class="agree_3">
                     <div class="agree_3_label">개인정보 수집동의서</div><br>
 
-                     <div class="agree_condition_content" type="textArea">
-                         <ul>
-                             <li>
-                                 컬쳐파크는 인터파크회원에게 쇼핑, 도서, 티켓 예매, 투어/숙박/항공 예매 서비스와 회원관리서비스,
-                                 그리고 보다 다양한 서비스 제공을 위하여 아래와 같이 회원의 개인정보를 수집, 활용합니다.
-                                 * 본 수집동의서 상의 용어의 정의는 "컬쳐파크 이용약관 및 개인정보처리방침"에 준용하며
-                                 컬쳐파크 서비스 제공을 위해서 필요한 최소한의 개인정보이므로 동의를 해주셔야만 서비스를 이용 하실 수 있습니다.
-                             </li>
-                         </ul>
-                     </div>
+                    <div class="agree_condition_content" type="textArea">
+                        <ul>
+                            <li>
+                                컬쳐파크는 인터파크회원에게 쇼핑, 도서, 티켓 예매, 투어/숙박/항공 예매 서비스와 회원관리서비스,
+                                그리고 보다 다양한 서비스 제공을 위하여 아래와 같이 회원의 개인정보를 수집, 활용합니다.
+                                * 본 수집동의서 상의 용어의 정의는 "컬쳐파크 이용약관 및 개인정보처리방침"에 준용하며
+                                컬쳐파크 서비스 제공을 위해서 필요한 최소한의 개인정보이므로 동의를 해주셔야만 서비스를 이용 하실 수 있습니다.
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
 
 
-            <div class="join_btn_section">
-                <input type="button" class="join_btn" name="join_btn" value="회원가입">
-            </div>
+                <div class="join_btn_section">
+                    <input type="button" class="join_btn" name="join_btn" value="회원가입">
+                </div>
 
-        </div> <%-- /innerContainer --%>
-    </div><%-- /centerContainer --%>
-</div><%-- /mainContainer --%>
+            </div> <%-- /innerContainer --%>
+        </div><%-- /centerContainer --%>
+    </div><%-- /mainContainer --%>
 
 </body>
 
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/resources/common/js/jquery-3.6.0.min.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/user/js/member_join.js"></script>
 
 </html>

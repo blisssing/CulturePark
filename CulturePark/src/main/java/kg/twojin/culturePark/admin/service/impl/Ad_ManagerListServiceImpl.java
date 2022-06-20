@@ -3,7 +3,7 @@ package kg.twojin.culturePark.admin.service.impl;
 import kg.twojin.culturePark.admin.service.Ad_ManagerListService;
 import kg.twojin.culturePark.manager.dao.ManagerDAO;
 import kg.twojin.culturePark.manager.vo.ManagerVO;
-import kg.twojin.culturePark.vo.CompanyVO;
+import kg.twojin.culturePark.common.vo.CompanyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
