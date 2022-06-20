@@ -16,6 +16,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
     @Autowired
     MemberDAO memberDAO;
 
+
     @Override
     public String searchEmailAddress(String userEmail) {
 
@@ -28,7 +29,28 @@ public class MemberJoinServiceImpl implements MemberJoinService{
         return result;
     }
 
-    @Override
+    public void certifiedTelNumber(String userTelNumber, int randomNumber) {
+        String api_key = "NCSZXYRTOUI7U2OD";
+        String api_secret = "K59D4SJR3PNIDXTECM340LXORZXKI47T";
+        Message coolsms = new Message(api_key, api_secret);
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("to", "01091009406"); //수신전화번호
+        params.put("from", "01091009406"); //발신전화번호
+        params.put("type", "SMS");
+        params.put("text", "[TEST]인증번호는" + "[" + randomNumber + "]" + "입니다.");
+        params.put("app_version", "test app 1.2");
+
+        try {
+            JSONObject obj = (JSONObject) coolsms.send(params);
+            System.out.println(obj.toString());
+        } catch (CoolsmsException e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getCode());
+        }
+    }
+
+    /*@Override
     public void certifiedPhoneNumber(String userPhoneNumber, int randomNumber) {
         String api_key = "NCSPDPTUNFAJ7XXO";
         String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
@@ -49,7 +71,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
             System.out.println(e.getCode());
         }
 
-    }
+    }*/
 
     @Override
     public String searchNickname(String userNick) {
