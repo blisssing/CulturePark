@@ -29,8 +29,6 @@ public class Admin_LoginController {
     BCryptPasswordEncoder passwordEncoder;
 
 
-
-
     // 처음 로그인할 때 들어오는 페이지
     @RequestMapping(value = "/culturePark/all/loginForm.ado")
     public ModelAndView adLoginForm(HttpServletRequest request, HttpServletResponse response)
@@ -46,9 +44,6 @@ public class Admin_LoginController {
     public ModelAndView adLoginProc(@ModelAttribute("adminVO") AdminVO adminVO,
                                     RedirectAttributes rAttr, // 로그인 실패 시 다시 로그인 창으로 리다이렉트
                                     HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-
-        System.out.println("로그인 동작 수행 !!");
 
         request.setCharacterEncoding("utf-8");
 

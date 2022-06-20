@@ -2,10 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:bean="http://www.springframework.org/schema/c"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
  <!--   <mvc:annotation-driven/>-->
+
+  <!--  &lt;!&ndash; navermail설정 &ndash;&gt;
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <bean:property name="host" value="smtp.naver.com"/> &lt;!&ndash; 메이서버 호스트 &ndash;&gt;
+        <bean:property name="port" value="587"/> &lt;!&ndash; 메이서버 포트번호 &ndash;&gt;
+        <bean:property name="username" value="아이디"/> &lt;!&ndash; 자신의 이메일 아이디 &ndash;&gt;
+        <bean:property name="password" value="비번"/> &lt;!&ndash; 자신의 비밀번호 &ndash;&gt;
+
+        &lt;!&ndash; 보안연결 SSL과 관련된 설정 &ndash;&gt;
+        <bean:property name="javaMailProperties">
+            <bean:props>
+                <bean:prop key="mail.smtp.auth">true</bean:prop>
+                <bean:prop key="mail.smtp.starttls.enable">true</bean:prop>
+                <bean:prop key="mail.smtps.checkserveridentity">true</bean:prop>
+                <bean:prop key="mail.transport.protocol">smtp</bean:prop>
+                <bean:prop key="mail.smtps.ssl.trust">*</bean:prop>
+                <bean:prop key="mail.debug">true</bean:prop>
+                <bean:prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</bean:prop>
+            </bean:props>
+        </bean:property>
+    </bean >-->
 
 <!--https://zero-gravity.tistory.com/258-->
     <!-- 파일 업로드 -->
@@ -31,6 +53,7 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
     <!-- dataSource를 참조하는 jdbc틀 -->
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -60,7 +83,6 @@
             </list>
         </property>
     </bean>
-
 
     <context:component-scan base-package="kg.twojin.culturePark.*"></context:component-scan>
 

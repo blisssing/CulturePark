@@ -56,7 +56,8 @@ public class MemberDAOImpl implements MemberDAO {
     public String selectNickName(String userNick) {
         String result = null;
         try {
-            result = sqlSessionTemplate.selectOne("mapper.user.selectNickName", userNick);
+
+           result = sqlSessionTemplate.selectOne("mapper.user.selectNickName", userNick);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("조회결과 : 없음");
@@ -64,6 +65,7 @@ public class MemberDAOImpl implements MemberDAO {
         return result;
     }
 
+<<<<<<< HEAD
     @Override
     public int updateMemberActive(MemberVO memberVO) {
         int result = 0;
@@ -93,3 +95,6 @@ public class MemberDAOImpl implements MemberDAO {
         return result;
     }
 }
+=======
+}
+>>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f

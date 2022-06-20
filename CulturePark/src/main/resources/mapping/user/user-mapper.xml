@@ -40,7 +40,10 @@
     <![CDATA[
         SELECT *
         FROM MEMBER_ACCOUNT
-        ]]>
+
+
+    ]]>
+
     </select>
 
     <select id="selectExistEmail" parameterType="string">

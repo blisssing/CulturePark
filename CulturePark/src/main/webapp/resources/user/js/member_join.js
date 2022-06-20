@@ -297,6 +297,13 @@ $(document).ready(function() {
     function createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr) {
         var all_Data = {"mb_email": mb_email, "mb_pw":mb_pw, "mb_nick":mb_nick, "mb_name":mb_name,
             "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+<<<<<<< HEAD
+=======
+
+        console.log(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
+
+
+>>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
 
         $.ajax({
             type:"post",

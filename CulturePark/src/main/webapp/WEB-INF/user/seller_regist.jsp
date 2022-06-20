@@ -1,19 +1,13 @@
-<%@ page import="org.springframework.web.multipart.MultipartRequest" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
     <%-- &lt;%&ndash;인증번호 발송 link&ndash;%&gt;
      https://unknown-coding.tistory.com/16--%>
-
-
-
-    <%--파일업로드--%>
-    <%--https://marinelifeirony.tistory.com/120--%>
-    <%--https://yooniron.tistory.com/45--%>
-     <%-- https://zero-gravity.tistory.com/258--%>
-
+    `<%--    https://velog.io/@aloha006/spring-문자-API-사용--%>
+    <%--!!!!!!!!!!!!!  정규식 적용할 것 !!!!!!!!!!!!! --%>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -24,7 +18,7 @@
     <style><%@include file="/resources/user/css/common_header.css"%></style>
     <style><%@include file="/resources/user/css/member_join.css" %></style>
 
-    <title> join </title>
+    <title> 우리들의 문화공간 CulturePark </title>
 </head>
 
 <body>
@@ -40,9 +34,7 @@
 
     <div class="centerContainer">
         <%-- 절대 건드리지말기.  div 따로 만들어주고 건드리기 --%>
-
         <div class="innerContainer">
-
             <div class="back_section">
                 <div class="arrow_section">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -51,106 +43,114 @@
             </div>
 
             <div class="join_label_section">
-                <div class="join_label"> 판매자 가입</div>
+                <div class="join_label">판매자 가입</div>
             </div>
-
 
             <%-- -------------- 회원정보입력 영역 --------------- --%>
-            <div class="join_section">
-                <form name="join" method="post" enctype="multipart/form-data" action="#">
-                <p class="sectionLine_thin"></p>
+            <form id="frm">
+                <div class="join_section">
+                    <p class="sectionLine_thin"></p>
 
-                <div class="id_section section_type01">
-                    <div class="id_label">이메일</div></div>
-                    <input class="id_value_1" type="textFiled" name="id_value_1">
-                </div>
-
-                <div class="pw_section section_type01">
-                    <div class="pw_label ">비밀번호</div>
-                    <input class="pw_value " type="password" name="pw_value">
-                </div>
-
-                <div class="rePw_section section_type01">
-                    <div class="rePw_label">비밀번호확인</div>
-                    <div class="rePw_value_section ">
-                        <%-- 비밀번호확인 체크 메세지--%>
-                        <input class="rePw_value" type="password" name="rePw_value">
-                        <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">test::비밀번호체크메세지</div>
-                    </div>
-                </div>
-
-                <div class="company_section section_type01">
-                    <div class="name_label">업체 명 </div>
-                    <input class="name_value" type="textFiled" name="name_value">
-                </div>
-
-                <div class="owner_section section_type01">
-                    <div class="name_label">사업자명</div>
-                    <input class="name_value" type="textFiled" name="name_value">
-                </div>
-
-                <div class="com_number_section section_type01">
-                    <div class="com_number_label">사업자번호</div>
-                    <input class="name_value" type="textFiled" name="name_value">
-                </div>
+                    <div class="id_section section_type01">
+                        <div class="id_label">이메일</div>
+                        <input class="id_value_1" type="email" name="mb_email">
 
 
-
-                <div class="tel_section  section_type01" >
-
-                    <div class="tel_label">전화번호</div>
-
-                    <div class="tel_div">
-                        <select class="tel_1" id="tel_1" name="tel_1">
-                            <option value="">선택</option>
-                            <option value="010">010</option>
-                            <option value="011">011</option>
-                            <option value="016">016</option>
-                            <option value="019">019</option>
-                        </select>
+                        <%-- 아이디 중복확인 버튼 --%>
+                        <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                     </div>
 
-                    <span>-</span>
-
-                    <div class="tel_div2">
-                        <input class="tel_2" type="text" name="tel_2">
+                    <div class="pw_section section_type01">
+                        <div class="pw_label">비밀번호</div>
+                        <input class="input_pw pw_value input_type01" type="password" name="mb_pw">
                     </div>
 
-                    <span>-</span>
-                    <div class="tel_div2">
-                        <input class="tel_3" type="text" name="tel_3">
+                    <div class="rePw_section section_type01">
+                        <div class="rePw_label">비밀번호확인</div>
+                        <div class="rePw_value_section">
+                            <%-- 비밀번호확인 체크 메세지--%>
+                            <input class="input_pw rePw_value input_type01" type="password" name="rePw_value">
+                            <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
+                        </div>
                     </div>
 
-                    <%-- 인증번호받기 버튼--%>
-                    <div>
-                        <input class="tel_authentication_btn" type="button" name="tel_authentication_btn" value="인증번호">
+                    <div class="comp_section section_type01">
+                        <div class="comp_label">업체명</div>
+                        <div class="comp_confirm_msg_section">
+                            <input class="comp_value input_type01" type="textFiled" name="mb_nick">
+                        </div>
                     </div>
+
+
+                    <div class="name_section section_type01">
+                        <div class="name_label">사업자명</div>
+                        <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">
+                    </div>
+
+                    <div class="number_section section_type01">
+                        <div class="number_label">사업자번호</div>
+                        <input class="number_value1" type="textFiled">
+                    </div>
+
+                    <div class="file_upload_section">
+                        <div class="file_label">파일 업로드</div>
+                        <input class="file_upload_input" type="file">
+                     </div>
+
+
+                    <div class="tel_section section_type01">
+
+                        <div class="tel_label">전화번호</div>
+
+                        <div class="tel_div">
+                            <select class="tel tel_1" id="tel_1" name="tel_1">
+                                <option type="text" value="0">선택</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="019">019</option>
+                            </select>
+                        </div>
+
+                        <span>-</span>
+
+                        <div class="tel_div2">
+                            <input class="tel tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+
+                        <span>-</span>
+                        <div class="tel_div2">
+                            <input class="tel tel_3" type="text" name="tel_3"maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </div>
+
+                        <%-- 인증번호받기 버튼--%>
+                        <div>
+                            <input type="button" class="tel_authentication_btn btn_authen" type="button" value="인증번호"/>
+
+                        </div>
+                    </div>
+
+                    <%-- 인증번호받기 버튼 클릭시 나타남 --%>
+                    <div class="authentication_code_section section_type01">
+                        <div class="authentication_code_label">인증번호</div>
+
+                        <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
+
+                        <div class="code_reSend_btn_section">
+                            <input class="code_reSend_btn" id="reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
+                            <input class="code_ok_btn" disabled="disabled" type="button" name="code_ok_btn" value="확인">
+                        </div>
+
+                        <input type="hidden" id="phoneDoubleChk"/>
+
+                    </div>
+                    <%-- 인증 유효시간 --%>
+                    <div class="certifyTime">
+                        <span class="time">10:00</span>
+                    </div>
+
                 </div>
-
-                <%-- 인증번호받기 버튼 클릭시 나타남 --%>
-                <div class="authentication_code_section section_type01">
-                    <div class="authentication_code_label">인증번호</div>
-
-                    <input class="authentication_code" type="text" name="authentication_code">
-
-                    <div class="code_reSend_btn_section">
-                        <input class="code_reSend_btn" type="button" name="code_reSend_btn" value="재발송">
-                        <input class="code_ok_btn" type="button" name="code_ok_btn" value="확인">
-                    </div>
-                </div>
-                <%-- 인증 유효시간 --%>
-                <div class="certifyTime">
-                    <span class="time">test::00:00</span>
-                </div>
-
-                <form name="processFileUpload.jsp" method="post"  enctype="multipart/form-data">
-                    <input type="file" name="imgFile" placeholder="파일선택">
-                    <input type="submit" value="업로드">
-                </form>
-
-            </div>
-
-
+            </form>
             <%-- ---------------- 약관동의 영역 ------------------ --%>
             <div class="agree_condition_section">
                 <div class="agree_condition_label_section">
@@ -161,7 +161,7 @@
 
                 <div class="agree_condition_all_section">
                     <div class="agree_condition_all">
-                        <input type="checkbox" class="checkbox_all checkbox_all_p">
+                        <input type="checkbox" class="checkbox_agree checkbox_all checkbox_all_p">
                         <span class="checkbox_all_label">전체동의</span><br><br>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -263,7 +263,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" class="checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -293,7 +293,6 @@
                 <div class="join_btn_section">
                     <input type="button" class="join_btn" name="join_btn" value="회원가입">
                 </div>
-                </form>
 
             </div> <%-- /innerContainer --%>
         </div><%-- /centerContainer --%>
@@ -304,6 +303,7 @@
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resources/user/js/member_join.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
+<script src="/resources/user/js/seller_regist.js"></script>
 
 </html>

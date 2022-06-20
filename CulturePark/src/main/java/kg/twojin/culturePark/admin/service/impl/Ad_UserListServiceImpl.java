@@ -22,6 +22,7 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
         return memberDAO.selectAllMember();
     }
 
+<<<<<<< HEAD
     @Override
     public int updateMemberActive(MemberVO memberVO) {
         return memberDAO.updateMemberActive(memberVO);
@@ -33,3 +34,7 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
         return 0;
     }
 }
+=======
+}
+
+>>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f

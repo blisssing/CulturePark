@@ -54,10 +54,12 @@ public class MemberJoinController {
         return Integer.toString(randomNumber);
     }
 
+
     // 계정 생성하기
     @RequestMapping(value = "/culturePark/createUserProc.do", method = RequestMethod.POST)
     public void createUser(@RequestBody MemberVO memberVO,
                            HttpServletResponse response ) throws IOException   {
+
 
         System.out.println("실행확인");
         String result_str;

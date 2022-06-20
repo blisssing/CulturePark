@@ -1,6 +1,6 @@
 package kg.twojin.culturePark.admin.service;
 
-import kg.twojin.culturePark.manager.vo.ManagerVO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.CompanyVO;
 
 import java.util.List;

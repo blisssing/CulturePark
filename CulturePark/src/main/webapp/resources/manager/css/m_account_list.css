@@ -27,3 +27,11 @@
     background-color: #2e59d9;
     border-color: #2653d4;
 }
+
+.chk_ul {
+    list-style: none;
+}
+
+.chk_list > input {
+    margin-right: 15px;
+}
