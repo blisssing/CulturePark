@@ -50,7 +50,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         return result;
     }
 
-    public int deleteManager(ManagerVO managerVO){
+/*    public int deleteManager(ManagerVO managerVO){
         int result = 0;
         try {
             result = sqlSessionTemplate.delete("mapper.manager.deleteManager", managerVO);
@@ -58,7 +58,18 @@ public class ManagerDAOImpl implements ManagerDAO {
             e.printStackTrace();
         }
         return result;
+    }*/
+
+    public int deleteManager(int mg_seq){
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.delete("mapper.manager.deleteManager", mg_seq);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
+
 
     @Override
     public List selectAllManagers() {

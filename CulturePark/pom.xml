@@ -25,14 +25,44 @@
 
     <dependencies>
 
-      <!--  &lt;!&ndash; 문자 인증관련 라이브러리 &ndash;&gt;
+        <!-- 메일 관련 라이브러리 -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.5.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
+        </dependency>
+
+
+        <!-- 문자 인증관련 라이브러리 -->
         <dependency>
             <groupId>net.nurigo</groupId>
             <artifactId>javaSDK</artifactId>
             <version>2.2</version>
         </dependency>
-        출처: https://unknown-coding.tistory.com/16 [RamG's Programming:티스토리]
--->
 
         <!-- Spring -->
         <dependency>

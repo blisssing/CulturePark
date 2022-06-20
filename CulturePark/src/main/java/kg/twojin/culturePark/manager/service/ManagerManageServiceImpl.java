@@ -48,10 +48,17 @@ public class ManagerManageServiceImpl implements ManagerManageService {
         return result;
     }
 
-    @Override
+    /*@Override
     public int deleteManager(ManagerVO managerVO) {
         int result = 0;
         result = managerDAO.deleteManager(managerVO);
+        return result;
+    }*/
+
+    @Override
+    public int deleteManager(int mg_seq) {
+        int result = 0;
+        result = managerDAO.deleteManager(mg_seq);
         return result;
     }
 }

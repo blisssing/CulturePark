@@ -34,14 +34,5 @@ public class MemberJoinController {
         return result;
     }
 
-    // 인증 문자 보내기
-    @RequestMapping(value = "/culturePark/chkPhone.do", method = RequestMethod.POST)
-    @ResponseBody
-    public String sendSms(@RequestParam("phone") String phoneNumber, HttpServletResponse response) throws Exception {
-
-        int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000); // 난수 생성
-        memberJoinService.certifiedPhoneNumber(phoneNumber, randomNumber);
-        return Integer.toString(randomNumber);
-    }
 
 }

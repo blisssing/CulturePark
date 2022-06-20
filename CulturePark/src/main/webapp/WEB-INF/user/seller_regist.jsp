@@ -87,10 +87,16 @@
                         <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">
                     </div>
 
-                    <div class="jumin_section section_type01">
-                        <div class="jumin_label">사업자번호</div>
-                        <input class="jumin_value1" type="textFiled"  >
+                    <div class="number_section section_type01">
+                        <div class="number_label">사업자번호</div>
+                        <input class="number_value1" type="textFiled">
                     </div>
+
+                    <div class="file_upload_section">
+                        <div class="file_label">파일 업로드</div>
+                        <input class="file_upload_input" type="file">
+                     </div>
+
 
                     <div class="tel_section section_type01">
 
@@ -131,9 +137,12 @@
                         <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
 
                         <div class="code_reSend_btn_section">
-                            <input class="code_reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
+                            <input class="code_reSend_btn" id="reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
                             <input class="code_ok_btn" disabled="disabled" type="button" name="code_ok_btn" value="확인">
                         </div>
+
+                        <input type="hidden" id="phoneDoubleChk"/>
+
                     </div>
                     <%-- 인증 유효시간 --%>
                     <div class="certifyTime">
