@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {
 
@@ -14,11 +16,38 @@ public class MemberDAOImpl implements MemberDAO {
     SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public int createMember(MemberVO memberVO) {
-        return 0;
+    public int insertMember(MemberVO memberVO) {
+        int result;
+        try {
+            result = sqlSessionTemplate.insert("mapper.user.insertMember", memberVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = 0;
+        }
+        return result;
     }
 
     @Override
+    public List<MemberVO> selectAllMember() {
+        List<MemberVO> memberVOList = null;
+        try {
+            memberVOList = sqlSessionTemplate.selectList("mapper.user.selectAllMember");
+            System.out.println("실행확인");
+        } catch (Exception e) {
+            memberVOList = null;
+        }
+
+        int size = memberVOList.size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(memberVOList.get(i).toString());
+
+        }
+
+        return memberVOList;
+    }
+
+    @Override
+
     public String selectEmail(String userEmail) {
         String result = null;
         try {

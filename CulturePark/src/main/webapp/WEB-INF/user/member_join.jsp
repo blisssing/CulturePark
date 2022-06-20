@@ -53,7 +53,7 @@
 
                 <div class="id_section section_type01">
                     <div class="id_label">아이디</div>
-                    <input class="id_value_1" type="email" name="mb_email">
+                    <input class="id_value_1" type="email" name="mb_email" maxlength="40">
 
 
                     <%-- 아이디 중복확인 버튼 --%>
@@ -78,7 +78,7 @@
                     <div class="nick_label">닉네임</div>
                     <div class="nick_confirm_msg_section">
                         <%-- 닉네임 중복확인 메세지 --%>
-                        <input class="nick_value input_type01" type="textFiled" name="mb_nick">
+                        <input class="nick_value input_type01" type="textFiled" name="mb_nick" maxlength="10">
                             <input class="nick_confirm_btn" type="button" name="nick_confirm_btn" value="중복확인">
                         <div class="nick_confirm_msg" type="textFiled" name="nick_confirm" value="닉네임중복체크">test::닉네임중복확인메세지</div>
                     </div>
@@ -92,8 +92,8 @@
 
                 <div class="jumin_section section_type01">
                     <div class="jumin_label">주민번호</div>
-                    <input class="jumin_value1" type="textFiled" name="jumin_value1" maxlength="6"> -
-                    <input class="jumin_value2" type="textFiled" name="jumin_value2" maxlength="1"> ******
+                    <input class="jumin_value1" type="textFiled" name="jumin_value1" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> -
+                    <input class="jumin_value2" type="textFiled" name="jumin_value2" maxlength="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> ******
                 </div>
 
                 <div class="tel_section section_type01">
@@ -297,7 +297,7 @@
 
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/resources/common/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/user/js/member_join.js"></script>
 

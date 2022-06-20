@@ -45,9 +45,6 @@ public class Admin_LoginController {
                                     RedirectAttributes rAttr, // 로그인 실패 시 다시 로그인 창으로 리다이렉트
                                     HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-
-        System.out.println("로그인 동작 수행 !!");
-
         request.setCharacterEncoding("utf-8");
 
         ModelAndView mv = new ModelAndView();
