@@ -15,4 +15,11 @@ public interface MemberDAO {
 
     String selectNickName(String userNick);
 
+    int updateMemberActive(MemberVO memberVO);
+
+    int updateMemberPassword(int mb_seq ,String mb_pw);
+
+
+
+
 }

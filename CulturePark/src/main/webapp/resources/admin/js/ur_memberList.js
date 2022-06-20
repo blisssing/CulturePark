@@ -1,30 +1,31 @@
 $(document).ready(function () {
-
-
     // Todo : 활성 - 비활성 토글 적용
     $('input[name=btn_active]').click(function () {
-        var mb_seq = $(this).attr('.user_num').val();
+        var eventRow = $(this).closest('tr');
+        var mb_seq = eventRow.children('.user_num').val();
         var btn_active = $('input[name=btn_active]');
         var value = btn_active.val();
+
         if (value === 'active') {
             btn_active.val('inactive');
         } else {
             btn_active.val('active');
         }
         var new_val = btn_active.val();
+        console.log(new_val);
         var map = {"mb_seq":mb_seq,"mb_status": new_val};
 
         $.ajax({
             type:"post",
             dateType:"JSON",
-            data:JSON.stringify(new_val),
+            data:JSON.stringify(map),
             cache:false,
             async:false,
             contentType:'application/json; charset=utf-8',
             traditional:true,
-            url:"changeMbActive.ado",
+            url:"/changeMbActive.ado",
             success: function (data) {
-
+                console.log('결과 실행');
             }
 
         });

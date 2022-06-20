@@ -73,8 +73,6 @@ public class MemberJoinController {
         memberVO.setMb_createDate(date);
         memberVO.setMb_pw(encodePw);
 
-        System.out.println(memberVO.toString());
-
         int result = memberJoinService.joinMember(memberVO);
         System.out.println(result);
 

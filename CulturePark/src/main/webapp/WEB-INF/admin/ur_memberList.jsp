@@ -229,25 +229,13 @@
                                                         <p class="toggle_p">비활성</p>
                                                     </c:otherwise>
                                                 </c:choose>
-
-
-
-                                                    <%--                                                    <c:otherwise>--%>
-                                                    <%--                                                        <label class="switch">--%>
-                                                    <%--                                                            <input type="checkbox" name="btn_active" value="1">--%>
-                                                    <%--                                                            <span class="slider round"></span>--%>
-                                                    <%--                                                        </label>--%>
-                                                    <%--                                                        <p class="toggle_p" disabled="none">활성화</p>--%>
-                                                    <%--                                                        <p class="toggle_p">비활성</p>--%>
-                                                    <%--                                                    </c:otherwise>--%>
-
                                             </td>
                                             <td class="btn_section">
                                                 <div class="btn_wrap">
-                                                    <button class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
-                                                    <button class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
-                                                    <button class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
-                                                    <button class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
+                                                    <button type="button" class="btn_modi_info btn btn-primary btn-circle btn-sm fa-solid fa-user-gear"></button>
+                                                    <button type="button" class="btn_temp_key btn btn-primary btn-circle btn-sm fa-solid fa-key"></button>
+                                                    <button type="button" class="btn_buy_list btn btn-primary btn-circle btn-sm fa-solid fa-list"></button>
+                                                    <button type="button" class="btn_dicip btn btn-primary btn-circle btn-sm fa-solid fa-user-xmark"></button>
                                                 </div>
                                             </td>
                                         </form>
@@ -278,7 +266,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-head">이메일</div>
-                                    <input class="userEmail form-control form-control-user">
+                                    <input class="userEmail form-control form-control-user" id="UserEmail">
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">이름</div>
