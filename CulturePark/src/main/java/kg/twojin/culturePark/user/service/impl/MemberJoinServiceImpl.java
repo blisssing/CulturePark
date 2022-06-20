@@ -1,7 +1,8 @@
-package kg.twojin.culturePark.user.service;
+package kg.twojin.culturePark.user.service.impl;
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.user.service.MemberJoinService;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.json.simple.JSONObject;
@@ -11,11 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 
 @Service("memberJoinService")
-public class MemberJoinServiceImpl implements MemberJoinService{
+public class MemberJoinServiceImpl implements MemberJoinService {
 
     @Autowired
     MemberDAO memberDAO;
-
 
     @Override
     public String searchEmailAddress(String userEmail) {
@@ -29,28 +29,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
         return result;
     }
 
-    public void certifiedTelNumber(String userTelNumber, int randomNumber) {
-        String api_key = "NCSZXYRTOUI7U2OD";
-        String api_secret = "K59D4SJR3PNIDXTECM340LXORZXKI47T";
-        Message coolsms = new Message(api_key, api_secret);
-
-        HashMap<String, String> params = new HashMap<String, String>();
-        params.put("to", "01091009406"); //수신전화번호
-        params.put("from", "01091009406"); //발신전화번호
-        params.put("type", "SMS");
-        params.put("text", "[TEST]인증번호는" + "[" + randomNumber + "]" + "입니다.");
-        params.put("app_version", "test app 1.2");
-
-        try {
-            JSONObject obj = (JSONObject) coolsms.send(params);
-            System.out.println(obj.toString());
-        } catch (CoolsmsException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getCode());
-        }
-    }
-
-    /*@Override
+    @Override
     public void certifiedPhoneNumber(String userPhoneNumber, int randomNumber) {
         String api_key = "NCSPDPTUNFAJ7XXO";
         String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
@@ -71,7 +50,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
             System.out.println(e.getCode());
         }
 
-    }*/
+    }
 
     @Override
     public String searchNickname(String userNick) {
@@ -87,7 +66,7 @@ public class MemberJoinServiceImpl implements MemberJoinService{
 
     @Override
     public int joinMember(MemberVO memberVO) {
-        return 0;
+        return memberDAO.insertMember(memberVO);
     }
 
 }
