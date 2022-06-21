@@ -110,11 +110,17 @@ public class Account_UrList_Controller {
 
     // 유저 징계
     @RequestMapping(value = "setMemberPause.ado")
-    public void setMemberPause(@RequestParam("mb_seq") String mb_seq , @RequestParam("pause_day") String pause_date) {
+    public String setMemberPause(@RequestParam("mb_seq") String mb_seq , @RequestParam("pause_date") String pause_date,
+                                @RequestParam("pause_reason") String pause_reason,
+                               HttpServletResponse response) throws IOException{
 
-        int result = ad_userListService.updateMemberPause(Integer.parseInt(mb_seq), pause_date);
+        int result = ad_userListService.updateMemberPause(Integer.parseInt(mb_seq), pause_date, pause_reason);
 
-
+        if (result == 1) {
+            return "success";
+        } else {
+            return "failed";
+        }
 
     }
 }

@@ -12,7 +12,7 @@ public interface Ad_UserListService {
 
     int modifyMemberPassword(String  mb_email, String pw);
 
-    int updateMemberPause(int mb_seq, String  date);
+    int updateMemberPause(int mb_seq, String  date, String reason);
 
 
 

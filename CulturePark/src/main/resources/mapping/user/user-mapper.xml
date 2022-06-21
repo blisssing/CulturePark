@@ -68,4 +68,10 @@
         WHERE MB_EMAIL=#{mb_email};
     </update>
 
+    <update id="updateMemberPause" parameterType="memberVO">
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PAUSE=#{mb_pause}
+        WHERE MB_SEQ = #{mb_seq};
+    </update>
+
 </mapper>

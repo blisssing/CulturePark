@@ -12,14 +12,18 @@
         <typeAlias alias="partnerVO" type="kg.twojin.culturePark.common.vo.PartnerVO" ></typeAlias>
 
         <typeAlias alias="memberVO" type="kg.twojin.culturePark.common.vo.MemberVO" ></typeAlias>
+
+        <typeAlias alias="pauseVO" type="kg.twojin.culturePark.common.vo.PauseVO"></typeAlias>
     </typeAliases>
 
 
     <mappers>
         <mapper resource="mapping/user/user-mapper.xml"/>
+        <mapper resource="mapping/user/user-pause.xml"/>
         <mapper resource="mapping/admin/admin-mapper.xml"/>
         <mapper resource="mapping/manager/manager-mapper.xml"/>
         <mapper resource="mapping/partner/partner-mapper.xml"/>
+
     </mappers>
 
     <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->

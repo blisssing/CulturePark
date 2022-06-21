@@ -356,10 +356,10 @@
                                 <div class="form-group">
                                     <div class="form-head">징계수위</div>
                                     <select id="SelectLevel" class="form-control form-control-user">
-                                        <option name="slc_level" value="one">1일 정지</option>
-                                        <option name="slc_level" value="three">3일 정지</option>
-                                        <option name="slc_level" value="sept">7일 정지</option>
-                                        <option name="slc_level" value="thirty">30일 정지</option>
+                                        <option name="slc_level" value="1">1일 정지</option>
+                                        <option name="slc_level" value="3">3일 정지</option>
+                                        <option name="slc_level" value="7">7일 정지</option>
+                                        <option name="slc_level" value="30">30일 정지</option>
                                         <option name="slc_level" value="inf">영구 정지</option>
                                     </select>
                                 </div>

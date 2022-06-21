@@ -3,9 +3,11 @@ package kg.twojin.culturePark.common.dao.impl;
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.common.vo.PauseVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class MemberDAOImpl implements MemberDAO {
             memberVOList = sqlSessionTemplate.selectList("mapper.user.selectAllMember");
             System.out.println("실행확인");
         } catch (Exception e) {
+            e.printStackTrace();
             memberVOList = null;
         }
 
@@ -47,7 +50,7 @@ public class MemberDAOImpl implements MemberDAO {
         try {
             result = sqlSessionTemplate.selectOne("mapper.user.selectExistEmail", userEmail);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return result;
     }
@@ -93,6 +96,27 @@ public class MemberDAOImpl implements MemberDAO {
         }
 
         return result;
+    }
+
+    @Transactional
+    @Override
+    public int updateMemberPausePeriod(MemberVO memberVO, PauseVO pauseVO) {
+
+        int result1 = 0;
+        int result2 = 0;
+        try {
+            result1 = sqlSessionTemplate.update("mapper.user.updateMemberPause", memberVO);
+            result2 = sqlSessionTemplate.insert("mapper.pause.insertPause", pauseVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        if (result1 == 1 && result2 == 1) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
 
