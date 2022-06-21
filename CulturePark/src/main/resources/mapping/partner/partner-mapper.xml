@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.partner">
+
+    <resultMap id="resultPartner" type="partnerVO">
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pt_email" column="pt_email"></result>
+        <result property="pt_pw" column="pt_pw"></result>
+        <result property="pt_comp_name" column="pt_comp_name"></result>
+        <result property="pt_ceo_name" column="pt_ceo_name"></result>
+        <result property="pt_ceo_number" column="pt_ceo_number"></result>
+        <result property="pt_file" column="pt_file"></result>
+        <result property="pt_phone" column="pt_phone"></result>
+        <result property="pt_phone_code" column="pt_phone_code"></result>
+        <result property="pt_createDate" column="pt_createDate"></result>
+    </resultMap>
+
+                                                          <!--????-->
+    <select id="selectExistEmail" parameterType="string" resultType="string">
+        SELECT PT_EMAIL
+        FROM PARTNER_REQUEST
+        WHERE PT_EMAIL= #{email};
+    </select>
+
+</mapper>

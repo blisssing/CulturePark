@@ -7,16 +7,31 @@ $(document).ready(function() {
     var chk_pw_result = "";
     var chk_agree_result = "";
 
-    /* 이전 */
+    // 이전
     $('.back').click(function () {
         window.history.back();
     });
 
+    // 인증발송 버튼
     $('.tel_authentication_btn').click(function () {
+        $('.tel_authentication_btn').attr("disabled", true);
         $('.authentication_code').attr("disabled", false);
+        $('.code_reSend_btn').attr("disabled", false);
+        $('.code_ok_btn').attr("disabled", false);
     });
 
-    /* 체크박스 전체 선택 */
+    // 재발송 클릭시
+    $('.code_reSend_btn').click(function(){
+        $('.authentication_code').clear();
+        $('.authentication_code').focus();
+    })
+
+    // 확인 클릭시
+    $('.code_ok_btn').click(function (){
+        alert('인증 성공!');
+    })
+
+    // 체크박스 전체 선택
     $('.checkbox_all_p').click(function () {
         if ($(".checkbox_all_p").prop("checked")) {
             $(".checkbox_one").prop("checked", true);
@@ -57,7 +72,7 @@ $(document).ready(function() {
             type: "POST",
             url: "/telCheck.do",
             datatype: "text",
-            data:{"phone":fullPhone},
+            data: {"phone": fullPhone}, //controller로 넘어감 key값으로 넘어감:변수에 담겨짐
             cache: false,
             success: function (data) {
                 if (data == "error") {
@@ -72,33 +87,179 @@ $(document).ready(function() {
         });
     });
 
+    //회원가입 버튼 클릭 시 유효성 검사
+    $('.join_btn').click(function () {
+            var idCheck = $('.id_confirm_btn').prop("N");
 
-    // Todo 1. 이메일 중복확인
-    //  hint :  인터넷에서 퍼온 이메일 정규식 검증 코드를 활용해볼 것 ==> validateEmail(str).
-    //  hint2 : ajax 비동기 전달 방식을 통해 데이터를 controller에 전달할 것.
+            var valEmail = $('#email_val').val();
+            var valPw = $('#pw_val').val();
+            var valRePw = $('#rePw_val').val();
+            var valComp = $('#comp_val').val();
+            var valCeoName = $('#ceo_name_val').val();
+            var valCeoNumber = $('#ceo_number_val').val();
+            var valFile = $('#file_val').val();
+
+            var valTel1 = $('#tel_1').val();
+            var valTel2 = $('#tel_2').val();
+            var valTel3 = $('#tel_3').val();
+
+            var valCode = $('#code_val').val();
+
+            var valChkAll = $('#chkAll').val();
+            var valChkOne1 = $('#chkOne1').val();
+            var valChkOne2 = $('#chkOne2').val();
+            var valChkOne3 = $('#chkOne3').val();
+
+            if (valEmail === null || valEmail === undefined || varEmail === "") {
+                alert('이메일을 입력해주세요.');
+                $('#email_val').focus();
+                return;
+                    if (idCheck == "" || idCheck == "N") {
+                    alert('이메일 중복확인를 해주세요');
+                    $('#idCheck').focus();
+                    return;
+                    }
+            }
+            if (valPw === null || valPw === undefined || valPw === "") {
+                alert('패스워드 확인을 입력해주세요.');
+                $('#pw_val').focus();
+                return;
+            }
+            if (valPw != valRePw) {
+                alert('패스워드와 패스워드 확인이 같지않습니다.');
+                $('#rePw_val').val("");
+                $('#pw_val').val("");
+                $('#pw_val').focus();
+                return;
+            }
+            if (valComp === null || valComp === undefined || valComp === "") {
+                alert('업체명을 입력해주세요.');
+                $('#comp_val').focus();
+                return;
+            }
+            if (valCeoName === null || valCeoName === undefined || valCeoName === "") {
+                alert('사업자명을 입력해주세요.');
+                $('#ceo_name_val').focus();
+                return;
+            }
+            if (valCeoNumber === null || valCeoNumber === undefined || valCeoNumber === "") {
+                alert('사업자번호를 입력해주세요.');
+                $('#ceo_number_val').focus();
+                return;
+            }
+            if (valFile === null || valFile === undefined || valFile === "") {
+                alert('파일을 업로드 해주세요.');
+                $('#file_val').focus();
+                return;
+            }
+            if (valTel1 === null || valTel1 === undefined || valTel1 === "") {
+                alert('전화번호를 입력해주세요.');
+                $('#tel_1').focus();
+                return;
+            }
+            if (valTel2 === null || valTel2 === undefined || valTel2 === "") {
+                alert('전화번호를 입력해주세요.');
+                $('#tel_2').focus();
+                return;
+            }
+            if (valTel3 === null || valTel3 === undefined || valTel3 === "") {
+                alert('전화번호를 입력해주세요.');
+                $('#tel_3').focus();
+                return;
+            }
+            if (valCode === null || valCode === undefined || valCode === "") {
+                alert('인증번호를 입력해주세요.');
+                $('#code_val').focus();
+                return;
+            }
+            if (!$('.checkbox_agree').prop('checked',false)) {
+                alert('약관을 체크해주세요.');
+                return;
+            }
+
+            alert('회원가입 완료!');
+            var frm = $('.frm_join_modal');
+            frm.attr("action","/login.mdo");
+            frm.submit();
+        });
+    })
+
+    //이메일 중복 확인 및 유효성 검사
+
     $('.id_confirm_btn').click(function () {
-    });
 
-    function validateEmail(str) {
-        // 검증에 사용할 정규식 변수 regExp에 저장
-        var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        var valId = $('#email_val').val();
+        console.log(valId);
 
-        if (str.match(regExp) != null) {
-            return true;
-        } else {
-            return false;
+        function validateEmail(mb_email) {
+            // 검증에 사용할 정규식 변수 regExp에 저장
+            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+            if (mb_email.match(regExp)!==null) {
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
 
+        if (validateEmail(valId)) {
+            $.ajax({
+                type: "post",
+                url: "/emailCheck.do", //통신할 url
+                data: {"email": valId}, //전송할 데이타   email이란 이름으로 input값의 email을 넣는다.
+                datatype: "text",
+                cache: false,
+                async: false,
+                success: function (data) { //성공시 반환 데이터 data에는 controller에서 담아준 error값이 담겨있다.
+                    if (data === "error") {
+                        alert("중복된 이메일입니다. 다시 입력해주세요.");
+                        $('#email_val').focus();
+                    } else {
+                        alert("올바른 이메일입니다.")
+                        $('.pw_value').focus();
+                    }
+                }
+            });
+
+        } else {
+            alert("올바르지 않은 이메일 형식입니다. 다시 입력해주세요.");
+        }
+    });
+    
     // 중복확인 후 다시 이메일 입력할 경우, 중복결과 변수 값을 초기화시킴.
-    $('.id_value_1').keydown(function () {
+    $('#email_val').keydown(function () {
         chk_email_result = "disable";
     });
 
+    //비밀번호 라벨 숨김으로 셋팅
+    $('#alert-success').hide();
+    $('#alert-danger').hide();
+
     // Todo 2. 올바른 비밀번호 입력인지 검증해주는 코드 작성
-    $('.input_pw').keyup(function () {
-    });
-});
+    $('#rePw_val').keyup(function () {
+
+        var pw1 = $("#pw_val").val();
+        var pw2 = $("#rePw_val").val();
+
+        chkPW(pw1);
+
+        if (pw1 != "" || pw2 != "" || pw1 === 1) {
+
+            if (pw1 == pw2) {
+                $("#alert-success").show();
+                $("#alert-success").css("color", "green");
+                $("#alert-danger").hide();
+                $("submit").removeAttr("disabled");
+            } else {
+                $("#alert-success").hide();
+                $("#alert-danger").show();
+                $("#alert-danger").css("color", "red");
+                $("submit").removeAttr("disabled");
+            }
+        }
+    })
+
+
 
 
     // Todo 1 : ajax 비동기 데이터 전달방식 활용을 위한 function 작성 예시. 책과 인터넷 참고 하면서 controller와 어떻게 연결되는지 참고.
@@ -221,4 +382,3 @@ $(document).ready(function() {
             }
 
         });*/
-
