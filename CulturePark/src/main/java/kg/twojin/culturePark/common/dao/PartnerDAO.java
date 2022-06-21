@@ -7,4 +7,5 @@ public interface PartnerDAO {
     int insertPartner(PartnerVO partnerVO);
 
     String  getPartnerByEmail(String email);
+
 }

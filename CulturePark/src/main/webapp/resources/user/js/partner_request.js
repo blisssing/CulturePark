@@ -4,6 +4,7 @@ $(document).ready(function() {
     var code = "";
     var mb_email = "";
     var chk_email_result = "";
+    var chk_authenByPhone_result ="disable";
     var chk_pw_result = "";
     var chk_agree_result = "";
 
@@ -13,12 +14,83 @@ $(document).ready(function() {
     });
 
     // 인증발송 버튼
-    $('.tel_authentication_btn').click(function () {
-        $('.tel_authentication_btn').attr("disabled", true);
-        $('.authentication_code').attr("disabled", false);
-        $('.code_reSend_btn').attr("disabled", false);
-        $('.code_ok_btn').attr("disabled", false);
+    var code2 = "";
+    var timer = null;
+    var isRunning = false;
+
+
+    // 인증시간   * https://developer0809.tistory.com/149*/
+    $(".tel_authentication_btn").click(function () {
+        var phone1 = $('.tel_1').val();
+        var phone2 = $('.tel_2').val();
+        var phone3 = $('.tel_3').val();
+        var fullPhone = phone1 + phone2 + phone3;
+
+        console.log(fullPhone);
+
+        $.ajax({
+            type: "POST",
+            url: "/telCheck.do",
+            datatype: "text",
+            data: {"phone": fullPhone}, //controller로 넘어감 key값으로 넘어감:변수에 담겨짐
+            cache: false,
+            success: function (data) {
+
+                if (data == "error") {
+                    alert("휴대폰 번호가 올바르지 않습니다.")
+                    $(".tel").attr("autofocus", true);
+                } else {
+                    alert("인증번호가 발송됐습니다");
+                    $(".tel").attr("readonly", true);
+                    $('.tel_authentication_btn').attr("disabled", true);
+                    $('.authentication_code').attr("disabled", false);
+                    $('.code_reSend_btn').attr("disabled", false);
+                    $('.code_ok_btn').attr("disabled", false);
+                    code2 = data;
+                }
+            }
+        });
+
+        if (code2 !== 'error') {
+            var display = $('#timeLimit');
+            var leftSec = 180;
+
+            if (isRunning) {
+                clearInterval(timer);
+                display.html("");
+                startTimer(leftSec,display);
+            } else {
+                startTimer(leftSec, display);
+            }
+        }
+
     });
+
+    function startTimer(count, display) {
+
+        var minutes, seconds;
+        timer = setInterval(function () {
+            minutes = parseInt(count / 60, 10);
+            seconds = parseInt(count % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.html(minutes + ":" + seconds);
+
+            // 타이머 끝
+            if (--count < 0) {
+                clearInterval(timer);
+                alert("시간초과");
+                display.html("시간초과");
+                $('.code_ok_btn').attr("disabled","disabled");
+                isRunning = false;
+                code2="disableCode";
+            }
+        }, 1000);
+        isRunning = true;
+    }
+
 
     // 재발송 클릭시
     $('.code_reSend_btn').click(function(){
@@ -28,12 +100,28 @@ $(document).ready(function() {
 
     // 확인 클릭시
     $('.code_ok_btn').click(function (){
-        alert('인증 성공!');
+
+        // Todo :  사용자가 입력한 코드와 Controller 가 반환해준 코드가 같은지 비교해 해줘야 함.
+        //  이때 - 제한 시간이 지났을 경우 아무리 코드를 입력해도, 인증 실패가 떠야 함.
+        //  code2 : 컨트롤러가 반환한 코드
+        //  insertedCode : 사용자가 입력한 코드
+
+        var insertedCode = $('.authentication_code').val();
+
+        if (code2 === "disableCode") {
+            alert("시간 만료된 코드입니다");
+        } else if(insertedCode===code2){
+            alert('인증 성공!');
+            chk_authenByPhone_result="able";
+        } else{
+            alert("인증 실패!!");
+        }
+
     })
 
     // 체크박스 전체 선택
-    $('.checkbox_all_p').click(function () {
-        if ($(".checkbox_all_p").prop("checked")) {
+    $('.checkbox_all').click(function () {
+        if ($(".checkbox_all").prop("checked")) {
             $(".checkbox_one").prop("checked", true);
             chk_agree_result = "able";
         } else {
@@ -56,35 +144,51 @@ $(document).ready(function() {
         }
     });
 
-    //휴대폰 번호 인증
-    var code2 = "";
-    $(".tel_authentication_btn").click(function () {
-        alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
-        var phone1 = $('.tel_1').val();
-        var phone2 = $('.tel_2').val();
-        var phone3 = $('.tel_3').val();
-        var fullPhone = phone1 + phone2 + phone3;
 
+    //이메일 중복 확인 및 유효성 검사
+    $('.id_confirm_btn').click(function () {
 
-        console.log(fullPhone);
+        var valId = $('#email_val').val();
+        console.log(valId);
 
-        $.ajax({
-            type: "POST",
-            url: "/telCheck.do",
-            datatype: "text",
-            data: {"phone": fullPhone}, //controller로 넘어감 key값으로 넘어감:변수에 담겨짐
-            cache: false,
-            success: function (data) {
-                if (data == "error") {
-                    alert("휴대폰 번호가 올바르지 않습니다.")
-                    $(".tel").attr("autofocus", true);
-                } else {
-                    $(".authentication_code").attr("disabled", false);
-                    $(".tel").attr("readonly", true);
-                    code2 = data;
-                }
+        function validateEmail(mb_email) {
+            // 검증에 사용할 정규식 변수 regExp에 저장
+            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+            if (mb_email.match(regExp)!==null) {
+                return true;
+            } else {
+                return false;
             }
-        });
+        }
+
+        if (validateEmail(valId)) {
+            $.ajax({
+                type: "post",
+                url: "/emailCheck.do", //통신할 url
+                data: {"email": valId}, //전송할 데이타   email이란 이름으로 input값의 email을 넣는다.
+                datatype: "text",
+                cache: false,
+                async: false,
+                success: function (data) { //성공시 반환 데이터 data에는 controller에서 담아준 error값이 담겨있다.
+                    if (data === "error") {
+                        alert("중복된 이메일입니다. 다시 입력해주세요.");
+                        $('#email_val').focus();
+                    } else {
+                        alert("올바른 이메일입니다.")
+                        $('.pw_value').focus();
+                    }
+                }
+            });
+
+        } else {
+            alert("올바르지 않은 이메일 형식입니다. 다시 입력해주세요.");
+        }
+    });
+
+    // 중복확인 후 다시 이메일 입력할 경우, 중복결과 변수 값을 초기화시킴.
+    $('#email_val').keydown(function () {
+        chk_email_result = "disable";
     });
 
     //회원가입 버튼 클릭 시 유효성 검사
@@ -92,8 +196,8 @@ $(document).ready(function() {
             var idCheck = $('.id_confirm_btn').prop("N");
 
             var valEmail = $('#email_val').val();
-            var valPw = $('#pw_val').val();
-            var valRePw = $('#rePw_val').val();
+   /*       var valPw = $('#pw_val').val();
+            var valRePw = $('#rePw_val').val();*/
             var valComp = $('#comp_val').val();
             var valCeoName = $('#ceo_name_val').val();
             var valCeoNumber = $('#ceo_number_val').val();
@@ -120,7 +224,7 @@ $(document).ready(function() {
                     return;
                     }
             }
-            if (valPw === null || valPw === undefined || valPw === "") {
+          /*  if (valPw === null || valPw === undefined || valPw === "") {
                 alert('패스워드 확인을 입력해주세요.');
                 $('#pw_val').focus();
                 return;
@@ -131,7 +235,8 @@ $(document).ready(function() {
                 $('#pw_val').val("");
                 $('#pw_val').focus();
                 return;
-            }
+            }*/
+
             if (valComp === null || valComp === undefined || valComp === "") {
                 alert('업체명을 입력해주세요.');
                 $('#comp_val').focus();
@@ -172,213 +277,167 @@ $(document).ready(function() {
                 $('#code_val').focus();
                 return;
             }
-            if (!$('.checkbox_agree').prop('checked',false)) {
+            if (!$('.checkbox_all').prop('checked')) {
                 alert('약관을 체크해주세요.');
                 return;
             }
 
             alert('회원가입 완료!');
-            var frm = $('.frm_join_modal');
+            var frm = $('.frm');
             frm.attr("action","/login.mdo");
             frm.submit();
         });
+
+
+
+
+
+
+
+});
+
+
+
+
+
+/*******************************************************/
+    // Todo : 올바른 비밀번호 입력인지 검증해주는 코드 작성
+    /*$('#rePw_val').keyup(function () {
+
+    var pw1 = $("#pw_val").val();
+    var pw2 = $("#rePw_val").val();
+
+    chkPW(pw1);
+
+    if (pw1 != "" || pw2 != "" || pw1 === 1) {
+
+    if (pw1 == pw2) {
+        $("#alert-success").show();
+        $("#alert-success").css("color", "green");
+        $("#alert-danger").hide();
+        $("submit").removeAttr("disabled");
+    } else {
+        $("#alert-success").hide();
+        $("#alert-danger").show();
+        $("#alert-danger").css("color", "red");
+        $("submit").removeAttr("disabled");
+    }
+    }
     })
+    */
 
-    //이메일 중복 확인 및 유효성 검사
-
-    $('.id_confirm_btn').click(function () {
-
-        var valId = $('#email_val').val();
-        console.log(valId);
-
-        function validateEmail(mb_email) {
-            // 검증에 사용할 정규식 변수 regExp에 저장
-            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-            if (mb_email.match(regExp)!==null) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        if (validateEmail(valId)) {
-            $.ajax({
-                type: "post",
-                url: "/emailCheck.do", //통신할 url
-                data: {"email": valId}, //전송할 데이타   email이란 이름으로 input값의 email을 넣는다.
-                datatype: "text",
-                cache: false,
-                async: false,
-                success: function (data) { //성공시 반환 데이터 data에는 controller에서 담아준 error값이 담겨있다.
-                    if (data === "error") {
-                        alert("중복된 이메일입니다. 다시 입력해주세요.");
-                        $('#email_val').focus();
-                    } else {
-                        alert("올바른 이메일입니다.")
-                        $('.pw_value').focus();
-                    }
-                }
-            });
-
-        } else {
-            alert("올바르지 않은 이메일 형식입니다. 다시 입력해주세요.");
-        }
-    });
-    
-    // 중복확인 후 다시 이메일 입력할 경우, 중복결과 변수 값을 초기화시킴.
-    $('#email_val').keydown(function () {
-        chk_email_result = "disable";
-    });
-
-    //비밀번호 라벨 숨김으로 셋팅
-    $('#alert-success').hide();
-    $('#alert-danger').hide();
-
-    // Todo 2. 올바른 비밀번호 입력인지 검증해주는 코드 작성
-    $('#rePw_val').keyup(function () {
-
-        var pw1 = $("#pw_val").val();
-        var pw2 = $("#rePw_val").val();
-
-        chkPW(pw1);
-
-        if (pw1 != "" || pw2 != "" || pw1 === 1) {
-
-            if (pw1 == pw2) {
-                $("#alert-success").show();
-                $("#alert-success").css("color", "green");
-                $("#alert-danger").hide();
-                $("submit").removeAttr("disabled");
-            } else {
-                $("#alert-success").hide();
-                $("#alert-danger").show();
-                $("#alert-danger").css("color", "red");
-                $("submit").removeAttr("disabled");
-            }
-        }
-    })
-
-
-
-
-    // Todo 1 : ajax 비동기 데이터 전달방식 활용을 위한 function 작성 예시. 책과 인터넷 참고 하면서 controller와 어떻게 연결되는지 참고.
+    // Todo : ajax 비동기 데이터 전달방식 활용을 위한 function 작성 예시. 책과 인터넷 참고 하면서 controller와 어떻게 연결되는지 참고.
     /* function ajaxFunction('인자값') {
-         $.ajax({
-             type: "{post 혹은 get 중 선택}",
-             dataType: "{데이터의 타입 ex : text}",
-             url: "{전송할 url 기입 ex : joinProc.do}",
-             cache: {캐시를 남기지 않으면 false 남기면 true},
-             data: {{파라미터 이름 ex : paramName }: {파라미터 값 ex : '인자값'}},
-             success: function (data) {  <<- url 전송 성공시 실행되는 코드
-                 if (data == "error") {
-                     alert("실패!");
-                 } else {
-                     code = data;
-                 }
-             }
-         });
-     }*/
+    $.ajax({
+     type: "{post 혹은 get 중 선택}",
+     dataType: "{데이터의 타입 ex : text}",
+     url: "{전송할 url 기입 ex : joinProc.do}",
+     cache: {캐시를 남기지 않으면 false 남기면 true},
+     data: {{파라미터 이름 ex : paramName }: {파라미터 값 ex : '인자값'}},
+     success: function (data) {  <<- url 전송 성공시 실행되는 코드
+         if (data == "error") {
+             alert("실패!");
+         } else {
+             code = data;
+         }
+     }
+    });
+    }*/
 
- /*   function ajaxFunction(selTelChk) {
-        $.ajax({
-            type: "get",
-            dataType: "text",
-            url: "telCheck?tel="+tel,
-            cache: false,
-            data: {joinTelChk: selTelChk},
-            success: function (data) {
-                if (data == "error") {
-                    alert("실패하였습니다.");
-                } else {
-                    alert("인증완료 하였습니다.")
-                    code2 = data;
+    /*   function ajaxFunction(selTelChk) {
+    $.ajax({
+    type: "get",
+    dataType: "text",
+    url: "telCheck?tel="+tel,
+    cache: false,
+    data: {joinTelChk: selTelChk},
+    success: function (data) {
+        if (data == "error") {
+            alert("실패하였습니다.");
+        } else {
+            alert("인증완료 하였습니다.")
+            code2 = data;
+        }
+    }
+    });
+    }
+    */
+
+    /* Todo 3. 인증번호 보내기*/
+    /*$('.tel_authentication_btn').click(function () {
+    var first_num = $('.tel_1').val();
+    var second_num = $('.tel_2').val()
+    var third_num = $('.tel_3').val();
+
+    var phone = first_num + second_num + third_num;
+
+    /!* console.log(first_num)*!/*/
+
+    // Todo : 값을 제대로 입력햇는지 확인 . true 안의 조건식을 완성해줄 것.
+    /*  if (first_num = '') {
+    alert("전화번호 첫번째 자리를 선택해주세요");
+    } else if (second_num == '') {
+    alert("전화번호 두 번째 자리를 입력해주세요");
+    } else if (third_num == '') {
+    alert("전화번호 세 번째 자리를 입력해주세요");
+    } else {
+    alert("인증번호 발송이 완료되었습니다. \n 휴대폰에서 인증번호를 확인해 주십시오");
+    sendSms(phone);
+    }*/
+
+    // Todo : 인자값으로 받은 전화번호에 문자 메세지를 보내주는 기능 만들어줄 것. 반드시 ajax 비동기 전달 방식 사용.
+    //  hint : 인터넷에 ajax 데이터 전송 방식이라고 검색하면 나오며, 교재에도 있음.
+    /* function sendSms(phone) {
+
+        $("#requestBtn").on("click", function() {
+            // POST 방식으로 서버에 HTTP Request를 보냄.
+
+            $.post("/examples/media/request_ajax.php",
+
+                { name: "홍길동", grade: "A" },  // 서버가 필요한 정보를 같이 보냄.
+
+                function(data, status) {
+
+                    $("#text").html(data + "<br>" + status); // 전송받은 데이터와 전송 성공 여부를 보여줌.
+
                 }
-            }
+            );
         });
     }
-*/
-        /*/!* Todo 3. 인증번호 보내기*!/
-        $('.tel_authentication_btn').click(function () {
-            var first_num = $('.tel_1').val();
-            var second_num = $('.tel_2').val()
-            var third_num = $('.tel_3').val();
 
-            var phone = first_num + second_num + third_num;
-
-            /!* console.log(first_num)*!/
-
-            // Todo : 값을 제대로 입력햇는지 확인 . true 안의 조건식을 완성해줄 것.
-            if (first_num = '') {
-                alert("전화번호 첫번째 자리를 선택해주세요");
-            } else if (second_num == '') {
-                alert("전화번호 두 번째 자리를 입력해주세요");
-            } else if (third_num == '') {
-                alert("전화번호 세 번째 자리를 입력해주세요");
-            } else {
-                alert("인증번호 발송이 완료되었습니다. \n 휴대폰에서 인증번호를 확인해 주십시오");
-                sendSms(phone);*/
+    // 위에서 정의한 기능을 사용.
+    sendSms(phone);
+    $(".authentication_code").attr("disabled", false);
+    $(".tel").attr("readonly", true);*/
 
 
-      /*          // Todo : 인자값으로 받은 전화번호에 문자 메세지를 보내주는 기능 만들어줄 것. 반드시 ajax 비동기 전달 방식 사용.
-                //  hint : 인터넷에 ajax 데이터 전송 방식이라고 검색하면 나오며, 교재에도 있음.
-                function sendSms(phone) {
+    // Todo 4 : Todo 3 작업을 마친 후 반환받은 코드와 입력된 인증코드를 비교해주는 기능을 작성해줄 것.
+    /*  $('.code_ok_btn').click(function () {
+    if ($(".authentication_code").val() == code2) { // true에 올바른 조건식을 넣어줄 것.
+        alert("인증번호가 일치합니다");
+        $("#phoneDoubleChk").val("true");
+        $(".authentication_code").attr("disabled",true);
+    } else {
+        alert("인증번호가 불일치합니다. 확인해주시기 바랍니다");
+        $("#phoneDoubleChk").val("false");
+        $(this).attr("autofocus",true);
+    }
+    });*/
 
-                        $("#requestBtn").on("click", function() {
-                            // POST 방식으로 서버에 HTTP Request를 보냄.
+    //Todo : 입력값들 제대로 기입돼 있는지 확인해주는 조건문 마무리 해주고 DB에 insert 작업 마무리 해주기
+    /*        $('.join_btn').click(function () {
 
-                            $.post("/examples/media/request_ajax.php",
+    if (chk_email_result === 'disable ') {
 
-                                { name: "홍길동", grade: "A" },  // 서버가 필요한 정보를 같이 보냄.
+    } else if (chk_pw_result === 'disable') {
 
-                                function(data, status) {
+    } else if (chk_agree_result === 'disable') {
 
-                                    $("#text").html(data + "<br>" + status); // 전송받은 데이터와 전송 성공 여부를 보여줌.
+    }
 
-                                }
-                            );
-                        });
-                }*/
+    // Todo : insert 해주는 ajax 비동기 데이터 전달 구간
+    function createData() {
 
-              /*  // 위에서 정의한 기능을 사용.
-                sendSms(phone);
-                $(".authentication_code").attr("disabled", false);
-                $(".tel").attr("readonly", true);
-*/
+    }
 
-                // Todo : 인증번호 발송이 완료되면 인증번호 입력, 재발송, 확인 버튼을 활성화시켜주는 코드 작성해줄 것.
-/*
-            }
-        });*/
-
-        /* 인증번호 확인 */
-       /* // Todo 4 : Todo 3 작업을 마친 후 반환받은 코드와 입력된 인증코드를 비교해주는 기능을 작성해줄 것.
-        $('.code_ok_btn').click(function () {
-            if ($(".authentication_code").val() == code2) { // true에 올바른 조건식을 넣어줄 것.
-                alert("인증번호가 일치합니다");
-                $("#phoneDoubleChk").val("true");
-                $(".authentication_code").attr("disabled",true);
-            } else {
-                alert("인증번호가 불일치합니다. 확인해주시기 바랍니다");
-                $("#phoneDoubleChk").val("false");
-                $(this).attr("autofocus",true);
-            }
-        });*/
-
-        //Todo 5 : 입력값들 제대로 기입돼 있는지 확인해주는 조건문 마무리 해주고 DB에 insert 작업 마무리 해주기
-/*        $('.join_btn').click(function () {
-
-            if (chk_email_result === 'disable ') {
-
-            } else if (chk_pw_result === 'disable') {
-
-            } else if (chk_agree_result === 'disable') {
-
-            }
-
-            // Todo : insert 해주는 ajax 비동기 데이터 전달 구간
-            function createData() {
-
-            }
-
-        });*/
+    });*/

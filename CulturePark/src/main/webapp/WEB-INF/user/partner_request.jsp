@@ -18,6 +18,14 @@
     <style><%@include file="/resources/user/css/common_header.css"%></style>
     <style><%@include file="/resources/user/css/member_join.css" %></style>
 
+    <style>
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
+
+
     <title> 우리들의 문화공간 CulturePark </title>
 </head>
 
@@ -46,12 +54,12 @@
                 <div class="join_label">판매자 가입</div>
             </div>
 
-
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <form id="frm">
                 <div class="join_section">
                     <p class="sectionLine_thin"></p>
 
+                    <input type="hidden" name="pt_seq"   class="partner_num" value="${vo.pt_seq}">
                     <div class="id_section section_type01">
                         <div class="id_label">이메일</div>
                         <input class="id_value_1" type="email" name="pt_email" id="email_val">
@@ -60,7 +68,7 @@
                         <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
                     </div>
 
-                    <div class="pw_section section_type01">
+                    <%--<div class="pw_section section_type01">
                         <div class="pw_label">비밀번호</div>
                         <input class="input_pw pw_value input_type01" type="password" name="pt_pw" id="pw_val" >
                     </div>
@@ -68,12 +76,12 @@
                     <div class="rePw_section section_type01">
                         <div class="rePw_label">비밀번호확인</div>
                         <div class="rePw_value_section">
-                            <%-- 비밀번호확인 체크 메세지--%>
+                            &lt;%&ndash; 비밀번호확인 체크 메세지&ndash;%&gt;
                             <input class="input_pw rePw_value input_type01" type="password" name="rePw_value" id="rePw_val">
                                 <div class="pw_check alert alert-success"  type="textFiled" name="pw_check" id="alert-success">비밀번호가 일치합니다.</div>
                                 <div class="pw_check alert alert-danger"  type="textFiled" name="pw_check" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="comp_section section_type01">
                         <div class="comp_label">업체명</div>
@@ -90,7 +98,7 @@
 
                     <div class="number_section section_type01">
                         <div class="number_label">사업자번호</div>
-                        <input class="number_value1" type="textFiled" name="pt_ceo_number" id="ceo_number_val">
+                        <input class="number_value1" type="number" name="pt_ceo_number" id="ceo_number_val">
                     </div>
 
                     <div class="file_upload_section">
@@ -126,14 +134,14 @@
 
                         <%-- 인증번호받기 버튼--%>
                         <div>
-                            <input type="button" class="tel_authentication_btn btn_authen" type="button" value="인증번호"/>
+                            <input type="button" class="tel_authentication_btn btn_authen" id="code_first" type="button" value="인증번호">
 
                         </div>
                     </div>
 
                     <%-- 인증번호받기 버튼 클릭시 나타남 --%>
                     <div class="authentication_code_section section_type01">
-                        <div class="authentication_code_label">인증번호</div>
+                        <div class="authentication_code_label"></div>
 
                         <input class="authentication_code" id="code_val" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="pt_phone_code">
 
@@ -147,7 +155,7 @@
                     </div>
                     <%-- 인증 유효시간 --%>
                     <div class="certifyTime">
-                        <span class="time">10:00</span>
+                        <span class="time" id="timeLimit">인증시간</span>
                     </div>
 
                 </div>

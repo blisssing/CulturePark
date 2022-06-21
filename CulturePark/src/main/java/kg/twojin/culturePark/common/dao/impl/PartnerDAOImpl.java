@@ -14,7 +14,13 @@ public class PartnerDAOImpl implements PartnerDAO {
 
     @Override
     public int insertPartner(PartnerVO partnerVO) {
-        return 0;
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.insert("mapper.partner.insertPartner", partnerVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
