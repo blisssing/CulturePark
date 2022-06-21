@@ -13,8 +13,8 @@ public class PartnerJoinServiceImpl implements PartnerJoinService {
     PartnerDAO partnerDAO;
 
     @Override
-    public int joinPartner(PartnerVO partnerVO) {
-        return 0;
+    public int insertPartner(PartnerVO partnerVO) {
+        return partnerDAO.insertPartner(partnerVO);
     }
 
     @Override
@@ -23,4 +23,5 @@ public class PartnerJoinServiceImpl implements PartnerJoinService {
         result = partnerDAO.getPartnerByEmail(email);
         return result;
     }
+
 }

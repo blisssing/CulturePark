@@ -19,11 +19,27 @@
         <result property="pt_createDate" column="pt_createDate"></result>
     </resultMap>
 
-                                                          <!--????-->
+
     <select id="selectExistEmail" parameterType="string" resultType="string">
         SELECT PT_EMAIL
         FROM PARTNER_REQUEST
         WHERE PT_EMAIL= #{email};
     </select>
+
+    <insert id="insertPartner" parameterType="partnerVO">
+        INSERT INTO PARTNER_REQUEST
+            (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME, PT_CEO_NUMBER, PT_FILE, PT_PHONE, PT_PHONE_CODE, PT_CREATEDATE)
+        VALUES
+            (
+             #{pt_email},
+             #{pt_comp_name},
+             #{pt_ceo_name},
+             #{pt_ceo_number},
+             #{pt_file},
+             #{pt_phone},
+             #{pt_phone_code},
+             #{pt_createdate}
+            );
+    </insert>
 
 </mapper>
