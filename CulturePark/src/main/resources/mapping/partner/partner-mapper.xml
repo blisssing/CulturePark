@@ -9,14 +9,12 @@
     <resultMap id="resultPartner" type="partnerVO">
         <result property="pt_seq" column="pt_seq"></result>
         <result property="pt_email" column="pt_email"></result>
-        <result property="pt_pw" column="pt_pw"></result>
         <result property="pt_comp_name" column="pt_comp_name"></result>
         <result property="pt_ceo_name" column="pt_ceo_name"></result>
         <result property="pt_ceo_number" column="pt_ceo_number"></result>
         <result property="pt_file" column="pt_file"></result>
         <result property="pt_phone" column="pt_phone"></result>
-        <result property="pt_phone_code" column="pt_phone_code"></result>
-        <result property="pt_createDate" column="pt_createDate"></result>
+        <result property="pt_createDate" column="pt_createdate"></result>
     </resultMap>
 
 
@@ -28,7 +26,7 @@
 
     <insert id="insertPartner" parameterType="partnerVO">
         INSERT INTO PARTNER_REQUEST
-            (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME, PT_CEO_NUMBER, PT_FILE, PT_PHONE, PT_PHONE_CODE, PT_CREATEDATE)
+            (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME, PT_CEO_NUMBER, PT_FILE, PT_PHONE, PT_CREATEDATE)
         VALUES
             (
              #{pt_email},
@@ -37,8 +35,7 @@
              #{pt_ceo_number},
              #{pt_file},
              #{pt_phone},
-             #{pt_phone_code},
-             #{pt_createdate}
+             #{pt_createDate}
             );
     </insert>
 

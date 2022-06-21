@@ -84,14 +84,13 @@ $('.btn_finalDelete').click(function () {
 
 
     function deleteUsingAjax(mg_seq) {
-
         $.ajax({
             type:"post",
             datatype:"text",
             url:"/mAccountDeleteProc.mdo",
             async:false,
             cache:false,
-            data: {"mg_seq":mg_seq},
+            data: {"mg_seq":mg_seq}, //key값:value값
             success:function (result) {
                 insertResult = result;
             }

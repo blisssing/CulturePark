@@ -11,11 +11,10 @@ import java.util.Date;
 public class PartnerVO {
 
         String pt_email, pt_comp_name, pt_ceo_name,
-               pt_ceo_number, pt_file, pt_phone, pt_phone_code;
+               pt_ceo_number, pt_file, pt_phone;
         int pt_seq;
-
         @DateTimeFormat(pattern = "yyyy-MM-dd")
-         Date pt_createDate;
+        Date pt_createDate;
     }
 
 
