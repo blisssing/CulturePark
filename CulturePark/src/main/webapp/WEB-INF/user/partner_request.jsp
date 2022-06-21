@@ -59,7 +59,6 @@
                 <div class="join_section">
                     <p class="sectionLine_thin"></p>
 
-                    <input type="hidden" name="pt_seq"   class="partner_num" value="${vo.pt_seq}">
                     <div class="id_section section_type01">
                         <div class="id_label">이메일</div>
                         <input class="id_value_1" type="email" name="pt_email" id="email_val">
@@ -134,7 +133,8 @@
 
                         <%-- 인증번호받기 버튼--%>
                         <div>
-                            <input type="button" class="tel_authentication_btn btn_authen" id="code_first" type="button" value="인증번호">
+                            <input type="button" class="tel_authentication_btn code_send" id="code_first" value="인증번호">
+                            <input type="button" class="tel_authentication_btn code_reSend" id="code_second" value="재발송">
 
                         </div>
                     </div>
@@ -146,7 +146,6 @@
                         <input class="authentication_code" id="code_val" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="pt_phone_code">
 
                         <div class="code_reSend_btn_section">
-                            <input class="code_reSend_btn" id="reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
                             <input class="code_ok_btn" disabled="disabled" type="button" name="code_ok_btn" value="확인">
                         </div>
 
@@ -155,7 +154,7 @@
                     </div>
                     <%-- 인증 유효시간 --%>
                     <div class="certifyTime">
-                        <span class="time" id="timeLimit">인증시간</span>
+                        <span class="time" id="timeLimit"></span>
                     </div>
 
                 </div>

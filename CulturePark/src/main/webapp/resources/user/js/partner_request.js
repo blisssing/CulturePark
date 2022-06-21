@@ -5,22 +5,39 @@ $(document).ready(function() {
     var mb_email = "";
     var chk_email_result = "";
     var chk_authenByPhone_result ="disable";
-    var chk_pw_result = "";
     var chk_agree_result = "";
+    var insertResult;
 
     // 이전
     $('.back').click(function () {
         window.history.back();
     });
 
+    $('.code_reSend').hide();
+
+
     // 인증발송 버튼
     var code2 = "";
     var timer = null;
     var isRunning = false;
+    var timer_status;
 
 
     // 인증시간   * https://developer0809.tistory.com/149*/
     $(".tel_authentication_btn").click(function () {
+        timer_status=0;
+        if ($(this).val() ==='재발송') {
+            timer_status = 1;
+        }
+
+
+        $('.code_send').hide();
+        $('.code_reSend').show();
+        
+        /*ajax 주석 풀면 아래 2가지 삭제하기*/
+        $('.authentication_code').attr("disabled", false);
+        $('.code_ok_btn').attr("disabled", false);
+
         var phone1 = $('.tel_1').val();
         var phone2 = $('.tel_2').val();
         var phone3 = $('.tel_3').val();
@@ -28,7 +45,8 @@ $(document).ready(function() {
 
         console.log(fullPhone);
 
-        $.ajax({
+        code2="1234";
+/*        $.ajax({
             type: "POST",
             url: "/telCheck.do",
             datatype: "text",
@@ -42,14 +60,14 @@ $(document).ready(function() {
                 } else {
                     alert("인증번호가 발송됐습니다");
                     $(".tel").attr("readonly", true);
-                    $('.tel_authentication_btn').attr("disabled", true);
+                    $('.code_send').hide();
+                    $('.code_reSend).show();
                     $('.authentication_code').attr("disabled", false);
-                    $('.code_reSend_btn').attr("disabled", false);
                     $('.code_ok_btn').attr("disabled", false);
                     code2 = data;
                 }
             }
-        });
+        });*/
 
         if (code2 !== 'error') {
             var display = $('#timeLimit');
@@ -70,36 +88,39 @@ $(document).ready(function() {
 
         var minutes, seconds;
         timer = setInterval(function () {
-            minutes = parseInt(count / 60, 10);
-            seconds = parseInt(count % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.html(minutes + ":" + seconds);
-
-            // 타이머 끝
-            if (--count < 0) {
-                clearInterval(timer);
-                alert("시간초과");
-                display.html("시간초과");
-                $('.code_ok_btn').attr("disabled","disabled");
-                isRunning = false;
-                code2="disableCode";
+            if(timer_status === 1) {
+                console.log('여기 확인하고 있음!!');
+                count = 180;
+                timer_status = 0;
             }
+                minutes = parseInt(count / 60, 10);
+                seconds = parseInt(count % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.html(minutes + ":" + seconds);
+
+                // 타이머 끝
+                if (--count < 0 || timer_status===-1) {
+                    clearInterval(timer);
+                    display.html("00:00");
+                    $('.code_ok_btn').attr("disabled", "disabled");
+                    isRunning = false;
+                    code2 = "disableCode";
+                    timer_status = 0;
+                } else {
+
+                }
+
         }, 1000);
         isRunning = true;
     }
 
-
-    // 재발송 클릭시
-    $('.code_reSend_btn').click(function(){
-        $('.authentication_code').clear();
-        $('.authentication_code').focus();
-    })
-
     // 확인 클릭시
     $('.code_ok_btn').click(function (){
+        /*시간멈춤*/
+        timer_status=-1;
 
         // Todo :  사용자가 입력한 코드와 Controller 가 반환해준 코드가 같은지 비교해 해줘야 함.
         //  이때 - 제한 시간이 지났을 경우 아무리 코드를 입력해도, 인증 실패가 떠야 함.
@@ -108,16 +129,31 @@ $(document).ready(function() {
 
         var insertedCode = $('.authentication_code').val();
 
+        console.log(code2);
+        console.log(insertedCode);
+
         if (code2 === "disableCode") {
             alert("시간 만료된 코드입니다");
-        } else if(insertedCode===code2){
+        } else if (insertedCode===code2){
             alert('인증 성공!');
             chk_authenByPhone_result="able";
-        } else{
+        } else {
             alert("인증 실패!!");
         }
 
+    });
+
+
+    // 재발송 클릭시
+    $('.code_reSend').click(function(){
+        $('.authentication_code').clear();
+        $('.authentication_code').focus();
     })
+
+    $('.tel').keyup(function () {
+        chk_authenByPhone_result = "disable";
+    });
+
 
     // 체크박스 전체 선택
     $('.checkbox_all').click(function () {
@@ -176,6 +212,7 @@ $(document).ready(function() {
                         $('#email_val').focus();
                     } else {
                         alert("올바른 이메일입니다.")
+                        chk_email_result = "able";
                         $('.pw_value').focus();
                     }
                 }
@@ -193,108 +230,114 @@ $(document).ready(function() {
 
     //회원가입 버튼 클릭 시 유효성 검사
     $('.join_btn').click(function () {
-            var idCheck = $('.id_confirm_btn').prop("N");
 
-            var valEmail = $('#email_val').val();
-   /*       var valPw = $('#pw_val').val();
-            var valRePw = $('#rePw_val').val();*/
-            var valComp = $('#comp_val').val();
-            var valCeoName = $('#ceo_name_val').val();
-            var valCeoNumber = $('#ceo_number_val').val();
-            var valFile = $('#file_val').val();
+        console.log('확인1');
 
-            var valTel1 = $('#tel_1').val();
-            var valTel2 = $('#tel_2').val();
-            var valTel3 = $('#tel_3').val();
+        var idCheck = $('.id_confirm_btn').prop("N");
 
-            var valCode = $('#code_val').val();
+        var pt_email = $('#email_val').val();
+        var pt_comp_name = $('#comp_val').val();
+        var pt_ceo_name = $('#ceo_name_val').val();
+        var pt_ceo_number = $('#ceo_number_val').val();
+        var pt_file = $('#file_val').val();
 
-            var valChkAll = $('#chkAll').val();
-            var valChkOne1 = $('#chkOne1').val();
-            var valChkOne2 = $('#chkOne2').val();
-            var valChkOne3 = $('#chkOne3').val();
+        var valTel1 = $('#tel_1').val();
+        var valTel2 = $('#tel_2').val();
+        var valTel3 = $('#tel_3').val();
 
-            if (valEmail === null || valEmail === undefined || varEmail === "") {
-                alert('이메일을 입력해주세요.');
-                $('#email_val').focus();
-                return;
-                    if (idCheck == "" || idCheck == "N") {
-                    alert('이메일 중복확인를 해주세요');
-                    $('#idCheck').focus();
-                    return;
-                    }
-            }
-          /*  if (valPw === null || valPw === undefined || valPw === "") {
-                alert('패스워드 확인을 입력해주세요.');
-                $('#pw_val').focus();
-                return;
-            }
-            if (valPw != valRePw) {
-                alert('패스워드와 패스워드 확인이 같지않습니다.');
-                $('#rePw_val').val("");
-                $('#pw_val').val("");
-                $('#pw_val').focus();
-                return;
-            }*/
+        var pt_phone = valTel1+valTel2+valTel3;
 
-            if (valComp === null || valComp === undefined || valComp === "") {
-                alert('업체명을 입력해주세요.');
-                $('#comp_val').focus();
-                return;
-            }
-            if (valCeoName === null || valCeoName === undefined || valCeoName === "") {
-                alert('사업자명을 입력해주세요.');
-                $('#ceo_name_val').focus();
-                return;
-            }
-            if (valCeoNumber === null || valCeoNumber === undefined || valCeoNumber === "") {
-                alert('사업자번호를 입력해주세요.');
-                $('#ceo_number_val').focus();
-                return;
-            }
-            if (valFile === null || valFile === undefined || valFile === "") {
-                alert('파일을 업로드 해주세요.');
-                $('#file_val').focus();
-                return;
-            }
-            if (valTel1 === null || valTel1 === undefined || valTel1 === "") {
-                alert('전화번호를 입력해주세요.');
-                $('#tel_1').focus();
-                return;
-            }
-            if (valTel2 === null || valTel2 === undefined || valTel2 === "") {
-                alert('전화번호를 입력해주세요.');
-                $('#tel_2').focus();
-                return;
-            }
-            if (valTel3 === null || valTel3 === undefined || valTel3 === "") {
-                alert('전화번호를 입력해주세요.');
-                $('#tel_3').focus();
-                return;
-            }
-            if (valCode === null || valCode === undefined || valCode === "") {
-                alert('인증번호를 입력해주세요.');
-                $('#code_val').focus();
-                return;
-            }
-            if (!$('.checkbox_all').prop('checked')) {
-                alert('약관을 체크해주세요.');
-                return;
+        var valChkAll = $('#chkAll').val();
+
+
+        /*  if (valPw === null || valPw === undefined || valPw === "") {
+                      alert('패스워드 확인을 입력해주세요.');
+                      $('#pw_val').focus();
+                      return;
+                  }
+                  if (valPw != valRePw) {
+                      alert('패스워드와 패스워드 확인이 같지않습니다.');
+                      $('#rePw_val').val("");
+                      $('#pw_val').val("");
+                      $('#pw_val').focus();
+                      return;
+                  }*/
+        if (pt_email === null || pt_email === undefined || pt_email === "") {
+            alert('이메일을 입력해주세요.');
+            $('#email_val').focus();
+        } else if (pt_comp_name === null || pt_comp_name === undefined || pt_comp_name === "") {
+            alert('업체명을 입력해주세요.');
+            $('#comp_val').focus();
+        } else if (pt_ceo_name === null || pt_ceo_name === undefined || pt_ceo_name === "") {
+            alert('사업자명을 입력해주세요.');
+            $('#ceo_name_val').focus();
+
+        } else if (pt_ceo_number === null || pt_ceo_number === undefined || pt_ceo_number === "") {
+            alert('사업자번호를 입력해주세요.');
+            $('#ceo_number_val').focus();
+
+        } else if (pt_file === null || pt_file === undefined || pt_file === "") {
+            alert('파일을 업로드 해주세요.');
+            $('#file_val').focus();
+
+        } else if (valTel1 === null || valTel1 === undefined || valTel1 === "") {
+            alert('전화번호를 입력해주세요.');
+            $('#tel_1').focus();
+
+        } else if (valTel2 === null || valTel2 === undefined || valTel2 === "") {
+            alert('전화번호를 입력해주세요.');
+            $('#tel_2').focus();
+        } else if (valTel3 === null || valTel3 === undefined || valTel3 === "") {
+            alert('전화번호를 입력해주세요.');
+            $('#tel_3').focus();
+        } else if (chk_agree_result == "disable") {
+            console.log('약관체크');
+            alert('약관을 체크해주세요.');
+        } else  {
+
+            if (chk_authenByPhone_result === "able" &&
+                chk_agree_result === "able" &&
+                chk_email_result === "able") {
+                insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name,
+                                  pt_ceo_number, pt_file, pt_phone);
             }
 
-            alert('회원가입 완료!');
-            var frm = $('.frm');
-            frm.attr("action","/login.mdo");
-            frm.submit();
-        });
-
-
-
-
-
+        }
+    }); //회원가입클릭시
 
 
 });
+
+function insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name, pt_ceo_number, pt_file, pt_phone) {
+//여러값을 넣을때 json을 사용. key:value의 형태로 넣음. controller에서는 void로 반환값 없지만,
+
+    var itemSet={"pt_email":pt_email, "pt_comp_name":pt_comp_name, "pt_ceo_name":pt_ceo_name,
+        "pt_ceo_number":pt_ceo_number, "pt_file":pt_file, "pt_phone":pt_phone};
+
+    $.ajax({
+        type:"post",
+        datatype:"json",
+        url:"/partnerRequestProc.do",
+        async:false,
+        cache:false,
+        contentType:"application/json; charset=utf-8",
+        data: JSON.stringify(itemSet),
+        success:function (a) { //controller의 writer.print(json)의 결과가 반환됨.
+            if (a === "success") {
+                alert("성공");
+            } else {
+                alert("실패");
+            }
+
+        },
+        error: function () {
+            alert("신청이 실패되었습니다");
+        }
+
+
+
+    });
+}
 
 
 
