@@ -25,45 +25,6 @@
 
     <dependencies>
 
-        <!-- 메일 관련 라이브러리 -->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.5.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.7</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.5.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.13</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-email</artifactId>
-            <version>1.5</version>
-        </dependency>
-
-
-        <!-- 문자 인증관련 라이브러리 -->
-        <dependency>
-            <groupId>net.nurigo</groupId>
-            <artifactId>javaSDK</artifactId>
-            <version>2.2</version>
-        </dependency>
-
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -89,6 +50,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+        <!-- spring-context-support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
 
@@ -148,6 +116,10 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>5.7.1</version>
         </dependency>
+
+
+
+
 
 
 
@@ -241,7 +213,18 @@
         </dependency>
 
 
+<!--  메일 관련     -->
+        <!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
         <dependency>
+            <groupId>jakarta.mail</groupId>
+            <artifactId>jakarta.mail-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
+
+
+
+<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
@@ -299,14 +282,14 @@
             <version>2.13.3</version>
         </dependency>
 
-
-
-        <!--문자인증 API-->
+        <!-- 문자 인증관련 라이브러리 -->
         <dependency>
             <groupId>net.nurigo</groupId>
             <artifactId>javaSDK</artifactId>
             <version>2.2</version>
         </dependency>
+
+
     </dependencies>
 
     <build>

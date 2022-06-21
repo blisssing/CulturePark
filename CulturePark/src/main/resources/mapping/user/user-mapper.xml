@@ -40,8 +40,6 @@
     <![CDATA[
         SELECT *
         FROM MEMBER_ACCOUNT
-
-
     ]]>
 
     </select>

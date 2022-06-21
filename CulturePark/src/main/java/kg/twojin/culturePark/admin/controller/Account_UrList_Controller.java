@@ -40,22 +40,15 @@ public class Account_UrList_Controller {
     }
 
     @RequestMapping(value = "changeMbActive.ado")
-<<<<<<< HEAD
     public void changeMbActive(HttpServletRequest request, HttpServletResponse response,
                                @RequestBody MemberVO memberVO) throws IOException {
 
         int result = ad_userListService.updateMemberActive(memberVO);
-=======
-    public void changeMbActive(@RequestParam("mq_seq")int mq_seq,
-
-                               @RequestParam("mq_status") String mq_status) {
->>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
-
 
         JSONObject json = new JSONObject();
         String result_str = "";
 
-<<<<<<< HEAD
+
         if (result == 1) {
             result_str = "success";
         } else {
@@ -72,23 +65,19 @@ public class Account_UrList_Controller {
     public void getTemporaryKey(@RequestParam("mb_seq")String seq_str,
                                 HttpServletResponse response) throws IOException {
 
-        String tempKey=securityService.createTempKeyBySec();
+        String tempKey = securityService.createTempKeyBySec();
         String encodeKey = bcryptPasswordEncoder.encode(tempKey);
 
-        int result =ad_userListService.modifyMemberPassword(Integer.parseInt(seq_str), encodeKey);
-        JSONObject json = new JSONObject();
+        int result = ad_userListService.modifyMemberPassword(Integer.parseInt(seq_str), encodeKey);
 
+        JSONObject json = new JSONObject();
         if (result == 1) {
             json.put("result", "success");
         } else {
             json.put("result", "failed");
         }
-
         PrintWriter out = response.getWriter();
         out.print(json);
-=======
-
->>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
     }
 
 }
