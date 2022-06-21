@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class MemberVO {
     String mb_email, mb_pw, mb_nick, mb_name, mb_birth,
-            mb_gender, mb_tel, mb_status;
+            mb_gender, mb_tel, mb_status, mb_pausePeriod;
     int mb_seq;
     Date mb_createDate;
 

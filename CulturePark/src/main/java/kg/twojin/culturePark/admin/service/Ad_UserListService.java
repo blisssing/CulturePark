@@ -10,7 +10,10 @@ public interface Ad_UserListService {
 
     int updateMemberActive(MemberVO memberVO);
 
-    int modifyMemberPassword(int mb_seq, String pw);
+    int modifyMemberPassword(String  mb_email, String pw);
+
+    int updateMemberPause(int mb_seq, String  date);
+
 
 
 

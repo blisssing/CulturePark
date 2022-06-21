@@ -8,38 +8,49 @@
 
  <!--   <mvc:annotation-driven/>-->
 
-  <!--mail설정주석 -->
-
-<!--    <context:property-placeholder location="classpath:mail.properties"/>
-
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <bean:property name="host" value="${spring.mail.host}"/>
-        <bean:property name="port" value="${spring.mail.port}"/>
-        <bean:property name="username" value="${spring.mail.username}"/>
-        <bean:property name="password" value="${spring.mail.password}"/>
-        <bean:property name="javaMailProperties">
-            <bean:props>
-                <bean:prop key="mail.smtp.auth">true</bean:prop>
-                <bean:prop key="mail.smtp.starttls.enable">true</bean:prop>
-                <bean:prop key="mail.smtps.checkserveridentity">true</bean:prop>
-                <bean:prop key="mail.transport.protocol">smtp</bean:prop>
-                <bean:prop key="mail.smtps.ssl.trust">*</bean:prop>
-                <bean:prop key="mail.debug">true</bean:prop>
-                <bean:prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</bean:prop>
-            </bean:props>
-        </bean:property>
-    </bean >-->
-
-<!--https://zero-gravity.tistory.com/258-->
-    <!-- 파일 업로드 -->
-
-    <!-- DB source 설정    -->
-    <context:property-placeholder location="classpath:db.properties"/>
+    <context:property-placeholder location="classpath:application.properties"/>
     <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
-            <value>classpath:db.properties</value>
+            <value>classpath:application.properties</value>
         </property>
     </bean>
+
+  <!--mail설정-->
+    <bean id="naverMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${spring.mail.Nhost}"/>
+        <property name="port" value="${spring.mail.Nport}"/>
+        <property name="username" value="${spring.mail.NUsername}"/>
+        <property name="password" value="${spring.mail.Npassword}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+            </props>
+        </property>
+    </bean >
+
+    <bean id="gmailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${spring.mail.Ghost}"/>
+        <property name="port" value="${spring.mail.Gport}"/>
+        <property name="username" value="${spring.mail.GUsername}"/>
+        <property name="password" value="${spring.mail.Gpassword}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean >
+
+
+    <!-- DB source 설정    -->
+
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -73,8 +84,8 @@
 
     <!--// DB-->
 
-
     <!--파일 업로드-->
+    <!--https://zero-gravity.tistory.com/258-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">

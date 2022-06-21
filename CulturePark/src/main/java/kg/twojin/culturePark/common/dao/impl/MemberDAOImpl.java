@@ -79,17 +79,17 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public int updateMemberPassword(int mb_seq, String mb_pw) {
+    public int updateMemberPasswordUsingEmail(String  mb_email, String mb_pw) {
         MemberVO memberVO = new MemberVO();
-        memberVO.setMb_seq(mb_seq);
+        memberVO.setMb_email(mb_email);
         memberVO.setMb_pw(mb_pw);
-
         int result = 0;
+
         try {
             result = sqlSessionTemplate.update("mapper.user.updateMemberPassword", memberVO);
+            result = 1;
         } catch (Exception e) {
             e.printStackTrace();
-            result = 1;
         }
 
         return result;

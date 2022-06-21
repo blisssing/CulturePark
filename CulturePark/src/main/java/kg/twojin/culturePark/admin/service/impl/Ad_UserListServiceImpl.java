@@ -8,6 +8,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +33,24 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
 
 
     @Override
-    public int modifyMemberPassword(int mb_seq, String pw) {
+    public int modifyMemberPassword(String  mb_email, String pw) {
+       return  memberDAO.updateMemberPasswordUsingEmail(mb_email, pw);
+    }
+
+    @Override
+    public int updateMemberPause(int mb_seq, String  date) {
+
+        Calendar cal = Calendar.getInstance();
+
+        if (date.equals("infinity")) { // 영구정지
+
+        } else {
+            cal.setTime(new Date());
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            cal.add(Calendar.DATE, Integer.parseInt(date));
+            df.format(cal.getTime()).toString();
+        }
+
         return 0;
     }
 

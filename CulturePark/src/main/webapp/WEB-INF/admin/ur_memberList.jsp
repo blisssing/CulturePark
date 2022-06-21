@@ -232,10 +232,6 @@
                                                         <p class="toggle_p">비활성</p>
                                                     </c:otherwise>
                                                 </c:choose>
-<<<<<<< HEAD
-=======
-
->>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
                                             </td>
                                             <td class="btn_section">
                                                 <div class="btn_wrap">

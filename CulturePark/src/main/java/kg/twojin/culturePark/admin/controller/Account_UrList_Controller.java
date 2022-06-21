@@ -1,7 +1,9 @@
 package kg.twojin.culturePark.admin.controller;
 
 import kg.twojin.culturePark.admin.service.Ad_UserListService;
+import kg.twojin.culturePark.admin.service.EmailService;
 import kg.twojin.culturePark.admin.service.SecurityService;
+import kg.twojin.culturePark.common.vo.EmailVO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,11 @@ public class Account_UrList_Controller {
     SecurityService securityService;
 
     @Autowired
+    EmailService emailService;
+
+    @Autowired
     BCryptPasswordEncoder bcryptPasswordEncoder;
+
 
     @RequestMapping(value = "memberListPage.ado")
     public ModelAndView memberList(HttpServletResponse response, HttpServletRequest request) {
@@ -39,12 +45,12 @@ public class Account_UrList_Controller {
         return mv;
     }
 
+    // 활성화 비활성화 전환
     @RequestMapping(value = "changeMbActive.ado")
     public void changeMbActive(HttpServletRequest request, HttpServletResponse response,
                                @RequestBody MemberVO memberVO) throws IOException {
 
         int result = ad_userListService.updateMemberActive(memberVO);
-
         JSONObject json = new JSONObject();
         String result_str = "";
 
@@ -61,23 +67,54 @@ public class Account_UrList_Controller {
         writer.print(json);
     }
 
+    // 임시키 발급
     @RequestMapping(value = "getTemporaryKey.ado")
-    public void getTemporaryKey(@RequestParam("mb_seq")String seq_str,
+    public void getTemporaryKey(@RequestBody MemberVO memberVO,
                                 HttpServletResponse response) throws IOException {
 
-        String tempKey = securityService.createTempKeyBySec();
-        String encodeKey = bcryptPasswordEncoder.encode(tempKey);
-
-        int result = ad_userListService.modifyMemberPassword(Integer.parseInt(seq_str), encodeKey);
+        // 멤버필드
 
         JSONObject json = new JSONObject();
+        EmailVO emailVO;
+
+        // 임시키 생성
+        String tempKey = securityService.createTempKeyBySec(); // 임시키
+        String encodeKey = bcryptPasswordEncoder.encode(tempKey); // 암호화
+        System.out.println("암호화 키 : " + encodeKey);
+
+        // 메일 내용 구성 -> vo 생성
+
+        String subject = "[CulturePark] " + memberVO.getMb_nick() + "님의 임시비밀번호 발급";
+        String text = tempKey;
+        emailVO = new EmailVO(memberVO.getMb_email(), subject, text);
+
+
+        // DB에 임시키 발급
+        int result = ad_userListService.modifyMemberPassword(memberVO.getMb_email(), encodeKey);
+
         if (result == 1) {
-            json.put("result", "success");
+            boolean email_result = emailService.sendEmail(emailVO); // 성공하면 이메일 발송
+            if (email_result) {
+                json.put("result", "success");
+                System.out.println(email_result);
+            } else {
+                json.put("result", "failed");
+            }
         } else {
             json.put("result", "failed");
         }
+
         PrintWriter out = response.getWriter();
         out.print(json);
     }
 
+    // 유저 징계
+    @RequestMapping(value = "setMemberPause.ado")
+    public void setMemberPause(@RequestParam("mb_seq") String mb_seq , @RequestParam("pause_day") String pause_date) {
+
+        int result = ad_userListService.updateMemberPause(Integer.parseInt(mb_seq), pause_date);
+
+
+
+    }
 }
