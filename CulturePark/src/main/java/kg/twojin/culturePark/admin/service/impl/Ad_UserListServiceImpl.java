@@ -3,11 +3,10 @@ package kg.twojin.culturePark.admin.service.impl;
 import kg.twojin.culturePark.admin.service.Ad_UserListService;
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.common.vo.PauseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -38,20 +37,33 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
     }
 
     @Override
-    public int updateMemberPause(int mb_seq, String  date) {
+    public int updateMemberPause(int mb_seq, String  date, String reason) {
 
         Calendar cal = Calendar.getInstance();
-
-        if (date.equals("infinity")) { // 영구정지
-
-        } else {
+        String dateResult;
+        if (!date.equals("inf")) { // 영구정지
             cal.setTime(new Date());
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             cal.add(Calendar.DATE, Integer.parseInt(date));
-            df.format(cal.getTime()).toString();
+            dateResult = df.format(cal.getTime());
+        } else {
+            dateResult = "inf";
         }
 
-        return 0;
+        MemberVO vo = new MemberVO();
+        vo.setMb_seq(mb_seq);
+        vo.setMb_pauseDate(dateResult);
+
+        PauseVO pauseVO = new PauseVO();
+
+        pauseVO.setMb_seq(mb_seq);
+        pauseVO.setPause_reason(reason);
+        pauseVO.setPause_period(dateResult);
+
+        int result = memberDAO.updateMemberPausePeriod(vo, pauseVO);
+
+
+        return result;
     }
 
 }

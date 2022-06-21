@@ -2,6 +2,7 @@ $(document).ready(function () {
     // Todo : 활성 - 비활성 토글 적용
 
     var result="";
+    pauseResult="";
 
     $('input[name=btn_active]').click(function () {
         var eventRow = $(this).closest('tr');
@@ -98,6 +99,7 @@ $(document).ready(function () {
     $('.btn_dicip').click(function () {
         selectedRow = $(this).closest('tr');
         modal_now = $('#DicipModal');
+        $('.userEmail').text(selectedRow.children('.email').text());
         modal_now.modal({});
     });
 
@@ -122,8 +124,23 @@ $(document).ready(function () {
         var level = $('#SelectLevel').val();
 
 
+        var resultSet = {"mb_seq": mb_seq , "pause_reason": reason, "pause_date": level};
 
-        alert('단계 : ' + level + "\n reason : " + reason);
+        $.ajax({
+            url:"/setMemberPause.ado",
+            datatype: "json",
+            data: JSON.stringify(resultSet),
+            contentType:"application/json; charset=utf-8",
+            success: function (data) {
+                if (result === 'success') {
+                    alert("성공했습니다");
+                } else {
+                    alert("실패했습니다");
+                }
+            }
+
+
+        });
     });
 
     $('.btn_report').click(function () {

@@ -2,6 +2,7 @@ package kg.twojin.culturePark.common.dao;
 
 
 import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.common.vo.PauseVO;
 
 import java.util.List;
 
@@ -19,9 +20,7 @@ public interface MemberDAO {
 
     int updateMemberPasswordUsingEmail(String mb_email ,String mb_pw);
 
-
-
-
+    int updateMemberPausePeriod(MemberVO memberVO , PauseVO pauseVO);
 
 
 }
