@@ -1,5 +1,8 @@
 $(document).ready(function () {
     // Todo : 활성 - 비활성 토글 적용
+
+    var result="";
+
     $('input[name=btn_active]').click(function () {
         var eventRow = $(this).closest('tr');
         var mb_seq = eventRow.children('.user_num').val();
@@ -59,6 +62,31 @@ $(document).ready(function () {
         modal_now.modal({});
     });
 
+    $('.btn_finalTempKey').click(function () {
+        var mb_email = selectedRow.children('.email').text();
+        var mb_nick = selectedRow.children('.nick').text();
+        var mb_data = {"mb_email": mb_email, "mb_nick":mb_nick};
+        console.log('지정된 이메일 : ' + mb_email);
+
+        $.ajax({
+            type: "post",
+            data: JSON.stringify(mb_data),
+            dateType: "JSON",
+            traditional:true,
+            cache: false,
+            async: false,
+            contentType: 'application/json; charset=utf-8',
+            url: "/getTemporaryKey.ado",
+            success: function (data) {
+                alert("성공적으로 발급에 성공했습니다.")
+            },
+            error: function () {
+                alert("발급을 실패했습니다!");
+            }
+    });
+        modal_now.modal('hide');
+    });
+
     // 결제 내역 조회
 
     $('.btn_buy_list').click(function () {
@@ -77,6 +105,7 @@ $(document).ready(function () {
     $('.select_dicip').change(function () {
         var inputBox = $('#DicipReason');
         var selectedCase = $(this).val();
+
         if (selectedCase === 'direct') {
             $('#DicipReason').val('');
             inputBox.removeAttr('disabled');
@@ -88,8 +117,12 @@ $(document).ready(function () {
     });
 
     $('.btn_finalDicip').click(function () {
+        var mb_seq = selectedRow.children('.user_num').val();
         var reason = $('#DicipReason').val();
         var level = $('#SelectLevel').val();
+
+
+
         alert('단계 : ' + level + "\n reason : " + reason);
     });
 
@@ -101,14 +134,7 @@ $(document).ready(function () {
 
 
 
-    $('.btn_finalTempKey').click(function () {
-        if (setTempKey()) {
-            alert("임시비밀번호를 성공적으로 발급했습니다!");
-        } else {
-            alert("동작 실패!!");
-        }
-        modal_now.modal('hide');
-    });
+
 
 
     // common
@@ -131,10 +157,7 @@ $(document).ready(function () {
         $('#JoinDate').text('');
     }
 
-    //Todo : 임시비밀번호 발급하는 컨트롤러 작성해줄 것
-    function setTempKey() {
-        return true;
-    }
+
 
     function getReport(obj) {
 

@@ -65,7 +65,7 @@
     <update id="updateMemberPassword" parameterType="memberVO">
         UPDATE MEMBER_ACCOUNT
         SET MB_PW=#{mb_pw}
-        WHERE MB_SEQ = #{mb_seq};
+        WHERE MB_EMAIL=#{mb_email};
     </update>
 
 </mapper>

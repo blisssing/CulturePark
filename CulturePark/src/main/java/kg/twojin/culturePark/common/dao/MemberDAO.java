@@ -17,7 +17,7 @@ public interface MemberDAO {
 
     int updateMemberActive(MemberVO memberVO);
 
-    int updateMemberPassword(int mb_seq ,String mb_pw);
+    int updateMemberPasswordUsingEmail(String mb_email ,String mb_pw);
 
 
 
