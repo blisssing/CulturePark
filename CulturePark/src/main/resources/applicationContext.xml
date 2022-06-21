@@ -7,13 +7,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
  <!--   <mvc:annotation-driven/>-->
-
     <context:property-placeholder location="classpath:application.properties"/>
     <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <value>classpath:application.properties</value>
         </property>
     </bean>
+
 
   <!--mail설정-->
     <bean id="naverMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -48,45 +48,42 @@
         </property>
     </bean >
 
-
-    <!-- DB source 설정    -->
-
-
+    <!-- DB source 설정    --> <!-- key-value 값으로 DB를 연동하는것-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driverClassName}" />
         <property name="url" value="${jdbc.url}" />
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
     </bean>
-    <!-- key-value 값으로 DB를 연동하는것-->
 
+
+    <!-- dataSource를 참조하는 jdbc틀 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DriverManagerDataSource" />
-
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- dataSource를 참조하는 jdbc틀 -->
 
+    <!-- mybatis.xml환경 + dataSource를 묶어서 하나의 객체로 만드는것. 객체로서 mybaits의 메소드(기능)들을 쓸수있게됨 -->
+    <!-- mybatis는 DB라이브러리 -->
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:config/mybatis-config.xml" />
     </bean>
-    <!-- mybatis.xml환경 + dataSource를 묶어서 하나의 객체로 만드는것. 객체로서 mybaits의 메소드(기능)들을 쓸수있게됨 -->
-    <!-- mybatis는 DB라이브러리 -->
 
-
+    <!-- sqlSessionFactoryBean을 참조하는 sqlSession틀 -->
+    <!-- 간편화된 db연동 작업들과 datasource를 연결 해주는 클래스 -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"> </constructor-arg>
     </bean>
-    <!-- sqlSessionFactoryBean을 참조하는 sqlSession틀 -->
-    <!-- 간편화된 db연동 작업들과 datasource를 연결 해주는 클래스 -->
 
     <!--// DB-->
 
-    <!--파일 업로드-->
-    <!--https://zero-gravity.tistory.com/258-->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <!--파일 업로드--> <!--https://zero-gravity.tistory.com/258-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="uploadTempDir" ref="fileSystemResource"></property>
+    </bean>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
@@ -95,6 +92,15 @@
             </list>
         </property>
     </bean>
+
+    <!-- 파일 저장 경로 -->
+    <bean id="fileSystemResource" class="org.springframework.core.io.FileSystemResource">
+        <constructor-arg>
+            <value>CulturePark/src/main/webapp/</value>
+        </constructor-arg>
+    </bean>
+
+
 
     <context:component-scan base-package="kg.twojin.culturePark.*"></context:component-scan>
 
