@@ -8,9 +8,9 @@
 
  <!--   <mvc:annotation-driven/>-->
 
-  <!--mail설정 -->
+  <!--mail설정주석 -->
 
-    <context:property-placeholder location="classpath:mail.properties"/>
+<!--    <context:property-placeholder location="classpath:mail.properties"/>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <bean:property name="host" value="${spring.mail.host}"/>
@@ -28,7 +28,7 @@
                 <bean:prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</bean:prop>
             </bean:props>
         </bean:property>
-    </bean >
+    </bean >-->
 
 <!--https://zero-gravity.tistory.com/258-->
     <!-- 파일 업로드 -->
