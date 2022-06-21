@@ -65,7 +65,7 @@ public class MemberDAOImpl implements MemberDAO {
         return result;
     }
 
-<<<<<<< HEAD
+
     @Override
     public int updateMemberActive(MemberVO memberVO) {
         int result = 0;
@@ -95,6 +95,4 @@ public class MemberDAOImpl implements MemberDAO {
         return result;
     }
 }
-=======
-}
->>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
+

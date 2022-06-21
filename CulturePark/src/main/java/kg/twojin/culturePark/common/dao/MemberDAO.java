@@ -15,7 +15,6 @@ public interface MemberDAO {
 
     String selectNickName(String userNick);
 
-<<<<<<< HEAD
     int updateMemberActive(MemberVO memberVO);
 
     int updateMemberPassword(int mb_seq ,String mb_pw);
@@ -23,9 +22,8 @@ public interface MemberDAO {
 
 
 
-}
-=======
+
 
 }
 
->>>>>>> 873c732985aa8cbfa86e0c1e1cda867497f0781f
+
