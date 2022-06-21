@@ -1,41 +1,68 @@
 package kg.twojin.culturePark.user.controller;
 
 
+import kg.twojin.culturePark.common.dao.MemberDAO;
+import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.user.service.MemberJoinService;
+import kg.twojin.culturePark.user.service.PartnerJoinService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.security.core.parameters.P;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
-
 //https://wakestand.tistory.com/361
-@Controller
+@RestController
 public class SellerPageController {
     @Autowired
     MemberJoinService memberJoinService;
 
+    @Autowired
+    MemberDAO memberDAO;
 
-    @RequestMapping(value = "/registSeller.do")
+    @Autowired
+    PartnerJoinService partnerJoinService; //service와 연결
+
+
+    @RequestMapping(value = "/partnerRequest.do")
     public ModelAndView registSeller() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("seller_regist");
+        mv.setViewName("partner_request");
         return mv;
     }
 
     //휴대폰 문자 보내기
     @RequestMapping(value = "/telCheck.do", method = RequestMethod.POST)
-    @ResponseBody
     public String sendSMS(@RequestParam("phone") String userTelNumber) {
-        System.out.println("실행확인");
+        System.out.println("sms Send 실행확인");
 
-        int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);//난수생성
-        memberJoinService.certifiedTelNumber(userTelNumber, randomNumber);
+        int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000);//난수생성
+        memberJoinService.certifiedPhoneNumber(userTelNumber, randomNumber);
         return Integer.toString(randomNumber);
     }
+
+    //이메일 중복 검사
+    //https://yejip.com/web/2020-12-15-%EA%B2%8C%EC%8B%9C%ED%8C%90ajax1/
+    @RequestMapping(value = "/emailCheck.do", method = RequestMethod.POST)
+    public String checkEmail(@RequestParam("email") String userEmail) {
+        //String: 반환자료형,   email: input name 또는 js에서 data:key값,    String userEmail: 새로운 변수를 만듬
+
+        String email = null;
+        email = partnerJoinService.chkEmailFromPartner(userEmail);
+        // service에 접근하여 해당 메소드와 변수명으로 값을 넘긴다.
+
+        // Todo : 서비스를 통해 반환받은 email에 값이 들어가 있는지 없는지 확인을 해주는 코드를 작성해줄 것.
+       /* email = "blisssing@naver.com";*/
+
+        if(email=="" || email==null){ //DB에 값이 없을경우 새로운 이메일형식임
+            System.out.println("올바른 이메일입니다.");
+        }else{
+            email="error"; //DB에 값이 있을경우 error라는 문구를 만들어준다.
+            System.out.println("중복된 이메일입니다.");
+        }
+        return email;
+    }
+}
+
 
 /*    @RequestMapping(value = "/culturePark/chkPhone.do", method = RequestMethod.POST)
     @ResponseBody
@@ -87,4 +114,4 @@ public class SellerPageController {
 //        return dayTime.format(new Date(time));
 //    }
 
-}
+

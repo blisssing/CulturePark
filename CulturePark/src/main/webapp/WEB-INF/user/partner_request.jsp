@@ -46,6 +46,7 @@
                 <div class="join_label">판매자 가입</div>
             </div>
 
+
             <%-- -------------- 회원정보입력 영역 --------------- --%>
             <form id="frm">
                 <div class="join_section">
@@ -53,8 +54,7 @@
 
                     <div class="id_section section_type01">
                         <div class="id_label">이메일</div>
-                        <input class="id_value_1" type="email" name="mb_email">
-
+                        <input class="id_value_1" type="email" name="pt_email" id="email_val">
 
                         <%-- 아이디 중복확인 버튼 --%>
                         <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인">
@@ -62,39 +62,40 @@
 
                     <div class="pw_section section_type01">
                         <div class="pw_label">비밀번호</div>
-                        <input class="input_pw pw_value input_type01" type="password" name="mb_pw">
+                        <input class="input_pw pw_value input_type01" type="password" name="pt_pw" id="pw_val" >
                     </div>
 
                     <div class="rePw_section section_type01">
                         <div class="rePw_label">비밀번호확인</div>
                         <div class="rePw_value_section">
                             <%-- 비밀번호확인 체크 메세지--%>
-                            <input class="input_pw rePw_value input_type01" type="password" name="rePw_value">
-                            <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
+                            <input class="input_pw rePw_value input_type01" type="password" name="rePw_value" id="rePw_val">
+                                <div class="pw_check alert alert-success"  type="textFiled" name="pw_check" id="alert-success">비밀번호가 일치합니다.</div>
+                                <div class="pw_check alert alert-danger"  type="textFiled" name="pw_check" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
                         </div>
                     </div>
 
                     <div class="comp_section section_type01">
                         <div class="comp_label">업체명</div>
                         <div class="comp_confirm_msg_section">
-                            <input class="comp_value input_type01" type="textFiled" name="mb_nick">
+                            <input class="comp_value input_type01" type="textFiled" name="pt_comp_name" id="comp_val">
                         </div>
                     </div>
 
 
                     <div class="name_section section_type01">
                         <div class="name_label">사업자명</div>
-                        <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">
+                        <input class="name_value input_type01" type="textFiled" name="pt_ceo_name" maxlength="5" id="ceo_name_val">
                     </div>
 
                     <div class="number_section section_type01">
                         <div class="number_label">사업자번호</div>
-                        <input class="number_value1" type="textFiled">
+                        <input class="number_value1" type="textFiled" name="pt_ceo_number" id="ceo_number_val">
                     </div>
 
                     <div class="file_upload_section">
                         <div class="file_label">파일 업로드</div>
-                        <input class="file_upload_input" type="file">
+                        <input class="file_upload_input" type="file" name="pt_file" id="file_val">
                      </div>
 
 
@@ -103,7 +104,7 @@
                         <div class="tel_label">전화번호</div>
 
                         <div class="tel_div">
-                            <select class="tel tel_1" id="tel_1" name="tel_1">
+                            <select class="tel tel_1" id="tel_1" name="pt_phone">
                                 <option type="text" value="0">선택</option>
                                 <option value="010">010</option>
                                 <option value="011">011</option>
@@ -115,12 +116,12 @@
                         <span>-</span>
 
                         <div class="tel_div2">
-                            <input class="tel tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            <input class="tel tel_2" id="tel_2" type="text" name="tel_2" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
 
                         <span>-</span>
                         <div class="tel_div2">
-                            <input class="tel tel_3" type="text" name="tel_3"maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            <input class="tel tel_3" id="tel_3" type="text" name="tel_3"maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
 
                         <%-- 인증번호받기 버튼--%>
@@ -134,7 +135,7 @@
                     <div class="authentication_code_section section_type01">
                         <div class="authentication_code_label">인증번호</div>
 
-                        <input class="authentication_code" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="authentication_code">
+                        <input class="authentication_code" id="code_val" disabled="disabled" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" name="pt_phone_code">
 
                         <div class="code_reSend_btn_section">
                             <input class="code_reSend_btn" id="reSend_btn" disabled="disabled" type="button" name="code_reSend_btn" value="재발송">
@@ -161,7 +162,7 @@
 
                 <div class="agree_condition_all_section">
                     <div class="agree_condition_all">
-                        <input type="checkbox" class="checkbox_agree checkbox_all checkbox_all_p">
+                        <input type="checkbox" class="checkbox_agree checkbox_all checkbox_all_p" id="chkAll">
                         <span class="checkbox_all_label">전체동의</span><br><br>
                     </div>
                 </div>
@@ -209,7 +210,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one" id="chkOne1">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -263,7 +264,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one" id="chkOne2">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -284,7 +285,7 @@
                     </div>
 
                     <div class="checkbox_section">
-                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one">
+                        <input type="checkbox" name="chk" class="checkbox_agree checkbox_one" id="chkOne3">
                         <span class="checkbox_one_label">동의함</span><br><br>
                     </div>
                 </div>
@@ -304,6 +305,6 @@
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/resources/common/js/checkPW.js"></script>
-<script src="/resources/user/js/seller_regist.js"></script>
+<script src="/resources/user/js/partner_request.js"></script>
 
 </html>
