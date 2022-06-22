@@ -50,9 +50,13 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
             dateResult = "inf";
         }
 
-        MemberVO vo = new MemberVO();
-        vo.setMb_seq(mb_seq);
-        vo.setMb_pauseDate(dateResult);
+        MemberVO memberVO = new MemberVO();
+
+        System.out.println("회원번호 : "+mb_seq );
+        System.out.println("기한 : " + dateResult);
+
+        memberVO.setMb_seq(mb_seq);
+        memberVO.setMb_pauseDate(dateResult);
 
         PauseVO pauseVO = new PauseVO();
 
@@ -60,7 +64,7 @@ public class Ad_UserListServiceImpl implements Ad_UserListService {
         pauseVO.setPause_reason(reason);
         pauseVO.setPause_period(dateResult);
 
-        int result = memberDAO.updateMemberPausePeriod(vo, pauseVO);
+        int result = memberDAO.updateMemberPausePeriod(memberVO, pauseVO);
 
 
         return result;

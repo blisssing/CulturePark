@@ -122,23 +122,35 @@ $(document).ready(function () {
         var mb_seq = selectedRow.children('.user_num').val();
         var reason = $('#DicipReason').val();
         var level = $('#SelectLevel').val();
+        console.log(mb_seq, reason, level);
 
 
         var resultSet = {"mb_seq": mb_seq , "pause_reason": reason, "pause_date": level};
 
         $.ajax({
-            url:"/setMemberPause.ado",
+            type:"post",
             datatype: "json",
+            url:"/setMemberPause.ado",
             data: JSON.stringify(resultSet),
             contentType:"application/json; charset=utf-8",
+            async:false,
+            cache:false,
             success: function (data) {
-                if (result === 'success') {
-                    alert("성공했습니다");
-                } else {
-                    alert("실패했습니다");
-                }
+                // JSON 데이터
+                console.log(data);
+                console.log(pauseResult);
+                var json = JSON.parse(data);
+                $.each(json, function (k, v) {
+                    if (v === 'success') {
+                        alert("성공했습니다!");
+                    } else {
+                        alert("실패했습니다");
+                    }
+                });
+            },
+            error: function () {
+                alert("에러!")
             }
-
 
         });
     });
