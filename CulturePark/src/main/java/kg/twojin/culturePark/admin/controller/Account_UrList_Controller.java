@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class Account_UrList_Controller {
@@ -109,18 +110,22 @@ public class Account_UrList_Controller {
     }
 
     // 유저 징계
-    @RequestMapping(value = "setMemberPause.ado")
-    public String setMemberPause(@RequestParam("mb_seq") String mb_seq , @RequestParam("pause_date") String pause_date,
-                                @RequestParam("pause_reason") String pause_reason,
+    @RequestMapping(value = "/setMemberPause.ado")
+    public void setMemberPause(@RequestBody Map<String,String> param,
                                HttpServletResponse response) throws IOException{
 
-        int result = ad_userListService.updateMemberPause(Integer.parseInt(mb_seq), pause_date, pause_reason);
+        int mb_seq = Integer.parseInt(param.get("mb_seq"));
+        String pause_date = param.get("pause_date");
+        String pause_reason = param.get("pause_reason");
 
+        int result = ad_userListService.updateMemberPause(mb_seq, pause_date, pause_reason);
+        JSONObject json = new JSONObject();
+        PrintWriter writer = response.getWriter();
         if (result == 1) {
-            return "success";
+            json.put("result", "success");
         } else {
-            return "failed";
+            json.put("result", "failed");
         }
-
+        writer.print(json);
     }
 }
