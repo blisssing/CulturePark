@@ -122,11 +122,15 @@
     <!-- 파일 저장 경로 -->
     <bean id="fileSystemResource" class="org.springframework.core.io.FileSystemResource">
         <constructor-arg>
-            <value>CulturePark/src/main/webapp/</value>
+            <value>/Users/Bliss/Desktop/Project/CulturePark/src/main/webapp/resources/admin/resource/</value>
         </constructor-arg>
     </bean>
 
 
     <context:component-scan base-package="kg.twojin.culturePark.*"></context:component-scan>
 
+
+
+
 </beans>
+
