@@ -60,14 +60,14 @@
 
                             <%--가운데--%>
                             <div class="center_section">
-                                <div type="textField" class="id_value m_id_value"></div>
-                                <div type="password" class="pw_value m_pw_value"></div>
+                                <input name="mb_email" type="textField" class="id_value p_id_value"/>
+                                <input name="mb_pw" type="password" class="pw_value p_pw_value"/>
                             </div>
 
                             <%--오른쪽--%>
                             <div class="right_section">
                                 <div class="login_btn_section">
-                                    <input class="login_btn login_btn_p" type="submit" value="로그인">
+                                    <input class="login_btn login_btn_p" type="button" value="로그인">
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
 
                             <%-- 아이디 값 --%>
                             <div class="m_id_value_section">
-                                <div class="m_id_value" type="textField"></div>
+                                <input class="m_id_value" type="text"/>
                             </div>
 
                             <%-- 비밀번호 라벨 --%>
@@ -119,7 +119,7 @@
 
                             <%-- 비밀번호 값 --%>
                             <div class="m_pw_value_section">
-                                <div class="m_pw_value" type="textField"></div>
+                                <input class="m_pw_value" type="text"/>
                             </div>
 
                             <%-- 로그인 버튼 --%>
