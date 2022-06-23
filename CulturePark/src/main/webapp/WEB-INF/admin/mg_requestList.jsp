@@ -1,7 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kor">
 
 <head>
 
@@ -89,91 +90,66 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>num</th>
+                                    <th>번호</th>
                                     <th>회사</th>
                                     <th>대표</th>
                                     <th>이메일</th>
-                                    <th>구분</th>
+                                    <th>요청날짜</th>
+                                    <th>상태</th>
                                     <th>기능</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>num</th>
+                                    <th>번호</th>
                                     <th>회사</th>
                                     <th>대표</th>
                                     <th>이메일</th>
-                                    <th>구분</th>
+                                    <th>요청날짜</th>
+                                    <th>상태</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
-                                    <tr>
-                                        <td class="td_seq">
-                                            1
-                                        </td>
-                                        <td class="td_com">
-                                            피크닉
-                                        </td>
-                                        <td class="td_present">
-                                            동산주
-                                        </td>
-                                        <td class="td_email">
-                                            picknic@gmail.com
-                                        </td>
-                                        <td class="td_type">
-                                            전시
-                                        </td>
-                                        <td class="td_func">
-                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
-                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_seq">
-                                            2
-                                        </td>
-                                        <td class="td_com">
-                                            공원
-                                        </td>
-                                        <td class="td_present">
-                                            주산동
-                                        </td>
-                                        <td class="td_email">
-                                            nickpick@gmail.com
-                                        </td>
-                                        <td class="td_type">
-                                            뮤지엄
-                                        </td>
-                                        <td class="td_func">
-                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
-                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_seq">
-                                            3
-                                        </td>
-                                        <td class="td_com">
-                                            쥬라기공원
-                                        </td>
-                                        <td class="td_present">
-                                            크아앙
-                                        </td>
-                                        <td class="td_email">
-                                            picknic@gmail.com
-                                        </td>
-                                        <td class="td_type">
-                                            뮤지엄
-                                        </td>
-                                        <td class="td_func">
-                                            <button class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
-                                            <button class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
-                                        </td>
-                                    </tr>
-                                </form>
+                                    <c:forEach var="partner" items="${partnerList}">
+                                        <c:set var="count" value="${count+1}"/>
+                                        <fmt:formatDate var="formatRegDate" value="${admin.ad_createDate}" pattern="yyyy-MM-dd"/>
+                                        <tr>
+                                            <form name="frm">
+                                                <input type="hidden" class="pt_seq" name="pt_seq" value="${partner.pt_seq}"/>
+                                                <input type="hidden" class="pt_file" name="pt_file" value="${partner.pt_file}"/>
+                                                <input type="hidden" class="pt_phone" name="pt_phone" value="${partner.pt_phone}"/>
+                                                <input type="hidden" class="pt_ceo_number" name="pt_ceo_number" value="${partner.pt_ceo_number}"/>
+                                                <td class="td_seq">${count}</td>
+                                                <td class="pt_comp_name">${partner.pt_comp_name}</td>
+                                                <td class="pt_ceo_name">${partner.pt_ceo_name}</td>
+                                                <td class="pt_email">${partner.pt_email}</td>
+                                                <td class="pt_createDate">${formatRegDate}</td>
+                                                <td class="pt_status">
+                                                      <c:choose>
+                                                          <c:when test="${partner.pt_status eq 'ING' }">
+                                                              처리대기 
+                                                          </c:when>
+                                                          <c:otherwise>
+                                                              처리완료
+                                                          </c:otherwise>
+                                                      </c:choose>
+                                                </td>
+                                                <td class="td_func">
+                                                    <c:choose>
+                                                        <c:when test="${partner.pt_status eq 'ING' }">
+                                                            <button type="button" class="btn_More_info btn btn-primary btn-sm btn-circle fas fa-check"></button>
+                                                            <button type="button" class="btn_Disagree btn btn-primary btn-sm btn-circle">X</button>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <button type="button" class="btn_admin_Info btn btn-primary btn-sm btn-circle fas fa-user"></button>
 
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -287,7 +263,7 @@
     </div>
 
 <%--세부사항 모달 --%>
-    <div class="modal fade card border-0 shadow-lg my-5" id="DetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade border-0 shadow-lg my-5" id="DetailModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content ard-body p-0">
                 <div class="modal-header">
@@ -318,11 +294,8 @@
                         <div class="form-control form-control-user" id="CompanyEmail"></div>
                     </div>
                     <div class="form-group">
-                        <div class="form-head">유형</div>
-                        <div class="form-control form-control-user" id="ProductType"></div>
-                    </div>
-                    <div class="form-group">
                         <div class="button_wrap">
+                            <input type="hidden" id="file_path"/>
                             <a href="#" class="btn_file btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fa-regular fa-file"></i>

@@ -2,10 +2,16 @@ package kg.twojin.culturePark.common.dao;
 
 import kg.twojin.culturePark.common.vo.PartnerVO;
 
-public interface PartnerDAO {
+import java.util.List;
+
+public interface PartnerRequestDAO {
 
     int insertPartner(PartnerVO partnerVO);
 
+    List selectAllPartner();
+
     String  getPartnerByEmail(String email);
+
+    int agreePartnerRequest(PartnerVO partnerVO);
 
 }

@@ -143,13 +143,17 @@ $(document).ready(function () {
                 $.each(json, function (k, v) {
                     if (v === 'success') {
                         alert("성공했습니다!");
+                        closeModal(modal_now);
                     } else {
                         alert("실패했습니다");
                     }
+
                 });
+                closeModal(modal_now);
             },
             error: function () {
-                alert("에러!")
+                alert("에러!");
+                closeModal(modal_now);
             }
 
         });

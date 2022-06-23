@@ -2,14 +2,13 @@ package kg.twojin.culturePark.user.controller;
 
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
+
 import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.user.service.MemberJoinService;
 import kg.twojin.culturePark.user.service.PartnerJoinService;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 //https://wakestand.tistory.com/361
