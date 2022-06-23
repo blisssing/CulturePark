@@ -1,16 +1,18 @@
 package kg.twojin.culturePark.user.service.impl;
 
-import kg.twojin.culturePark.common.dao.PartnerDAO;
+import kg.twojin.culturePark.common.dao.PartnerRequestDAO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.user.service.PartnerJoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("partnerJoinService")
 public class PartnerJoinServiceImpl implements PartnerJoinService {
 
     @Autowired
-    PartnerDAO partnerDAO;
+    PartnerRequestDAO partnerDAO;
 
     @Override
     public int insertPartner(PartnerVO partnerVO) {
@@ -23,5 +25,6 @@ public class PartnerJoinServiceImpl implements PartnerJoinService {
         result = partnerDAO.getPartnerByEmail(email);
         return result;
     }
+
 
 }
