@@ -3,6 +3,7 @@ package kg.twojin.culturePark.user.controller;
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.ManagerVO;
+import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.user.service.MemberJoinService;
 import kg.twojin.culturePark.user.service.PartnerJoinService;
@@ -61,7 +62,8 @@ public class SellerPageController {
         email = partnerJoinService.chkEmailFromPartner(userEmail);
         // service에 접근하여 해당 메소드와 변수명으로 값을 넘긴다.
 
-        // Todo : 서비스를 통해 반환받은 email에 값이 들어가 있는지 없는지 확인을 해주는 코드를 작성해줄 것.
+
+
         /* email = "blisssing@naver.com";*/
 
         if (email == "" || email == null) { //DB에 값이 없을경우 새로운 이메일형식임

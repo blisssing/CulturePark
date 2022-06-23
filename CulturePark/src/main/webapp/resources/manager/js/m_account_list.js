@@ -71,11 +71,9 @@ $('.btn_finalDelete').click(function () {
         }
         
         /*
-        
         eventRow.remove();
         closeModal(modal_now);
         alert("성공적으로 매니저를 삭제했습니다");*/
-
 
 
     } else {
@@ -90,8 +88,8 @@ $('.btn_finalDelete').click(function () {
             url:"/mAccountDeleteProc.mdo",
             async:false,
             cache:false,
-            data: {"mg_seq":mg_seq}, //key값:value값
-            success:function (result) {
+            data: {"mg_seq" : mg_seq}, //key값:value값
+            success:function(result) {
                 insertResult = result;
             }
 
