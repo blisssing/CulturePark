@@ -46,7 +46,6 @@ public class Admin_LoginController {
                                     HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         request.setCharacterEncoding("utf-8");
-
         ModelAndView mv = new ModelAndView();
 
         // DB에서 조회해서 가져온 어드민 vo
@@ -60,13 +59,13 @@ public class Admin_LoginController {
             String dbPw = vo.getAd_pw();            // 암호화된 pw
             String password = adminVO.getAd_pw();   // 입력된 pw
 
-            //            System.out.println("db암호화 : " + dbPw);
-            //            System.out.println("입력된 비밀번호 : " + password);
+
+            // Todo adminvo에 어떤 값들이 실려 있는지 확인하기
 
             if (passwordEncoder.matches(password, dbPw)) {
                 System.out.println("로그인성공");
                 HttpSession session = request.getSession();
-                session.setAttribute("admin", adminVO);
+                session.setAttribute("admin", vo);
                 session.setAttribute("isLogOn", ""+vo.getAd_is());
                 mv.setViewName("redirect:/index.ado");
             } else {

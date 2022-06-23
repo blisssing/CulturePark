@@ -5,6 +5,12 @@ $(document).ready(function () {
     $('.btn_More_info').click(function () {
         eventData = $(this);
         eventRow = $(this).closest('tr');
+        $('#CompanyName').text(eventRow.children('.pt_comp_name').text());
+        $('#PresentName').text(eventRow.children('.pt_ceo_name').text());
+        $('#CompanyNum').text(eventRow.children('.pt_ceo_number').val());
+        $('#PhoneNumber').text(eventRow.children('.pt_phone').val());
+        $('#CompanyEmail').text(eventRow.children('.pt_email').text());
+        $('#file_path').val(eventRow.children('.pt_file').val());
         $('#DetailModal').modal({});
     });
 
@@ -27,6 +33,7 @@ $(document).ready(function () {
     // 중간 확인
     $('.btn_check_Disagree').click(function () {
         // eventRow.remove();
+
         $('#DisagreeModal').modal('hide');
         $('#ReasonModal').modal({});
     });
@@ -61,25 +68,62 @@ $(document).ready(function () {
 
     // 동의
     $('.btn_Agree').click(function () {
-        $('#DetailModal').modal('hide');
         eventRow = $(this).closest('tr');
-        $('#AgreeModal').modal({});
+
+        if (!eventRow.children('.pt_status') === '처리대기') {
+            alert("이미 처리가 완료된 요청입니다!!");
+        } else {
+            $('#DetailModal').modal('hide');
+            $('#AgreeModal').modal({});
+        }
+
+
     });
 
     $('.btn_Agree2').click(function () {
-        $('#DetailModal').modal('hide');
-        $('#AgreeModal').modal({});
+        if (! eventRow.children('.pt_status').text()==='처리대기') {
+            alert("이미 처리가 완료된 요청입니다!!");
+        } else {
+            $('#DetailModal').modal('hide');
+            $('#AgreeModal').modal({});
+        }
     });
 
 
     $('.btn_finalAgree').click(function () {
-        var seq = eventRow.children(".td_seq");
-        var com = eventRow.children('.td_com');
-        var present = eventRow.children('.td_present');
-        var email = eventRow.children('.td_email');
-        var type = eventRow.children('.td_type');
+        var pt_seq = eventRow.children(".pt_seq").val();
+        var pt_email = eventRow.children('.pt_email').text();
+        var pt_comp_name = eventRow.children('.pt_comp_name').text();
+        var pt_ceo_name = eventRow.children('.pt_ceo_name').text();
+        var pt_ceo_number = eventRow.children('.pt_ceo_number').val();
+        var pt_file = eventRow.children('.pt_file').val();
+        var pt_phone = eventRow.children('.pt_phone').val();
+        var pt_createDate = eventRow.children('.pt_createDate').text();
+        var pt_status = eventRow.children('.pt_status').text();
 
-        //Todo : 행에서 삭제하고 DB에 등록해주는 메서드를 작성할 것
+        //Todo : ajax작성
+
+        var json = {"pt_seq": pt_seq,"pt_email":pt_email,"pt_comp_name":pt_comp_name,
+                    "pt_ceo_name":pt_ceo_name , "pt_ceo_number":pt_ceo_number,"pt_file":pt_file,
+                    "pt_phone":pt_phone,"pt_createDate":pt_createDate,"pt_status":pt_status};
+
+        $.ajax({
+            type:"post",
+            datatype:"json",
+            data: JSON.stringify(json),
+            async:false,
+            cache:false,
+            url:"agreePartnerRequest.ado",
+            contentType:"application/json; charset=utf-8",
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        })
+
+
 
 
         //Todo : 동작수행이 끝나면 모달을 닫아주고 테이블에서 해당 row 삭제

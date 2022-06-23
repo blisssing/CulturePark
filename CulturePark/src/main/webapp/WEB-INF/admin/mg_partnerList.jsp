@@ -1,7 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kor">
 
 <head>
 
@@ -121,15 +122,17 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach items="partnerList" var="partnerVO" varStatus="status">
+                                    <c:set var="count" value="${count+1}"/>
                                     <tr>
-                                        <input class="comp_num" type="hidden" value="100">
-                                        <td class="seq">1</td>
-                                        <td class="comp">투진컴퍼니</td>
-                                        <td class="name">한진희</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="phone">01000000000</td>
-                                        <td class="admin">이승재</td>
+                                        <form name="frm">
+                                        <input class="comp_num" type="hidden" value="${partnerVO.pt_seq}">
+                                        <td class="seq">${count}</td>
+                                        <td class="comp">${partnerVO.pt_comp_name}</td>
+                                        <td class="name">${partnerVO.pt_ceo_name}</td>
+                                        <td class="email">${partnerVO.pt_email}</td>
+                                        <td class="phone">${partnerVO.pt_phone}</td>
+                                        <td class="admin"></td>
                                         <td class="create_date">2022.02.02</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
@@ -140,65 +143,9 @@
                                                 <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
                                             </div>
                                         </td>
+                                        </form>
                                     </tr>
-                                    <tr>
-                                        <input  class="comp_num" type="hidden" value="2">
-                                        <td class="seq">2</td>
-                                        <td class="comp">진투컴퍼니</td>
-                                        <td class="name">김진아</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">0101234100</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input class="comp_num" type="hidden" value="300">
-                                        <td class="seq">3</td>
-                                        <td class="comp">지민컴퍼니</td>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">01033333333</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input class="comp_num" type="hidden" value="4">
-                                        <td class="seq">4</td>
-                                        <td class="comp">진규컴퍼니</td>
-                                        <td class="name">한규진</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">0103151515</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

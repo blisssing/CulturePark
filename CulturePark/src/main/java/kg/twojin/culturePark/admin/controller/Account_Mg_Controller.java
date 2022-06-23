@@ -17,12 +17,7 @@ public class Account_Mg_Controller {
         return mv;
     }
 
-    @RequestMapping(value = "mgPartner.ado")
-    public ModelAndView partnerList() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("mg_partnerList");
-        return mv;
-    }
+
 
 
 }
