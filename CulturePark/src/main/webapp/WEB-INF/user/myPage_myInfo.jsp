@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -73,25 +73,27 @@
                     </div>
                     <table class="input_table">
                         <tbody>
+
+                <form class="frm">
                       <tr class="id_wrap">
                         <td class="input_head">이메일</td>
-                        <td class="input_wrap">UserEMail@twojin.com</td>
+                        <td class="input_wrap" id="set_email" name="mb_email" >UserEMail@twojin.com</td>
                       </tr>
                       <tr class="pw_wrap">
                         <td class="input_head">비밀번호</td>
                         <td class="input_wrap">
-                          <input type="password" name="input_pw">
+                          <input type="password" class="inputPw" id="input_pw" name="mb_pw">
                         </td>
                       </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="btn_wrap">
-                                    <div class="cancel_btn"><button>취소</button></div>
-                                    <div class="check_btn"><button>확인</button></div>
-                                </div>
-                            </td>
-                        </tr>
-
+                      <tr>
+                        <td colspan="2">
+                            <div class="btn_wrap">
+                                <div class="cancel_btn"><button class="cancel_button">취소</button></div>
+                                <div class="check_btn"><button class="ok_button">확인</button></div>
+                            </div>
+                        </td>
+                      </tr>
+                </form>
                         </tbody>
                     </table>
                   </div>

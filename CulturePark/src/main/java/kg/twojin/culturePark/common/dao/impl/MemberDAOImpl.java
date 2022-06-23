@@ -4,6 +4,7 @@ package kg.twojin.culturePark.common.dao.impl;
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PauseVO;
+import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -68,7 +69,6 @@ public class MemberDAOImpl implements MemberDAO {
         return result;
     }
 
-
     @Override
     public int updateMemberActive(MemberVO memberVO) {
         int result = 0;
@@ -117,6 +117,19 @@ public class MemberDAOImpl implements MemberDAO {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String selectInnerLogin(String userPw){
+        String result = null;
+        try{
+            result=sqlSessionTemplate.selectOne("mapper.user.selectInnerLogin", userPw);
+            System.out.println("DAO확인완료");
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("pw 없음");
+        }
+        return result;
     }
 }
 

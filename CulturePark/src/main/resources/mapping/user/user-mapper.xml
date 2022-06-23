@@ -19,6 +19,13 @@
         <result property="mb_pauseDate" column="mb_pauseDate"></result>
     </resultMap>
 
+    <select id="login" resultType="memeberVO" parameterType="java.util.Map">
+        <![CDATA[
+            select * from MEMBER_ACCOUNT
+            where mb_email=#{mb_email} and mb_pw=#{mb_pw}
+        ]]>
+    </select>
+
     <insert id="insertMember" parameterType="memberVO">
         INSERT INTO MEMBER_ACCOUNT
         (
@@ -74,5 +81,12 @@
         SET MB_PAUSEDATE=#{mb_pauseDate}
         WHERE MB_SEQ = #{mb_seq};
     </update>
+
+    <select id="selectInnerLogin" parameterType="string">
+        SELECT MB_PW
+        FROM MEMBER_ACCOUNT
+        WHERE MB_PW = #{mb_pw}
+
+    </select>
 
 </mapper>

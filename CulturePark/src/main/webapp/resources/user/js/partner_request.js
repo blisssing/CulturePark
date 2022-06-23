@@ -211,7 +211,7 @@ $(document).ready(function() {
                         alert("중복된 이메일입니다. 다시 입력해주세요.");
                         $('#email_val').focus();
                     } else {
-                        alert("올바른 이메일입니다.")
+                        alert("올바른 이메일입니다.");
                         chk_email_result = "able";
                         $('.pw_value').focus();
                     }
