@@ -131,5 +131,16 @@ public class MemberDAOImpl implements MemberDAO {
         }
         return result;
     }
+
+    @Override
+    public MemberVO selectMember(MemberVO memberVO) {
+        MemberVO vo = null;
+        try {
+            vo = sqlSessionTemplate.selectOne("mapper.user.selectMember", memberVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vo;
+    }
 }
 

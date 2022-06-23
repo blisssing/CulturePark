@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MemberLoginService {
 
-   List login(MemberVO memberVO);
+    MemberVO memberLogin(MemberVO memberVO);
 
 }

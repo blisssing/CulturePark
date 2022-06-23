@@ -24,6 +24,8 @@ public interface MemberDAO {
 
     String selectInnerLogin(String userPw);
 
+    MemberVO selectMember(MemberVO memberVO);
+
 }
 
 

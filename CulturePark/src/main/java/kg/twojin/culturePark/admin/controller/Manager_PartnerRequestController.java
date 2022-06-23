@@ -27,7 +27,7 @@ public class Manager_PartnerRequestController {
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
-    Autowired
+    @Autowired
     EmailService emailService;
 
     @RequestMapping(value = "mgPartnerRequest.ado")
@@ -62,7 +62,7 @@ public class Manager_PartnerRequestController {
         HttpSession session = request.getSession();
 //        AdminVO vo = (AdminVO) session.getAttribute("admin");
 //        int ad_seq = vo.getAd_seq();
-/       // 승인 어드민 셋팅
+//       // 승인 어드민 셋팅
         int ad_seq = 1;
         System.out.println("어드민 번호 : " + ad_seq);
         partnerVO.setAd_seq(ad_seq);
@@ -85,10 +85,9 @@ public class Manager_PartnerRequestController {
 
         String title ="["+partnerVO.getPt_comp_name() + "] 파트너 요청 승인 안내";
         String text = "루트 매니저 계정 : " + partnerVO.getPt_email()+
-                        "\n초기 비밀번호 : " + ;
+                        "\n초기 비밀번호 : " ;
         String to = partnerVO.getPt_email();
 
-        EmailVO emailVO = new EmailVO();
 
         if (result == 1) {
 
