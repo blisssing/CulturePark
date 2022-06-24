@@ -10,7 +10,7 @@
     <%-- css 불러오기 --%>
     <style><%@include file="/resources/common/css/reset.css" %></style>
     <style><%@include file="/resources/common/css/common.css" %></style>
-    <style><%@include file="/resources/user/css/common_header.css"%></style>
+<%--    <style><%@include file="/resources/user/css/common_header.css"%></style>--%>
     <style><%@include file="/resources/user/css/member_login.css" %></style>
 
     <title>login</title>
@@ -23,9 +23,9 @@
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
 
         <%-- haader --%>
-        <div class="header_container">
+      <%--  <div class="header_container">
             <%@ include file="/WEB-INF/user/main_header.jsp"%>
-        </div>
+        </div>--%>
 
 
     <div class="centerContainer">
@@ -109,7 +109,7 @@
 
                             <%-- 아이디 값 --%>
                             <div class="m_id_value_section">
-                                <input class="m_id_value" type="text"/>
+                                <input name="mb_email" class="m_id_value" type="text"/>
                             </div>
 
                             <%-- 비밀번호 라벨 --%>
@@ -119,12 +119,12 @@
 
                             <%-- 비밀번호 값 --%>
                             <div class="m_pw_value_section">
-                                <input class="m_pw_value" type="text"/>
+                                <input name="mb_pw" class="m_pw_value" type="password"/>
                             </div>
 
                             <%-- 로그인 버튼 --%>
                             <div class="m_login_btn_section">
-                                <button class="login_btn login_btn_m" type="submit">로그인</button>
+                                <input class="login_btn login_btn_m" type="button" value="로그인">
                             </div>
 
                             <%-- 아이디 저장 및  로그인 상태 유지 --%>
@@ -132,7 +132,7 @@
                                 <div class="m_id_save_div">
                                     <input class="checkbox_save_id checkbox_save_id_m" type="checkbox" name="save_id"
                                            value="아이디저장">
-                                    <div class="m_save_id">아이디 저장</div>
+                                    <span class="m_save_id">아이디 저장</span>
                                 </div>
                             </div>
 
@@ -140,11 +140,11 @@
                             <%-- 아이디/비밀번호 찾기  // 회원가입 --%>
                             <div class="m_find_section">
                                 <div class="m_find">
-                                    <a href class="find_id find_id_m">아이디 찾기</a>
-                                    <a href class="find_pw find_pw_m">비밀번호 찾기</a>
+                                    <a href="/findId.do.ado" class="find_id find_id_m">아이디 찾기</a>
+                                    <a href="/findPw.do.ado" class="find_pw find_pw_m">비밀번호 찾기</a>
                                 </div>
                                 <div class="m_join">
-                                    <a href class="join_btn join_btn_m" type="submit">회원가입</a>
+                                    <a href="/join.do" class="join_btn join_btn_m" >회원가입</a>
                                 </div>
                             </div>
 

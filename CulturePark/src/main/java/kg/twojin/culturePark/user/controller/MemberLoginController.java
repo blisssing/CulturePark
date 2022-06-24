@@ -42,7 +42,7 @@ public class MemberLoginController {
         return mv;
     }
 
-    @ResponseBody
+    @ResponseBody //restController를 써주면 생략가능
     @RequestMapping(value="/loginProc.do", method = {RequestMethod.POST})
     public String  loginProc(@RequestBody MemberVO vo,
                                   HttpServletRequest request,
@@ -64,7 +64,7 @@ public class MemberLoginController {
         String loginChk;
         HttpSession session = request.getSession();
 
-        JSONObject json = new JSONObject();
+       /* JSONObject json = new JSONObject();*/
         if (vo != null) {
             String dbPw = vo.getMb_pw();
             System.out.println("inserted pw : " + voPw);
@@ -73,25 +73,17 @@ public class MemberLoginController {
                 result = "success";
                 loginChk = "logOn";
                 session.setAttribute("loginChk", loginChk);
+                session.setAttribute("member", vo);
+
             } else {
                 result = "wrongPW";
             }
         } else {
             result = "wrongEmail";
         }
-
-
         return result;
     }
 
-    @RequestMapping(value="/overlapped.do" , method= RequestMethod.POST)
-    public ResponseEntity overlapped(@RequestParam("mb_email") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ResponseEntity resEntity = null;
-//        String result = memberLoginService.overlapped(id);
-//        resEntity = new ResponseEntity(result, HttpStatus.OK);
-        return resEntity;
-
-    }
 
     @RequestMapping(value="/findId.do")
     public ModelAndView getFindId(){

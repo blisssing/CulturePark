@@ -122,7 +122,7 @@
     <!-- 파일 저장 경로 -->
     <bean id="fileSystemResource" class="org.springframework.core.io.FileSystemResource">
         <constructor-arg>
-            <value>/Users/Bliss/Desktop/Project/CulturePark/src/main/webapp/resources/admin/resource/</value>
+            <value>classPath:resources/admin/resource</value>
         </constructor-arg>
     </bean>
 

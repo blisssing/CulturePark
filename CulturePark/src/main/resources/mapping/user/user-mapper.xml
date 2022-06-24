@@ -22,7 +22,7 @@
     <select id="selectMember" resultType="memberVO" parameterType="memberVO">
         <![CDATA[
             select * from MEMBER_ACCOUNT
-            where mb_email=#{mb_email}
+            where mb_email=#{mb_email};
         ]]>
     </select>
 
