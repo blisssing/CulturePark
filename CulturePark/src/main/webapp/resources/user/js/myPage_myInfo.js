@@ -27,8 +27,9 @@ $(document).ready(function () {
     });
 
 
-    //확인버튼 클릭시
+    //확인버튼 클릭시 (pwCheck)
     $('.ok_button').click(function () {
+        var mb_pw = $('#input_pw').val();
 
         var exist_pw = "";
         var mb_pw = $('#input_pw').val();

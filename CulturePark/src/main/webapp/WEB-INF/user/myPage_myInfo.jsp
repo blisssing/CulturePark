@@ -1,3 +1,4 @@
+<%@ page import="kg.twojin.culturePark.common.vo.MemberVO" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -39,9 +40,23 @@
 
     <title>myPage</title>
 
+    <%
+        String loginChk = (String) session.getAttribute("loginChk");
+
+        if (loginChk == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <%
+        }
+    %>
+
+
+
 </head>
 <body>
-
+<c:set var="mail" value="${sessionScope.member.mb_email}" />
 <%-- Main --%>
 <div class="mainContainer">
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
@@ -74,10 +89,11 @@
                     <table class="input_table">
                         <tbody>
 
-                <form class="frm">
                       <tr class="id_wrap">
                         <td class="input_head">이메일</td>
-                        <td class="input_wrap" id="set_email" name="mb_email" >UserEMail@twojin.com</td>
+                        <td class="input_wrap" id="set_email" name="mb_email">
+                            ${mail}
+                        </td>
                       </tr>
                       <tr class="pw_wrap">
                         <td class="input_head">비밀번호</td>
@@ -93,7 +109,6 @@
                             </div>
                         </td>
                       </tr>
-                </form>
                         </tbody>
                     </table>
                   </div>

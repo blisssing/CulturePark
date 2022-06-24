@@ -12,13 +12,20 @@ $('.back').click(function(){
         var json = {"mb_email": mb_email, "mb_pw": mb_pw};
         loginFunction(json);
     });
+
+    $('.login_btn_m').click(function(){
+        var mb_email = $('.m_id_value').val();
+        var mb_pw = $('.m_pw_value').val();
+        var json = {"mb_email": mb_email, "mb_pw": mb_pw};
+        loginFunction(json);
+    })
 //    Todo: 모바일 환경에서의 로그인 기능도 구현해줄 것
 
     function loginFunction(obj) {
         $.ajax({
             type:"POST",
             url:"/loginProc.do",
-            data: JSON.stringify(json) ,
+            data: JSON.stringify(obj) ,
             datatype:"text",
             cache:false,
             async:false,
