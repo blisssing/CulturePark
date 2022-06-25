@@ -35,6 +35,12 @@
     ]]>
     </select>
 
+    <select id="selectAdminInfo" resultType="adminVO" parameterType="int">
+        SELECT AD_SEQ as ad_seq, AD_EMAIL as ad_email, AD_TEL as ad_tel, AD_SEQ as ad_seq, ad_name as ad_name
+        FROM ADMIN_ACCOUNT
+        WHERE AD_SEQ = #{ad_seq};
+    </select>
+
     <select id="updateAdminWithPw" parameterType="adminVO">
         UPDATE ADMIN_ACCOUNT
         SET  ad_pw=#{ad_pw},ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}

@@ -18,12 +18,6 @@ public class ManagerManageServiceImpl implements ManagerManageService {
     private ManagerDAO managerDAO;
 
     @Override
-    public ManagerVO loginManager(ManagerVO managerVO) {
-        ManagerVO vo = managerDAO.loginManager(managerVO);
-        return vo;
-    }
-
-    @Override
     public List getManagerList() {
         List <ManagerVO> managerList = null;
         try {

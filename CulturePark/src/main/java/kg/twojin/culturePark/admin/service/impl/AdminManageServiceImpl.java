@@ -22,6 +22,12 @@ public class AdminManageServiceImpl implements AdminManageService {
     }
 
     @Override
+    public AdminVO getAdminInfo(int seq) {
+        AdminVO vo = adminDAO.selectAdminInfo(seq);
+        return vo;
+    }
+
+    @Override
     public List getAdminList() {
         List <AdminVO> adminList = null;
         adminList = adminDAO.listAdmins();

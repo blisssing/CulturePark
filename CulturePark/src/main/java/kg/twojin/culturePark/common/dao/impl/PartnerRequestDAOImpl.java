@@ -59,6 +59,7 @@ public class PartnerRequestDAOImpl implements PartnerRequestDAO {
 
         int result1=0;
         int result2=0;
+
         try {
             result1 = sqlSessionTemplate.update("mapper.partner.updateStatusRequest", partnerVO.getPt_seq());
             result2 = sqlSessionTemplate.insert("mapper.partner.insertPartner", partnerVO);
@@ -66,6 +67,7 @@ public class PartnerRequestDAOImpl implements PartnerRequestDAO {
             e.printStackTrace();
             throw e;
         }
+
         if (result1 == 1 && result2 == 1) {
             return 1;
         } else {

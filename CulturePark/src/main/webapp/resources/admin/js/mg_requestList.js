@@ -100,12 +100,16 @@ $(document).ready(function () {
         var pt_phone = eventRow.children('.pt_phone').val();
         var pt_createDate = eventRow.children('.pt_createDate').text();
         var pt_status = eventRow.children('.pt_status').text();
+        var pt_register_name = eventRow.children('.pt_register_name').text()
 
         //Todo : ajax작성
 
         var json = {"pt_seq": pt_seq,"pt_email":pt_email,"pt_comp_name":pt_comp_name,
                     "pt_ceo_name":pt_ceo_name , "pt_ceo_number":pt_ceo_number,"pt_file":pt_file,
-                    "pt_phone":pt_phone,"pt_createDate":pt_createDate,"pt_status":pt_status};
+                    "pt_phone":pt_phone,"pt_createDate":pt_createDate,"pt_status":pt_status,
+                    "pt_register_name":pt_register_name};
+
+        console.log(json);
 
         $.ajax({
             type:"post",

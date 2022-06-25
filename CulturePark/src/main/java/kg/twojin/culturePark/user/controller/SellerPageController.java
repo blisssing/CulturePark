@@ -33,7 +33,7 @@ public class SellerPageController {
     PartnerJoinService partnerJoinService; //service와 연결
 
 
-    @RequestMapping(value = "/partnerRequest.do")
+        @RequestMapping(value = "/partnerRequest.do")
     public ModelAndView registSeller() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("partner_request");

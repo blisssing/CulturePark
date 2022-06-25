@@ -106,8 +106,12 @@
                      </div>
 
 
-                    <div class="tel_section section_type01">
+                    <div class="name_section section_type01">
+                        <div class="name_label">신청자명</div>
+                        <input class="register_value input_type01" type="textFiled" name="pt_ceo_name" maxlength="5" id="register_name_val">
+                    </div>
 
+                    <div class="tel_section section_type01">
                         <div class="tel_label">전화번호</div>
 
                         <div class="tel_div">

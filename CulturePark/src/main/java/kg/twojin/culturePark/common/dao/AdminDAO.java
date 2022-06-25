@@ -19,6 +19,8 @@ public interface AdminDAO {
     List listAdmins();
     /* 관리자 목록*/
 
+    AdminVO selectAdminInfo(int seq);
+
     int removeAdmin(AdminVO adminVO);
 
     int updateAdminWithPw(AdminVO adminVO);

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("mangerDAO") //managerDAO 라는 이름으로 spring객체로서 springContext로 띄어짐
+@Repository("managerDAO") //managerDAO 라는 이름으로 spring객체로서 springContext로 띄어짐
 public class ManagerDAOImpl implements ManagerDAO {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         
         ManagerVO vo = null;
         try{
-            vo = sqlSessionTemplate.selectOne("mapper.manager.selectAdmin", managerVO);
+            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManager", managerVO);
             //managerVO에 담아져 온 검색값을 vo 변수에 담아준다
         }catch(Exception e) {
             e.printStackTrace();
@@ -31,6 +31,7 @@ public class ManagerDAOImpl implements ManagerDAO {
     @Override
     public int insertManager(ManagerVO managerVO) {
         int result = 0;
+
         try {
             result = sqlSessionTemplate.insert("mapper.manager.insertManager", managerVO);
         } catch (Exception e) {
@@ -59,7 +60,6 @@ public class ManagerDAOImpl implements ManagerDAO {
         }
         return result;
     }*/
-
     public int deleteManager(int mg_seq){
         int result = 0;
         try {

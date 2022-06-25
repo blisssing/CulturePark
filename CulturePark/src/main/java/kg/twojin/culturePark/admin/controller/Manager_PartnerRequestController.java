@@ -1,10 +1,13 @@
 package kg.twojin.culturePark.admin.controller;
 
 import kg.twojin.culturePark.admin.service.EmailService;
-import kg.twojin.culturePark.admin.service.Partner_RequestService;
+import kg.twojin.culturePark.admin.service.PartnerService;
+import kg.twojin.culturePark.common.service.RandomNumberService;
 import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.EmailVO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +27,7 @@ import java.util.List;
 public class Manager_PartnerRequestController {
 
     @Autowired
-    Partner_RequestService partner_requestService;
+    PartnerService partner_requestService;
 
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
@@ -30,70 +35,90 @@ public class Manager_PartnerRequestController {
     @Autowired
     EmailService emailService;
 
+    @Autowired
+    RandomNumberService randomNumberService;
+
     @RequestMapping(value = "mgPartnerRequest.ado")
     public ModelAndView partnerList(HttpServletRequest request) {
 
         ModelAndView mv = new ModelAndView();
         List<PartnerVO> partnerList = partner_requestService.getAllPartnerRequest();
-//        HttpSession session =request.getSession();
-//        AdminVO vo=(AdminVO) session.getAttribute("admin");
+        HttpSession session =request.getSession();
+        AdminVO vo=(AdminVO) session.getAttribute("admin");
+        String adminIs = vo.getAd_is();
 
-//        String adminIs = vo.getAd_is();
 
-        for (PartnerVO part : partnerList) {
-            System.out.println(part.toString());
-        }
-
-//        if (adminIs.contains("manager") || adminIs.contains("super")) {
+        if (adminIs.contains("manager") || adminIs.contains("super")) {
             mv.addObject("partnerList", partnerList);
             mv.setViewName("mg_requestList");
-//        } else {
-//            session.setAttribute("Error", "Proc");
-//            mv.setViewName("accessError.jsp");
-//        }
+        } else {
+            session.setAttribute("Error", "Proc");
+            mv.setViewName("accessError.jsp");
+        }
 
         return mv;
     }
 
     @RequestMapping(value = "agreePartnerRequest.ado")
     public void agreePartnerRequest(@RequestBody PartnerVO partnerVO,
-                                    HttpServletResponse response, HttpServletRequest request) {
+                                    HttpServletResponse response, HttpServletRequest request)
+                                    throws IOException {
 
+
+
+
+        //  1 : 세션에서 로그인한 어드민의 정보를 다음
         HttpSession session = request.getSession();
-//        AdminVO vo = (AdminVO) session.getAttribute("admin");
-//        int ad_seq = vo.getAd_seq();
-//       // 승인 어드민 셋팅
-        int ad_seq = 1;
-        System.out.println("어드민 번호 : " + ad_seq);
+        AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+        int ad_seq=adminvo.getAd_seq();
         partnerVO.setAd_seq(ad_seq);
 
-        // 난수 생성
-        int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000); // 난수 생성
-        String dbPw =   passwordEncoder.encode(Integer.toString(randomNumber));
-        partnerVO.setPt_pw(dbPw);
+        //  2-1 : 파트너에게 발급할 계정에 대한 임시 비밀번호를 설정한 후 partnerVO에 담음
+        int randomNumber = randomNumberService.getRandomCode6();
+        String dbPw = passwordEncoder.encode(Integer.toString(randomNumber));
 
-        // 승인 날짜 셋팅
 
+        //  2-2 : 승인 날짜를 셋팅
         Date date = new Date();
         partnerVO.setPt_agreeDate(date);
 
-        // DB에 값 넣기
-        int result = partner_requestService.agreePartnerRequest(partnerVO);
+        // 3. 루트 매니저 완성
+        ManagerVO managerVO = new ManagerVO(); // 루트 매니저 객체
+        managerVO = partner_requestService.createManagerAccount(partnerVO, dbPw);
 
+        //  4: DB에 값 넣기
+        int dbResult = partner_requestService.agreePartnerRequest(partnerVO,managerVO);
 
-        // Todo : 비번 이메일로 보내기
+        //  5 : 이메일로 루트 매니저 계정 생성 정보 전달
+        boolean emailResult = false; // 결과를 담을 변수
 
-        String title ="["+partnerVO.getPt_comp_name() + "] 파트너 요청 승인 안내";
-        String text = "루트 매니저 계정 : " + partnerVO.getPt_email()+
-                        "\n초기 비밀번호 : " ;
-        String to = partnerVO.getPt_email();
+        if (dbResult == 1) { // DB에 값 넣기를 성공했을 경우에만 이메일 발송하게 설정
 
+            String title ="["+partnerVO.getPt_comp_name() + "] 파트너 요청 승인 안내";
+            // Todo : 수정!!! 매니저 로그인 기능 구현했을 때 url 변경해줄 것
+            String text =
+                    "루트 매니저 계정 : " + partnerVO.getPt_email()+
+                    "\n 초기 비밀번호 : " + randomNumber +
+                    "\n 매니저 로그인 링크 : http://localhost:8080/login.mdo";
+            String to = partnerVO.getPt_email();
 
-        if (result == 1) {
-
+            EmailVO emailVO = new EmailVO(to,title,text);
+            emailResult =emailService.sendEmail(emailVO);
         }
 
+        JSONObject json = new JSONObject();
 
+        String controllerResult  = "";
+
+        if (dbResult == 1 && emailResult == true) {
+            controllerResult = "success";
+        } else {
+            controllerResult = "false";
+        }
+        json.put("result", controllerResult);
+
+        PrintWriter out = response.getWriter();
+        out.print(json);
 
 
     }

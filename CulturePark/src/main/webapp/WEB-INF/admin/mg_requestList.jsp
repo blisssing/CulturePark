@@ -93,6 +93,7 @@
                                     <th>번호</th>
                                     <th>회사</th>
                                     <th>대표</th>
+                                    <th>신청인</th>
                                     <th>이메일</th>
                                     <th>요청날짜</th>
                                     <th>상태</th>
@@ -104,6 +105,7 @@
                                     <th>번호</th>
                                     <th>회사</th>
                                     <th>대표</th>
+                                    <th>신청인</th>
                                     <th>이메일</th>
                                     <th>요청날짜</th>
                                     <th>상태</th>
@@ -123,6 +125,7 @@
                                                 <td class="td_seq">${count}</td>
                                                 <td class="pt_comp_name">${partner.pt_comp_name}</td>
                                                 <td class="pt_ceo_name">${partner.pt_ceo_name}</td>
+                                                <td class="pt_register_name">${partner.pt_register_name}</td>
                                                 <td class="pt_email">${partner.pt_email}</td>
                                                 <td class="pt_createDate">${formatRegDate}</td>
                                                 <td class="pt_status">

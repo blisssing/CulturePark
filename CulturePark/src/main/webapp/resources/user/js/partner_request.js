@@ -240,6 +240,7 @@ $(document).ready(function() {
         var pt_ceo_name = $('#ceo_name_val').val();
         var pt_ceo_number = $('#ceo_number_val').val();
         var pt_file = $('#file_val').val();
+        var pt_register_name = $('#register_name_val').val();
 
         var valTel1 = $('#tel_1').val();
         var valTel2 = $('#tel_2').val();
@@ -280,6 +281,10 @@ $(document).ready(function() {
             alert('파일을 업로드 해주세요.');
             $('#file_val').focus();
 
+            // pt_register_name
+        } else if (pt_register_name === null || pt_register_name === undefined || pt_register_name === "") {
+            alert("신청자 이름을 입력해주세요");
+            $('#register_name_val').focus();
         } else if (valTel1 === null || valTel1 === undefined || valTel1 === "") {
             alert('전화번호를 입력해주세요.');
             $('#tel_1').focus();
@@ -299,7 +304,7 @@ $(document).ready(function() {
                 chk_agree_result === "able" &&
                 chk_email_result === "able") {
                 insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name,
-                                  pt_ceo_number, pt_file, pt_phone);
+                                  pt_ceo_number, pt_file, pt_phone, pt_register_name);
             }
 
         }
@@ -308,11 +313,11 @@ $(document).ready(function() {
 
 });
 
-function insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name, pt_ceo_number, pt_file, pt_phone) {
+function insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name, pt_ceo_number, pt_file, pt_phone, pt_register_name) {
 //여러값을 넣을때 json을 사용. key:value의 형태로 넣음. controller에서는 void로 반환값 없지만,
 
     var itemSet={"pt_email":pt_email, "pt_comp_name":pt_comp_name, "pt_ceo_name":pt_ceo_name,
-        "pt_ceo_number":pt_ceo_number, "pt_file":pt_file, "pt_phone":pt_phone};
+        "pt_ceo_number":pt_ceo_number, "pt_file":pt_file, "pt_phone":pt_phone, "pt_register_name":pt_register_name};
 
     $.ajax({
         type:"post",
