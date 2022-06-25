@@ -65,7 +65,7 @@
         <div class="logo">
             <a href="/home.do">
                 <p class="main_title">Culture Park</p>
-                <p class="sub_title"> 우리들의 문화공간</p>
+                <p class="sub_title">out culture space</p>
             </a>
         </div>
     </div>
@@ -79,7 +79,7 @@
                 <div class="btn_box">
                     <button type="button" class="home_btn">
                         <i class="fa-solid fa-house"></i>
-                        <div class="menu_name">홈</div>
+                        <div class="menu_name"><a href="/home.do">홈</a></div>
                     </button>
                 </div>
             </li>

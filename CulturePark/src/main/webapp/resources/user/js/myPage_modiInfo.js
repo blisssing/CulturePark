@@ -1,22 +1,26 @@
 $(document).ready(function () {
 
+
     $('.modi_btn').click(function () {
-        var first_pw = $('input[name=input_pw]');
-        var second_pw = $('input[name=input_sc_pw]');
-        var nickName = $('input[name=input_nick]').text();
-        var gender = $('input[name=chk_gender]:checked').val();
-        var phNum_01 = $('input[name=ph_01]:selected').val();
-        var phNum_02 = $('input[name=ph_02]').val();
-        var phNum_03 = $('input[name=ph_03]').val();
+        var first_pw = $('input[id=input_pw]');
+        var second_pw = $('input[id=input_sc_pw]');
+        var nickName = $('input[id=input_nick]').text();
+        var birth_ = $('.birth').val();
+
+        var birth = birthString(birth)
+        var gender = genderString();
+        var phoneStr = phoneNumberString();
+
         // 수정 타입 확인 : 비밀번호 입력돼 있는지 안 돼 있는지.
         var modiType = pw_isEmpty(first_pw, second_pw);
         var result_pw_chk;
-        var insult_result;
+        var insult_result; //DB에 insert
+
 
         // 비밀번호를 변경하지 않는다면
         if (modiType === "modiType01") {
             insult_result=save_to_DB(1);
-            // 비밀번호를 변경한다면
+        // 비밀번호를 변경한다면
         } else if (modiType === "modiType02") {
             result_pw_chk= chk_pw_value(first_pw,second_pw);
             alert_text = $('.alert_text_02');
@@ -36,18 +40,25 @@ $(document).ready(function () {
             }
         }
 
-        // db에 insert한 결과가 실패라면
+        // db에 insert한 결과가 실패라면 *
         if (insult_result === -1) {
+            alert("failed");
             // 비정상적 수행 To do
         } else if (insult_result === 1) { // insert 결과가 성공이라면
             alert("success!");
             // 정상 수행 To do
         }
-    });
+    })
+
+
 
     $('.cancel_btn').click(function () {
-        location.href = "/myInfo.do";
+        location.href = "/home.do";
     });
+
+
+});
+
 
     // 비밀번호 비어있는지 확인
     function pw_isEmpty(first_pw, second_pw) {
@@ -82,4 +93,100 @@ $(document).ready(function () {
             return 1;
         }
     }
-});
+
+    //생년월일
+    function birthString(birth){
+        var birth;
+        if (birth.indexOf('-')) {
+            var birthStr = birth.split('-');
+            for (var i = 0; i < birth.length; i++) {
+                var birth_item = birthStr[i];
+                if (birth[i] == '1') {
+
+                    var birth1= birth;
+
+                } else if (birth[i] == '2') {
+
+                    var birth2= birth;
+
+                } else if (birth[i] == '3') {
+
+                    var birth3= birth;
+
+                }
+            }
+        }
+        birth = birth1 + birth2 + birth3;
+
+        return birth, insert_result=1;
+    }
+
+    // 성별 
+    function genderString(){
+        var genderSelected = $('input[name=chk_gender]:checked').val();
+        var gender;
+
+        if(genderSelected === $('#chk_male')){
+            gender = '남';
+        }else {
+            gender = '여';
+        }
+        return gender, insert_result=1;
+    }
+
+    //폰번호
+    function phoneNumberString() {
+        var phNum_01 = $('input[id=tel1]:selected').val();
+        var phNum_02 = $('input[id=tel2]').val();
+        var phNum_03 = $('input[id=tel3]').val();
+
+        var phone = phNum_01 +"-"+ phNum_02 +"-"+phNum_03;
+
+        return phone, insert_result=1;
+    }
+
+    function modi_except_pw(mb_nick, mb_name, birth, gender, phoneStr) {
+        var all_Data = {"mb_nick":mb_nick,"mb_name":mb_name, "mb_birth":birth, "mb_gender":gender, "mb_tel":phoneStr}
+        $.ajax({
+            type:"post",
+            dataType:"JSON",
+            data:JSON.stringify(all_Data),
+            cache:false,
+            async:false,
+            contentType: 'application/json; charset=utf-8',
+            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url:"/culturePark/modiUserProc.do",
+            success: function (data) {
+                console.log(data);
+                ajax_result = data.result;
+            }
+        });
+    }
+
+
+    function modi_all(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr) {
+        var all_Data = {"mb_email": mb_email, "mb_pw":mb_pw, "mb_nick":mb_nick, "mb_name":phoneStr,
+            "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+        $.ajax({
+            type:"post",
+            dataType:"JSON",
+            data:JSON.stringify(all_Data),
+            cache:false,
+            async:false,
+            contentType: 'application/json; charset=utf-8',
+            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url:"/culturePark/createUserProc.do",
+            success: function (data) {
+                console.log(data);
+                ajax_result = data.result;
+            }
+        });
+
+    }
+
+
+
+
+
+
+

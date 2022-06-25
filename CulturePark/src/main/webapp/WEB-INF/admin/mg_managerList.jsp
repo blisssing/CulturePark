@@ -117,6 +117,7 @@
 
 <body id="page-top">
 
+<%-- 권한체크 임시로 주석처리
 <%
     String logStatus = (String) session.getAttribute("isLogOn");
     boolean resultCheck= false;
@@ -139,6 +140,7 @@
 <%
     }
 %>
+--%>
 
 <!-- Page Wrapper -->
 <div id="wrapper">

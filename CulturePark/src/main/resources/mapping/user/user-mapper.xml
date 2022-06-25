@@ -14,7 +14,7 @@
         <result property="mb_birth" column="mb_birth"></result>
         <result property="mb_gender" column="mb_gender"></result>
         <result property="mb_tel" column="mb_tel"></result>
-        <result property="mb_createDate" column="mb_createdate"></result>
+        <result property="mb_createDate" column="mb_createDate"></result>
         <result property="mb_status" column="mb_status"></result>
         <result property="mb_pauseDate" column="mb_pauseDate"></result>
     </resultMap>
@@ -27,6 +27,7 @@
     </select>
 
     <insert id="insertMember" parameterType="memberVO">
+        <![CDATA[
         INSERT INTO MEMBER_ACCOUNT
         (
             MB_EMAIL, MB_PW, MB_NICK, MB_NAME,MB_BIRTH,MB_GENDER, MB_TEL, MB_CREATEDATE
@@ -42,51 +43,71 @@
                 #{mb_tel},
                 #{mb_createDate}
             );
+        ]]>
     </insert>
 
+    <update id="updateMember" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_NAME=#{mb_name}, MB_BIRTH=#{mb_birth}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
+        WHERE MB_EMAIL=#{mb_email};
+        ]]>
+    </update>
+
+
     <select id="selectAllMember" resultMap="resultMember">
-    <![CDATA[
+        <![CDATA[
         SELECT *
         FROM MEMBER_ACCOUNT
-    ]]>
-
+        ]]>
     </select>
 
     <select id="selectExistEmail" parameterType="string">
+        <![CDATA[
         SELECT MB_EMAIL
         FROM MEMBER_ACCOUNT
         WHERE MB_EMAIL = ${mb_email};
+        ]]>
     </select>
 
     <select id="selectNickName" parameterType="string">
+        <![CDATA[
         SELECT MB_NICK
         FROM MEMBER_ACCOUNT
         WHERE MB_NICK = ${mb_nick};
+    ]]>
     </select>
 
     <update id="updateMemberActive" parameterType="memberVO">
+        <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_STATUS=#{mb_status}
         WHERE MB_SEQ=#{mb_seq};
+        ]]>
     </update>
 
     <update id="updateMemberPassword" parameterType="memberVO">
+        <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_PW=#{mb_pw}
         WHERE MB_EMAIL=#{mb_email};
+        ]]>
     </update>
 
     <update id="updateMemberPause" parameterType="memberVO">
+        <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_PAUSEDATE=#{mb_pauseDate}
         WHERE MB_SEQ = #{mb_seq};
+        ]]>
     </update>
 
     <select id="selectInnerLogin" parameterType="string">
+        <![CDATA[
         SELECT MB_PW
         FROM MEMBER_ACCOUNT
         WHERE MB_PW = #{mb_pw}
-
+        ]]>
     </select>
 
 </mapper>

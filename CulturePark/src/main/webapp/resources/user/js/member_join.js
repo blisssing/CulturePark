@@ -271,7 +271,7 @@ $(document).ready(function() {
         var second_num = $('.tel_2').val()
         var third_num = $('.tel_3').val();
 
-        var phone = first_num + second_num + third_num;
+        var phone = first_num +"-"+ second_num +"-"+third_num;
 
         return phone;
     }
