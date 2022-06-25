@@ -14,7 +14,6 @@ public class MemberMypageServiceImpl implements MemberMypageService {
 
     @Override
     public int modifyInfo(MemberVO memberVO) {
-
-        return memberDAO.updateMember(memberVO);
+        return memberDAO.updateMemberWithoutPw(memberVO);
     }
 }

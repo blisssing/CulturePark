@@ -84,13 +84,13 @@
             <div class="content_container" id="content">
                 <div class="secondGate_section">
                     <table class="info_table">
+                        <input type="hidden" id="mb_seq" value="${sessionScope.member.mb_seq}"/>
                         <c:set var="mail" value="${sessionScope.member.mb_email}" />
                         <c:set var="nick" value="${sessionScope.member.mb_nick}" />
                         <c:set var="name" value="${sessionScope.member.mb_name}" />
                         <c:set var="birth" value="${sessionScope.member.mb_birth}" />
                         <c:set var="gender" value="${sessionScope.member.mb_gender}" />
-                        <%--<c:set var="phone" value="${sessionScope.member.mb_tel}" />--%>
-                        <c:set var="phone" value="${fn:split(list.tel,'/')}" />
+                        <c:set var="phone" value="${sessionScope.member.mb_tel}" />
                     <tbody>
                     <tr class="info_row id_row">
                         <td class="info_head">아이디</td>
@@ -129,6 +129,7 @@
                     <tr class="info_row birth_row">
                         <td class="info_head">생년월일</td>
                         <td class="info_content">
+                            <input type="hidden" name="mb_birth" value="${birth}"/>
                             <div class="content_text birth" id="member_year">1996</div>-
                             <div class="content_text birth" id="member_month">09</div>-
                             <div class="content_text birth" id="member_day">21</div>
@@ -149,66 +150,47 @@
                             </c:choose>
                         </td>
                     </tr>
+
                     <tr class="info_row ph_row">
+                        <c:set var="phoneList" value="${fn:split(phone,'-')}"/>
+
                         <td class="info_head">전화번호</td>
                         <td class="info_content">
-                            <c:when test="${phone.indexOf('/')}" >
-                                <c:forEach var="i" begin="0" end="${fn:length(phone)-1}">
-                                    ${set[i]}
-
-
-                                    <c:when test="${set[i] == '0'}">
-                                        <c:when test="{set == '010'}">
-                                        <select class="input_ph" type="text" id="tel1" name="mb_tel">
-                                        <option value="010" selected="selected">010</option>
-                                        <option value="011" >011</option>
-                                        <option value="017" >017</option>
-                                        <option value="018" >018</option>
-                                        </select>
-                                        </c:when>
-
-                                        <c:when test="{set == '011'}">
-                                            <select class="input_ph" type="text" id="tel1" name="mb_tel">
-                                                <option value="010" >010</option>
-                                                <option value="011" selected="selected">011</option>
-                                                <option value="017" >017</option>
-                                                <option value="018" >018</option>
-                                            </select>
-                                        </c:when>
-
-                                        <c:when test="{set == '017'}">
-                                            <select class="input_ph" type="text" id="tel1" name="mb_tel">
-                                                <option value="010" >010</option>
-                                                <option value="011" >011</option>
-                                                <option value="017"selected="selected" >017</option>
-                                                <option value="018" >018</option>
-                                            </select>
-                                        </c:when>
-
-                                        <c:when test="{set == '018'}">
-                                            <select class="input_ph" type="text" id="tel1" name="mb_tel">
-                                                <option value="010" >010</option>
-                                                <option value="011" >011</option>
-                                                <option value="017" >017</option>
-                                                <option value="018" selected="selected">018</option>
-                                            </select>
-                                        </c:when>
-                                    </c:when>
-                                    -
-
-                                    <c:when test="${set[i] == '1'}">
-                                        ${set}
-                                    <input class="input_ph" type="text" id="tel2" name="tel2" maxlength="4" oninput="this.value=this.value=replace(/[^0-9]/g,'').replace(/(\..*)\./g, '$1');">
-                                    </c:when>
-                                    -
-
-                                    <c:when test="${set[i] == '2'}">
-                                        ${set}
-                                    <input class="input_ph" type="text" id="tel3" name="tel3" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                                    </c:when>
-
-                                </c:forEach>
+                            <c:choose>
+                                <c:when test="${phoneList[i] eq '010'}">
+                                    <script>
+                                        $('.ph_01').prop('selected', true);
+                                    </script>
+                                </c:when>
+                                <c:when test="${phoneList[i] eq '011'}">
+                                    <script>
+                                        $('.ph_02').prop('selected', true);
+                                    </script>
+                                </c:when>
+                                <c:when test="${phoneList[i] eq '017'}">
+                                    <script>
+                                        $('.ph_03').prop('selected', true);
+                                    </script>
+                                </c:when><c:when test="${phoneList[i] eq '018'}">
+                                    <script>
+                                        $('.ph_04').prop('selected', true);
+                                    </script>
                             </c:when>
+
+
+                            </c:choose>
+                            <select class="input_ph" type="text" id="tel1" name="mb_tel">
+                                <option  class="ph_01" value="010">010</option>
+                                <option  class="ph_02" value="011" >011</option>
+                                <option  class="ph_03" value="017" >017</option>
+                                <option  class="ph_04" value="018" >018</option>
+                            </select>
+
+                            -<input value="${phoneList[1]}" class="input_ph" type="text" id="tel2" name="tel2" maxlength="4" oninput="this.value=this.value=replace(/[^0-9]/g,'').replace(/(\..*)\./g, '$1');">
+
+                            -<input value="${phoneList[2]}" class="input_ph" type="text" id="tel3" name="tel3" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+
+
                         </td>
                     </tr>
                     <tr class="info_row btn_row">
@@ -242,9 +224,9 @@
 
 <script src="/resources/common/js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
-<script src="/resources/user/js/myPage_myInfo.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<%--<script src="/resources/user/js/myPage_modiInfo.js"></script>--%>
+<script src="/resources/user/js/myPage_modiInfo.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
 
 
 </html>

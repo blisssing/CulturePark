@@ -150,31 +150,20 @@ public class MyPageController {
         return mv;
     }
 
-   /* @ResponseBody
-    @RequestMapping(value = "/modiInfoProc.do", method = RequestMethod.POST)
-    public String modiInfoProc(@ModelAttribute("memberVO") MemberVO modifyVO,
-                               @RequestBody MemberVO memberVO,
+    @ResponseBody
+    @RequestMapping(value = "/culturePark/modiInfoProcWithoutPW.do", method = RequestMethod.POST)
+    public int modiInfoProc(@RequestBody MemberVO modifyVO,
                                HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         System.out.println("modify 동작 확인");
-        ModelAndView mv = new ModelAndView();
 
-
-       *//* modifyVO.setMb_nick();
-        modifyVO.setMb_pw();
-        modifyVO.setMb_birth();
-        modifyVO.setMb_gender();
-        modifyVO.setMb_tel();*//*
+        // ▽ 값을 제대로 받아서 vo에 담았는지 확인하기 위한 최고의 방법 ▽  //
+        System.out.println(modifyVO.toString());
 
         int result = memberMypageService.modifyInfo(modifyVO);
 
-        if(result == 1){
-            mv.setViewName("redirect:/myPage.do");
-        }else {
-            mv.setViewName("redirect:/modiInfo.do");
-        }
-        return mv;
-    }*/
+        return result;
+    }
 
         @RequestMapping(value = "levelPage.do")
     public ModelAndView myLevel() {

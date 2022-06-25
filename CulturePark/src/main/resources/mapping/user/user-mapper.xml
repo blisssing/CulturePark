@@ -46,11 +46,21 @@
         ]]>
     </insert>
 
-    <update id="updateMember" parameterType="memberVO">
+
+    <update id="updateMemberWithoutPw" parameterType="memberVO">
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
-        SET MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_NAME=#{mb_name}, MB_BIRTH=#{mb_birth}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
-        WHERE MB_EMAIL=#{mb_email};
+        SET MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
+        WHERE MB_SEQ=#{mb_seq};
+        ]]>
+    </update>
+
+
+    <update id="updateMemberWithPw" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
+        WHERE MB_SEQ=#{mb_seq};
         ]]>
     </update>
 

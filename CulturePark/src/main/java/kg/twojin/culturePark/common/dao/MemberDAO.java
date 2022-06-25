@@ -10,7 +10,7 @@ public interface MemberDAO {
 
     int insertMember(MemberVO memberVO);
 
-    int updateMember(MemberVO memberVO);
+    int updateMemberWithoutPw(MemberVO memberVO);
 
     List<MemberVO> selectAllMember();
 

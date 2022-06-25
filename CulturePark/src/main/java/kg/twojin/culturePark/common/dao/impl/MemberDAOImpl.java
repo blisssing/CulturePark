@@ -31,10 +31,10 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public int updateMember(MemberVO memberVO) {
+    public int updateMemberWithoutPw(MemberVO memberVO) {
         int result;
         try{
-            result = sqlSessionTemplate.update("mapper.user.updateMember", memberVO);
+            result = sqlSessionTemplate.update("mapper.user.updateMemberWithoutPw", memberVO);
         } catch (Exception e) {
             e.printStackTrace();
             result = 0;
