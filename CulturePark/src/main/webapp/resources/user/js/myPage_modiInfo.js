@@ -2,12 +2,12 @@ $(document).ready(function () {
 
 
     $('.modi_btn').click(function () {
-        var first_pw = $('input[id=input_pw]');
-        var second_pw = $('input[id=input_sc_pw]');
-        var nickName = $('input[id=input_nick]').text();
+        var first_pw = $('input[id=input_pw]').val();
+        var second_pw = $('input[id=input_sc_pw]').val();
+        var nickName = $('input[id=input_nick]').val();
         var birth_ = $('.birth').val();
 
-        var birth = birthString(birth)
+        var birth = birthString(birth_)
         var gender = genderString();
         var phoneStr = phoneNumberString();
 
@@ -96,20 +96,20 @@ $(document).ready(function () {
 
     //생년월일
     function birthString(birth){
-        var birth;
+
         if (birth.indexOf('-')) {
             var birthStr = birth.split('-');
             for (var i = 0; i < birth.length; i++) {
                 var birth_item = birthStr[i];
-                if (birth[i] == '1') {
+                if (birth[i] == '0') {
 
                     var birth1= birth;
 
-                } else if (birth[i] == '2') {
+                } else if (birth[i] == '1') {
 
                     var birth2= birth;
 
-                } else if (birth[i] == '3') {
+                } else if (birth[i] == '2') {
 
                     var birth3= birth;
 
@@ -118,7 +118,7 @@ $(document).ready(function () {
         }
         birth = birth1 + birth2 + birth3;
 
-        return birth, insert_result=1;
+        return birth;
     }
 
     // 성별 
@@ -126,12 +126,12 @@ $(document).ready(function () {
         var genderSelected = $('input[name=chk_gender]:checked').val();
         var gender;
 
-        if(genderSelected === $('#chk_male')){
+        if(genderSelected === $('#chk_male').val()){
             gender = '남';
         }else {
             gender = '여';
         }
-        return gender, insert_result=1;
+        return gender;
     }
 
     //폰번호
@@ -142,20 +142,20 @@ $(document).ready(function () {
 
         var phone = phNum_01 +"-"+ phNum_02 +"-"+phNum_03;
 
-        return phone, insert_result=1;
+        return phone;
     }
 
     function modi_except_pw(mb_nick, mb_name, birth, gender, phoneStr) {
-        var all_Data = {"mb_nick":mb_nick,"mb_name":mb_name, "mb_birth":birth, "mb_gender":gender, "mb_tel":phoneStr}
+        var except_pw_Data = {"mb_nick":mb_nick,"mb_name":mb_name, "mb_birth":birth, "mb_gender":gender, "mb_tel":phoneStr}
         $.ajax({
             type:"post",
             dataType:"JSON",
-            data:JSON.stringify(all_Data),
+            data:JSON.stringify(except_pw_Data),
             cache:false,
             async:false,
             contentType: 'application/json; charset=utf-8',
             traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
-            url:"/culturePark/modiUserProc.do",
+            url:"/culturePark/modiInfoProc.do",
             success: function (data) {
                 console.log(data);
                 ajax_result = data.result;
@@ -175,7 +175,7 @@ $(document).ready(function () {
             async:false,
             contentType: 'application/json; charset=utf-8',
             traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
-            url:"/culturePark/createUserProc.do",
+            url:"/culturePark/modiInfoProc.do",
             success: function (data) {
                 console.log(data);
                 ajax_result = data.result;

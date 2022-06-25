@@ -4,7 +4,9 @@ import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberMypageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("memberMypageService")
 public class MemberMypageServiceImpl implements MemberMypageService {
 
     @Autowired

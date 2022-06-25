@@ -22,6 +22,9 @@ public class MyPageController {
     MemberJoinService memberJoinService;
 
     @Autowired
+    MemberMypageService memberMypageService;
+
+    @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/myTicket.do")
@@ -147,7 +150,7 @@ public class MyPageController {
         return mv;
     }
 
-    @ResponseBody
+   /* @ResponseBody
     @RequestMapping(value = "/modiInfoProc.do", method = RequestMethod.POST)
     public String modiInfoProc(@ModelAttribute("memberVO") MemberVO modifyVO,
                                @RequestBody MemberVO memberVO,
@@ -156,15 +159,22 @@ public class MyPageController {
         System.out.println("modify 동작 확인");
         ModelAndView mv = new ModelAndView();
 
-        int result = MemberMypageService.modifyInfo(modifyVO);
 
-        modifyVO.setMb_nick();
+       *//* modifyVO.setMb_nick();
         modifyVO.setMb_pw();
         modifyVO.setMb_birth();
         modifyVO.setMb_gender();
-        modifyVO.setMb_tel();
+        modifyVO.setMb_tel();*//*
 
-    }
+        int result = memberMypageService.modifyInfo(modifyVO);
+
+        if(result == 1){
+            mv.setViewName("redirect:/myPage.do");
+        }else {
+            mv.setViewName("redirect:/modiInfo.do");
+        }
+        return mv;
+    }*/
 
         @RequestMapping(value = "levelPage.do")
     public ModelAndView myLevel() {
