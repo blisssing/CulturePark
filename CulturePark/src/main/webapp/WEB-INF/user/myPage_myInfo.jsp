@@ -112,10 +112,6 @@
                         </tbody>
                     </table>
                   </div>
-
-                    <div class="secondGate_section">
-                    <%@ include file="/WEB-INF/user/myPage_modiInfo.jsp" %>
-                    </div>
                 </div>
                 <%-- /content_container --%>
 

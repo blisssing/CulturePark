@@ -59,8 +59,7 @@ public class MemberLoginController {
        /* JSONObject json = new JSONObject();*/
         if (vo != null) {
             String dbPw = vo.getMb_pw(); // DB에서 가져온 pw
-            System.out.println("inserted pw : " + voPw);
-            System.out.println("db pw : " + dbPw);
+
             if (passwordEncoder.matches(voPw, dbPw)) {  //boolean으로 결과값 반환
                 result = "success";
                 loginChk = "logOn";

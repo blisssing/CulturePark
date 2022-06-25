@@ -57,13 +57,7 @@
 
 </head>
 <body>
-<c:set var="mail" value="${sessionScope.member.mb_email}" />
-<c:set var="nick" value="${sessionScope.member.mb_nick}" />
-<c:set var="name" value="${sessionScope.member.mb_name}" />
-<c:set var="birth" value="${sessionScope.member.mb_birth}" />
-<c:set var="gender" value="${sessionScope.member.mb_gender}" />
-<%--<c:set var="phone" value="${sessionScope.member.mb_tel}" />--%>
-<c:set var="phone" value="${fn:split(list.tel,'/')}" />
+
 <%-- Main --%>
 <div class="mainContainer">
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
@@ -90,8 +84,14 @@
             <div class="content_container" id="content">
                 <div class="secondGate_section">
                     <table class="info_table">
+                        <c:set var="mail" value="${sessionScope.member.mb_email}" />
+                        <c:set var="nick" value="${sessionScope.member.mb_nick}" />
+                        <c:set var="name" value="${sessionScope.member.mb_name}" />
+                        <c:set var="birth" value="${sessionScope.member.mb_birth}" />
+                        <c:set var="gender" value="${sessionScope.member.mb_gender}" />
+                        <%--<c:set var="phone" value="${sessionScope.member.mb_tel}" />--%>
+                        <c:set var="phone" value="${fn:split(list.tel,'/')}" />
                     <tbody>
-
                     <tr class="info_row id_row">
                         <td class="info_head">아이디</td>
                         <td class="info_content" name="mb_email">
@@ -244,7 +244,7 @@
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 <script src="/resources/user/js/myPage_myInfo.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
-<script src="/resources/user/js/myPage_modiInfo.js"></script>
+<%--<script src="/resources/user/js/myPage_modiInfo.js"></script>--%>
 
 
 </html>
