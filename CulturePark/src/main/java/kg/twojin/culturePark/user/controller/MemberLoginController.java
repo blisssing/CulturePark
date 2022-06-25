@@ -1,23 +1,15 @@
 package kg.twojin.culturePark.user.controller;
 
-
-
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberLoginService;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 @RestController
 public class MemberLoginController {
@@ -47,7 +39,7 @@ public class MemberLoginController {
     public String  loginProc(@RequestBody MemberVO vo,
                                   HttpServletRequest request,
                                   HttpServletResponse response) throws Exception {
-        // RequestParam: 하나씩만 가져오거나 Map형식으로 가져올 수 있다.
+        // RequestParam: 하나씩만 가져옴
         // ModelAttribute: 하나의 뭉텅이로 움직임. 파라미터이름과 뒤에 따라오는 멤버객체이름이 같으면 자동으로 값을 이어준다. null값은 상관X
 
         /* Todo : 설계
@@ -58,7 +50,7 @@ public class MemberLoginController {
         * */
         String voPw = vo.getMb_pw(); //사용자 pw
 
-        vo =memberLoginService.memberLogin(vo); //DB에서 가져온 pw
+        vo =memberLoginService.memberLogin(vo); //DB
 
         String result;
         String loginChk;
@@ -66,7 +58,7 @@ public class MemberLoginController {
 
        /* JSONObject json = new JSONObject();*/
         if (vo != null) {
-            String dbPw = vo.getMb_pw();
+            String dbPw = vo.getMb_pw(); // DB에서 가져온 pw
             System.out.println("inserted pw : " + voPw);
             System.out.println("db pw : " + dbPw);
             if (passwordEncoder.matches(voPw, dbPw)) {  //boolean으로 결과값 반환

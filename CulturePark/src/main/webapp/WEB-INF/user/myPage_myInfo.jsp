@@ -41,9 +41,9 @@
     <title>myPage</title>
 
     <%
-        String loginChk = (String) session.getAttribute("loginChk");
+        String loginChk_ = (String) session.getAttribute("loginChk");
 
-        if (loginChk == null) {
+        if (loginChk_ == null) {
     %>
 
     <script> location.href="/login.do"</script>
@@ -112,6 +112,10 @@
                         </tbody>
                     </table>
                   </div>
+
+                    <div class="secondGate_section">
+                    <%@ include file="/WEB-INF/user/myPage_modiInfo.jsp" %>
+                    </div>
                 </div>
                 <%-- /content_container --%>
 

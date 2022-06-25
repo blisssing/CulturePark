@@ -19,7 +19,6 @@ $('.back').click(function(){
         var json = {"mb_email": mb_email, "mb_pw": mb_pw};
         loginFunction(json);
     })
-//    Todo: 모바일 환경에서의 로그인 기능도 구현해줄 것
 
     function loginFunction(obj) {
         $.ajax({

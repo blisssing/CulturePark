@@ -16,6 +16,7 @@ public class PartnerJoinServiceImpl implements PartnerJoinService {
 
     @Override
     public int insertPartner(PartnerVO partnerVO) {
+
         return partnerDAO.insertPartner(partnerVO);
     }
 

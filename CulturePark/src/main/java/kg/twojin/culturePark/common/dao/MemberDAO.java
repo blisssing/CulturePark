@@ -10,6 +10,8 @@ public interface MemberDAO {
 
     int insertMember(MemberVO memberVO);
 
+    int updateMember(MemberVO memeberVO);
+
     List<MemberVO> selectAllMember();
 
     String selectEmail(String userEmail);

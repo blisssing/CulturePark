@@ -31,6 +31,18 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
+    public int updateMember(MemberVO memberVO) {
+        int result;
+        try{
+            result = sqlSessionTemplate.update("mapper.user.updateMember", memberVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = 0;
+        }
+        return result;
+    }
+
+    @Override
     public List<MemberVO> selectAllMember() {
         List<MemberVO> memberVOList = null;
         try {
