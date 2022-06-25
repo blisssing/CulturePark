@@ -60,7 +60,7 @@ public class Admin_LoginController {
             String password = adminVO.getAd_pw();   // 입력된 pw
 
 
-            // Todo adminvo에 어떤 값들이 실려 있는지 확인하기
+            // adminvo에 어떤 값들이 실려 있는지 확인하기
 
             if (passwordEncoder.matches(password, dbPw)) {
                 System.out.println("로그인성공");

@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ManagerManageService {
 
-    ManagerVO loginManager(ManagerVO managerVO);
-
     List getManagerList();
 
     int insertManager(ManagerVO managerVO);

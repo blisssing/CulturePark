@@ -18,6 +18,8 @@ public interface AdminManageService {
 
     int removeAdmin(AdminVO adminVO);
 
+    AdminVO getAdminInfo(int seq);
+
 
 
 }

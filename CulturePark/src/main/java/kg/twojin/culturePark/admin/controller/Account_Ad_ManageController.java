@@ -1,19 +1,20 @@
 package kg.twojin.culturePark.admin.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import kg.twojin.culturePark.common.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
 import kg.twojin.culturePark.common.vo.AdminVO;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Controller
@@ -99,7 +100,7 @@ public class Account_Ad_ManageController {
 
 
     // 계정삭제
-    // Todo : js 수정 및 동작 확인해볼 것!!
+
     @RequestMapping(value = "/deleteAdminProc.ado")
     public ModelAndView deleteAdmin(HttpServletRequest request, HttpServletResponse response,
                                     @ModelAttribute("adminVO") AdminVO adminVO) {
@@ -116,6 +117,25 @@ public class Account_Ad_ManageController {
             mv.setViewName("redirect:/adminList.ado");
         }
         return mv;
+    }
+
+    // 계정 정보
+
+    @ResponseBody
+    @RequestMapping(value = "/getAdminInfo.ado", method = RequestMethod.POST)
+    public void getAdminInfoProc(@RequestParam int ad_seq,
+                                 HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("application/json; charset=utf-8");
+
+        AdminVO vo = adminManageService.getAdminInfo(ad_seq);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(vo);
+        //  == >{"ad_email":"taran0913@naver.com","ad_pw":null,"ad_name":"한진희","ad_tel":"010-4444-4444","ad_is":null,"ad_depart":null,"ad_createDate":null,"ad_seq":11}
+
+        PrintWriter writer = response.getWriter();
+        writer.print(jsonString);
     }
 
 }

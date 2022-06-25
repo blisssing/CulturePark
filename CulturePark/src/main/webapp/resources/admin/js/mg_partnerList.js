@@ -8,11 +8,42 @@ $(document).ready(function () {
         eventData = $(this);
         eventRow = $(this).closest('tr');
 
-        var comp_num = eventRow.children('.comp_num');
-        getAdminInfo(comp_num);
+
+
+        var ad_seq = eventRow.children('.ad_seq').val();
+        var ad_email;
+        var ad_name;
+        var ad_tel;
+
+        $.ajax({
+            type:"POST",
+            dataType:"text",
+            data:{"ad_seq": ad_seq},
+            url:"getAdminInfo.ado",
+            async:false,
+            cache:false,
+            success: function (data) {
+                var jsonInfo = JSON.parse(data);
+
+                ad_email =jsonInfo.ad_email;
+                ad_seq=jsonInfo.ad_seq;
+                ad_name = jsonInfo.ad_name;
+                ad_tel = jsonInfo.ad_tel;
+
+                $('#AdminEmail').text(ad_email);
+                $('#AdminName').text(ad_name);
+                $('#AdminTel').text(ad_tel);
+
+            },
+
+            error: function () {
+                console.log("실패!");
+            },
+        });
+
+
 
         $('#AdminInfoModal').modal({});
-        modal_now = $('#AdminInfoModal');
     });
 
     $('.btn_modal_close').click(function () {

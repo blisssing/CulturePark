@@ -34,7 +34,6 @@ public class AdminDAOImpl implements AdminDAO {
 
     //계정 수정 1 : 비밀번호 변경 포함
 
-
     @Override
     public int updateAdminWithPw(AdminVO adminVO) {
         int result=0;
@@ -71,9 +70,16 @@ public class AdminDAOImpl implements AdminDAO {
         return result;
     }
 
-
-
-
+    @Override
+    public AdminVO selectAdminInfo(int seq) {
+        AdminVO adminVO = null;
+        try {
+            adminVO = sqlSessionTemplate.selectOne("mapper.admin.selectAdminInfo", seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return adminVO;
+    }
 
     @Override
     public List listAdmins() {
