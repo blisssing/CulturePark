@@ -7,11 +7,9 @@ import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.manager.service.ManagerLoginService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +24,9 @@ public class Manager_LoginController {
     @Autowired
     ManagerLoginService managerLoginService;
 
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
+
 
     @RequestMapping(value = "/login.mdo")
     public ModelAndView mgLogin() {
@@ -35,37 +36,27 @@ public class Manager_LoginController {
     }
 
 
-    //Todo 마무리 작업 해줄 것
-    @RequestMapping(value = "/loginProcByRoot.mdo")
-    public String  mgLoginProcByRoot(@RequestBody PartnerVO partnerVO,
-                            HttpServletResponse response, HttpServletRequest request)
-                            throws IOException {
-
-        partnerVO=managerLoginService.loginByPartner(partnerVO);
-        HttpSession session = request.getSession();
-        JSONObject jsonObject = new JSONObject();
-
-
-        if (partnerVO != null) {
-            session.setAttribute("partner", partnerVO);
-            session.setAttribute("isLogOn", "root");
-            return "success";
-        } else {
-            return "failed";
-        }
-    }
-
-    @RequestMapping(value = "/loginProcByManager.mdo")
-    public void mgLoginProcByManager(@RequestBody ManagerVO managerVO,
+    @RequestMapping(value = "/loginProc.mdo")
+    public String  mgLoginProcByManager(@ModelAttribute ManagerVO managerVO,
                             HttpServletRequest request, HttpServletResponse response) {
 
-        managerVO = managerLoginService.loginByManager(managerVO);
-        JSONObject json = new JSONObject();
+        String pw = managerVO.getMg_pw();
+        managerVO = managerLoginService.loginManager(managerVO);
 
+        JSONObject json = new JSONObject();
         HttpSession session = request.getSession();
 
         if (managerVO != null) {
-            session.setAttribute("isLogOn", "normal");
+
+            if (passwordEncoder.matches(pw, managerVO.getMg_pw())) {
+                session.setAttribute("isLogOn", managerVO.getMg_is());
+                session.setAttribute("manager", managerVO);
+                return "success";
+            } else {
+                return "wrongPW";
+            }
+        } else {
+            return "failed";
         }
 
     }

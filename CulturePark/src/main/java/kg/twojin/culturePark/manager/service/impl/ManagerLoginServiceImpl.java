@@ -19,13 +19,9 @@ public class ManagerLoginServiceImpl implements ManagerLoginService {
     ManagerDAO managerDAO;
 
     @Override
-    public ManagerVO loginByManager(ManagerVO managerVO) {
-        return null;
+    public ManagerVO loginManager(ManagerVO managerVO) {
+        return managerDAO.loginManager(managerVO);
     }
 
-    @Override
-    public PartnerVO loginByPartner(PartnerVO partnerVO) {
-        PartnerVO vo=partnerDAO.selectPartner(partnerVO);
-        return vo;
-    }
+
 }

@@ -19,7 +19,7 @@
 <select id="selectManager" resultType="managerVO">
     SELECT *
     FROM MANAGER_ACCOUNT
-    WHERE MG_EMAIL = #{MG_EMAIL};
+    WHERE MG_EMAIL = #{mg_email};
 </select>
 
 <select id="selectAllManager" resultMap="mgResult">

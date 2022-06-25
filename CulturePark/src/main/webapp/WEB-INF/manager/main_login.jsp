@@ -61,11 +61,6 @@
                                         <input type="password" class="form-control form-control-user"
                                                id="InputPassword" placeholder="Password">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="form-control form-control-user" id="message">
-
-                                        </div>
-                                    </div>
 
                                     <button type="button" class="login_btn btn btn-primary btn-user btn-block">
                                         Login
