@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("Ad_managerListService")
+@Repository("ad_managerListService")
 public class Ad_ManagerListServiceImpl implements Ad_ManagerListService {
 
     @Autowired

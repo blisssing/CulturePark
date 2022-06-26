@@ -52,9 +52,15 @@ $(document).ready(function () {
     })
 
 
+    $('.nick_confirm_btn').click(function () {
+        var mb_nick = $('.nick_value').val().trim();
+        console.log(mb_nick);
+        checkNickExist(mb_nick);
+    });
+
 
     $('.cancel_btn').click(function () {
-        location.href = "/home.do";
+        location.href = "/myPage.do";
     });
 
 
@@ -153,7 +159,7 @@ $(document).ready(function () {
                 console.log(data);
                 if (data == 1) {
                     alert("수정완료!");
-                    location.replace("/modiInfo.do");
+                    location.replace("/myPage.do");
                 } else {
                     alert("수정 실패!");
                 }
@@ -173,13 +179,39 @@ $(document).ready(function () {
             async:false,
             contentType: 'application/json; charset=utf-8',
             traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
-            url:"/culturePark/modiAllInfoProc.do",
+            url:"/culturePark/modiInfoProcWithPW.do",
             success: function (data) {
                 console.log(data);
-                ajax_result = data.result;
+                if(data == 1){
+                    alert("수정 완료!");
+                    location.replace("/myPage.do")
+                }else{
+                    alert("수정 실패!");
+                }
             }
         });
+    }
 
+
+    function checkNickExist(mb_nick) {
+        $.ajax({
+            type: "post",
+            dataType: "text",
+            url:"/culturePark/chkNickProc.do",
+            async:false,
+            cache:false,
+            data:{mb_nick:mb_nick},
+            success: function (data) {
+                chk_nick_result = data;
+
+                if (chk_nick_result === "able") {
+                    alert("사용 가능한 닉네임입니다");
+                } else {
+                    alert("사용 불가능한 닉네임입니다");
+                }
+            },
+
+        });
     }
 
 
