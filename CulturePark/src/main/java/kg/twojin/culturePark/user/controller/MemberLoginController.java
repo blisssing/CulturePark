@@ -50,7 +50,7 @@ public class MemberLoginController {
         * */
         String voPw = vo.getMb_pw(); //사용자 pw
 
-        vo =memberLoginService.memberLogin(vo); //DB
+        vo = memberLoginService.memberLogin(vo); //DB
 
         String result;
         String loginChk;

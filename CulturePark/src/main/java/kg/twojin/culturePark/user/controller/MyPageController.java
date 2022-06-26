@@ -152,10 +152,25 @@ public class MyPageController {
 
     @ResponseBody
     @RequestMapping(value = "/culturePark/modiInfoProcWithoutPW.do", method = RequestMethod.POST)
-    public int modiInfoProc(@RequestBody MemberVO modifyVO,
+    public int modiInfoWithoutPwProc(@RequestBody MemberVO modifyVO,
                                HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("modify 동작 확인");
+        System.out.println("modify 동작 확인1");
+
+        // ▽ 값을 제대로 받아서 vo에 담았는지 확인하기 위한 최고의 방법 ▽  //
+        System.out.println(modifyVO.toString());
+
+        int result = memberMypageService.modifyInfo(modifyVO);
+
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/culturePark/modiInfoProcWithPW.do", method = RequestMethod.POST)
+    public int modiInfoWithPwProc(@RequestBody MemberVO modifyVO,
+                            HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        System.out.println("modify 동작 확인2");
 
         // ▽ 값을 제대로 받아서 vo에 담았는지 확인하기 위한 최고의 방법 ▽  //
         System.out.println(modifyVO.toString());
