@@ -88,3 +88,8 @@ td {
     width: 50px;
     margin: 5px 0;
 }
+
+
+.check_btn, .cancel_btn, .modi_btn, .cancel_button ,.ok_button {
+    cursor:pointer;
+}

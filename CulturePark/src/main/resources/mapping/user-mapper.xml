@@ -17,6 +17,7 @@
         <result property="mb_createDate" column="mb_createDate"></result>
         <result property="mb_status" column="mb_status"></result>
         <result property="mb_pauseDate" column="mb_pauseDate"></result>
+        <result property="mb_grade" column="mb_grade"></result>
     </resultMap>
 
     <select id="selectMember" resultType="memberVO" parameterType="memberVO">

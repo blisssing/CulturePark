@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" isELIgnored="false"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,49 @@
     <style><%@include file="/resources/user/css/member_login.css" %></style>
 
     <title>login</title>
+
+    <c:if test="${message == 'logout' }">
+        <script type='text/javascript'>
+            alert('로그아웃되었습니다.');
+        </script>
+    </c:if>
+
+    <%--<%
+   쿠키  https://great-yo.tistory.com/74
+   아이디 셋팅을 위한 https://record-than-remember.tistory.com/entry/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%E2%86%92-%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83-%EB%B2%84%ED%8A%BC
+
+        String loginChk_ = (String) session.getAttribute("loginChk");
+
+        if (loginChk_ == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <% }
+    %>--%>
+
+
+ <%--  <%
+	/*String remember = (String) request.getAttribute("remember");*/
+
+   String remember = (String) session.getAttribute("remember");
+
+	if(remember == null) {
+		remember = "";
+	}
+    %>
+
+    <%
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies) {
+                if(cookie.getName().equals("remember")) {
+                    request.setAttribute("remember", cookie.getValue());
+                }
+            }
+        }
+    %>--%>
+
 </head>
 
 <body>
@@ -34,10 +77,11 @@
                     </div>
 
                     <div class="culturePark_section">
-                        <div class="culturePark">Culture Park</div>
+                        <a href="home.do"><span class="culturePark">Culture Park</span></a>
                     </div>
 
-                    <p class="sectionLine_thin"></p>
+
+                <p class="sectionLine_thin"></p>
 
                 <%--------------- pc ----------------%>
 
@@ -53,7 +97,7 @@
 
                             <%--가운데--%>
                             <div class="center_section">
-                                <input name="mb_email" type="textField" class="id_value p_id_value"/>
+                                <input name="mb_email" type="text" class="id_value p_id_value" required/>
                                 <input name="mb_pw" type="password" class="pw_value p_pw_value"/>
                             </div>
 
@@ -69,9 +113,9 @@
                         <div class="section_two">
                             <div class="save_id_section">
                                 <div class="checkbox_section">
-                                    <input class="checkbox_save_id checkbox_save_id_p" type="checkbox" name="save_id"
-                                           value="아이디저장">
-                                    <div class="save_id">아이디 저장</div>
+                                    <input class="checkbox_save_id checkbox_save_id_p" type="checkbox" name="remember"
+                                           required value="아이디저장">
+                                    <div class="save_id">아이디 기억하기</div>
                                 </div>
                             </div>
 

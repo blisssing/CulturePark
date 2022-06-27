@@ -61,3 +61,6 @@ alter table PARTNER_AGREEMENT add column pt_register_name varchar(10);
 
 DROP TABLE PARTNER_AGREEMENT;
 --
+
+<6.27 진희>
+<6.27 진아 등록완료>

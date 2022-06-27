@@ -101,8 +101,9 @@
                     <tr class="info_row nickname_row">
                         <td class="info_head">닉네임</td>
                         <td class="info_content">
-                            <div><input type="text" id="input_nick" name="mb_nick" value=${nick}></div>
-
+                            <div><input type="text" id="input_nick" name="mb_nick" value=${nick}>
+                            <input class="nick_confirm_btn nick_value" type="button" name="nickChk" value="중복확인">
+                            </div>
                         </td>
                     </tr>
                     <tr class="info_row pw_row">
@@ -113,7 +114,7 @@
                         </td>
                     </tr>
                     <tr class="info_row sc_pw_row">
-                        <td class="info_head">2차 비밀번호</td>
+                        <td class="info_head">비밀번호 확인</td>
                         <td class="info_content pw_content">
                             <div><input type="password" id="input_sc_pw" name="mb_rePw"></div>
                             <div class="alert_text_02">서로 다른 비밀번호 입니다. 다시 입력해주세요 </div>
@@ -152,26 +153,29 @@
                     </tr>
 
                     <tr class="info_row ph_row">
+
+
                         <c:set var="phoneList" value="${fn:split(phone,'-')}"/>
+
 
                         <td class="info_head">전화번호</td>
                         <td class="info_content">
                             <c:choose>
-                                <c:when test="${phoneList[i] eq '010'}">
+                                <c:when test="${phoneList[0] eq '010'}">
                                     <script>
                                         $('.ph_01').prop('selected', true);
                                     </script>
                                 </c:when>
-                                <c:when test="${phoneList[i] eq '011'}">
+                                <c:when test="${phoneList[0] eq '011'}">
                                     <script>
                                         $('.ph_02').prop('selected', true);
                                     </script>
                                 </c:when>
-                                <c:when test="${phoneList[i] eq '017'}">
+                                <c:when test="${phoneList[0] eq '017'}">
                                     <script>
                                         $('.ph_03').prop('selected', true);
                                     </script>
-                                </c:when><c:when test="${phoneList[i] eq '018'}">
+                                </c:when><c:when test="${phoneList[0] eq '018'}">
                                     <script>
                                         $('.ph_04').prop('selected', true);
                                     </script>
@@ -189,7 +193,6 @@
                             -<input value="${phoneList[1]}" class="input_ph" type="text" id="tel2" name="tel2" maxlength="4" oninput="this.value=this.value=replace(/[^0-9]/g,'').replace(/(\..*)\./g, '$1');">
 
                             -<input value="${phoneList[2]}" class="input_ph" type="text" id="tel3" name="tel3" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-
 
                         </td>
                     </tr>

@@ -51,7 +51,7 @@ $(document).ready(function () {
             $('.tck_day').attr('disabled', false);
             $('.tck_time').attr('disabled', true);
         } else if (selected_val === 'time') {
-            ;
+            $('.tck_day').attr('disabled', false);
             $('.tck_time').attr('disabled', false);
         } else {
             $('.tck').attr('disabled', true);
@@ -161,6 +161,10 @@ $(document).ready(function () {
     $('.regist_btn').click(function () {
         var resultChk= chkValues();
 
+        if (resultChk == -1) {
+            return;
+        }
+
         // 값 기입하기
 
         // 장르
@@ -238,6 +242,11 @@ $(document).ready(function () {
             });
         }
 
+        // 운영 기간
+
+        pd_startDate = $('#startDate').val();
+        pd_endDate = $('#endDate').val()
+
 
         var jsonObj = new Object();
 
@@ -283,9 +292,17 @@ $(document).ready(function () {
             traditional:true,
             success: function (data) {
                 alert("정상 수행!");
+                if (data == 1) {
+                    location.replace("/index.mdo");
+                } else {
+                    console.log('비정상수행');
+                }
+            },
+            error: function () {
+                alert("비정상 수행");
             }
 
-        })
+        });
 
 
     });

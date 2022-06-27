@@ -4,12 +4,10 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.util.Date;
-import java.util.Map;
 
 @Data
 @ToString
 public class ProductVO {
-
     String
             pd_title,           // 제목 V
             pd_genre1,          // 장르1 V
@@ -25,7 +23,7 @@ public class ProductVO {
 
     Date pd_startDate, pd_endDate; //V
 
-    int pd_seq, pd_openTime, pd_closeTime, pd_maxTicket; //V
+    int pd_seq, pt_seq, pd_openTime, pd_closeTime, pd_maxTicket; //V
 
 
 
