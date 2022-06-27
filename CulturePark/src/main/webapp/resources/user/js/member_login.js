@@ -5,6 +5,18 @@ $('.back').click(function(){
     window.history.back();
 });
 
+/* 아이디 기억하기 */
+ /*   var log_memory;
+    $('.save_id').click(function () {
+        if ($(".save_id").prop("checked")) {
+            log_memory = "checked";
+        } else {
+            log_memory = "notChecked";
+        }
+        return log_memory;
+    });*/
+
+
 /* 로그인 */
     $('.login_btn_p').click(function () {
         var mb_email = $('.p_id_value').val();

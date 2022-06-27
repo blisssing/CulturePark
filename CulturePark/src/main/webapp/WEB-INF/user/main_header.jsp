@@ -1,4 +1,6 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="header_1">
     <div class="pc_header">
         <div class="logo_section">
@@ -10,12 +12,33 @@
             </div>
         </div>
         <div class="function_section">
+            <%
+            String loginChk_ = (String) session.getAttribute("loginChk");
+
+            if (loginChk_ == null) {
+            %>
+
             <ul class="funcs_pc">
-                <li><a class="func_list" href="/login.do">login</a></li>
-                <li><a class="func_list" href="/join.do">join</a></li>
-                <li><a class="func_list" href="/myPage.do">my page</a></li>
-                <li><a class="func_list" href="/myTicket.do">my ticket</a></li>
+                <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
+                <li><a href="/join.do" class="func_list" >join</a></li>
+                <li><a href="/myPage.do" class="func_list" >my page</a></li>
+                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
             </ul>
+
+            <%
+            } else {
+            %>
+
+            <ul class="funcs_pc">
+                <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
+                <li><a href="/join.do" class="func_list" >join</a></li>
+                <li><a href="/myPage.do" class="func_list" >my page</a></li>
+                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
+            </ul>
+
+            <%
+            }
+            %>
 
             <div class="funcs_mobile">
 
