@@ -7,12 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Admin_PD_Controller {
 
-    @RequestMapping(value = "/pdNewList.ado")
-    public ModelAndView pdCreateRequest() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_newList");
-        return mv;
-    }
 
     @RequestMapping(value = "pdModifyRequest.ado")
     public ModelAndView pdModifyRequest() {
