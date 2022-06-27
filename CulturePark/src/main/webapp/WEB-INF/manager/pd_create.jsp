@@ -125,30 +125,30 @@
 
                                         <tbody>
                                         <tr class="chk_row">
-                                            <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk">구분없음
+                                            <td class="td_0"><input value="none" type="checkbox" name="pd_ticketType" class="chkbox pd_ticketType no_distinction">구분없음
                                             </td>
-                                            <td class="td_1"><input type="text" class="price nonDistinc_price" disabled="disabled">원</td>
+                                            <td class="td_1"><input type="text" class="price nonDistinc_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
 
 
                                         <tr class="chk_row">
-                                            <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk">성인
+                                            <td class="td_0"><input value="adult"type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_adult">성인
                                             </td>
-                                            <td class="td_1"><input type="text" class="price adult_price" disabled="disabled">원</td>
+                                            <td class="td_1"><input type="text" class="price adult_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
 
                                         <tr class="chk_row">
-                                            <td class="td_0"><input type="checkbox" class="chkbox chk_teenager"
-                                                                    name="chk">청소년
+                                            <td class="td_0"><input value="teenager" type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_teenager"
+                                                                    >청소년
                                             </td>
-                                            <td class="td_1"><input type="text" class="price teenager_price" disabled="disabled">원</td>
+                                            <td class="td_1"><input type="text"  class="price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
 
                                         <tr class="chk_row">
-                                            <td class="td_0"><input type="checkbox" class="chkbox chk_children"
-                                                                    name="chk">어린이
+                                            <td class="td_0"><input value="child" type="checkbox" name="pd_ticketType"  class="chk_type chkbox pd_ticketType chk_children"
+                                                                    >어린이
                                             </td>
-                                            <td class="td_1"><input type="text" class="price children_price" disabled="disabled">원</td>
+                                            <td class="td_1"><input type="text" class="price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
                                         </tbody>
 
@@ -278,19 +278,19 @@
 
                                         <tr class="list1">
                                             <td class="label">썸네일</td>
-                                            <td class="file_padding"><input type="file"></td>
+                                            <td class="file_padding"><input class="pd_thumbnail" name="pd_thumbnail" type="file"></td>
                                         </tr>
 
                                         <tr class="list2">
                                             <td class="label">설명파일</td>
-                                            <td class="file_padding"><input type="file"></td>
+                                            <td class="file_padding"><input class="pd_descript" name="pd_descript" type="file"></td>
                                         </tr>
 
                                         <tr class="list3">
                                             <td colspan="2" class="label">태그</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
+                                            <td colspan="2" class="tag"><input type="text" name="pd_tag"></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -300,25 +300,43 @@
                             <%------------- 휴관요일 -------------%>
                             <%--테이블 1개--%>
                             <div class="section_div_no_row">
+                                <div class="section_label">기간</div>
+
+                                <div class="row0">
+                                    <table class="table">
+                                        <tr>
+                                            <td colspan="2" class="chkbox_day">
+                                                <input class="datePicker" id="startDate"/>
+                                            </td>
+                                            <td colspan="2" class="chkbox_day">
+                                                <input class="datePicker" id="endDate"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="section_div_no_row">
                                 <div class="section_label">휴관 요일</div>
 
                                 <div class="row0">
                                     <table class="table" id="table6">
                                         <tr>
                                             <td colspan="2" class="chkbox_day">
-                                                <input type="checkbox" class="chkbox" id="sunday" name="chkbox">일
-                                                <input type="checkbox" class="chkbox chkLabel" id="monday"
-                                                       name="chkbox">월
-                                                <input type="checkbox" class="chkbox chkLabel" id="tuesday"
-                                                       name="chkbox">화
-                                                <input type="checkbox" class="chkbox chkLabel" id="wednesday"
-                                                       name="chkbox">수
-                                                <input type="checkbox" class="chkbox chkLabel" id="thursday"
-                                                       name="chkbox">목
-                                                <input type="checkbox" class="chkbox chkLabel" id="friday"
-                                                       name="chkbox">금
-                                                <input type="checkbox" class="chkbox chkLabel" id="saturday"
-                                                       name="chkbox">토
+                                                <input type="checkbox" class="chkbox chkLabel" value="sun" name="day_chkbox">일
+
+                                                <input type="checkbox" class="chkbox chkLabel" value="mon"
+                                                       name="day_chkbox">월
+                                                <input type="checkbox" class="chkbox chkLabel" value="tue"
+                                                       name="day_chkbox">화
+                                                <input type="checkbox" class="chkbox chkLabel" value="wed"
+                                                       name="day_chkbox">수
+                                                <input type="checkbox" class="chkbox chkLabel" value="thu"
+                                                       name="day_chkbox">목
+                                                <input type="checkbox" class="chkbox chkLabel" value="fri"
+                                                       name="day_chkbox">금
+                                                <input type="checkbox" class="chkbox chkLabel" value="sat"
+                                                       name="day_chkbox">토
                                             </td>
                                         </tr>
                                     </table>
@@ -401,6 +419,10 @@
 
     <!-- Page level custom scripts -->
     <script src="/resources/common/js/demo/datatables-demo.js"></script>
+
+    <%--ui--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="/resources/common/js/jquery-ui.js"></script>
 
 
     <%-- script --%>
