@@ -124,9 +124,9 @@ $(document).ready(function () {
         var gender;
 
         if(genderSelected === $('#chk_male').val()){
-            gender = '남';
+            gender = 'male';
         }else {
-            gender = '여';
+            gender = 'female';
         }
         return gender;
     }
