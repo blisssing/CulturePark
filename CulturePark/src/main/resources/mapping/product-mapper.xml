@@ -6,5 +6,8 @@
 
 <mapper namespace="mapper.product">
 
+    <insert id="insertProduct" parameterType="productVO">
+
+    </insert>
 
 </mapper>
