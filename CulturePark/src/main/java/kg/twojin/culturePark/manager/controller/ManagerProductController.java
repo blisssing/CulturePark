@@ -37,6 +37,12 @@ public class ManagerProductController {
             int pt_seq = 1;
 
         productVO.setPt_seq(pt_seq);
+
+        int openTime = productVO.getPd_openTime();
+        int closeTime = productVO.getPd_closeTime();
+
+
+
         int result = managerProductManageService.createNewProductReqeust(productVO);
 
         if (result == 1) {
