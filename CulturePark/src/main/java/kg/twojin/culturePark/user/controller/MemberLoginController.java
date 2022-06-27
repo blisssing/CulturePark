@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
 
 @RestController
 public class MemberLoginController {
@@ -129,19 +126,6 @@ public class MemberLoginController {
         return mv;
     }
 
-
-    /*https://kimvampa.tistory.com/135*/
-   /* @RequestMapping(value = "logout.do", method = RequestMethod.GET)
-    public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        HttpSession session = request.getSession();
-        session.invalidate();
-        PrintWriter out = response.getWriter();
-        out.println("<script>alert('로그아웃 되었습니다.')");
-        out.flush();
-        return "/user/member_login";
-    }*/
-
-    /*https://dlgkstjq623.tistory.com/251?category=786635*/
     @RequestMapping("logout.do") //logout.do에 매핑
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
        /* memberService.logout(session); //세션 초기화 작업*/
