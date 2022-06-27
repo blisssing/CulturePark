@@ -22,7 +22,7 @@ public class ManagerProductController {
     ManagerProductManageService managerProductManageService;
 
     @RequestMapping(value = "requestNewProduct.mdo")
-    public void createNewProduct(HttpServletResponse response, HttpServletRequest request,
+    public int createNewProduct(HttpServletResponse response, HttpServletRequest request,
                                  @RequestBody ProductVO productVO)  {
 
         System.out.println("동작확인");
@@ -40,10 +40,14 @@ public class ManagerProductController {
         int result = managerProductManageService.createNewProductReqeust(productVO);
 
         if (result == 1) {
-            // 성공
+            return result;
         } else {
             // 실패
+            return result;
         }
+
+        
+
 
     }
 }
