@@ -1,4 +1,5 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta charset="utf-8">
 
 <div class="sideMenu_pc">
@@ -68,9 +69,10 @@
 
 
 <div class="myMenu_mobile">
+    <c:set var="name" value="${sessionScope.member.mb_name}" />
     <ul class="my_section_m">
         <div class="my_funcs_mobile"><button type="button" class="my_close_btn"><i class="fa-solid fa-xmark"></i></button></div>
-        <div class="memberInfo_wrap"><a href="" class="member_info">김진아 님</a></div>
+        <div class="memberInfo_wrap"><a href="" class="member_info">${name} 님</a></div>
         <li class="my_sideList"><a href="/myInfo.do">내 정보</a></li>
         <li class="my_sideList"><a href="/myTicket.do">마이티켓</a></li>
         <li class="my_sideList"><a href="/likeList.do">찜목록</a></li>
