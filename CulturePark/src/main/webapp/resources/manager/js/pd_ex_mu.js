@@ -283,9 +283,17 @@ $(document).ready(function () {
             traditional:true,
             success: function (data) {
                 alert("정상 수행!");
+                if (data == 1) {
+                    location.replace("/index.mdo");
+                } else {
+                    console.log('비정상수행');
+                }
+            },
+            error: function () {
+                alert("비정상 수행");
             }
 
-        })
+        });
 
 
     });

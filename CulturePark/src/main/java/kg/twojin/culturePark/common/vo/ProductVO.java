@@ -8,7 +8,6 @@ import java.util.Date;
 @Data
 @ToString
 public class ProductVO {
-
     String
             pd_title,           // 제목 V
             pd_genre1,          // 장르1 V

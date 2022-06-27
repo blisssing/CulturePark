@@ -16,7 +16,7 @@ public class ProductDAOImpl implements ProductDAO {
     public int insertProduct(ProductVO productVO) {
         int result = 0;
         try {
-            result = sqlSessionTemplate.insert("mapper.product.insertProduct");
+            result = sqlSessionTemplate.insert("mapper.product.insertProduct", productVO);
         } catch (Exception e) {
             e.printStackTrace();
         }

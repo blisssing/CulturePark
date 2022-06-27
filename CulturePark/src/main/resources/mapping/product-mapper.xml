@@ -7,6 +7,23 @@
 <mapper namespace="mapper.product">
 
     <insert id="insertProduct" parameterType="productVO">
+        insert into "PRODUCT_REQUEST" (PDR_TITLE,
+                                     PDR_GENRE1,
+                                     PDR_GENRE2,
+                                     PDR_TIMETYPE,
+                                     PDR_CLOSEDAY,
+                                     PDR_TAG,
+                                     PDR_THUMBNAIL_PATH,
+                                     PDR_DESCRIPT_PATH,
+                                     PDR_TYPESTR,
+                                     PDR_STARTDATE,
+                                     PDR_CLOSEDATE,
+                                     PT_SEQ, PDR_OPENTIME, PDR_CLOSETIME, PDR_MAXTICKET)
+        values (#{pd_title}, #{pd_genre1}, #{pd_genre2}, #{pd_timeType},
+                #{pd_closeDay}, #{pd_tag}, #{pd_thumbnail_PATH}, #{pd_descript_PATH},
+                #{pd_typeStr}, #{pd_startDate}, #{pd_endDate}, #{pt_seq}, #{pd_openTime},
+                #{pd_closeTime}, #{pd_maxTicket});
+
 
     </insert>
 
