@@ -130,7 +130,6 @@ $(document).ready(function() {
             $('.code_reSend_btn').prop("disabled", false);
             $('.authentication_code').prop("disabled", false);
             $('.code_ok_btn').prop("disabled", false);
-            $('.code_reSend_btn').prop("disabled", false);
             $('.tel_1').prop("disabled", true);
             $('.tel_3').prop("disabled", true);
             $('.tel_2').prop("disabled", true);
@@ -231,7 +230,6 @@ $(document).ready(function() {
                     alert("사용 불가능한 주소입니다");
                 }
             },
-
         });
     }
 
@@ -246,7 +244,7 @@ $(document).ready(function() {
             success: function (data) {
                 chk_nick_result = data;
 
-                if (chk_nick_result === "able") {
+                if (chk_nick_result === "able" && mb_nick != '') {
                     alert("사용 가능한 닉네임입니다");
                 } else {
                     alert("사용 불가능한 닉네임입니다");
@@ -311,9 +309,6 @@ $(document).ready(function() {
                 ajax_result = data.result;
             }
         });
-
     }
-
-
 
 });

@@ -124,8 +124,8 @@
                             </div>
 
                             <div class="find_section">
-                                <button class="find_id find_id_p">아이디 찾기</button>
-                                <button class="find_pw find_pw_p">비밀번호 찾기</button>
+                                <a href="/findId.do" class="find_id find_id_p"><button class="findId">아이디 찾기</button></a>
+                                <a href="/findPw.do" class="find_pw find_pw_p"><button class="findPw">비밀번호 찾기</button></a>
                             </div>
                         </div>
 
@@ -177,11 +177,11 @@
                             <%-- 아이디/비밀번호 찾기  // 회원가입 --%>
                             <div class="m_find_section">
                                 <div class="m_find">
-                                    <a href="/findId.do.ado" class="find_id find_id_m">아이디 찾기</a>
-                                    <a href="/findPw.do.ado" class="find_pw find_pw_m">비밀번호 찾기</a>
+                                    <a href="/findId.do.ado" class="find_id find_id_m"><button class="findID" >아이디 찾기</button></a>
+                                    <a href="/findPw.do.ado" class="find_pw find_pw_m"><button class="findPW">비밀번호 찾기</button></a>
                                 </div>
                                 <div class="m_join">
-                                    <a href="/join.do" class="join_btn join_btn_m" >회원가입</a>
+                                    <a href="/join.do" class="join_btn join_btn_m"><button class="join">회원가입</button></a>
                                 </div>
                             </div>
 

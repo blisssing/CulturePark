@@ -17,6 +17,7 @@
 
 
   <!--mail설정-->
+
     <bean id="naverMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="${spring.mail.Nhost}"/>
         <property name="port" value="${spring.mail.Nport}"/>

@@ -127,9 +127,6 @@ $(document).ready(function () {
             }
         })
 
-
-
-
         //Todo : 동작수행이 끝나면 모달을 닫아주고 테이블에서 해당 row 삭제
 
         eventRow.remove();

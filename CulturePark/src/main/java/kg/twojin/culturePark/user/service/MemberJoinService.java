@@ -13,6 +13,5 @@ public interface MemberJoinService {
 
     String searchNickname(String userNick);
 
-    String searchInnerLoginPw(String userPw);
 }
 

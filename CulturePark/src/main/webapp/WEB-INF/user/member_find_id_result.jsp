@@ -1,8 +1,17 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"  isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+
+    <%
+        String resultId = (String) session.getAttribute("findEmail");
+
+        if(resultId != null){
+
+
+    %>
+
+
 
     <meta charset="utf-8">
     <meta name="viewport"
@@ -15,7 +24,11 @@
 </head>
 <body>
 
+
+
 <%--성공시--%>
+<%--<c:choose>
+<c:when test="${mail != null}">--%>
 <div class="success_view">
 
     <div class="container_div">
@@ -25,13 +38,14 @@
         </div>
 
     <p class="sectionLine_thin"></p>
-
+        <c:set var="email" value="${sessionScope.findEmail}"/>
         <div class="label_section id_section">
             <span>회원님의 아이디는</span>
         </div>
 
         <div class="label_section id_section">
-            <span class="user_id">abcdefg12@naver.com</span>
+            <span class="user_id"/>
+            ${email}
         </div>
 
         <div class="label_section id_section">
@@ -49,7 +63,14 @@
 
 </div>
 
+<%
+    } else {
+%>
+
+<%--</c:when>--%>
+
 <%--실패시--%>
+<%--<c:otherwise>--%>
 <div class="fail_view">
     <div class="container_div">
 
@@ -68,8 +89,10 @@
 
     </div>
 </div>
-
-
+<%--
+</c:otherwise>
+</c:choose>
+--%>
 
 <%--<%
     number = fdsafdsa.getParemeter("a");
@@ -88,6 +111,9 @@
 <div>`11`1실패</div>
 --%>
 
+<%
+    }
+%>
 </body>
 
 <%-- script --%>
