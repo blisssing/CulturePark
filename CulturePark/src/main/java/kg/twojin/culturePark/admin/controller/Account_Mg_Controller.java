@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class Account_Mg_Controller {
 
-    ManagerSer
 
 
     @RequestMapping(value = "mgRequest.ado")

@@ -126,7 +126,7 @@ public class MemberLoginController {
     @RequestMapping(value="/culturePark/findIdProc.do", method = RequestMethod.POST)
     public String findIdProc(@RequestBody MemberVO vo,
                              HttpServletRequest request, HttpServletResponse response)
-                             throws IOException {
+            throws IOException {
 
         //반환값 String(아이디값을 받아올것이므로) @RequestParam MemberVO(name값을 받아와 일치하는 변수에 넣어준다)
         //json이므로 RequestBody를 사용
@@ -171,7 +171,7 @@ public class MemberLoginController {
 
 
     // TODO : application.properties에 putyouremail에 내 진짜 이메일과 비번 기재해서 실행할것.
-   // https://recoderr.tistory.com/7
+    // https://recoderr.tistory.com/7
     @Transactional
     @RequestMapping(value = "/culturePark/findPwProc.do", method = RequestMethod.POST)
     public String getFindPwProc(@RequestBody MemberVO vo,
@@ -206,8 +206,8 @@ public class MemberLoginController {
             String title = "[culture park] 비밀번호변경 인증 이메일 입니다";
 
             String text = "안녕하세요 회원님, 비밀번호변경 인증코드를 발급하였습니다." +
-                            "\n 초기 비밀번호 : " + randomNumber +
-                            "\n 로그인 링크 : http://localhost:8080/login.mdo";
+                    "\n 초기 비밀번호 : " + randomNumber +
+                    "\n 로그인 링크 : http://localhost:8080/login.mdo";
             String to = vo.getMb_email();
 
             EmailVO emailVO = new EmailVO(to,title,text);
@@ -227,7 +227,7 @@ public class MemberLoginController {
             }
 
 
-                result = "success";
+            result = "success";
 
         }else {
 
@@ -260,7 +260,7 @@ public class MemberLoginController {
 
     @RequestMapping("logout.do") //logout.do에 매핑
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
-       /* memberService.logout(session); //세션 초기화 작업*/
+        /* memberService.logout(session); //세션 초기화 작업*/
 
         HttpSession session = request.getSession();
         ModelAndView mav = new ModelAndView();
