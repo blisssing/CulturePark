@@ -31,10 +31,11 @@ public class AdminProductServiceImpl implements AdminProductService {
     @Transactional
     public int agreeProductCreate(ProductLogVO productLogVO) {
         int pdr_seq = productLogVO.getPdr_seq();
-        int resultInsertToDB = productDAO.insertNewProduct(pdr_seq);
+        int resultInsertToDB = 0;
         int resultWriteLogToDB = 0;
-        int updateRequestStatus = 0;
         int finalResult= 0;
+
+        resultInsertToDB = productDAO.insertNewProduct(pdr_seq);
 
         if (resultInsertToDB == 1) {
             resultWriteLogToDB = adminLogDAO.insertLogToPCL(productLogVO);
@@ -42,11 +43,14 @@ public class AdminProductServiceImpl implements AdminProductService {
             System.out.println("오류지점 1 ");
         }
 
-        if (resultInsertToDB == 1) {
+        if (resultWriteLogToDB == 1) {
             finalResult = productDAO.updateProductRequestStatusAgree(pdr_seq);
         } else {
             System.out.println("오류지점 2 ");
         }
+
+
+
 
         return finalResult;
     }

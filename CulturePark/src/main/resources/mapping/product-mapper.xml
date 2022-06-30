@@ -40,4 +40,12 @@
                 #{pdr_closeTime}, #{pdr_maxTicket}, #{pdr_request_manager}, #{pdr_mainImg_PATH});
         ]]>
     </insert>
+
+    <select id="selectProductByPtAndTitle" parameterType="productRequestVO" resultType="productVO">
+        <![CDATA[
+        SELECT *
+        FROM PRODUCT_INFO
+        WHERE PT_SEQ = #{pt_seq} and PD_TITLE = #{pdr_title};
+        ]]>
+    </select>
 </mapper>

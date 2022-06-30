@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.dateTicket">
+
+    <insert id="insertTicketInfo" parameterType="dateTypeTicket">
+        INSERT INTO DATE_TICKET_INFO(PT_SEQ, PD_SEQ, DTI_DATE, DTI_TICKET_MAX,
+                                     DTI_TICKET_NOW)
+        VALUES (
+                #{pt_seq}, #{pd_seq}, #{dti_date},#{dti_ticketMax},#{dti_ticketNow}
+               );
+    </insert>
+
+
+
+</mapper>

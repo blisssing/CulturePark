@@ -145,10 +145,12 @@ $(document).ready(function () {
         var ad_seq = $('#ad_seq').val();
 
         var pt_seq = eventRow.children('.pt_seq').val();
+        var pd_title = $('#pd_title').text();
 
         jsonObj.pdr_seq = pdr_seq;
         jsonObj.ad_seq = ad_seq;
         jsonObj.pt_seq = pt_seq;
+        jsonObj.pd_title = pd_title;
 
         return jsonObj;
     }

@@ -40,8 +40,6 @@ public class Admin_PD_NewController {
         productVOList = adminProductService.getProductList();
 
         for (ProductVO vo : productVOList) {
-            System.out.println(vo.toString());
-
             int pt_seq = vo.getPt_seq();
             PartnerVO partnerVO = partnerService.getPartnerBySeq(pt_seq);
             partnerVOList.add(partnerVO);
@@ -52,9 +50,6 @@ public class Admin_PD_NewController {
         mv.addObject("productList", productVOList);
         mv.addObject("partnerList", partnerVOList);
 
-        System.out.println("mv 전송 확인!");
-
-
         return mv;
     }
 
@@ -62,6 +57,7 @@ public class Admin_PD_NewController {
     public String agreePDCreate(@RequestBody ProductLogVO productLogVO) {
 
         int result = adminProductService.agreeProductCreate(productLogVO);
+
         String resultStr = null;
         if (result != 1) {
             resultStr = "failed";
