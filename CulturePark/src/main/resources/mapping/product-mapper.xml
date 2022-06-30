@@ -4,20 +4,40 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.product">
+<mapper namespace="mapper.productInfo">
 
-    <insert id="insertProduct" parameterType="productVO">
+    <resultMap id="productRequestMap" type="productVO">
+        <result property="pd_title" column="pd_title"></result>
+        <result property="pd_genre1" column="pd_genre1"></result>
+        <result property="pd_genre2" column="pd_genre2"></result>
+        <result property="pd_timeType" column="pd_timetype"></result>
+        <result property="pd_closeDay" column="pd_closeday"></result>
+        <result property="pd_tag" column="pd_tag"></result>
+        <result property="pd_thumbnail_PATH" column="pd_thumbnail_PATH"></result>
+        <result property="pd_descript_PATH" column="pd_descript_path"></result>
+        <result property="pd_typeStr" column="pd_typestr"></result>
+        <result property="pd_requestStatus" column="pd_requeststatus"></result>
+        <result property="pd_status" column="pd_status"></result>
+        <result property="pd_startDate" column="pd_startdate"></result>
+        <result property="pd_closeDate" column="PD_CLOSEDATE"></result>
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pd_seq" column="pd_seq"></result>
+        <result property="pd_closeTime" column="PD_CLOSETIME"></result>
+        <result property="pd_openTime" column="PD_OPENTIME"></result>
+        <result property="pd_maxTicket" column="PD_MAXTICKET"></result>
+        <result property="pd_request_manager" column="PD_request_manager"></result>
+        <result property="pd_requestDate" column="PD_requestDate"></result>
+        <result property="pd_mainImg_PATH" column="PD_MAINIMG_PATH"></result>
+    </resultMap>
+    <insert id="insertProduct" parameterType="productRequestVO">
         <![CDATA[
-        InSERT INTO PD_CREATE_REQUEST (PDR_TITLE, PDR_GENRE1, PDR_GENRE2, PDR_TIMETYPE, PDR_CLOSEDAY,
-                                    PDR_TAG, PDR_THUMBNAIL_PATH, PDR_DESCRIPT_PATH, PDR_TYPESTR, PDR_STARTDATE,
-                                    PDR_CLOSEDATE,PT_SEQ, PDR_OPENTIME, PDR_CLOSETIME, PDR_MAXTICKET)
-        VALUES (
-                #{pd_title}, #{pd_genre1}, #{pd_genre2}, #{pd_timeType},
-                #{pd_closeDay}, #{pd_tag}, #{pd_thumbnail_PATH}, #{pd_descript_PATH},
-                #{pd_typeStr}, #{pd_startDate}, #{pd_endDate}, #{pt_seq}, #{pd_openTime},
-                #{pd_closeTime}, #{pd_maxTicket}
-                );
+        INSERT INTO PRODUCT_INFO(PD_TITLE, PD_GENRE1, PD_GENRE2, PD_TIMETYPE, PD_CLOSEDAY,
+                                 PD_TAG, PD_THUMBNAIL_PATH, PD_DESCRIPT_PATH, PD_TYPESTR, PD_STARTDATE,
+                                 PD_CLOSEDATE, PT_SEQ, PD_OPENTIME, PD_CLOSETIME, PD_MAXTICKET, PD_request_manager, PD_MAINIMG_PATH)
+        VALUES (#{pdr_title}, #{pdr_genre1}, #{pdr_genre2}, #{pdr_timeType},
+                #{pdr_closeDay}, #{pdr_tag}, #{pdr_thumbnail_PATH}, #{pdr_descript_PATH},
+                #{pdr_typeStr}, #{pdr_startDate}, #{pdr_closeDate}, #{pt_seq}, #{pdr_openTime},
+                #{pdr_closeTime}, #{pdr_maxTicket}, #{pdr_request_manager}, #{pdr_mainImg_PATH});
         ]]>
     </insert>
-
 </mapper>

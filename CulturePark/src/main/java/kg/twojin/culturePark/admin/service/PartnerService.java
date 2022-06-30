@@ -14,6 +14,8 @@ public interface PartnerService {
 
     int agreePartnerRequest(PartnerVO partnerVO,ManagerVO managerVO);
 
+    PartnerVO getPartnerBySeq(int pt_seq);
+
 
 
 

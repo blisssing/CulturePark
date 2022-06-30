@@ -185,10 +185,18 @@
                                         </tr>
 
                                         <tr>
-                                            <td colspan="2">티켓 max</td>
+                                            <td colspan="2">일 티켓 max</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><input type="text" class="tck tck_day inputText"
+                                                                   disabled="disabled"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">스테이지 티켓 max</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><input type="text" class="tck tck_timeStage inputText"
                                                                    disabled="disabled"></td>
                                         </tr>
 
@@ -279,6 +287,11 @@
                                         <tr class="list1">
                                             <td class="label">썸네일</td>
                                             <td class="file_padding"><input class="pd_thumbnail" name="pd_thumbnail" type="file"></td>
+                                        </tr>
+
+                                        <tr class="list2">
+                                            <td class="label">메인 이미지</td>
+                                            <td class="file_padding"><input class="pd_mainImg" name="pd_mainImg" type="file"></td>
                                         </tr>
 
                                         <tr class="list2">

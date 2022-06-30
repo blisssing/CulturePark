@@ -9,6 +9,10 @@ public interface PartnerDAO  {
 
     List<PartnerVO> getAllPartner();
 
+
+    // 조회
     PartnerVO selectPartner(PartnerVO partnerVO);
+
+    PartnerVO selectPartner(int seq);
 
 }

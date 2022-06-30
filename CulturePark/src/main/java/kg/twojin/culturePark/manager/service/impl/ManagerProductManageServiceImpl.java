@@ -14,6 +14,8 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
 
     @Override
     public int createNewProductReqeust(ProductVO productVO) {
-        return productDAO.insertProduct(productVO);
+        return productDAO.insertProductRequest(productVO);
     }
+
+
 }
