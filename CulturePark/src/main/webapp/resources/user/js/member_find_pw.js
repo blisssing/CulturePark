@@ -90,7 +90,7 @@ $(document).ready(function() {
             findPwFunc(json);
 
         // 핸드폰
-        } else {
+        } else if (radio_select === 'phone') {
             var name_val = $('#find_name_value').val(); //이름
 
             var tel1_val = $('#find_phone_value_1').val();
@@ -104,6 +104,33 @@ $(document).ready(function() {
 
             chkInsertTel();
             findPwFunc(json);
+        }
+    });
+
+
+    /* 인증번호 보내기 (email) */
+    $('.code_send_email').click(function () {
+
+
+        var email = $('#find_email_value').val();
+
+
+
+        if (email.trim() === '') {
+            alert("이메일을 입력해주세요");
+
+        } else {
+            alert("인증코드 발송이 완료되었습니다.\n이메일에서 인증코드를 확인해 주십시오");
+
+
+            $('input[name=code_send_email]').attr('value', '재발송');
+
+            $('.code_send_email').prop("disabled", false);
+            $('.code_send_ok_phone').prop("disabled", false);
+            $('#find_email_value').prop("disabled", true);
+
+            // sendSMSm(email);
+            code = "1234"; // 임시 코드
         }
     });
 
@@ -141,20 +168,47 @@ $(document).ready(function() {
         }
     });
 
+
+
+
     /* 인증번호 확인 */
     $('.code_chk_ok').click(function () {
-            var chk_phone_result;
-            var authen_code = $('.authentication_code').val();
 
-            if (code === authen_code) {
+        var input_email = $('#find_email_value').val();
+
+        var first_num = $('.tel_1').val();
+        var second_num = $('.tel_2').val()
+        var third_num = $('.tel_3').val();
+        var phone = first_num + second_num + third_num;
+
+        if(input_email != null){
+
+            var chk_email_result;
+            var authen_code_m = $('.authentication_code').val();
+
+            if (code === authen_code_m) {
+                chk_email_result = "able";
+                alert("인증되었습니다.");
+            } else {
+                chk_email_result = "disable"
+                alert("인증코드가 틀렸습니다. 다시 인증해주세요");
+            }
+
+        } else if (phone != null){
+
+            var chk_phone_result;
+            var authen_code_p = $('.authentication_code').val();
+
+            if (code === authen_code_p) {
                 chk_phone_result = "able";
                 alert("인증되었습니다.");
             } else {
                 chk_phone_result = "disable"
                 alert("인증번호가 틀렸습니다. 다시 인증해주세요");
             }
+        }
 
-        });
+    });
 
     //새 비밀번호 확인
     $('.input_pw').keyup(function () {
@@ -196,13 +250,33 @@ $(document).ready(function() {
         }
     });
 
+
+
     $('.new_ok_btn').click(function () {
-        if (newPw_check == "able") {
-            alert('비밀번호가 변경되었습니다. 다시 로그인해주세요.');
-            window.close();
-            window.opener.location.href = "/login.do";
+
+        /*var newPw_check = $('.new_ok_btn').val();*/
+
+       /* if (newPw_check.equals("able")) {*/
+
+    if ($('.pw_value').val().trim() !== '' && $('.rePw_value').val().trim() !== '') {
+
+        alert('비밀번호가 변경되었습니다. 다시 로그인해주세요.');
+        window.close();
+        window.opener.location.href = "/login.do";
+
+
+    } else {
+        if ($('.pw_value').val().trim() === '') {
+            alert('새 비밀번호를 입력해주세요');
+            $('.pw_value').focus();
+        } else if ($('.rePw_value').val().trim() === '') {
+            alert('새 비밀번호를 재입력 해주세요');
+            $(".rePw_value").focus();
         }
+        return false;
+    }
     });
+
 
     $('.new_cancel_btn').click(function () {
         window.close();
@@ -318,6 +392,23 @@ function findPwFunc(obj){
     });
 }
 
+//인증코드
+function sendSMSm(email){
+    $.ajax({
+        type: "post",
+        dataType: "text",
+        url: "/culturePark/chkEmailSms.do",
+        cache: false,
+        data: {email: email},
+        success: function (data) {
+            if (data == "error") {
+                alert("휴대전화 번호가 올바르지 않습니다");
+            } else {
+                code = data;
+            }
+        }
+    });
+}
 
 //인증번호
 function sendSMS(phone) {

@@ -193,39 +193,12 @@ public class MemberLoginController {
             vo = memberLoginService.memberFindPw_Phone(vo);
         }
 
-// https://recoderr.tistory.com/7 이메일 인증
+        // 이메일 인증 : https://recoderr.tistory.com/7
+
         // 동일한 동작의 코드는 한 번만
         HttpSession session = request.getSession();
 
         if( vo!=null ){
-
-            int randomNumber = randomNumberService.getRandomCode6();
-
-            boolean emailResult = false; //결과 담을 변수
-
-            String title = "[culture park] 비밀번호변경 인증 이메일 입니다";
-
-            String text = "안녕하세요 회원님, 비밀번호변경 인증코드를 발급하였습니다." +
-                    "\n 초기 비밀번호 : " + randomNumber +
-                    "\n 로그인 링크 : http://localhost:8080/login.mdo";
-            String to = vo.getMb_email();
-
-            EmailVO emailVO = new EmailVO(to,title,text);
-            emailResult =emailService.sendEmail(emailVO);
-
-            JSONObject json = new JSONObject();
-
-            String controllerResult  = "";
-
-            if(emailResult == true){
-                controllerResult = "success";
-            } else {
-                controllerResult = "false";
-
-                PrintWriter out = response.getWriter();
-                out.print(json);
-            }
-
 
             result = "success";
 
@@ -243,6 +216,48 @@ public class MemberLoginController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("member_find_pw_newPw");
         return mv;
+    }
+
+
+    // 인증 이메일 보내기
+    @ResponseBody
+    @RequestMapping(value="/culturePark/chkEmailSms.do",method = RequestMethod.POST)
+    public String sendSmsM(@RequestBody MemberVO vo, @RequestParam("email") String emailNumber, HttpServletResponse response) throws Exception {
+
+        int randomNumber = randomNumberService.getRandomCode6();
+
+        boolean emailResult = false; //결과 담을 변수
+
+        String title = "[culture park] 비밀번호변경 인증 이메일 입니다";
+
+        String text = "안녕하세요 회원님, 비밀번호변경 인증코드를 발급하였습니다." +
+                "\n 초기 비밀번호 : " + randomNumber +
+                "\n 로그인 링크 : http://localhost:8080/login.mdo";
+        
+        String to = vo.getMb_email();
+
+        EmailVO emailVO = new EmailVO(to,title,text);
+        
+        emailResult = emailService.sendEmail(emailVO);
+        
+     /*       JSONObject json = new JSONObject();*/
+
+            String controllerResult  = "";
+
+            if(emailResult){ // true이면
+                controllerResult = "success";
+            } else {
+                controllerResult = "false";
+
+                /*PrintWriter out = response.getWriter();
+                out.print(json);*/
+            }
+            
+            return controllerResult;
+        /*Integer.toString(randomNumber);*/
+
+
+
     }
 
 

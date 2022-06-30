@@ -68,7 +68,7 @@
                 <div class="find_section email_set">
                     <div class="find_label">이메일</div>
                     <input type="textField" class="input_value" id="find_email_value" name="mb_email">
-                    <input type="button" class="code_send_btn code_send_email" name="code_send_email" value="인증번호 받기">
+                    <input type="button" class="code_send_btn code_send_email" name="code_send_email" value="인증코드 받기">
                 </div>
 
                 <%--번호--%>
