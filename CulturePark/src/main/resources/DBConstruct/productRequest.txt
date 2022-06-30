@@ -39,4 +39,4 @@ alter table PD_CREATE_REQUEST add column PDR_MAINIMG_PATH varchar(60);
 commit
 
 
-0629
+<진희>6.30 변경
