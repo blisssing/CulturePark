@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
+
 import javax.mail.internet.MimeMessage;
 
 
@@ -34,6 +34,7 @@ public class EmailServiceImpl implements EmailService {
             mailHelper.setSubject(vo.getSubject());
             mailHelper.setText(vo.getMessage());
             mailSender.send(mail);
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;

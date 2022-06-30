@@ -14,4 +14,5 @@ public class EmailVO {
         this.subject = subject;
         this.message = message;
     }
+
 }

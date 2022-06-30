@@ -140,7 +140,7 @@
                         <td class="info_head">성별</td>
                         <td class="info_content">
                             <c:choose>
-                                <c:when test="${gender=='male'}">
+                                <c:when test="${gender =='male'}">
                                 <input type="radio" id="chk_male" value="male" name="chk_gender" checked="checked" > 남
                                 <input type="radio" id="chk_female" value="female" name="chk_gender"> 여
                                 </c:when>

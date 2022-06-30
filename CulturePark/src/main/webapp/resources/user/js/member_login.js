@@ -16,7 +16,6 @@ $('.back').click(function(){
         return log_memory;
     });*/
 
-
 /* 로그인 */
     $('.login_btn_p').click(function () {
         var mb_email = $('.p_id_value').val();
@@ -30,8 +29,11 @@ $('.back').click(function(){
         var mb_pw = $('.m_pw_value').val();
         var json = {"mb_email": mb_email, "mb_pw": mb_pw};
         loginFunction(json);
-    })
+    });
 
+});
+
+    /* 로그인 */
     function loginFunction(obj) {
         $.ajax({
             type:"POST",
@@ -55,17 +57,3 @@ $('.back').click(function(){
         });
     }
 
-/* 아이디 저장 */
-
-
-/* 회원가입 */
-
-
-/* 아이디 찾기 */
-
-
-/* 비밀번호 찾기 */
-
-
-
-});

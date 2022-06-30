@@ -1,0 +1,136 @@
+/* 성공시 */
+
+.success_view {
+    width:100%;
+}
+
+
+.label {
+    color: dimgray;
+    margin-bottom: 8px;
+}
+
+.pw_label {
+    font-size:0.9rem;
+    color: dimgray;
+}
+
+.container_div_suc {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10px;
+    line-height: 130%;
+}
+
+.sectionLine_thin {
+    border: 0.3px solid lightgray;
+}
+
+.label_section {
+    width: 100%;
+    text-align: center;
+}
+
+.pw_section {
+    margin-top: 30px;
+   /* margin-left: 132px;*/
+}
+
+.rePw_section {
+    /*margin-left: 100px;*/
+}
+
+.section_type01 {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.pw_check {
+    font-size: 0.8rem;
+    color: dimgray;
+    margin-left: 10px;
+}
+
+.pw_label {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input_type01 {
+    width: 180px;
+    margin-left:5px;
+}
+
+.div_center {
+    display: flex;
+}
+
+.inner_center {
+    margin:auto;
+}
+
+.btn_section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+.btn {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+
+/*실패시*/
+
+.fail_view {
+    width:100%;
+}
+
+.container_div_fai {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10px;
+    line-height: 150%;
+}
+
+
+.icon_section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.fa-solid {
+    font-size: 1.5rem;
+}
+
+.label_section_row {
+    text-align: center;
+}
+
+.btn_section {
+    display: flex;
+    justify-content: center;
+}
+
+.fail_ok_btn {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Repository("memberDAO")
@@ -132,19 +133,6 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public String selectInnerLogin(String userPw){
-        String result = null;
-        try{
-            result=sqlSessionTemplate.selectOne("mapper.user.selectInnerLogin", userPw);
-            System.out.println("DAO확인완료");
-        }catch(Exception e){
-            e.printStackTrace();
-            System.out.println("pw 없음");
-        }
-        return result;
-    }
-
-    @Override
     public MemberVO selectMember(MemberVO memberVO) {
         MemberVO vo = null;
         try {
@@ -154,5 +142,40 @@ public class MemberDAOImpl implements MemberDAO {
         }
         return vo;
     }
+
+    @Override
+    public MemberVO findId(MemberVO memberVO) {
+        MemberVO vo = null;
+        try{
+            vo = sqlSessionTemplate.selectOne("mapper.user.findId", memberVO);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
+    @Override
+    public MemberVO findPw_Email(MemberVO memberVO) {
+        MemberVO vo = null;
+        try{
+            vo = sqlSessionTemplate.selectOne("mapper.user.findPw_Email", memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
+    @Override
+    public MemberVO findPw_Tel(MemberVO memberVO) {
+        MemberVO vo = null;
+        try{
+            vo = sqlSessionTemplate.selectOne("mapper.user.findPw_Tel", memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
+
 }
 

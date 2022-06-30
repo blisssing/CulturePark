@@ -66,7 +66,6 @@ public class Manager_PartnerRequestController {
 
 
 
-
         //  1 : 세션에서 로그인한 어드민의 정보를 다음
         HttpSession session = request.getSession();
         AdminVO adminvo = (AdminVO) session.getAttribute("admin");

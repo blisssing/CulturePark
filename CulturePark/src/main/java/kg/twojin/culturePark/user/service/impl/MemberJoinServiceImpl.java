@@ -65,17 +65,6 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     }
 
     @Override
-    public String searchInnerLoginPw(String userPw){
-        String result = memberDAO.selectInnerLogin(userPw);
-
-        if(result == null){
-            return "disable";
-        }else {
-            return "able";
-        }
-    }
-
-    @Override
     public int joinMember(MemberVO memberVO) {
         return memberDAO.insertMember(memberVO);
     }

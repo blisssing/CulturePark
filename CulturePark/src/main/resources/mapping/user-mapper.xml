@@ -23,7 +23,7 @@
     <select id="selectMember" resultType="memberVO" parameterType="memberVO">
         <![CDATA[
             select * from MEMBER_ACCOUNT
-            where mb_email=#{mb_email};
+            where mb_email=#{mb_email}
         ]]>
     </select>
 
@@ -52,7 +52,7 @@
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
-        WHERE MB_SEQ=#{mb_seq};
+        WHERE MB_SEQ=#{mb_seq}
         ]]>
     </update>
 
@@ -61,7 +61,7 @@
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
-        WHERE MB_SEQ=#{mb_seq};
+        WHERE MB_SEQ=#{mb_seq}
         ]]>
     </update>
 
@@ -77,7 +77,7 @@
         <![CDATA[
         SELECT MB_EMAIL
         FROM MEMBER_ACCOUNT
-        WHERE MB_EMAIL = ${mb_email};
+        WHERE MB_EMAIL = ${mb_email}
         ]]>
     </select>
 
@@ -85,7 +85,7 @@
         <![CDATA[
         SELECT MB_NICK
         FROM MEMBER_ACCOUNT
-        WHERE MB_NICK = ${mb_nick};
+        WHERE MB_NICK=#{mb_nick}
     ]]>
     </select>
 
@@ -93,7 +93,7 @@
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_STATUS=#{mb_status}
-        WHERE MB_SEQ=#{mb_seq};
+        WHERE MB_SEQ=#{mb_seq}
         ]]>
     </update>
 
@@ -101,7 +101,7 @@
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_PW=#{mb_pw}
-        WHERE MB_EMAIL=#{mb_email};
+        WHERE MB_EMAIL=#{mb_email}
         ]]>
     </update>
 
@@ -109,16 +109,20 @@
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
         SET MB_PAUSEDATE=#{mb_pauseDate}
-        WHERE MB_SEQ = #{mb_seq};
+        WHERE MB_SEQ = #{mb_seq}
         ]]>
     </update>
 
-    <select id="selectInnerLogin" parameterType="string">
-        <![CDATA[
-        SELECT MB_PW
-        FROM MEMBER_ACCOUNT
-        WHERE MB_PW = #{mb_pw}
-        ]]>
+    <select id="findId" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and MB_BIRTH=#{mb_birth}
+    </select>
+
+    <select id="findPw_Email" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and MB_EMAIL=#{mb_email}
+    </select>
+
+    <select id="findPw_Tel" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and  MB_TEL=#{mb_tel}
     </select>
 
 </mapper>

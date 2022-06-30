@@ -24,9 +24,13 @@ public interface MemberDAO {
 
     int updateMemberPausePeriod(MemberVO memberVO , PauseVO pauseVO);
 
-    String selectInnerLogin(String userPw);
-
     MemberVO selectMember(MemberVO memberVO);
+
+    MemberVO findId(MemberVO memberVO);
+
+    MemberVO findPw_Email(MemberVO memberVO);
+
+    MemberVO findPw_Tel(MemberVO memberVO);
 
 }
 

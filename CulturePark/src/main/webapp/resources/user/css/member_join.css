@@ -54,12 +54,6 @@
     width: 73px;
 }
 
-/*진희수정*/
-.join_section > div > input , .rePw_value {
-    margin: auto 0px;
-    font-size: 0.5rem;
-}
-
 .id_section > .id_value_1 {
     width: 120px;
     margin-right:10px;
@@ -86,7 +80,7 @@
 /* 진희 : 위의 주석 통합 버전 */
 .input_type01 {
     width: 120px;
-    font-size:0.5rem;
+    margin-right:5px;
 }
 
 .jumin_section > .jumin_value1  {
@@ -132,10 +126,7 @@
 
 
 /*중복확인*/
-.join_section > div > .id_confirm_btn {
-    width: 60px;
-    font-size: 0.5rem;
-}
+
 
 /*인증번호*/
 .tel_authentication_btn {
@@ -271,9 +262,6 @@ section_type01로 통합
     margin-top: -10px;
 }
 
-.nick_confirm_msg {
-    margin-top: -10px;
-}
 
 .time {
     margin-top: -10px;
@@ -309,11 +297,6 @@ section_type01로 통합
 }
 
 
-.join_section > div > .id_confirm_btn {
-    width: 60px;
-    font-size: 0.7rem;
-}
-
 .join_section {
     font-size: 0.8rem;
 }
@@ -331,7 +314,6 @@ section_type01로 통합
 /*진희수정*/
 .join_section > div > input , .rePw_value {
     margin: auto 0;
-
     font-size: 0.8rem;
 }
 

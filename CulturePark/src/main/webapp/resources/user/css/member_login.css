@@ -1,3 +1,8 @@
+.findId, .findPw, .join {
+    cursor: pointer;
+}
+
+
 .back_section {
     display: flex;
     width: 100%;
@@ -289,10 +294,6 @@ m_find {
         height: 80px;
     }
 
-     /* 커서 */
-.login_btn , .join_btn , .find_id, .find_pw {
-    cursor: pointer;
-}
 
     /* 가로 영역 */
     .section_two {

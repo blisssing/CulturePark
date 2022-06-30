@@ -15,9 +15,9 @@ CREATE TABLE MEMBER_ACCOUNT(
     MB_TEL        varchar(15) not null,
     MB_CREATEDATE timestamp   NOT NULL,
     MB_STATUS     varchar(10) not null DEFAULT 'ACTIVE',
-    MB_PAUSEDATE  varchar(20)
+    MB_PAUSEDATE  varchar(20),
+    MB_GRADE varchar(20) default('Cultrue_Beginner')
 );
-
 
 
 ALTER TABLE MEMBER_ACCOUNT ALTER COLUMN MB_GENDER TYPE varchar(10);  -- 진희 이것 수정해줄것.
@@ -33,4 +33,4 @@ ALTER TABLE MEMBER_ACCOUNT ALTER COLUMN MB_GENDER TYPE varchar(10);   -- 조건 
 alter table MEMBER_ACCOUNT add column MG_GRADE varchar(20) DEFAULT('Culture_Beginner');  -- 컬럼 추가시
 ALTER TABLE MEMBER_ACCOUNT RENAME COLUMN MG_GRADE TO MB_GRADE; -- 컬럼이름 수정시
 
-<6.27 진아 수정사항 기재함>
+< 6.27 진아 / 진희야 mb_grade 컬럼 있는지 확인하고 gender 조건변경해줘 >
