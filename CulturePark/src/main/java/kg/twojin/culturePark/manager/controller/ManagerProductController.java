@@ -33,10 +33,12 @@ public class ManagerProductController {
             //HttpSession session = request.getSession();
             //ManagerVO managerVO = (ManagerVO) session.getAttribute("manager");
             //int pt_seq = managerVO.getComp_seq();
-            //Todo : pt_seq 위의 주석으로 대체할 것
+            //Todo : pt_seq, pt_request_manager 위의 주석으로 대체할 것
             int pt_seq = 1;
+        String pt_request_manager = "taran0913@naver.com";
 
         productVO.setPt_seq(pt_seq);
+        productVO.setPd_request_manager(pt_request_manager);
 
         int openTime = productVO.getPd_openTime();
         int closeTime = productVO.getPd_closeTime();

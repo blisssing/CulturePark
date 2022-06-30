@@ -22,13 +22,14 @@ $(document).ready(function () {
 
     var pd_thumbnail_PATH;
     var pd_descript_PATH;
+    var pd_mainImg_PATH;
     var pd_tag;
     var pd_closeDay='';
     var pd_openTime;
     var pd_closeTime;
 
     var pd_startDate;
-    var pd_endDate;
+    var pd_closeDate;
 
 
     var chk_mode1=0;
@@ -50,8 +51,10 @@ $(document).ready(function () {
         if (selected_val === 'day') {
             $('.tck_day').attr('disabled', false);
             $('.tck_time').attr('disabled', true);
+            $('.tck_timeStage').attr('disabled', true);
         } else if (selected_val === 'time') {
-            $('.tck_day').attr('disabled', false);
+            $('.tck_day').attr('disabled', true);
+            $('.tck_timeStage').attr('disabled', false);
             $('.tck_time').attr('disabled', false);
         } else {
             $('.tck').attr('disabled', true);
@@ -212,7 +215,7 @@ $(document).ready(function () {
             pd_maxTicket = $('.tck_day').val();
         } else if(pd_timeType === 'time') {
             chk_mode2 =2;
-            pd_maxTicket = $('.tck_day').val();
+            pd_maxTicket = $('.tck_timeStage').val();
             pd_openTime = $('.open_tck').val();
             pd_closeTime = $('.close_tck').val();
 
@@ -222,6 +225,7 @@ $(document).ready(function () {
 
         pd_thumbnail_PATH = $('.pd_thumbnail').val();
         pd_descript_PATH = $('.pd_descript').val();
+        pd_mainImg_PATH =$('.pd_mainImg').val();
 
         pd_tag = $('input[name=pd_tag]').val();
 
@@ -245,7 +249,7 @@ $(document).ready(function () {
         // 운영 기간
 
         pd_startDate = $('#startDate').val();
-        pd_endDate = $('#endDate').val()
+        pd_closeDate = $('#endDate').val()
 
 
         var jsonObj = new Object();
@@ -275,11 +279,13 @@ $(document).ready(function () {
         jsonObj.pd_title = pd_title;
         jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
         jsonObj.pd_descript_PATH = pd_descript_PATH;
+        jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;
+
         jsonObj.pd_tag = pd_tag;
         jsonObj.pd_closeDay = pd_closeDay;
         jsonObj.pd_typeStr = typeStr;
         jsonObj.pd_startDate = pd_startDate;
-        jsonObj.pd_endDate = pd_endDate;
+        jsonObj.pd_closeDate = pd_closeDate;
 
         $.ajax({
             type:"post",

@@ -62,9 +62,12 @@ public class PartnerServiceImpl implements PartnerService {
             managerVO.setMg_tel(partnerVO.getPt_phone());
             managerVO.setMg_is("root");
             managerVO.setMg_createDate(new Date());
-
         // Todo : 신청인 자리 만들어줄 것
         return managerVO;
     }
 
+    @Override
+    public PartnerVO getPartnerBySeq(int pt_seq) {
+        return partnerDAO.selectPartner(pt_seq);
+    }
 }

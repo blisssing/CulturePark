@@ -146,7 +146,6 @@
                                                         </c:when>
                                                         <c:otherwise>
                                                             <button type="button" class="btn_admin_Info btn btn-primary btn-sm btn-circle fas fa-user"></button>
-
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </td>

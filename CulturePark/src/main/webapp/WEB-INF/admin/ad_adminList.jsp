@@ -135,9 +135,7 @@
                                             <td class="name">${admin.ad_name}</td>
                                             <td class="depart">${admin.ad_depart}</td>
                                             <td class="email">${admin.ad_email}</td>
-                                            <td class="create_date">
-                                                    ${formatRegDate}
-                                            </td>
+                                            <td class="create_date">${formatRegDate}</td>
                                             <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button type="button" class="btn_modi_info btn btn-primary btn-sm btn-circle">M</button>

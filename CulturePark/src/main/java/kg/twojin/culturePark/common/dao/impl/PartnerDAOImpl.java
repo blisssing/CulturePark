@@ -35,4 +35,16 @@ public class PartnerDAOImpl implements PartnerDAO {
         }
         return partnerVOList;
     }
+
+    @Override
+    public PartnerVO selectPartner(int seq) {
+        PartnerVO partnerVO = null;
+        try {
+            partnerVO = sqlSessionTemplate.selectOne("mapper.partner.selectPartnerBySeq", seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return partnerVO;
+    }
 }

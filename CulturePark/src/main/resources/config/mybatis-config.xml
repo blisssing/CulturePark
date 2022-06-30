@@ -16,6 +16,10 @@
         <typeAlias alias="pauseVO" type="kg.twojin.culturePark.common.vo.PauseVO"></typeAlias>
 
         <typeAlias alias="productVO" type="kg.twojin.culturePark.common.vo.ProductVO"></typeAlias>
+
+        <typeAlias alias="productRequestVO" type="kg.twojin.culturePark.common.vo.ProductRequestVO"></typeAlias>
+
+        <typeAlias alias="productLogVO" type="kg.twojin.culturePark.common.vo.ProductLogVO"></typeAlias>
     </typeAliases>
 
 
@@ -25,8 +29,9 @@
         <mapper resource="mapping/admin-mapper.xml"/>
         <mapper resource="mapping/manager-mapper.xml"/>
         <mapper resource="mapping/partner-mapper.xml"/>
+        <mapper resource="mapping/productRequest-mapper.xml"/>
         <mapper resource="mapping/product-mapper.xml"/>
-
+        <mapper resource="mapping/adminLog-mapper.xml"/>
     </mappers>
 
     <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->
