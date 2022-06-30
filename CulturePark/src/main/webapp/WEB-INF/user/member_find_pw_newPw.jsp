@@ -47,8 +47,8 @@
             <div class="center">
                 <div class="Pw_label">새 비밀번호 확인</div>
                 <div class="rePw_value_section">
-                    <input class="input_pw rePw_value input_type01" type="password" name="rePw_value">
-                    <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
+                    <input class="input_pw rePw_value input_type01" type="password">
+                    <div class="pw_check" type="textFiled">비밀번호를 입력해주세요</div>
                 </div>
             </div>
         </div>
