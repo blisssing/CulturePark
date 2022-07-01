@@ -22,11 +22,25 @@
     WHERE MG_EMAIL = #{mg_email};
 </select>
 
+
+<select id="selectManagerByEamilAndPt" resultType="managerVO">
+<![CDATA[
+    SELECT *
+    FROM MANAGER_ACCOUNT
+    WHERE PT_SEQ = #{pt_seq}
+      AND MG_EMAIL = #{mg_email}
+    ]]>
+
+</select>
+
 <select id="selectAllManager" resultMap="mgResult">
     <![CDATA[
         SELECT * FROM MANAGER_ACCOUNT
         ]]>
 </select>
+
+
+
 
     <insert id="insertRootManager" parameterType="managerVO">
 

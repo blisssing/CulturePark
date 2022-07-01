@@ -49,6 +49,10 @@
         select * from PD_CREATE_REQUEST;
     </select>
 
+    <select id="selectAllNewProductByPtNum" resultType="int">
+
+    </select>
+
     <select id="selectProductRequestBySeq" parameterType="_int"  resultType="productRequestVO">
         <![CDATA[
         select *
@@ -66,7 +70,7 @@
 
     <update id="updateRequestStatusRefused" parameterType="int">
         UPDATE PD_CREATE_REQUEST
-        SET PDR_STATUS='REFUSED'
+        SET PDR_STATUS='REFUSE'
         WHERE PDR_SEQ = #{pdr_seq}
     </update>
 

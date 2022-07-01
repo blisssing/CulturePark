@@ -104,16 +104,25 @@ $(document).ready(function () {
     $('.btn_final_refuse').click(function () {
 
         var jsonObj=createJsonData();
+        var pcl_status = 'REFUSE';
 
-        var pcl_status = 'REFUSED';
         jsonObj.pcl_status = pcl_status;
 
         var pcl_comments = $('#pcl_comments').val();
         jsonObj.pcl_comments = pcl_comments;
 
+        console.log(pcl_status);
+        console.log(pcl_comments)
+
+        console.log(jsonObj.toString());
+
+        // jsonObj.pdr_seq = pdr_seq;
+        // jsonObj.pt_seq = pt_seq;
+        // jsonObj.pd_title = pd_title;
+
         $.ajax({
             type: 'post',
-            url: 'refuseCreateProduct.ado',
+            url: '/refuseCreateProduct.ado',
             datatype: 'json',
             data: JSON.stringify(jsonObj),
             contentType: 'application/json; charset=utf-8',
@@ -122,13 +131,12 @@ $(document).ready(function () {
             traditional: true,
             success: function (data) {
                 var result = data;
-                if (result === 'sucess') {
+                if (result === 'success') {
                     alert("요청 거절 성공");
                     location.reload();
                 } else {
                     alert("요청 거절 실패!!");
                 }
-
             },
             error: function () {
                 alert("동작실패");
@@ -142,13 +150,11 @@ $(document).ready(function () {
 
         var jsonObj = new Object();
         var pdr_seq = eventRow.children('.pd_request_code').val();
-        var ad_seq = $('#ad_seq').val();
 
         var pt_seq = eventRow.children('.pt_seq').val();
         var pd_title = $('#pd_title').text();
 
         jsonObj.pdr_seq = pdr_seq;
-        jsonObj.ad_seq = ad_seq;
         jsonObj.pt_seq = pt_seq;
         jsonObj.pd_title = pd_title;
 

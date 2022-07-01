@@ -1,10 +1,14 @@
 package kg.twojin.culturePark.manager.service.impl;
 
 import kg.twojin.culturePark.common.dao.ProductDAO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
+import kg.twojin.culturePark.common.vo.ProductRequestVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
 import kg.twojin.culturePark.manager.service.ManagerProductManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service("managerProductManageService")
 public class ManagerProductManageServiceImpl implements ManagerProductManageService {
@@ -17,5 +21,8 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
         return productDAO.insertProductRequest(productVO);
     }
 
-
+    @Override
+    public List<ProductRequestVO> getAllProductCreateRequestList(int pt_num) {
+        return productDAO.selectAllOnwPdCreateRequest(pt_num);
+    }
 }

@@ -2,6 +2,7 @@ package kg.twojin.culturePark.admin.controller;
 
 import kg.twojin.culturePark.admin.service.AdminProductService;
 import kg.twojin.culturePark.admin.service.PartnerService;
+import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.common.vo.ProductLogVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
@@ -55,7 +56,14 @@ public class Admin_PD_NewController {
     }
 
     @RequestMapping(value = "/agreeCreateProduct.ado")
-    public String agreePDCreate(@RequestBody ProductLogVO productLogVO) {
+    public String agreePDCreate(@RequestBody ProductLogVO productLogVO,
+                                HttpServletRequest request, HttpServletResponse response) {
+
+        AdminVO adminVO = (AdminVO) request.getSession().getAttribute("admin");
+        int ad_seq = adminVO.getAd_seq();
+
+        productLogVO.setAd_seq(ad_seq);
+
 
         int result = adminProductService.agreeProductCreate(productLogVO);
 
@@ -69,19 +77,25 @@ public class Admin_PD_NewController {
     }
 
     @RequestMapping(value = "/refuseCreateProduct.ado")
-    public String refusePDCreate(@RequestBody ProductLogVO productLogVO) {
+    public String refusePDCreate(@RequestBody ProductLogVO productLogVO, HttpServletRequest request,
+                                 HttpServletResponse response) {
+
+//        AdminVO adminVO = (AdminVO) request.getSession().getAttribute("admin");
+//        int ad_seq = adminVO.getAd_seq();
+        int ad_seq = 1;
+
+        productLogVO.setAd_seq(ad_seq);
 
         int result = adminProductService.refuseProductCreate(productLogVO);
+
+        System.out.println("dao 실행 결과 : " + result);
+
         String resultStr = null;
         if (result != 1) {
             resultStr = "failed";
         } else {
             resultStr = "success";
         }
-
         return resultStr;
-
-
     }
-
 }

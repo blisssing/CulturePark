@@ -20,6 +20,7 @@ public class AdminLogDAOImpl implements AdminLogDAO {
         } catch (Exception e) {
             System.out.println("로그 기록 오류 발생!!");
             e.printStackTrace();
+            throw e;
         }
         return result;
     }

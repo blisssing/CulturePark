@@ -54,9 +54,6 @@
     }
 %>--%>
 
-<c:set var="ad_seq" value="${sessionScope.admin.ad_seq}"/>
-<input hidden="ad_seq" id="ad_seq" value="${ad_seq}"/>
-
 
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -406,13 +403,13 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn_final_refuse btn btn-info btn-icon-split">
+                                <button type="button"  class="btn_final_refuse btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 V
                                             </span>
                                     <span class="text">최 종 거 절</span>
                                 </button>
-                                <button  class="btn_modal_close btn btn-danger btn-icon-split">
+                                <button  type="button" class="btn_modal_close btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
                                                 X
                                             </span>
