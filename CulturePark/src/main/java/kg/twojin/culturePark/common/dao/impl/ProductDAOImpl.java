@@ -36,6 +36,20 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
+    public List selectAllOnwPdCreateRequest(int pt_num) {
+        List<ProductRequestVO> productRequestVOList = null;
+
+        try {
+            productRequestVOList = sqlSessionTemplate.selectList("mapper.productRequest.selectProductRequestBySeq", pt_num);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return productRequestVOList;
+    }
+
+    @Override
     public int insertProductRequest(ProductVO productVO) {
         int result = 0;
         try {
@@ -61,6 +75,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         // 1단계 : pdr 정보를 통해 요청 정보 전체를 productRequestVO에 담기
             productRequestVO = sqlSessionTemplate.selectOne("mapper.productRequest.selectProductRequestBySeq", pdr_seq);
+        System.out.println("1단계 결과 : " + productRequestVO.toString() );
 
         // 2단계 : 모든 정보가 담겨져 있는 productRequestVO를 ProductInfo 테이블에 담아주기 < == 허용된 상품만 등록됨
         if (productRequestVO != null) {
@@ -242,9 +257,10 @@ public class ProductDAOImpl implements ProductDAO {
     public int updateProductRequestStatusRefused(int pdr_seq) {
         int result = 0;
         try {
-            result = sqlSessionTemplate.update("mapper.productRequest.updateRequestStatusRefused");
+            result = sqlSessionTemplate.update("mapper.productRequest.updateRequestStatusRefused", pdr_seq);
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
         return result;
     }

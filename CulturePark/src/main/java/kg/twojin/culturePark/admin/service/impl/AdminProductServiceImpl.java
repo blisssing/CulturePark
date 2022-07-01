@@ -61,9 +61,12 @@ public class AdminProductServiceImpl implements AdminProductService {
 
         int pdr_seq = productLogVO.getPdr_seq();
 
+        System.out.println(productLogVO.toString());
+        System.out.println(pdr_seq);
         // 거절 상태를 입력함
         int resultChangeStatus = 0;
         resultChangeStatus = productDAO.updateProductRequestStatusRefused(pdr_seq);
+        System.out.println("1: " + resultChangeStatus);
 
 
         // 로그에 남김
@@ -72,6 +75,8 @@ public class AdminProductServiceImpl implements AdminProductService {
         if (resultChangeStatus == 1) {
             finalChk = adminLogDAO.insertLogToPCL(productLogVO);
         }
+
+        System.out.println("2: "+ finalChk);
 
         return finalChk;
     }

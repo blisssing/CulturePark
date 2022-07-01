@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,8 +24,6 @@
     <%-- css --%>
     <!-- Custom styles for this page -->
     <style><%@include file="/resources/common/vendor/datatables/dataTables.bootstrap4.min.css"%></style>
-    <style><%@include file="/resources/manager/css/pd_ex.css"%></style>
-
 
 
     <title>manager exhibition management</title>
@@ -56,45 +54,56 @@
             <div class="container-fluid">
 
 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <div class="div1">
-                                <h5 class="m-0 font-weight-bold text-primary">전시 관리</h5>
-                            </div>
-
-                            <div class="div2">
-                                <div class="label_en">exhibition management</div>
-                            </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <div class="div1">
+                            <h5 class="m-0 font-weight-bold text-primary">생성</h5>
                         </div>
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>작품명</th>
-                                        <th>요청 날짜</th>
-                                        <th>상태</th>
-                                        <th>관리자 아이디</th>
-                                        <th>기능</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach varStatus="" var="">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>라이프 사진전</td>
-                                        <td>2022.05.04</td>
-                                        <td>수락</td>
-                                        <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
-                                        <td><input type="button" class="td_update_btn" value="수정"></td>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="div2">
+                            <div class="label_en">요청 내역</div>
                         </div>
                     </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>작품명</th>
+                                    <th>요청 날짜</th>
+                                    <th>상태</th>
+                                    <th>기능</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${productRequestList}" var="item">
+                                    <%--Todo : 요청 거절 작업 마친 다음에 마무리 작업 해줄 것!!--%>
+                                    <c:set var="count" value="${count+1}}"/>
+                                    <tr>
+                                    <td>${count}</td>
+                                    <td>${item.pdr_title}</td>
+                                    <td>${item.pdr_requestDate}</td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${item.pdr_status.toLowerCase() eq 'refused'}">
+                                                거절
+                                            </c:when>
+                                            <c:when test="${item.pdr_status.toLowerCase() eq 'agree'}">
+                                                승인
+                                            </c:when>
+                                        </c:choose>
+                                    </td>
+                                    <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
+                                    <td><input type="button" class="td_update_btn" value="수정"></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- /.container-fluid -->
@@ -151,23 +160,23 @@
             <div class="user modal-body">
 
 
-            <%------------ 1. 유형 구분 -------------%>
+                <%------------ 1. 유형 구분 -------------%>
                 <div class="section_div">
                     <div class="section_label">유형 구분</div>
                 </div>
 
                 <div class="row_all">
-                <%--기존 --%>
-                <div class="row1">
-                    <table class="table" id="table1">
+                    <%--기존 --%>
+                    <div class="row1">
+                        <table class="table" id="table1">
 
-                        <thead>
+                            <thead>
                             <tr>
                                 <th class="center" colspan="2">기존</th>
                             </tr>
-                        </thead>
+                            </thead>
 
-                        <tbody>
+                            <tbody>
                             <tr>
                                 <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
                                 <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
@@ -188,22 +197,22 @@
                                 <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
                                 <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
                             </tr>
-                        </tbody>
+                            </tbody>
 
-                    </table>
-                </div>
+                        </table>
+                    </div>
 
-                <%-- 요청 --%>
-                <div class="row2">
-                    <table class="table" id="table2">
+                    <%-- 요청 --%>
+                    <div class="row2">
+                        <table class="table" id="table2">
 
-                        <thead>
+                            <thead>
                             <tr>
                                 <th class="center" colspan="2">요청</th>
                             </tr>
-                        </thead>
+                            </thead>
 
-                        <tbody>
+                            <tbody>
                             <tr>
                                 <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk">구분없음</td>
                                 <td class="td_1"><input type="text" class="price">원</td>
@@ -224,11 +233,11 @@
                                 <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk">어린이</td>
                                 <td class="td_1"><input type="text" class="price">원</td>
                             </tr>
-                        </tbody>
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
                 <%-------------- 2. 티켓 타입 ---------------%>
                 <div class="section_div">
@@ -254,9 +263,9 @@
                             <tr>
                                 <td colspan="2">
                                     <select class="choice" id="choice1" disabled="disabled">
-                                    <option value="">선택</option>
-                                    <option value="day">일별(day)</option>
-                                    <option value="time">시간대별(time)</option>
+                                        <option value="">선택</option>
+                                        <option value="day">일별(day)</option>
+                                        <option value="time">시간대별(time)</option>
                                     </select>
                                 </td>
                             </tr>
@@ -343,72 +352,72 @@
                 <%-------------- 3. 기타 설정 ---------------%>
                 <%--여기서부터 테이블 1개--%>
 
-                    <div class="section_div_no_row">
-                        <div class="section_label">기타 설정</div>
+                <div class="section_div_no_row">
+                    <div class="section_label">기타 설정</div>
 
-                        <div class="row0">
-                            <table class="table" id="table5">
+                    <div class="row0">
+                        <table class="table" id="table5">
 
-                                <tr class="list1">
-                                    <td class="label">썸네일</td>
-                                    <td class="file_padding"><input type="file"></td>
-                                </tr>
+                            <tr class="list1">
+                                <td class="label">썸네일</td>
+                                <td class="file_padding"><input type="file"></td>
+                            </tr>
 
-                                <tr class="list2">
-                                    <td class="label">설명파일</td>
-                                    <td class="file_padding"><input type="file"></td>
-                                </tr>
+                            <tr class="list2">
+                                <td class="label">설명파일</td>
+                                <td class="file_padding"><input type="file"></td>
+                            </tr>
 
-                                <tr class="list3">
-                                    <td colspan="2" class="label">태그</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
-                                </tr>
-                            </table>
-                        </div>
+                            <tr class="list3">
+                                <td colspan="2" class="label">태그</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <%------------- 휴관요일 -------------%>
+                <%--테이블 1개--%>
+                <div class="section_div_no_row">
+                    <div class="section_label">휴관 요일</div>
+
+                    <div class="row0">
+                        <table class="table" id="table6">
+                            <tr>
+                                <td colspan="2" class="chkbox_day">
+                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox">일
+                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox">월
+                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox">화
+                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox">수
+                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox">목
+                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox">금
+                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox">토
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
+                </div>
+            </div>
 
-                                <%------------- 휴관요일 -------------%>
-                                <%--테이블 1개--%>
-                                    <div class="section_div_no_row">
-                                        <div class="section_label">휴관 요일</div>
-
-                                        <div class="row0">
-                                        <table class="table" id="table6">
-                                            <tr>
-                                                <td colspan="2" class="chkbox_day">
-                                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox">일
-                                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox">월
-                                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox">화
-                                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox">수
-                                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox">목
-                                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox">금
-                                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox">토
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        </div>
-
-                                      </div>
-                    </div>
-
-                <div class="modal-footer">
-                    <button href="#" class="btn_Disagree2 btn btn-danger btn-icon-split">
+            <div class="modal-footer">
+                <button href="#" class="btn_Disagree2 btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
                                                 X
                                             </span>
-                        <span class="text cancel_btn">취소하기</span>
-                    </button>
+                    <span class="text cancel_btn">취소하기</span>
+                </button>
 
-                    <button class="btn_Agree2 btn btn-success btn-icon-split">
+                <button class="btn_Agree2 btn btn-success btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-check"></i>
                                             </span>
-                        <span class="text update_btn">변경하기</span>
-                    </button>
-                </div>
+                    <span class="text update_btn">변경하기</span>
+                </button>
+            </div>
 
         </div>
     </div>

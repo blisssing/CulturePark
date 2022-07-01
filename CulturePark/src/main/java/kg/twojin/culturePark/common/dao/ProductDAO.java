@@ -12,6 +12,8 @@ public interface ProductDAO {
 
     List selectAllNewProduct();
 
+    public List selectAllOnwPdCreateRequest(int pt_num);
+
     int updateProductRequestStatusAgree(int pdr_seq);
 
     int updateProductRequestStatusRefused(int pdr_seq);

@@ -24,6 +24,7 @@ public class ManagerDAOImpl implements ManagerDAO {
             //managerVO에 담아져 온 검색값을 vo 변수에 담아준다
         }catch(Exception e) {
             e.printStackTrace();
+            throw e;
         }
         return vo;
     }
@@ -36,6 +37,7 @@ public class ManagerDAOImpl implements ManagerDAO {
             result = sqlSessionTemplate.insert("mapper.manager.insertManager", managerVO);
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
         return result;
     }
@@ -47,6 +49,7 @@ public class ManagerDAOImpl implements ManagerDAO {
             result = sqlSessionTemplate.update("mapper.manager.updateManager", managerVO);
         }catch(Exception e) {                  /* manager-mapper.xml에서 지정해 준 namespace : mapper.manager */
             e.printStackTrace();
+            throw e;
         }
         return result;
     }
@@ -66,6 +69,7 @@ public class ManagerDAOImpl implements ManagerDAO {
             result = sqlSessionTemplate.delete("mapper.manager.deleteManager", mg_seq);
         }catch(Exception e){
             e.printStackTrace();
+            throw e;
         }
         return result;
     }
@@ -78,9 +82,20 @@ public class ManagerDAOImpl implements ManagerDAO {
             managerList = sqlSessionTemplate.selectList("mapper.manager.selectAllManager");
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
         return managerList;
     }
 
-
+    @Override
+    public ManagerVO selectManagerByEmailAndPt(ManagerVO managerVO) {
+        ManagerVO vo = new ManagerVO();
+        try {
+            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEamilAndPt", managerVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return  vo;
+    }
 }
