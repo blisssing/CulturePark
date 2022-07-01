@@ -18,6 +18,7 @@ public class AdminLogDAOImpl implements AdminLogDAO {
         try {
             result = sqlSessionTemplate.insert("mapper.adminLog.insertLogToPCL", productLogVO);
         } catch (Exception e) {
+            System.out.println("로그 기록 오류 발생!!");
             e.printStackTrace();
         }
         return result;
