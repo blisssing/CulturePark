@@ -23,12 +23,4 @@ public class DateTicketInfoVO {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date dti_date;
-
-
-
-
-
-
-
-
 }

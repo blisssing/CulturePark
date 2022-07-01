@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.stageTicket">
+
+    <insert id="insertTicketInfo" parameterType="hashmap">
+        INSERT INTO STAGE_TICKET_INFO(
+        PT_SEQ, PD_SEQ, STI_DATE, STI_OPENTIME, STI_CLOSETIME, STI_TICKET_MAX,
+        STI_TICKET_TOTAL,
+        <foreach collection="stageTimeList" item="item" index="index"  separator=",">
+            ${item}
+        </foreach>
+        )
+        VALUES (
+                #{stageVO.pt_seq}, #{stageVO.pd_seq}, #{stageVO.sti_date}, #{stageVO.sti_openTime}, #{stageVO.sti_closeTime}, #{stageVO.sti_ticketMax},
+                #{stageVO.sti_ticketTotal},
+                <foreach collection="stageTimeList" item="item" index="index"  separator=",">
+                   #{stageVO.sti_ticketMax}
+                </foreach>
+        );
+    </insert>
+
+
+</mapper>
