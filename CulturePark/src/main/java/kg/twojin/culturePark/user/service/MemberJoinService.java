@@ -12,4 +12,6 @@ public interface MemberJoinService {
     String searchEmailAddress(String userEmail);
 
     String searchNickname(String userNick);
+
 }
+

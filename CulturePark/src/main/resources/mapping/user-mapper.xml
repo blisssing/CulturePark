@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.user">
+
+    <resultMap id="resultMember" type="memberVO">
+        <result property="mb_seq" column="mb_seq"></result>
+        <result property="mb_email" column="mb_email"></result>
+        <result property="mb_pw" column="mb_pw"></result>
+        <result property="mb_nick" column="mb_nick"></result>
+        <result property="mb_name" column="mb_name"></result>
+        <result property="mb_birth" column="mb_birth"></result>
+        <result property="mb_gender" column="mb_gender"></result>
+        <result property="mb_tel" column="mb_tel"></result>
+        <result property="mb_createDate" column="mb_createDate"></result>
+        <result property="mb_status" column="mb_status"></result>
+        <result property="mb_pauseDate" column="mb_pauseDate"></result>
+        <result property="mb_grade" column="mb_grade"></result>
+    </resultMap>
+
+    <select id="selectMember" resultType="memberVO" parameterType="memberVO">
+        <![CDATA[
+            select * from MEMBER_ACCOUNT
+            where mb_email=#{mb_email}
+        ]]>
+    </select>
+
+    <insert id="insertMember" parameterType="memberVO">
+        <![CDATA[
+        INSERT INTO MEMBER_ACCOUNT
+        (
+            MB_EMAIL, MB_PW, MB_NICK, MB_NAME,MB_BIRTH,MB_GENDER, MB_TEL, MB_CREATEDATE
+        )
+        VALUES
+            (
+                #{mb_email},
+                #{mb_pw},
+                #{mb_nick},
+                #{mb_name},
+                #{mb_birth},
+                #{mb_gender},
+                #{mb_tel},
+                #{mb_createDate}
+            );
+        ]]>
+    </insert>
+
+
+    <update id="updateMemberWithoutPw" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
+        WHERE MB_SEQ=#{mb_seq}
+        ]]>
+    </update>
+
+
+    <update id="updateMemberWithPw" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender}, MB_TEL=#{mb_tel}
+        WHERE MB_SEQ=#{mb_seq}
+        ]]>
+    </update>
+
+
+    <select id="selectAllMember" resultMap="resultMember">
+        <![CDATA[
+        SELECT *
+        FROM MEMBER_ACCOUNT
+        ]]>
+    </select>
+
+    <select id="selectExistEmail" parameterType="string">
+        <![CDATA[
+        SELECT MB_EMAIL
+        FROM MEMBER_ACCOUNT
+        WHERE MB_EMAIL = ${mb_email}
+        ]]>
+    </select>
+
+    <select id="selectNickName" parameterType="string">
+        <![CDATA[
+        SELECT MB_NICK
+        FROM MEMBER_ACCOUNT
+        WHERE MB_NICK=#{mb_nick}
+    ]]>
+    </select>
+
+    <update id="updateMemberActive" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_STATUS=#{mb_status}
+        WHERE MB_SEQ=#{mb_seq}
+        ]]>
+    </update>
+
+    <update id="updateMemberPassword" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PW=#{mb_pw}
+        WHERE MB_EMAIL=#{mb_email}
+        ]]>
+    </update>
+
+    <update id="updateMemberPause" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_PAUSEDATE=#{mb_pauseDate}
+        WHERE MB_SEQ = #{mb_seq}
+        ]]>
+    </update>
+
+    <select id="findId" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and MB_BIRTH=#{mb_birth}
+    </select>
+
+    <select id="findPw_Email" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and MB_EMAIL=#{mb_email}
+    </select>
+
+    <select id="findPw_Tel" parameterType="memberVO" resultType="memberVO">
+        select * from MEMBER_ACCOUNT where MB_NAME=#{mb_name} and  MB_TEL=#{mb_tel}
+    </select>
+
+</mapper>

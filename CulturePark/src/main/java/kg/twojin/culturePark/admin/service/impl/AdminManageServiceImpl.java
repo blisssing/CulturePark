@@ -12,12 +12,18 @@ import java.util.List;
 public class AdminManageServiceImpl implements AdminManageService {
 
     @Autowired
-    private AdminDAO adminDAO;
+    AdminDAO adminDAO;
 
 
     @Override
     public AdminVO loginAdmin(AdminVO adminVO) {
         AdminVO vo = adminDAO.loginAdmin(adminVO);
+        return vo;
+    }
+
+    @Override
+    public AdminVO getAdminInfo(int seq) {
+        AdminVO vo = adminDAO.selectAdminInfo(seq);
         return vo;
     }
 

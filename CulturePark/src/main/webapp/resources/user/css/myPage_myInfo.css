@@ -46,9 +46,6 @@ td {
     justify-content: space-around;
 }
 
-.secondGate_section {
-    display: none;
-}
 
 /* 회정정보 수정 창 */
 
@@ -90,4 +87,9 @@ td {
 .ph_row > .info_content> * {
     width: 50px;
     margin: 5px 0;
+}
+
+
+.check_btn, .cancel_btn, .modi_btn, .cancel_button ,.ok_button {
+    cursor:pointer;
 }

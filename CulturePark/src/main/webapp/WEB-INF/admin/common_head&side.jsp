@@ -56,8 +56,8 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manager 관리</h6>
-                <a class="collapse-item" href="/mgRequest.ado">파트너 요청 관리</a>
-                <a class="collapse-item" href="/mgPartner.ado">파트너 목록</a>
+                <a class="collapse-item" href="/mgPartnerRequest.ado">파트너 요청 관리</a>
+                <a class="collapse-item" href="/mgPartnerList.ado">파트너 목록</a>
                 <a class="collapse-item" href="/mgManager.ado">매니저 목록</a>
 
                 <%--                <a class="collapse-item" href="cards.html">Cards</a>--%>

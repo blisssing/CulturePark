@@ -1,7 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kor">
 
 <head>
 
@@ -11,6 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <%-- https://hianna.tistory.com/456 --%>
     <!-- Custom fonts for this template-->
     <style>
         <%@include file="/resources/common/css/fontawesome/all.min.css" %>
@@ -30,10 +32,6 @@
 
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
     <style><%@ include file="/resources/admin/css/mg_partnerList.css"%></style>
-
-
-
-
 
     <title>CulturePark 관리자</title>
 
@@ -72,10 +70,6 @@
                         <span>승인자 정보</span>
                     </div>
                     <div class="descript_wrap">
-                        <span class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></span>
-                        <span>루트 생성</span>
-                    </div>
-                    <div class="descript_wrap">
                         <span class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></span>
                         <span>파트너 취소</span>
                     </div>
@@ -103,7 +97,6 @@
                                     <th>이름</th>
                                     <th>이메일</th>
                                     <th>전화번호</th>
-                                    <th>담당자AD</th>
                                     <th>승인일</th>
                                     <th>기능</th>
                                 </tr>
@@ -115,90 +108,35 @@
                                     <th>이름</th>
                                     <th>이메일</th>
                                     <th>전화번호</th>
-                                    <th>담당자AD</th>
                                     <th>승인일</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach items="${partnerList}" var="partnerVO" varStatus="status">
+                                    <c:set value="${count+1}" var="count"/>
+                                    <fmt:formatDate var="formatRegDate" value="${partnerVO.pt_agreeDate}" pattern="yyyy-MM-dd"/>
                                     <tr>
-                                        <input class="comp_num" type="hidden" value="100">
-                                        <td class="seq">1</td>
-                                        <td class="comp">투진컴퍼니</td>
-                                        <td class="name">한진희</td>
-                                        <td class="email">taran@gmail.com</td>
-                                        <td class="phone">01000000000</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
+                                        <form name="frm">
+                                            <input class="comp_num" type="hidden" value="${partnerVO.pt_seq}"/>
+                                            <input class="ad_seq" type="hidden" value="${partnerVO.ad_seq}"/>
+                                            <td class="seq">${count}</td>
+                                            <td class="comp">${partnerVO.pt_comp_name}</td>
+                                            <td class="name">${partnerVO.pt_ceo_name}</td>
+                                            <td class="email">${partnerVO.pt_email}</td>
+                                            <td class="phone">${partnerVO.pt_phone}</td>
+                                            <td class="create_date">${formatRegDate}</td>
+                                            <td class="btn_section">
+                                                <div class="btn_wrap">
+                                                    <button type="button" class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
+                                                    <button type="button" class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
+                                                    <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
+                                                    <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
+                                                </div>
+                                            </td>
+                                        </form>
                                     </tr>
-                                    <tr>
-                                        <input  class="comp_num" type="hidden" value="2">
-                                        <td class="seq">2</td>
-                                        <td class="comp">진투컴퍼니</td>
-                                        <td class="name">김진아</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">0101234100</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input class="comp_num" type="hidden" value="300">
-                                        <td class="seq">3</td>
-                                        <td class="comp">지민컴퍼니</td>
-                                        <td class="name" id="3">홍민지</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">01033333333</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input class="comp_num" type="hidden" value="4">
-                                        <td class="seq">4</td>
-                                        <td class="comp">진규컴퍼니</td>
-                                        <td class="name">한규진</td>
-                                        <td class="email">jinah@gmail.com</td>
-                                        <td class="phone">0103151515</td>
-                                        <td class="admin">이승재</td>
-                                        <td class="create_date">2022.02.02</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_ad_info btn btn-primary btn-sm btn-circle fa-solid fa-user-tie"></button>
-                                                <button class="btn_create btn btn-primary btn-circle btn-sm fa-solid fa-user-plus"></button>
-                                                <button class="btn_delete_partner btn btn-primary btn-circle btn-sm fa-solid fa-user-minus"></button>
-                                                <button class="btn_search_manager btn btn-primary btn-circle btn-sm fa-solid fa-magnifying-glass"></button>
-                                                <button class="btn_createPd btn btn-primary btn-circle btn-sm fa-solid fa-store"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -214,36 +152,22 @@
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
-                                </button>
                             </div>
                             <div class="user modal-body">
-                                <div class="form-group">
-                                    <select name="sel_admin">
-                                        <option >어드민 1</option>
-                                        <option >어드민 2</option>
-                                    </select>
-                                </div>
-                                <hr>
+
                                 <div class="form-group">
                                     <div class="form-head">담당자ID</div>
-                                    <div class="form-control form-control-user" id="CompanyName"></div>
+                                    <div class="form-control form-control-user" id="AdminEmail"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">담당자 이름</div>
-                                    <div class="form-control form-control-user" id="CompanyNum"></div>
+                                    <div class="form-control form-control-user" id="AdminName"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-head">전화번호</div>화
-                                    <div class="form-control form-control-user" id="PhoneNumber"></div>
+                                    <div class="form-head">전화번호</div>
+                                    <div class="form-control form-control-user" id="AdminTel"></div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-head">이메일</div>
-                                    <div class="form-control form-control-user" id="CompanyEmail"></div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">승인날짜</div>
-                                    <div class="form-control form-control-user" id="AgreementDate"></div>
-                                </div>
+
                             </div>
                             <div class="modal-footer">
                                 <button href="#" class="btn_modal_close btn btn-danger btn-icon-split">
@@ -379,8 +303,8 @@
 <script src="/resources/common/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
+<script src="/resources/common/js/checkPW.js"></script>
 <script src="/resources/admin/js/mg_partnerList.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 

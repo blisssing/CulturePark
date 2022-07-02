@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.partner">
+
+
+<!--  PartnerRequest  -->
+    <resultMap id="resultPartner" type="partnerVO">
+        <result property="pt_seq" column="pr_seq"></result>
+        <result property="pt_pw" column="pt_pw"></result>
+        <result property="pt_email" column="pr_email"></result>
+        <result property="pt_comp_name" column="pr_comp_name"></result>
+        <result property="pt_ceo_name" column="pr_ceo_name"></result>
+        <result property="pt_register_name" column="pr_register_name"></result>
+        <result property="pt_ceo_number" column="pr_ceo_number"></result>
+        <result property="pt_file" column="pr_file"></result>
+        <result property="pt_phone" column="pr_phone"></result>
+        <result property="pt_createDate" column="pr_createdate"></result>
+        <result property="pt_agreeDate" column="PT_AGREEMENT_DATE"></result>
+        <result property="pt_status" column="pr_status"></result>
+    </resultMap>
+
+    <select id="selectAllPartnerRequest" resultMap="resultPartner">
+        SELECT *FROM PARTNER_REQUEST;
+    </select>
+
+
+
+    <select id="selectExistEmailRequest" parameterType="string" resultType="string">
+        SELECT Pr_EMAIL
+        FROM PARTNER_REQUEST
+        WHERE Pr_EMAIL= #{email};
+    </select>
+
+    <insert id="insertPartnerRequest" parameterType="partnerVO">
+        INSERT INTO PARTNER_REQUEST
+            (Pr_EMAIL, Pr_COMP_NAME, Pr_CEO_NAME, Pr_CEO_NUMBER, pr_register_name, Pr_FILE, Pr_PHONE, Pr_CREATEDATE)
+        VALUES
+            (
+             #{pt_email},
+             #{pt_comp_name},
+             #{pt_ceo_name},
+             #{pt_ceo_number},
+             #{pt_register_name},
+             #{pt_file},
+             #{pt_phone},
+             #{pt_createDate}
+            );
+    </insert>
+
+    <update id="updateStatusRequest" parameterType="int">
+        UPDATE PARTNER_REQUEST
+        SET PR_STATUS='agree'
+        WHERE PR_SEQ=#{pt_seq};
+    </update>
+
+<!-- Partner   -->
+
+    <resultMap id="resultPartner2" type="partnerVO">
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pt_email" column="pt_email"></result>
+        <result property="pt_comp_name" column="pt_comp_name"></result>
+        <result property="pt_ceo_name" column="pt_ceo_name"></result>
+        <result property="pt_ceo_number" column="pt_ceo_number"></result>
+        <result property="pt_file" column="pt_file"></result>
+        <result property="pt_phone" column="pt_phone"></result>
+        <result property="pt_createDate" column="pt_createdate"></result>
+        <result property="pt_agreeDate" column="PT_AGREEMENT_DATE"></result>
+    </resultMap>
+
+    <!--??? ??/??-->
+    <insert id="insertPartner" parameterType="partnerVO">
+        INSERT INTO PARTNER_AGREEMENT
+        (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE ,PT_AGREEMENT_DATE , ad_seq
+                , pt_phone)
+        VALUES
+            (
+                #{pt_email},
+                #{pt_comp_name},
+                #{pt_ceo_name},
+                #{pt_register_name},
+                #{pt_ceo_number},
+                #{pt_file},
+                #{pt_agreeDate},
+                #{ad_seq},
+                #{pt_phone}
+            );
+    </insert>
+
+    <select id="selectPartner" parameterType="partnerVO">
+        SELECT *
+        FROM PARTNER_AGREEMENT
+        WHERE PT_EMAIL = #{pt_email};
+    </select>
+
+    <select id="selectPartnerBySeq" resultType="partnerVO">
+        SELECT *
+        FROM PARTNER_AGREEMENT
+        WHERE PT_SEQ=#{pt_seq}
+    </select>
+
+    <!--??? ?? ??-->
+    <select id="selectAllPartner" resultMap="resultPartner2">
+        SELECT * FROM PARTNER_AGREEMENT;
+    </select>
+
+</mapper>

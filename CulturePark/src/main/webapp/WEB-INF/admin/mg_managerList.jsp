@@ -1,11 +1,12 @@
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -117,6 +118,7 @@
 
 <body id="page-top">
 
+<%-- 권한체크 임시로 주석처리
 <%
     String logStatus = (String) session.getAttribute("isLogOn");
     boolean resultCheck= false;
@@ -139,6 +141,7 @@
 <%
     }
 %>
+--%>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -200,7 +203,7 @@
                                     <th>기능</th>
                                 </tr>
                                 </thead>
-                                <tfoot>
+                               <%-- <tfoot>
                                 <tr>
                                     <th>seq</th>
                                     <th>회사</th>
@@ -211,28 +214,29 @@
                                     <th>활성</th>
                                     <th>기능</th>
                                 </tr>
-                                </tfoot>
+                                </tfoot>--%>
                                 <tbody>
                                     <c:forEach var="managerVO" items="managerList" varStatus="managerStatus">
                                         <c:set var="count" value="${count+1}"/>
                                         <tr>
                                             <form name="frm">
-                                            <input type="hidden" class="comp_num" value="${managerVO.comp_seq}">
-                                            <input type="hidden" class="manager_num" value="${managerVO.mg_seq}">
-                                            <td class="seq">${count}</td>
-                                            <td class="comp">투진컴퍼니</td>
-                                            <td class="name">${managerVO.mg_name}</td>
-                                            <td class="email">${managerVO.mg_email}</td>
-                                            <td class="phone">${managerVO.mg_tel}</td>
-                                            <td class="right">${managerVO.mg_is}</td>
-                                            <td class="status">
-                                                <label class="switch">
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <p class="toggle_p">활성화</p>
-                                                <p class="toggle_p" style="display:none;">비활성</p>
-                                            </td>
+                                                <input type="hidden" class="comp_num" value="${managerVO.comp_seq}">
+                                                <input type="hidden" class="manager_num" value="${managerVO.mg_seq}">
+                                                <td class="seq">${count}</td>
+                                                <td class="comp">투진컴퍼니</td>
+                                                <td class="name">${managerVO.mg_name}</td>
+                                                <td class="email">${managerVO.mg_email}</td>
+                                                <td class="phone">${managerVO.mg_tel}</td>
+                                                <td class="right">${managerVO.mg_is}</td>
+                                                <td class="status">
+                                                    <label class="switch">
+                                                        <input type="checkbox" checked="checked">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                    <p class="toggle_p">활성화</p>
+                                                    <p class="toggle_p" style="display:none;">비활성</p>
+                                                </td>
+                                            </form>
                                             <td class="btn_section">
                                                 <div class="btn_wrap">
                                                     <button class="btn_comp_info btn btn-primary btn-sm btn-circle fa-solid fa-building"></button>
@@ -241,7 +245,6 @@
                                                     <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
                                                 </div>
                                             </td>
-                                            </form>
                                         </tr>
                                     </c:forEach>
 
@@ -262,39 +265,42 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+
+                            <form class="user modal-body frm_comp_info_modal" style="max-height: 600px; overflow: scroll">
+                                <input type="hidden" class="partner_num" name="pt_seq" value="${partnerVO.pt_seq}">
+
                                 <div class="form-group">
                                     <span>업체번호 : </span>
-                                    <span id="CompanySeq">#12</span>
+                                    <span id="CompanySeq">#{partnerVO.pt_seq}</span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-head">업체명</div>
-                                    <div class="form-control form-control-user" id="CompanyName"></div>
+                                    <div class="form-control form-control-user" id="CompanyName">${partnerVO.pt_comp_name}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">사업자명</div>
-                                    <div class="form-control form-control-user" id="PresentName"></div>
+                                    <div class="form-control form-control-user" id="PresentName">${partnerVO.pt_ceo_name}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">사업자번호</div>
-                                    <div class="form-control form-control-user" id="CompanyNum"></div>
+                                    <div class="form-control form-control-user" id="CompanyNum">${partnerVO.pt_ceo_number}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">전화번호</div>
-                                    <div class="form-control form-control-user" id="PhoneNumber"></div>
+                                    <div class="form-control form-control-user" id="PhoneNumber">${partnerVO.pt_phone}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">이메일</div>
-                                    <div class="form-control form-control-user" id="CompanyEmail"></div>
+                                    <div class="form-control form-control-user" id="CompanyEmail">${partnerVO.pt_email}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">유형</div>
-                                    <div class="form-control form-control-user" id="ProductType"></div>
+                                    <div class="form-control form-control-user" id="ProductType">${}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">승인날짜</div>
-                                    <div class="form-control form-control-user" id="AgreementDate"></div>
+                                    <div class="form-control form-control-user" id="AgreementDate">${partnerVO.pt_agreeDate}</div>
                                 </div>
                                 <div class="form-group">
                                     <div class="button_wrap">
@@ -303,10 +309,11 @@
                                                 <i class="fa-regular fa-file"></i>
                                             </span>
                                             <span class="text">첨부파일 다운로드</span>
+                                            <%--https://to-dy.tistory.com/101--%>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                             <div class="modal-footer">
                                 <button href="#" class="btn_modal_close btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
@@ -333,6 +340,7 @@
 
                             </div>
                             <form class="user modal-body" style="max-height: 600px; overflow: scroll">
+                                <input type="hidden" class="manager_num" name="mg_seq" value="${managerVO.mg_seq}">
                                 <div class="form-group">
                                     <span class="head_comp_name"></span>  #<span class="head_comp_num"></span>
                                 </div>
@@ -376,7 +384,7 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <form class="user modal-body">정말로 삭제하시길 원한다면 입력칸에 '파트너를 삭제합니다'를 입력해주세요
+                            <form class="user modal-body frm_delete_modal">정말로 삭제하시길 원한다면 입력칸에 '파트너를 삭제합니다'를 입력해주세요
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="decideDelete"
                                            placeholder="입력해주세요">
@@ -384,8 +392,8 @@
                             </form>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button class="btn_finalDelete btn btn-primary" >삭제하기</button>
+                                <button class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                <button class="btn_finalDelete btn btn-primary" >삭제</button>
                             </div>
                         </div>
                     </div>

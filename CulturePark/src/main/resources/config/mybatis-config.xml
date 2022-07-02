@@ -5,16 +5,41 @@
 <configuration>
 
     <typeAliases>
+
         <typeAlias alias="adminVO" type="kg.twojin.culturePark.common.vo.AdminVO" ></typeAlias>
+
         <typeAlias alias="managerVO" type="kg.twojin.culturePark.common.vo.ManagerVO" ></typeAlias>
-        <typeAlias alias="memberVO" type="kg.twojin.culturePark.common.vo.MemberVO"/>
+
+        <typeAlias alias="partnerVO" type="kg.twojin.culturePark.common.vo.PartnerVO" ></typeAlias>
+
+        <typeAlias alias="memberVO" type="kg.twojin.culturePark.common.vo.MemberVO" ></typeAlias>
+
+        <typeAlias alias="pauseVO" type="kg.twojin.culturePark.common.vo.PauseVO"></typeAlias>
+
+        <typeAlias alias="productVO" type="kg.twojin.culturePark.common.vo.ProductVO"></typeAlias>
+
+        <typeAlias alias="productRequestVO" type="kg.twojin.culturePark.common.vo.ProductRequestVO"></typeAlias>
+
+        <typeAlias alias="productLogVO" type="kg.twojin.culturePark.common.vo.ProductLogVO"></typeAlias>
+
+        <typeAlias alias="dateTypeTicket" type="kg.twojin.culturePark.common.vo.DateTicketInfoVO"></typeAlias>
+
+        <typeAlias alias="stageVO" type="kg.twojin.culturePark.common.vo.StageTicketInfoVO"></typeAlias>
+
     </typeAliases>
 
 
     <mappers>
-        <mapper resource="mapping/user/user-mapper.xml"/>
-        <mapper resource="mapping/admin/admin-mapper.xml"/>
-        <mapper resource="mapping/manager/manager-mapper.xml"/>
+        <mapper resource="mapping/user-mapper.xml"/>
+        <mapper resource="mapping/user-pause.xml"/>
+        <mapper resource="mapping/admin-mapper.xml"/>
+        <mapper resource="mapping/manager-mapper.xml"/>
+        <mapper resource="mapping/partner-mapper.xml"/>
+        <mapper resource="mapping/productRequest-mapper.xml"/>
+        <mapper resource="mapping/product-mapper.xml"/>
+        <mapper resource="mapping/adminLog-mapper.xml"/>
+        <mapper resource="mapping/dateTicketInfo-mapper.xml"/>
+        <mapper resource="mapping/stageTicket-mapper.xml"/>
     </mappers>
 
     <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->

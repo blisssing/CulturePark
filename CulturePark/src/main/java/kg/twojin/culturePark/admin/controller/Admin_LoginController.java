@@ -29,8 +29,6 @@ public class Admin_LoginController {
     BCryptPasswordEncoder passwordEncoder;
 
 
-
-
     // 처음 로그인할 때 들어오는 페이지
     @RequestMapping(value = "/culturePark/all/loginForm.ado")
     public ModelAndView adLoginForm(HttpServletRequest request, HttpServletResponse response)
@@ -47,11 +45,7 @@ public class Admin_LoginController {
                                     RedirectAttributes rAttr, // 로그인 실패 시 다시 로그인 창으로 리다이렉트
                                     HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-
-        System.out.println("로그인 동작 수행 !!");
-
         request.setCharacterEncoding("utf-8");
-
         ModelAndView mv = new ModelAndView();
 
         // DB에서 조회해서 가져온 어드민 vo
@@ -65,13 +59,13 @@ public class Admin_LoginController {
             String dbPw = vo.getAd_pw();            // 암호화된 pw
             String password = adminVO.getAd_pw();   // 입력된 pw
 
-            //            System.out.println("db암호화 : " + dbPw);
-            //            System.out.println("입력된 비밀번호 : " + password);
+
+            // adminvo에 어떤 값들이 실려 있는지 확인하기
 
             if (passwordEncoder.matches(password, dbPw)) {
                 System.out.println("로그인성공");
                 HttpSession session = request.getSession();
-                session.setAttribute("admin", adminVO);
+                session.setAttribute("admin", vo);
                 session.setAttribute("isLogOn", ""+vo.getAd_is());
                 mv.setViewName("redirect:/index.ado");
             } else {

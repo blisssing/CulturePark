@@ -1,5 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page import="kg.twojin.culturePark.common.vo.AdminVO" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +31,30 @@
     <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
     <title>CulturePark 관리자</title>
 </head>
+
+<%--<%
+    // 권한 체크 방식
+    AdminVO admin = (AdminVO) session.getAttribute("admin");
+    String adminIs= admin.getAd_is();
+    boolean chkIs = false;
+    if (adminIs.contains("/")) {
+        for (String isStr : adminIs.split("/")) {
+            if (isStr.equals("super") || isStr.equals("product")) {
+                chkIs = true;
+            }
+        }
+    }
+
+    if (!chkIs) {
+%>
+
+<script>location.href="/accessError.ado"</script>
+
+<%
+    }
+%>--%>
+
+
 <body id="page-top">
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -89,85 +115,49 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach var="productVO" items="${productList}" varStatus="varStatus">
+                                    <fmt:formatDate var="formatRegDate" value="${productVO.pd_requestDate}" pattern="yyyy-MM-dd"/>
+                                    <fmt:formatDate var="formatstartDate" value="${productVO.pd_startDate}" pattern="yyyy-MM-dd"/>
+                                    <fmt:formatDate var="formatendDate" value="${productVO.pd_closeDate}" pattern="yyyy-MM-dd"/>
+                                    <c:set value="${count+1}" var="count"/>
                                     <tr>
-                                        <input type="hidden" class="pd_request_code" value="50">
-                                        <input type="hidden" class="root_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="manager_email">taran0913@gmail.com</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">2022.01.02</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="request_status">대기중</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_detail btn btn-primary btn-circle btn-sm fa-solid fa-file-contract"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
+
+                                            <input type="hidden" class="pd_request_code" value="${productVO.pd_seq}" name="pd_seq">
+                                            <input type="hidden" class="pd_timeType" value="${productVO.pd_timeType}" name="pd_timeType"/>
+                                            <input type="hidden" class="pd_maxTicket" value="${productVO.pd_maxTicket}" name="pd_maxTicket"/>
+                                            <input type="hidden" class="pd_typeStr" value="${productVO.pd_typeStr}" name="pd_typeStr"/>
+                                            <input type="hidden" class="pd_openTime" value="${productVO.pd_openTime}" name="pd_openTime"/>
+                                            <input type="hidden" class="pd_closeTime" value="${productVO.pd_closeTime}" name="pd_closeTime"/>
+                                            <input type="hidden" class="pd_closeDay" value="${productVO.pd_closeDay}" name="pd_closeDay"/>
+                                            <input type="hidden" class="pt_seq" value="${productVO.pt_seq}" name="pt_seq"/>
+                                            <input type="hidden" class="pd_request_manager" value="${productVO.pd_request_manager}" name="pd_request_manager"/>
+                                            <input type="hidden" class="pd_class2" value="${productVO.pd_genre2}"/>
+                                            <input type="hidden" class="start_date" value="${formatstartDate}"/>
+                                            <input type="hidden" class="end_date" value="${formatendDate}"/>
+
+
+                                            <td class="seq">${count}</td>
+                                            <td class="comp_name">${partnerList[varStatus.index].pt_comp_name}</td>
+                                            <td class="manager_email">${productVO.pd_request_manager}</td>
+                                            <td class="pd_class">${productVO.pd_genre1}</td>
+                                            <td class="pd_title">${productVO.pd_title}</td>
+                                            <td class="request_date">${formatRegDate}</td>
+                                            <td class="pd_period">${formatstartDate}~${formatendDate}</td>
+                                            <td class="request_status">${productVO.pd_status}</td>
+                                            <td class="btn_section">
+                                                <div class="btn_wrap">
+                                                    <button type="button" class="btn_detail btn btn-primary btn-circle btn-sm fa-solid fa-file-contract"></button>
+                                                    <button type="button" class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
+                                                </div>
+                                            </td>
                                     </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_request_code" value="50">
-                                        <input type="hidden" class="root_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="manager_email">taran0913@gmail.com</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">2022.01.02</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="request_status">대기중</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_detail btn btn-primary btn-circle btn-sm fa-solid fa-file-contract"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_request_code" value="50">
-                                        <input type="hidden" class="root_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="manager_email">taran0913@gmail.com</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">2022.01.02</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="request_status">대기중</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_detail btn btn-primary btn-circle btn-sm fa-solid fa-file-contract"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_request_code" value="50">
-                                        <input type="hidden" class="root_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="manager_email">taran0913@gmail.com</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">2022.01.02</td>
-                                        <td class="request_date">2022.01.02</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="request_status">대기중</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_detail btn btn-primary btn-circle btn-sm fa-solid fa-file-contract"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
                 <%--요 청 정 보 모 달 --%>
                 <div class="modal fade border-0 shadow-lg my-5" id="RequestInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
@@ -180,6 +170,8 @@
                                 </button>
                             </div>
                             <div class="user modal-body" style="max-height: 500px; overflow: scroll;">
+                                <form>
+
                                 <div class="form-group">
                                     <div>
                                         <span>요청번호 : </span>
@@ -189,43 +181,174 @@
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-head">업체명</div>
-                                    <div class="form-control form-control-user" id="comp_name"></div>
+                                    <div class="form-control form-control-user modal_content_div" id="comp_name"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">상품명</div>
-                                    <div class="form-control form-control-user" id="pd_title"></div>
+                                    <div class="form-control form-control-user modal_content_div" id="pd_title"></div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <div class="form-head">분야</div>
-                                        <div class="form-control form-control-user" id="pd_class_1" >전시</div>
+                                        <div class="form-control form-control-user modal_content_div"  id="pd_class_1" ></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-head">장르</div>
-                                        <div class="form-control form-control-user" id="pd_class_2">퓨전</div>
+                                        <div class="form-control form-control-user modal_content_div" id="pd_class_2"></div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <div class="form-head">시작일</div>
-                                        <div class="form-control form-control-user" id="start_date" >2022.03.03</div>
+                                        <div class="form-control form-control-user modal_content_div" id="start_date" ></div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-head">2차 분야</div>
-                                        <div class="form-control form-control-user" id="end_date" >2022.06.02</div>
+                                        <div class="form-head">종료일</div>
+                                        <div class="form-control form-control-user modal_content_div" id="end_date" ></div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><%--Todo : 추가적으로 만들어줄 것!!--%>
                                         <div class="form-head">장소</div>
-                                        <div class="form-control form-control-user" id="pd_place" >장소</div>
+                                        <div class="form-control form-control-user modal_content_div" id="pd_place" >장소</div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-head">연령</div>
-                                        <div class="form-control form-control-user" id="pd_minAge">15세 이상</div>
+                                        <div class="form-control form-control-user modal_content_div" id="pd_minAge">15세 이상</div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+
+                                    <hr>
+                                    <div class="form-head">연령</div>
+                                    <div class="form-group row none_row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-control form-control-user" id="type_none">구분없음</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-control form-control-user modal_content_div" id="none_price"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row adult_row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-control form-control-user" id="type_adult">성인</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-control form-control-user modal_content_div" id="adult_price"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row teenager_row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-control form-control-user" id="type_teenager">청소년</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-control form-control-user modal_content_div" id="teenager_price"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row child_row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-control form-control-user" id="type_child">아동</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-control form-control-user modal_content_div" id="child_price"></div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <select class="pd_timeTypeSelect" name="chk_timeType" style="margin-bottom: 10px;">
+                                        <option value="day">일별(day)</option>
+                                        <option value="time">시간별(time)</option>
+                                    </select>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-head">하루 최대 판매량</div>
+                                            <div class="form-control form-control-user modal_content_div" id="pd_dayTicket"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-head">스테이지별 최대 판매량</div>
+                                            <div class="form-control form-control-user modal_content_div" id="pd_StageTicket"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-head">오픈시간</div>
+                                            <select class="form-control form-control-user" id="pd_openTime" disabled="disabled">
+                                                <option value="0">00:00</option>
+                                                <option value="1">01:00</option>
+                                                <option value="2">02:00</option>
+                                                <option value="3">03:00</option>
+                                                <option value="4">04:00</option>
+                                                <option value="5">05:00</option>
+                                                <option value="6">06:00</option>
+                                                <option value="7">07:00</option>
+                                                <option value="8">08:00</option>
+                                                <option value="9">09:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-head">마감시간</div>
+                                            <select class="form-control form-control-user" id="pd_closeTime" disabled="disabled">
+                                                <option value="0">00:00</option>
+                                                <option value="1">01:00</option>
+                                                <option value="2">02:00</option>
+                                                <option value="3">03:00</option>
+                                                <option value="4">04:00</option>
+                                                <option value="5">05:00</option>
+                                                <option value="6">06:00</option>
+                                                <option value="7">07:00</option>
+                                                <option value="8">08:00</option>
+                                                <option value="9">09:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <div class="form-head">휴관 요일  </div>
+                                        <div class="form-control form-control-user">
+                                            <input type="checkbox" class="chk_closeDay" name="chk_son" value="son" disabled="disabled">일
+                                            <input type="checkbox" class="chk_closeDay" name="chk_mon" value="mon" disabled="disabled">월
+                                            <input type="checkbox" class="chk_closeDay" name="chk_tue" value="tue" disabled="disabled">화
+                                            <input type="checkbox" class="chk_closeDay" name="chk_wen" value="wen" disabled="disabled">수
+                                            <input type="checkbox" class="chk_closeDay" name="chk_thu" value="thu" disabled="disabled">목
+                                            <input type="checkbox" class="chk_closeDay" name="chk_fri" value="fri" disabled="disabled">금
+                                            <input type="checkbox" class="chk_closeDay" name="chk_sat" value="sat" disabled="disabled">토
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <div class="form-head">썸네일</div>
                                         <a class="form-control form-control-user" id="pd_img1" >상품이미지1</a>
@@ -239,6 +362,8 @@
                                     <div class="form-head">설명 파일 </div>
                                     <div class="form-control form-control-user" id="pd_description">설명 파일 첨부</div>
                                 </div>
+
+                                </form>
                             </div>
                             <div class="modal-footer">
                                 <button  class="btn_modal_agree btn btn-info btn-icon-split">
@@ -257,10 +382,48 @@
                                             </span>
                                     <span class="text">닫기</span>
                                 </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <%--거 절 사 유 모 달 --%>
+                <div class="modal fade border-0 shadow-lg my-5" id="SendRefuseReasonModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
+                     style="display: none">
+                    <div class="modal-dialog">
+                        <div class="modal-content ard-body p-0">
+                            <div class="modal-header">
+                                <h1 class="h4 text-gray-900 mb-4">거 절 사 유</h1>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="user modal-body" style="max-height: 600px; overflow: scroll;">
+                                <div class="form-group">
+                                    <textarea class="form-control form-control-user" id="pcl_comments">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button"  class="btn_final_refuse btn btn-info btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                V
+                                            </span>
+                                    <span class="text">최 종 거 절</span>
+                                </button>
+                                <button  type="button" class="btn_modal_close btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                X
+                                            </span>
+                                    <span class="text">닫기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <%--매 니 저 정 보 모 달 --%>
                 <div class="modal fade border-0 shadow-lg my-5" id="ManagerInfoModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"x
                      style="display: none">
@@ -268,7 +431,7 @@
                         <div class="modal-content ard-body p-0">
                             <div class="modal-header">
                                 <h1 class="h4 text-gray-900 mb-4">매 니 저 정 보</h1>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <button class="btn_modal_close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
@@ -304,6 +467,10 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
             </div>
             <!-- /.container-fluid -->
         </div>

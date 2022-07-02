@@ -1,0 +1,28 @@
+/* ADMIN */
+CREATE SEQUENCE SEQ_ADMIN
+INCREMENT 1
+MINVALUE 1
+START 1
+CACHE 1;
+
+DROP SEQUENCE SEQ_ADMIN;
+
+CREATE TABLE ADMIN_ACCOUNT(
+
+    AD_SEQ integer primary key default nextval('SEQ_ADMIN'),
+    AD_EMAIL varchar(20) unique ,
+    AD_PW varchar(70) not null ,
+    AD_NAME varchar(5) not null ,
+    AD_TEL varchar(15) not null ,
+    AD_IS varchar(40) not null ,
+    AD_DEPART varchar(15) NOT NULL ,
+    AD_CREATEDATE timestamp NOT NULL
+);
+
+DROP TABLE ADMIN_ACCOUNT;
+
+SELECT * FROM ADMIN_ACCOUNT ;
+
+
+<6.27 진희>
+<6.27 진아 등록완료>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.productRequest">
+
+    <resultMap id="productRequestMap" type="productVO">
+        <result property="pd_title" column="pdr_title"></result>
+        <result property="pd_genre1" column="pdr_genre1"></result>
+        <result property="pd_genre2" column="pdr_genre2"></result>
+        <result property="pd_timeType" column="pdr_timetype"></result>
+        <result property="pd_closeDay" column="pdr_closeday"></result>
+        <result property="pd_tag" column="pdr_tag"></result>
+        <result property="pd_thumbnail_PATH" column="pdR_thumbnail_PATH"></result>
+        <result property="pd_descript_PATH" column="pdR_descript_path"></result>
+        <result property="pd_typeStr" column="pdr_typestr"></result>
+        <result property="pd_requestStatus" column="pdr_requeststatus"></result>
+        <result property="pd_status" column="pdr_status"></result>
+        <result property="pd_startDate" column="pdr_startdate"></result>
+        <result property="pd_closeDate" column="PDR_CLOSEDATE"></result>
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pd_seq" column="pdr_seq"></result>
+        <result property="pd_closeTime" column="PDR_CLOSETIME"></result>
+        <result property="pd_openTime" column="PDR_OPENTIME"></result>
+        <result property="pd_maxTicket" column="PDR_MAXTICKET"></result>
+        <result property="pd_request_manager" column="PDR_request_manager"></result>
+        <result property="pd_requestDate" column="PDR_requestDate"></result>
+        <result property="pd_mainImg_PATH" column="PDR_MAINIMG_PATH"></result>
+    </resultMap>
+
+    <resultMap id="productRequestMap2" type="productRequestVO">
+        <result property="pdr_title" column="pdr_title"></result>
+        <result property="pdr_genre1" column="pdr_genre1"></result>
+        <result property="pdr_genre2" column="pdr_genre2"></result>
+        <result property="pdr_timeType" column="pdr_timetype"></result>
+        <result property="pdr_closeDay" column="pdr_closeday"></result>
+        <result property="pdr_tag" column="pdr_tag"></result>
+        <result property="pdr_thumbnail_PATH" column="pdR_thumbnail_PATH"></result>
+        <result property="pdr_descript_PATH" column="pdR_descript_path"></result>
+        <result property="pdr_typeStr" column="pdr_typestr"></result>
+        <result property="pdr_requestStatus" column="pdr_requeststatus"></result>
+        <result property="pdr_status" column="pdr_status"></result>
+        <result property="pdr_startDate" column="pdr_startdate"></result>
+        <result property="pdr_closeDate" column="PDR_CLOSEDATE"></result>
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pdr_seq" column="pdr_seq"></result>
+        <result property="pdr_closeTime" column="PDR_CLOSETIME"></result>
+        <result property="pdr_openTime" column="PDR_OPENTIME"></result>
+        <result property="pdr_maxTicket" column="PDR_MAXTICKET"></result>
+        <result property="pdr_request_manager" column="PDR_request_manager"></result>
+        <result property="pdr_requestDate" column="PDR_requestDate"></result>
+        <result property="pdr_mainImg_PATH" column="PDR_MAINIMG_PATH"></result>
+        <result property="pdr_minAge" column="pdr_minage"></result>
+        <result property="pdr_place" column="pdr_place"></result>
+    </resultMap>
+
+    <insert id="insertProduct" parameterType="productVO">
+        <![CDATA[
+        InSERT INTO PD_CREATE_REQUEST (PDR_TITLE, PDR_GENRE1, PDR_GENRE2, PDR_TIMETYPE, PDR_CLOSEDAY,
+                                    PDR_TAG, PDR_THUMBNAIL_PATH, PDR_DESCRIPT_PATH, PDR_TYPESTR, PDR_STARTDATE,
+                                    PDR_CLOSEDATE,PT_SEQ, PDR_OPENTIME, PDR_CLOSETIME, PDR_MAXTICKET,PDR_request_manager
+                                           ,PDR_MAINIMG_PATH)
+        VALUES (
+                #{pd_title}, #{pd_genre1}, #{pd_genre2}, #{pd_timeType},
+                #{pd_closeDay}, #{pd_tag}, #{pd_thumbnail_PATH}, #{pd_descript_PATH},
+                #{pd_typeStr}, #{pd_startDate}, #{pd_closeDate}, #{pt_seq}, #{pd_openTime},
+                #{pd_closeTime}, #{pd_maxTicket}, #{pd_request_manager}, #{pd_mainImg_PATH}
+                );
+        ]]>
+    </insert>
+
+    <select id="selectAllNewProduct" resultMap="productRequestMap">
+        select * from PD_CREATE_REQUEST;
+    </select>
+
+    <select id="selectProductRequestByPtSeq" parameterType="int"  resultType="productRequestVO">
+        <![CDATA[
+        select *
+        from PD_CREATE_REQUEST
+        WHERE pt_seq= #{pt_seq};
+        ]]>
+
+    </select>
+
+    <update id="updateRequestStatusAgree" parameterType="int">
+        UPDATE PD_CREATE_REQUEST
+        SET pdr_status='AGREE'
+        WHERE PDR_SEQ =#{pdr_seq}
+    </update>
+
+    <update id="updateRequestStatusRefused" parameterType="int">
+        UPDATE PD_CREATE_REQUEST
+        SET PDR_STATUS='REFUSE'
+        WHERE PDR_SEQ = #{pdr_seq}
+    </update>
+
+</mapper>

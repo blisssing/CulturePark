@@ -50,23 +50,25 @@
             <%---- 비밀번호 찾기 영역 ----%>
             <div class="find_all_section">
 
+                <input class="mb_seq" name="mb_seq" hidden="hidden">
                 <div class="type_choice">
-                    <input type="radio" class="email_radio" id="email" name="type_chk" value="이메일" checked="checked">
+                    <input type="radio" class="email_radio" id="email" name="type_chk" value="email" checked="checked">
                     <div class="email_radio_label">이메일</div>
-                    <input type="radio" class="phone_radio" id="phone" name="type_chk" value="휴대폰번호">
+                    <input type="radio" class="phone_radio" id="phone" name="type_chk" value="phone">
                     <div class="phone_radio_label">휴대폰</div>
                </div>
 
+
                 <div class="find_section">
                     <div class="find_label">이름</div>
-                    <input type="textField" class="input_value" id="find_name_value">
+                    <input type="textField" class="input_value" id="find_name_value" name="mb_name">
                 </div>
 
                 <%--이메일--%>
                 <div class="find_section email_set">
                     <div class="find_label">이메일</div>
-                    <input type="textField" class="input_value" id="find_email_value">
-                    <input type="button" class="code_send_btn" value="인증번호 받기">
+                    <input type="textField" class="input_value" id="find_email_value" name="mb_email">
+                    <input type="button" class="code_send_btn code_send_email" name="code_send_email" value="인증코드 받기">
                 </div>
 
                 <%--번호--%>
@@ -77,22 +79,18 @@
                     <input type="textField" class="input_value tel_2" id="find_phone_value_2">
                     <div class="space">-</div>
                     <input type="textField" class="input_value tel_3" id="find_phone_value_3">
-                    <input type="button" class="code_send_btn" value="인증번호 받기">
+                    <input type="button" class="code_send_btn code_send_phone" name="code_send_phone" value="인증번호 받기">
                 </div>
-
 
                 <div class="find_section">
                     <div class="find_label">인증번호</div>
-                    <input type="textField" class="input_value" id="find_code_value">
-                    <div class="certifyTime_section">
-                        <span class="certifyTime">02:39</span>
-                    </div>
+                    <input type="text" class="input_value authentication_code" id="authentication_code" name="authentication_code" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                    <span class="time">10:00</span>
+                    <input type="button" class="code_chk_ok" name="code_send_ok_phone" value="확인">
                 </div>
 
-
-
                 <div class="ok_btn_section">
-                    <input class="ok_btn find_pw_ok_btn" id=pw_ok_btn" type="submit" value="확인">
+                    <input class="ok_btn find_pw_ok_btn" id="pw_ok_btn" type="button" value="확인">
                 </div>
             </div>
 

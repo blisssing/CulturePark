@@ -25,7 +25,7 @@ $('.update_btn').click(function() {
 
     var frm = $('.frm_update_modal');
 
-    frm.attr("action","/mAccountModify.mdo");
+    frm.attr("action","/mAccountModifyProc.mdo");
     frm.submit();
 
 });
@@ -45,23 +45,57 @@ $('.btn_delete_manager').click(function () {
 
 $('.btn_finalDelete').click(function () {
     var comp_num = eventRow.children('.comp_num');
-    var manager_num = eventRow.children('.manager_num');
+    var manager_num = eventRow.children('.manager_num').val();
     var text = $('#decideDelete').val();
     var result_repeat = chkText(text);
+    
+    var insertResult="";
+    
     if (result_repeat) {
         $('#decideDelete').val(''); //초기화
+        console.log('수행 확인 구간 1 ');
+        /*var frm = eventRow.children('.row_frm');*/
+        /*
+        frm.attr("action","/mAccountDeleteProc.mdo");
+        frm.submit(); */
+
+        deleteUsingAjax(manager_num);
+                        // mg_seq는 manager_num에서 받아옴
+
+        if (insertResult === 'success') {
+            alert("삭제를 성공했습니다.");
+            eventRow.remove();
+            closeModal(modal_now);
+        } else {
+            alert("삭제를 실패했습니다.");
+        }
+        
+        /*
         eventRow.remove();
         closeModal(modal_now);
-        alert("성공적으로 매니저를 삭제했습니다");
+        alert("성공적으로 매니저를 삭제했습니다");*/
 
-        var frm = $('.frm_delete_modal');
-
-        frm.attr("action","/mAccountDelete.mdo");
-        frm.submit();
 
     } else {
         alert("잘못 입력했습니다. 다시 확인해주세요.")
     }
+
+
+    function deleteUsingAjax(mg_seq) {
+        $.ajax({
+            type:"post",
+            datatype:"text",
+            url:"/mAccountDeleteProc.mdo",
+            async:false,
+            cache:false,
+            data: {"mg_seq" : mg_seq}, //key값:value값
+            success:function(result) {
+                insertResult = result;
+            }
+
+        });
+    }
+
 });
 
 

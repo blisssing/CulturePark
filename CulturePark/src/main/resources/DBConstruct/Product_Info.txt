@@ -1,0 +1,47 @@
+CREATE SEQUENCE SEQ_PRODUCT_INFO
+INCREMENT 1
+MINVALUE 1
+START 1
+CACHE 1;
+
+
+CREATE TABLE PRODUCT_INFO
+(
+    PD_SEQ             INTEGER PRIMARY KEY DEFAULT NEXTVAL('SEQ_PRODUCT_INFO'),
+    PT_SEQ              INTEGER     NOT NULL,
+    PD_STATUS          varchar(10)         DEFAULT 'NEW',
+    PD_TITLE           varchar(30) NOT NULL,
+    PD_GENRE1          VARCHAR(10) NOT NULL,
+    PD_GENRE2          varchar(10),
+    PD_TYPESTR         varchar(50) NOT NULL,
+    PD_TIMETYPE        varchar(5)  NOT NULL,
+    PD_OPENTIME        integer,
+    PD_CLOSETIME       integer,
+    PD_CLOSEDAY        varchar(30) NOT NULL,
+    PD_TAG             varchar(100)        DEFAULT 'NONE',
+    PD_THUMBNAIL_PATH  varchar(60) NOT NULL,
+    PD_DESCRIPT_PATH   varchar(60) NOT NULL,
+    PD_MAINIMG_PATH    varchar(60) NOT NULL,
+    PD_REQUESTSTATUS   varchar(10)         DEFAULT 'NONE',
+    PD_STARTDATE       timestamp   NOT NULL,
+    PD_CLOSEDATE       timestamp   NOT NULL,
+    PD_MAXTICKET       INTEGER     default 0,
+    PD_request_manager varchar(40) not null,
+    pd_createDate     timestamp default now()
+
+);
+*사용한 sql 문
+drop table PRODUCT_INFO;
+
+alter table PRODUCT_INFO rename column PD_requestDate to pd_createDate;
+alter table PRODUCT_INFO alter column pd_createDate drop not null;
+alter table PRODUCT_INFO alter column pd_createDate set default now();
+alter table PRODUCT_INFO alter column PD_TITLE set unique;
+
+select * from PRODUCT_INFO;
+
+delete from PRODUCT_INFO where PD_SEQ=44;
+
+commit;
+
+<진희>6.30 변경

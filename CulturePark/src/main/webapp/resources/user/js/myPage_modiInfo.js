@@ -1,53 +1,71 @@
 $(document).ready(function () {
 
+
     $('.modi_btn').click(function () {
-        var first_pw = $('input[name=input_pw]');
-        var second_pw = $('input[name=input_sc_pw]');
-        var nickName = $('input[name=input_nick]').text();
-        var gender = $('input[name=chk_gender]:checked').val();
-        var phNum_01 = $('input[name=ph_01]:selected').val();
-        var phNum_02 = $('input[name=ph_02]').val();
-        var phNum_03 = $('input[name=ph_03]').val();
+        // var birth_ = $('input[name=mb_birth]').val();
+        // var birth = birthString(birth_)
+
+        var first_pw = $('input[id=input_pw]');
+        var second_pw = $('input[id=input_sc_pw]');
+        var nickName = $('input[id=input_nick]').val();
+        var mb_seq = $('input[id=mb_seq]').val();
+        var gender = genderString();
+        var phoneStr = phoneNumberString();
+
+        //var nickChk = "none";
+        // Todo : 중복확인 기능 만들어줄 것
+           var nickChk = true;
+
         // 수정 타입 확인 : 비밀번호 입력돼 있는지 안 돼 있는지.
         var modiType = pw_isEmpty(first_pw, second_pw);
         var result_pw_chk;
-        var insult_result;
+        var insult_result; //DB에 insert
 
-        // 비밀번호를 변경하지 않는다면
-        if (modiType === "modiType01") {
-            insult_result=save_to_DB(1);
-            // 비밀번호를 변경한다면
-        } else if (modiType === "modiType02") {
-            result_pw_chk= chk_pw_value(first_pw,second_pw);
-            alert_text = $('.alert_text_02');
+        if (nickName.trim() === '') {
+            alert("닉네임을 입력해주세요");
+            $('input[id=input_nick]').focus();
+            return;
+        } else if ($('#tel2').val().trim() === '' || $('#tel3').val().trim() === '') {
+            alert("전화번호를 입력해주세요");
+            return;
+        } else if (nickChk === 'none') {
+            alert("중복확인을 해주세요");
+            return;
+        } else {
+            if (modiType === "modiType01") {
+                modi_except_pw(mb_seq, nickChk, gender, phoneStr);
+            } else {
+                var resultPwChk = chkPW(first_pw);
 
-            if (result_pw_chk===-1) { // 1차 비밀번호 미입력
-                alert_text.css('display', 'inline-block');
-                alert_text.text("wrong1")
-            } else if (result_pw_chk === -2) { // 2차 비밀번호 미입력
-                alert_text.css('display', 'inline-block');
-                alert_text.text("wrong2")
-            } else if (result_pw_chk === -3) { // 비밀번호 불일치
-                alert_text.css('display', 'inline-block');
-                alert_text.text("wrong3")
-            } else if (result_pw_chk === 1) { // 정상 변경
-                alert_text.text("");
-                insult_result=save_to_DB(2);
+                if (resultPwChk === -1) {
+                    alert(" 비밀번호를 8자 이상 20자 미만으로 입력해 주십시오");
+                } else if (resultPwChk === -2) {
+                    alert(" 비밀번호는 공백 없이 입력하셔야 됩니다");
+                } else if (resultPwChk === -3) {
+                    alert(" 비밀번호는 특수문자, 영문, 숫자를 최소 1회 입력해야 합니다");
+                } else {
+                    modi_all()
+                }
             }
-        }
 
-        // db에 insert한 결과가 실패라면
-        if (insult_result === -1) {
-            // 비정상적 수행 To do
-        } else if (insult_result === 1) { // insert 결과가 성공이라면
-            alert("success!");
-            // 정상 수행 To do
         }
+    })
+
+
+    $('.nick_confirm_btn').click(function () {
+        var mb_nick = $('.nick_value').val().trim();
+        console.log(mb_nick);
+        checkNickExist(mb_nick);
     });
+
 
     $('.cancel_btn').click(function () {
-        location.href = "/myInfo.do";
+        location.href = "/myPage.do";
     });
+
+
+});
+
 
     // 비밀번호 비어있는지 확인
     function pw_isEmpty(first_pw, second_pw) {
@@ -72,14 +90,133 @@ $(document).ready(function () {
         }
     }
 
-    function save_to_DB(num) {
-        // 비밀번호를 제외한 값들 모두 db에 넣기
-        if (num === 1) {
-            // To do
-            return 1;
-        } else if (num === 2) { // 비밀번호를 포함한 값들 모두 db에 넣기
-            // To do
-            return 1;
+
+    //생년월일
+    function birthString(birth){
+
+        if (birth.indexOf('-')) {
+            var birthStr = birth.split('-');
+            for (var i = 0; i < birth.length; i++) {
+                var birth_item = birthStr[i];
+                if (birth[i] == '0') {
+
+                    var birth1= birth;
+
+                } else if (birth[i] == '1') {
+
+                    var birth2= birth;
+
+                } else if (birth[i] == '2') {
+
+                    var birth3= birth;
+
+                }
+            }
         }
+        birth = birth1 + birth2 + birth3;
+
+        return birth;
     }
-});
+
+    // 성별 
+    function genderString(){
+        var genderSelected = $('input[name=chk_gender]:checked').val();
+        var gender;
+
+        if(genderSelected === $('#chk_male').val()){
+            gender = 'male';
+        }else {
+            gender = 'female';
+        }
+        return gender;
+    }
+
+    //폰번호
+    function phoneNumberString() {
+        var phNum_01 = $('#tel1').val();
+        var phNum_02 = $('input[id=tel2]').val()+'';
+        var phNum_03 = $('input[id=tel3]').val()+'';
+
+        var phone = phNum_01 +"-"+ phNum_02 +"-"+phNum_03;
+        console.log(phone);
+
+        return phone;
+    }
+
+    function modi_except_pw(mb_seq,mb_nick, mb_gender, phoneStr) {
+        var except_pw_Data = {"mb_seq":mb_seq,"mb_nick":mb_nick, "mb_gender":mb_gender, "mb_tel":phoneStr}
+
+        $.ajax({
+            type:"post",
+            dataType:"JSON",
+            data:JSON.stringify(except_pw_Data),
+            cache:false,
+            async:false,
+            contentType: 'application/json; charset=utf-8',
+            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url:"/culturePark/modiInfoProcWithoutPW.do",
+            success: function (data) {
+                console.log(data);
+                if (data == 1) {
+                    alert("수정완료!");
+                    location.replace("/myPage.do");
+                } else {
+                    alert("수정 실패!");
+                }
+            }
+        });
+    }
+
+
+    function modi_all(mb_seq, mb_pw, mb_nick, mb_gender, phoneStr) {
+        var all_Data = {"mb_seq": mb_seq, "mb_pw":mb_pw, "mb_nick":mb_nick
+                        , "mb_gender":mb_gender, "mb_tel":phoneStr }
+        $.ajax({
+            type:"post",
+            dataType:"JSON",
+            data:JSON.stringify(all_Data),
+            cache:false,
+            async:false,
+            contentType: 'application/json; charset=utf-8',
+            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url:"/culturePark/modiInfoProcWithPW.do",
+            success: function (data) {
+                console.log(data);
+                if(data == 1){
+                    alert("수정 완료!");
+                    location.replace("/myPage.do")
+                }else{
+                    alert("수정 실패!");
+                }
+            }
+        });
+    }
+
+
+    function checkNickExist(mb_nick) {
+        $.ajax({
+            type: "post",
+            dataType: "text",
+            url:"/culturePark/chkNickProc.do",
+            async:false,
+            cache:false,
+            data:{mb_nick:mb_nick},
+            success: function (data) {
+                chk_nick_result = data;
+
+                if (chk_nick_result === "able") {
+                    alert("사용 가능한 닉네임입니다");
+                } else {
+                    alert("사용 불가능한 닉네임입니다");
+                }
+            },
+
+        });
+    }
+
+
+
+
+
+
+

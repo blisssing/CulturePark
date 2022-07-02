@@ -14,6 +14,7 @@
     <style><%@include file="/resources/user/css/member_find_id.css" %></style>
 
     <title>member find id </title>
+
 </head>
 
 <body>
@@ -52,16 +53,16 @@
                 <div class="find_all_section">
                     <div class="find_section">
                         <div class="find_label">이름</div>
-                        <input type="textField" class="find_value" id="find_name_value">
+                        <input type="textField" class="find_value" id="find_name_value" name="mb_name">
                     </div>
 
                     <div class="find_section">
                         <div class="find_label">주민번호 앞 6자리</div>
-                        <input type="textField" class="find_value" id="find_jumin_value">
+                        <input type="textField" class="find_value" id="find_jumin_value" name="mb_birth">
                     </div>
 
                     <div class="ok_btn_section">
-                        <input class="ok_btn find_id_ok_btn" id="id_ok_btn" type="submit" value="확인">
+                        <input class="ok_btn find_id_ok_btn" id="id_ok_btn" type="button" value="확인">
                     </div>
                 </div>
 
@@ -71,6 +72,8 @@
 </div>  <%-- /mainContainer --%>
 
 </body>
+
+
 
 <%-- script --%>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>

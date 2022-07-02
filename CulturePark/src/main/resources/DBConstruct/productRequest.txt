@@ -1,0 +1,42 @@
+CREATE SEQUENCE SEQ_PRODUCT_REQUEST
+INCREMENT 1
+MINVALUE 1
+START 1
+CACHE 1;
+
+drop TABLE PD_CREATE_REQUEST;
+
+CREATE TABLE PD_CREATE_REQUEST
+(
+    PDR_SEQ             INTEGER PRIMARY KEY DEFAULT NEXTVAL('SEQ_PRODUCT_REQUEST'),
+    PT_SEQ              INTEGER     NOT NULL,
+    PDR_STATUS          varchar(10)         DEFAULT 'NEW',
+    PDR_TITLE           varchar(30) NOT NULL,
+    PDR_GENRE1          VARCHAR(10) NOT NULL,
+    PDR_GENRE2          varchar(10),
+    PDR_TYPESTR         varchar(50) NOT NULL,
+    PDR_TIMETYPE        varchar(5)  NOT NULL,
+    PDR_OPENTIME        integer,
+    PDR_CLOSETIME       integer,
+    PDR_CLOSEDAY        varchar(30) NOT NULL,
+    PDR_TAG             varchar(100)        DEFAULT 'NONE',
+    PDR_THUMBNAIL_PATH  varchar(60) NOT NULL,
+    PDR_DESCRIPT_PATH   varchar(60) NOT NULL,
+    PDR_MAINIMG_PATH    varchar(60) NOT NULL,
+    PDR_REQUESTSTATUS   varchar(10)         DEFAULT 'NONE',
+    PDR_STARTDATE       timestamp   NOT NULL,
+    PDR_CLOSEDATE       timestamp   NOT NULL,
+    PDR_MAXTICKET       INTEGER     default 0,
+    PDR_request_manager varchar(40) not null,
+    PDR_requestDate     timestamp   not null
+
+);
+
+select * from PD_CREATE_REQUEST;
+
+alter table PD_CREATE_REQUEST add column PDR_MAINIMG_PATH varchar(60);
+
+commit
+
+
+<진희>6.30 변경

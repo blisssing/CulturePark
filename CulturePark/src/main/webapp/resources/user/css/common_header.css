@@ -173,9 +173,9 @@ style attribute {
     color: orange;
 }
 
-
-
-
+#logoutText {
+    cursor:pointer;
+}
 
 
 @media screen and (min-width: 500px){

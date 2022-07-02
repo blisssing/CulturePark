@@ -43,18 +43,28 @@
                                 </div>
                                 <form class="user">
                                     <div class="form-group">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input name="loginType" type="radio" value="partner">
+                                                <span class="context_head">파트너 계정</span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input name="loginType" type="radio" value="manager">
+                                                <span class="context_head">매니저 계정</span>
+                                            </div>
+                                        </div>
                                         <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               id="InputEmail" aria-describedby="emailHelp"
                                                placeholder="Enter Email Address...">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Password">
+                                               id="InputPassword" placeholder="Password">
                                     </div>
 
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                    <button type="button" class="login_btn btn btn-primary btn-user btn-block">
                                         Login
-                                    </a>
+                                    </button>
 
                                     <hr>
 
@@ -92,6 +102,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/resources/common/js/common/sb-admin-2.min.js"></script>
+<script src="/resources/manager/js/m_login.js"></script>
 
 </body>
 

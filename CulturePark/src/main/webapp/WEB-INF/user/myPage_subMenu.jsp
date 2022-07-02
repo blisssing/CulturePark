@@ -1,6 +1,6 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%-- ----------myPage---------- --%>
 <div class="myPage">
 
     <%--1.라벨--%>
@@ -11,9 +11,17 @@
     <%--2.회원 등급--%>
     <div class="myInfo_txt">
         <div class="info_descript">
-            <span class="myName">김진아</span> 님은 현재<br>
+            <c:set var="name" value="${sessionScope.member.mb_name}" />
+            <c:set var="grade" value="${sessionScope.member.mb_grade}" />
+
+            <span class="myName">${name}</span> 님은 현재<br>
             <a href="/levelPage.do" class="grade" target="_blank">
-                <div class="culture_level">Culture BEGINNER</div>
+            <c:set var="gradeText" value="${fn:split(grade,'_')}" />
+                <c:set var="first" value="${gradeText[0]}"/>
+                <c:set var="second" value="${gradeText[1]}"/>
+                <c:set var="total_str" value="${first} ${second}"/>
+
+            <div class="culture_level">${total_str}</div>
             </a>
             <span>회원입니다</span>
         </div>
@@ -39,14 +47,13 @@
 </div> <%-- myPage --%>
 
 
-<%-- ----------- subMenu -------- --%>
-
+<%-- ----------- subMenu ----------%>
 
 <div class="subMenu">
     <ul class="sub_section">
         <li><a class="subList" href="/myTicket.do">마이티켓</a></li>
         <li><a class="subList" href="/likeList.do">찜목록</a></li>
         <li><a class="subList" href="/myReview.do">마이리뷰</a></li>
-        <li><a class="subList" href="#">회원정보</a></li>
+        <li><a class="subList" href="/myInfo.do">회원정보</a></li>
     </ul>
 </div> <%-- /subMenu --%>

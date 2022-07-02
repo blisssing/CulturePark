@@ -91,8 +91,8 @@
                                         <c:set var="count" value="${count +1}"/>
                                         <tr>
                                         <form class="row_frm">
-                                            <input type="hidden" class="comp_num" value="${vo.comp_seq}">
-                                            <input type="hidden" class="manager_num" value="${vo.mg_seq}">
+                                            <input type="hidden" name="comp_seq" class="comp_num" value="${vo.comp_seq}">
+                                            <input type="hidden" name="mg_seq"   class="manager_num" value="${vo.mg_seq}">
                                             <td class="seq">${count}</td>
                                             <td class="comp">투진컴퍼니</td>
                                             <td class="name">${vo.mg_name}</td>
@@ -117,7 +117,7 @@
                                                 </div>
                                             </td>
                                         </form>
-                                    </tr>
+                                        </tr>
                                     </c:forEach>
 
                                 </tbody>
@@ -193,8 +193,6 @@
                                 </button>
                             </div>
                             <form class="user modal-body frm_delete_modal">정말로 삭제하시길 원한다면 입력칸에 '매니저를 삭제합니다'를 입력해주세요
-
-                                <input type="hidden" name="mg_seq"  class="mg_seq" />
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user check_text" id="decideDelete"
                                            placeholder="입력해주세요">

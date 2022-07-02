@@ -1,6 +1,7 @@
 package kg.twojin.culturePark.admin.controller;
 
 
+
 import kg.twojin.culturePark.common.dao.AdminDAO;
 import kg.twojin.culturePark.admin.service.AdminManageService;
 import kg.twojin.culturePark.common.vo.AdminVO;
@@ -19,9 +20,6 @@ import java.util.List;
 
 @Controller
 public class Account_Ad_CreateController {
-
-    @Autowired
-    AdminDAO adminDAO;
 
     @Autowired
     AdminManageService adminManageService;
@@ -83,8 +81,7 @@ public class Account_Ad_CreateController {
             // 암호화 한 비밀번호를 vo에 셋팅
             adminVO.setAd_pw(encryptPassword);
 
-        //  권환 확인
-
+            //  권환 확인
             int chk_len = check_is.size();
             String chk_str = "";
 
@@ -102,7 +99,6 @@ public class Account_Ad_CreateController {
 
 
         // 생성 날짜 셋팅
-
         Date date = new Date();
         adminVO.setAd_createDate(date);
 

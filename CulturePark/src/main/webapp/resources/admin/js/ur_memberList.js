@@ -1,4 +1,41 @@
 $(document).ready(function () {
+    // Todo : 활성 - 비활성 토글 적용
+
+    var result="";
+    pauseResult="";
+
+    $('input[name=btn_active]').click(function () {
+        var eventRow = $(this).closest('tr');
+        var mb_seq = eventRow.children('.user_num').val();
+        var btn_active = $('input[name=btn_active]');
+        var value = btn_active.val();
+
+        if (value === 'active') {
+            btn_active.val('inactive');
+        } else {
+            btn_active.val('active');
+        }
+        var new_val = btn_active.val();
+        console.log(new_val);
+        var map = {"mb_seq":mb_seq,"mb_status": new_val};
+
+        $.ajax({
+            type:"post",
+            dateType:"JSON",
+            data:JSON.stringify(map),
+            cache:false,
+            async:false,
+            contentType:'application/json; charset=utf-8',
+            traditional:true,
+            url:"/changeMbActive.ado",
+            success: function (data) {
+                console.log('결과 실행');
+            }
+
+        });
+
+
+    });
 
     $('.btn_modi_info').click(function () {
         clearUserInfo();
@@ -18,13 +55,37 @@ $(document).ready(function () {
         modal_now.modal({});
     });
 
-
     //  임시 키 발급
     $('.btn_temp_key').click(function () {
         selectedRow = $(this).closest('tr');
         //Todo :
         modal_now = $('#TempKeyModal');
         modal_now.modal({});
+    });
+
+    $('.btn_finalTempKey').click(function () {
+        var mb_email = selectedRow.children('.email').text();
+        var mb_nick = selectedRow.children('.nick').text();
+        var mb_data = {"mb_email": mb_email, "mb_nick":mb_nick};
+        console.log('지정된 이메일 : ' + mb_email);
+
+        $.ajax({
+            type: "post",
+            data: JSON.stringify(mb_data),
+            dateType: "JSON",
+            traditional:true,
+            cache: false,
+            async: false,
+            contentType: 'application/json; charset=utf-8',
+            url: "/getTemporaryKey.ado",
+            success: function (data) {
+                alert("성공적으로 발급에 성공했습니다.")
+            },
+            error: function () {
+                alert("발급을 실패했습니다!");
+            }
+    });
+        modal_now.modal('hide');
     });
 
     // 결제 내역 조회
@@ -38,6 +99,7 @@ $(document).ready(function () {
     $('.btn_dicip').click(function () {
         selectedRow = $(this).closest('tr');
         modal_now = $('#DicipModal');
+        $('.userEmail').text(selectedRow.children('.email').text());
         modal_now.modal({});
     });
 
@@ -45,6 +107,7 @@ $(document).ready(function () {
     $('.select_dicip').change(function () {
         var inputBox = $('#DicipReason');
         var selectedCase = $(this).val();
+
         if (selectedCase === 'direct') {
             $('#DicipReason').val('');
             inputBox.removeAttr('disabled');
@@ -56,11 +119,45 @@ $(document).ready(function () {
     });
 
     $('.btn_finalDicip').click(function () {
+        var mb_seq = selectedRow.children('.user_num').val();
         var reason = $('#DicipReason').val();
         var level = $('#SelectLevel').val();
-        alert('단계 : ' + level + "\n reason : " + reason);
-    });
+        console.log(mb_seq, reason, level);
 
+
+        var resultSet = {"mb_seq": mb_seq , "pause_reason": reason, "pause_date": level};
+
+        $.ajax({
+            type:"post",
+            datatype: "json",
+            url:"/setMemberPause.ado",
+            data: JSON.stringify(resultSet),
+            contentType:"application/json; charset=utf-8",
+            async:false,
+            cache:false,
+            success: function (data) {
+                // JSON 데이터
+                console.log(data);
+                console.log(pauseResult);
+                var json = JSON.parse(data);
+                $.each(json, function (k, v) {
+                    if (v === 'success') {
+                        alert("성공했습니다!");
+                        closeModal(modal_now);
+                    } else {
+                        alert("실패했습니다");
+                    }
+
+                });
+                closeModal(modal_now);
+            },
+            error: function () {
+                alert("에러!");
+                closeModal(modal_now);
+            }
+
+        });
+    });
 
     $('.btn_report').click(function () {
         selectedRow = $(this).closest('tr');
@@ -70,14 +167,7 @@ $(document).ready(function () {
 
 
 
-    $('.btn_finalTempKey').click(function () {
-        if (setTempKey()) {
-            alert("임시비밀번호를 성공적으로 발급했습니다!");
-        } else {
-            alert("동작 실패!!");
-        }
-        modal_now.modal('hide');
-    });
+
 
 
     // common
@@ -100,10 +190,7 @@ $(document).ready(function () {
         $('#JoinDate').text('');
     }
 
-    //Todo : 임시비밀번호 발급하는 컨트롤러 작성해줄 것
-    function setTempKey() {
-        return true;
-    }
+
 
     function getReport(obj) {
 

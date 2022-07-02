@@ -72,15 +72,13 @@
 
 .pd_name_section {
     height: 38px;
-
-
 }
 
 .schedule_section {
     display: flex;
 }
 
-.pd_name_section {
+.pd_name_section .sectionType1 {
     display: inline-block;
     width:160px;
 

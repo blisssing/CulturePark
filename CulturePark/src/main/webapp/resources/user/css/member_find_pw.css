@@ -108,11 +108,12 @@
    /* width: 21%;*/
     margin-left: 6px;
     font-size: 0.7rem;
+    cursor: pointer;
 }
 
-.certifyTime_section {
+.certifyTime {
     width: 27%;
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 0.8rem;
     text-align: center;
     margin-top: 5px;
@@ -130,15 +131,20 @@
     color: white;
     background-color: black;
     font-size: 0.7rem;
-
+    cursor: pointer;
 }
 
+.code_chk_ok {
+    margin-left: 10px;
+    cursor: pointer;
+}
 
+.time{
+    margin-left: 5px;
+    margin-top: 5px;
+}
 
 @media screen and (min-width:1200px) {
-    .back_section {
-        display: none;
-    }
 
     .content_container{
         display: flex;

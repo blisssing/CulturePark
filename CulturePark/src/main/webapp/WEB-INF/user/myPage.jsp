@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -22,11 +22,22 @@
 
     <title>myPage</title>
 
+    <%
+        String loginChk_ = (String) session.getAttribute("loginChk");
+
+        if (loginChk_ == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <% }
+    %>
+
 </head>
 <body>
 
 <%-- Main --%>
-<div class="mainContainer">
+    <div class="mainContainer">
 <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
     <%-- haader --%>
     <div class="header_container">
@@ -41,7 +52,6 @@
 
         <%-- 내부 영역을 한 번 감싸주는 영역.  --%>
 
-            <div class="innerContainer">
         <div class="innerContainer">
 
             <%-- subMenu --%>

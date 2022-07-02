@@ -1,3 +1,8 @@
+.findId, .findPw, .join {
+    cursor: pointer;
+}
+
+
 .back_section {
     display: flex;
     width: 100%;
@@ -31,7 +36,7 @@
 
 .sectionLine_thin {
     border-bottom: 0.5px solid gray;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 
@@ -155,7 +160,6 @@ m_find {
     float: right;
 }
 
-/* display : none */
 .div_row_section {
     display: none;
 }
@@ -179,9 +183,6 @@ m_find {
 
 @media screen and (min-width: 500px){
 
-    .back_section {
-        display: none;
-    }
 
     .function_section {
         display: none;
@@ -292,6 +293,7 @@ m_find {
         width: 90%;
         height: 80px;
     }
+
 
     /* 가로 영역 */
     .section_two {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.pause">
+
+    <insert id="insertPause" parameterType="pauseVO">
+        INSERT INTO MEMBER_PAUSE
+            (PAUSE_REASON,PAUSE_PERIOD,MB_SEQ)
+        VALUES
+            (#{pause_reason},#{pause_period},#{mb_seq});
+    </insert>
+
+</mapper>
