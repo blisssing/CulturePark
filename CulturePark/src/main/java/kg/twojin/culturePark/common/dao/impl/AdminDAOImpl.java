@@ -82,9 +82,24 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
+    public AdminVO selectAdminEmailTel (int ad_seq) {
+        AdminVO adminVO = null;
+        try {
+            adminVO = sqlSessionTemplate.selectOne("mapper.admin.selectAdminEmailTel", ad_seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return adminVO;
+    }
+
+
+    @Override
     public List listAdmins() {
         List<AdminVO> adminList = null;
         adminList = sqlSessionTemplate.selectList("mapper.admin.selectAllAdmin");
         return adminList;
     }
+
+
 }

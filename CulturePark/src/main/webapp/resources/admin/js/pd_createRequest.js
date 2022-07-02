@@ -19,6 +19,19 @@ $(document).ready(function () {
         $('#request_code').text(pd_seq);
         $('#comp_name').text(eventRow.children('.comp_name').text());
         $('#pd_title').text(eventRow.children('.pd_title').text());
+        $('#pd_class_1').text(eventRow.children('.pd_class').text());
+
+        var pd_class2 = eventRow.children('.pd_class2').val();
+
+        if (pd_class2.trim() === '' || pd_class2.trim() === null) {
+            $('#pd_class_2').text('');
+        } else {
+            $('#pd_class_2').text(pd_class2);
+        }
+
+
+        $('#start_date').text(eventRow.children('.start_date').val());
+        $('#end_date').text(eventRow.children('.end_date').val());
 
         if (pd_timeType === 'day') {
             $('#pd_dayTicket').text($('input[name=pd_maxTicket]').val());
@@ -184,7 +197,6 @@ $(document).ready(function () {
     });
 
 
-
     $('.btn_modal_close').click(function () {
         // clearDetail();
         location.reload();
@@ -219,7 +231,6 @@ $(document).ready(function () {
 
     function getTypeInfo(str) {
         var splitList = str.split('/');
-        var keyList = new Array();
         var cloneList;
         console.log(str);
 

@@ -32,7 +32,7 @@
     padding: 10px 10px;
 }
 
-.pd_name_label {
+.pd_name_label, .label_type1{
     margin-bottom: 5px;
     border-bottom: 1px solid #e3e6f0;
 }
@@ -43,10 +43,10 @@
     margin: 10px 10px;
 }
 
-.pd_name_text {
+.pd_name_text, .inputType1{
     width: 450px;
     height: 29px;
-   margin: 10px 10px;
+    margin: 10px 10px;
 }
 
 .card-body {

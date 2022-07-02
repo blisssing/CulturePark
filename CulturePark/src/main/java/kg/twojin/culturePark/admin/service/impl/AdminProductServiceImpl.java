@@ -1,12 +1,11 @@
 package kg.twojin.culturePark.admin.service.impl;
 
 import kg.twojin.culturePark.admin.service.AdminProductService;
-import kg.twojin.culturePark.common.dao.AdminLogDAO;
+import kg.twojin.culturePark.common.dao.ProductCreateLogDAO;
 import kg.twojin.culturePark.common.dao.ProductDAO;
 import kg.twojin.culturePark.common.vo.ProductLogVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +18,7 @@ public class AdminProductServiceImpl implements AdminProductService {
     ProductDAO productDAO;
 
     @Autowired
-    AdminLogDAO adminLogDAO;
+    ProductCreateLogDAO productCreateLogDAO;
 
 
     @Override
@@ -38,7 +37,7 @@ public class AdminProductServiceImpl implements AdminProductService {
         resultInsertToDB = productDAO.insertNewProduct(pdr_seq);
 
         if (resultInsertToDB == 1) {
-            resultWriteLogToDB = adminLogDAO.insertLogToPCL(productLogVO);
+            resultWriteLogToDB = productCreateLogDAO.insertLogToPCL(productLogVO);
         } else {
             System.out.println("오류지점 1 ");
         }
@@ -73,7 +72,7 @@ public class AdminProductServiceImpl implements AdminProductService {
         int finalChk = 0;
 
         if (resultChangeStatus == 1) {
-            finalChk = adminLogDAO.insertLogToPCL(productLogVO);
+            finalChk = productCreateLogDAO.insertLogToPCL(productLogVO);
         }
 
         System.out.println("2: "+ finalChk);

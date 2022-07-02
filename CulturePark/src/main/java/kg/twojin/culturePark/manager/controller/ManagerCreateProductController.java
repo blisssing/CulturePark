@@ -1,17 +1,16 @@
 package kg.twojin.culturePark.manager.controller;
 
-import kg.twojin.culturePark.common.vo.ManagerVO;
-import kg.twojin.culturePark.common.vo.ProductRequestVO;
-import kg.twojin.culturePark.common.vo.ProductVO;
+import kg.twojin.culturePark.common.vo.*;
 import kg.twojin.culturePark.manager.service.ManagerProductManageService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @RestController
@@ -19,6 +18,7 @@ public class ManagerCreateProductController {
 
     @Autowired
     ManagerProductManageService managerProductManageService;
+
 
     @RequestMapping(value = "requestNewProduct.mdo")
     public int createNewProduct(HttpServletResponse response, HttpServletRequest request,
@@ -60,17 +60,27 @@ public class ManagerCreateProductController {
 
     @RequestMapping(value = "pdCreateRequestList.mdo")
     public ModelAndView getPdCreateRequestList(HttpServletResponse response, HttpServletRequest request) {
+        // Todo : 바꿔줄 것
 
-        ManagerVO managerVO = (ManagerVO) request.getSession().getAttribute("manager");
+        // ***********
+
+        //ManagerVO managerVO = (ManagerVO) request.getSession().getAttribute("manager");
+        //int pt_seq = managerVO.getComp_seq();
+
+        // ------------
+        int pt_seq = 1;
         ModelAndView mv = new ModelAndView();
+        // ------------
 
-        int pt_seq = managerVO.getComp_seq();
         List<ProductRequestVO> productRequestVOList = null;
-
         productRequestVOList = managerProductManageService.getAllProductCreateRequestList(pt_seq);
 
+        for (int i = 0; i < productRequestVOList.size(); i++) {
+            System.out.println(productRequestVOList.get(i).toString());
+        }
+
         if (productRequestVOList != null) {
-            mv.addObject("productRequestList",productRequestVOList);
+            mv.addObject("productRequestList", productRequestVOList);
             mv.setViewName("pd_createRequestList");
         } else {
             mv.setViewName("common_errorPage_manager");
@@ -78,5 +88,37 @@ public class ManagerCreateProductController {
         }
 
         return mv;
+    }
+
+    @RequestMapping(value = "/getProductRequestLog.mdo")
+    public void getProductRequestLog(@RequestParam int pdr_seq, HttpServletResponse response, HttpServletRequest request)
+                                    throws IOException {
+
+        System.out.println(pdr_seq);
+
+        ProductLogVO productLogVO1 = managerProductManageService.getProductLogByPdrSeq(pdr_seq);
+
+        System.out.println(productLogVO1.toString());
+
+
+        JSONObject json = new JSONObject();
+        String resultStr = null;
+        if (productLogVO1 != null) {
+            resultStr = "success";
+            json.put("ad_email", productLogVO1.getAd_email());
+            json.put("ad_tel", productLogVO1.getAd_tel());
+            json.put("pcl_comments", productLogVO1.getPcl_comments());
+        } else {
+            resultStr = "failed";
+        }
+
+
+        System.out.println(resultStr);
+
+        json.put("result", resultStr);
+
+        PrintWriter writer = response.getWriter();
+        writer.print(json);
+
     }
 }

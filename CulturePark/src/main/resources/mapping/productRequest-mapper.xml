@@ -30,6 +30,32 @@
         <result property="pd_mainImg_PATH" column="PDR_MAINIMG_PATH"></result>
     </resultMap>
 
+    <resultMap id="productRequestMap2" type="productRequestVO">
+        <result property="pdr_title" column="pdr_title"></result>
+        <result property="pdr_genre1" column="pdr_genre1"></result>
+        <result property="pdr_genre2" column="pdr_genre2"></result>
+        <result property="pdr_timeType" column="pdr_timetype"></result>
+        <result property="pdr_closeDay" column="pdr_closeday"></result>
+        <result property="pdr_tag" column="pdr_tag"></result>
+        <result property="pdr_thumbnail_PATH" column="pdR_thumbnail_PATH"></result>
+        <result property="pdr_descript_PATH" column="pdR_descript_path"></result>
+        <result property="pdr_typeStr" column="pdr_typestr"></result>
+        <result property="pdr_requestStatus" column="pdr_requeststatus"></result>
+        <result property="pdr_status" column="pdr_status"></result>
+        <result property="pdr_startDate" column="pdr_startdate"></result>
+        <result property="pdr_closeDate" column="PDR_CLOSEDATE"></result>
+        <result property="pt_seq" column="pt_seq"></result>
+        <result property="pdr_seq" column="pdr_seq"></result>
+        <result property="pdr_closeTime" column="PDR_CLOSETIME"></result>
+        <result property="pdr_openTime" column="PDR_OPENTIME"></result>
+        <result property="pdr_maxTicket" column="PDR_MAXTICKET"></result>
+        <result property="pdr_request_manager" column="PDR_request_manager"></result>
+        <result property="pdr_requestDate" column="PDR_requestDate"></result>
+        <result property="pdr_mainImg_PATH" column="PDR_MAINIMG_PATH"></result>
+        <result property="pdr_minAge" column="pdr_minage"></result>
+        <result property="pdr_place" column="pdr_place"></result>
+    </resultMap>
+
     <insert id="insertProduct" parameterType="productVO">
         <![CDATA[
         InSERT INTO PD_CREATE_REQUEST (PDR_TITLE, PDR_GENRE1, PDR_GENRE2, PDR_TIMETYPE, PDR_CLOSEDAY,
@@ -49,15 +75,11 @@
         select * from PD_CREATE_REQUEST;
     </select>
 
-    <select id="selectAllNewProductByPtNum" resultType="int">
-
-    </select>
-
-    <select id="selectProductRequestBySeq" parameterType="_int"  resultType="productRequestVO">
+    <select id="selectProductRequestByPtSeq" parameterType="int"  resultType="productRequestVO">
         <![CDATA[
         select *
         from PD_CREATE_REQUEST
-        WHERE PDR_SEQ = #{pdr_seq};
+        WHERE pt_seq= #{pt_seq};
         ]]>
 
     </select>

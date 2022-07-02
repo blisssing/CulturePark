@@ -16,6 +16,9 @@ $(document).ready(function () {
     var pd_second_genre;
     var pd_title;
 
+    var pd_place;
+    var pd_minAge;
+
     var pd_timeType;
     var pd_maxTicket;
 
@@ -182,7 +185,13 @@ $(document).ready(function () {
 
         // 작품명
         pd_title = $('.pd_name_text').val();
-        var jsonMap = new Map();
+
+        // 장소 , 최소 연령
+
+        pd_place = $('.pd_place').val();
+        pd_minAge = $('input[name=slc_age]:selected').val();
+
+
 
         // 티켓 연령 유형
         var typeChkList =$('input[name=pd_ticketType]:checked');
@@ -277,6 +286,8 @@ $(document).ready(function () {
         }
 
         jsonObj.pd_title = pd_title;
+        jsonObj.pd_place = pd_place;
+        jsonObj.pd_minAge = pd_minAge;
         jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
         jsonObj.pd_descript_PATH = pd_descript_PATH;
         jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;

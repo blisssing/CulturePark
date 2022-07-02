@@ -1,13 +1,13 @@
 package kg.twojin.culturePark.common.dao.impl;
 
-import kg.twojin.culturePark.common.dao.AdminLogDAO;
+import kg.twojin.culturePark.common.dao.ProductCreateLogDAO;
 import kg.twojin.culturePark.common.vo.ProductLogVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("adminLogDAO")
-public class AdminLogDAOImpl implements AdminLogDAO {
+@Service("productCreateLogDAO")
+public class productCreateLogDAOImpl implements ProductCreateLogDAO {
 
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
@@ -23,5 +23,17 @@ public class AdminLogDAOImpl implements AdminLogDAO {
             throw e;
         }
         return result;
+    }
+
+    @Override
+    public ProductLogVO selectProductLogByPdrSeq(int pdr_seq) {
+        ProductLogVO productLogVO = null;
+        try {
+            productLogVO = sqlSessionTemplate.selectOne("mapper.adminLog.selectProductLogByPdrSeq", pdr_seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return productLogVO;
     }
 }

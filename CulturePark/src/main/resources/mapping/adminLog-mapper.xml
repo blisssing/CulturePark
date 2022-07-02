@@ -6,6 +6,13 @@
 
 <mapper namespace="mapper.adminLog">
 
+<select id="selectProductLogByPdrSeq" parameterType="int" resultType="productLogVO">
+    <![CDATA[
+    SELECT *
+    FROM PRODUCT_CREATE_LOG
+    WHERE PDR_SEQ = #{pdr_seq};
+    ]]>
+</select>
 <insert id="insertLogToPCL" parameterType="productLogVO">
     INSERT INTO PRODUCT_CREATE_LOG (PD_SEQ, PT_SEQ,  PDR_SEQ, AD_SEQ, PCL_STATUS,
                                     PCL_COMMENTS)
