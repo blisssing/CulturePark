@@ -31,15 +31,22 @@
     <![CDATA[
         SELECT *
         FROM ADMIN_ACCOUNT
-        WHERE AD_EMAIL = #{ad_email};
+        WHERE AD_EMAIL = #{ad_email}
     ]]>
     </select>
 
     <select id="selectAdminInfo" resultType="adminVO" parameterType="int">
-        SELECT AD_SEQ as ad_seq, AD_EMAIL as ad_email, AD_TEL as ad_tel, AD_SEQ as ad_seq, ad_name as ad_name
+        SELECT AD_SEQ as ad_seq, AD_EMAIL as ad_email, AD_TEL as ad_tel, ad_name as ad_name
         FROM ADMIN_ACCOUNT
         WHERE AD_SEQ = #{ad_seq};
     </select>
+
+    <select id="selectAdminEmailTel" resultType="adminVO" parameterType="int">
+        SELECT AD_SEQ AS ad_seq, AD_EMAIL AS ad_email, AD_TEL AS ad_tel
+        FROM ADMIN_ACCOUNT
+        WHERE AD_SEQ = #{ad_seq};
+    </select>
+
 
     <select id="updateAdminWithPw" parameterType="adminVO">
         UPDATE ADMIN_ACCOUNT
@@ -52,7 +59,6 @@
         SET ad_tel=#{ad_tel},ad_is=#{ad_is}, ad_depart=#{ad_depart}
         WHERE ad_seq=#{ad_seq};
     </select>
-
 
     <insert id="insertAdmin" parameterType="adminVO">
         INSERT INTO ADMIN_ACCOUNT

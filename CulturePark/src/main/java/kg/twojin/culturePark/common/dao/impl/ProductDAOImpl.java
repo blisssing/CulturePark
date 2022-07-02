@@ -38,12 +38,13 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List selectAllOnwPdCreateRequest(int pt_num) {
         List<ProductRequestVO> productRequestVOList = null;
+        System.out.println(pt_num);
 
         try {
-            productRequestVOList = sqlSessionTemplate.selectList("mapper.productRequest.selectProductRequestBySeq", pt_num);
+            productRequestVOList = sqlSessionTemplate.selectList("mapper.productRequest.selectProductRequestByPtSeq", pt_num);
         } catch (Exception e) {
             e.printStackTrace();
-            throw e;
+            System.out.println("오류확인");
         }
 
         return productRequestVOList;

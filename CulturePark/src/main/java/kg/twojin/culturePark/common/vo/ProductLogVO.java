@@ -8,5 +8,5 @@ import lombok.ToString;
 @ToString
 public class ProductLogVO {
     int pd_seq, pt_seq, ad_seq, pdr_seq;
-    String ad_email, pt_comp_name, pd_title, pcl_status, pcl_comments;
+    String ad_email, pt_comp_name, pd_title, pcl_status, pcl_comments, ad_tel;
 }

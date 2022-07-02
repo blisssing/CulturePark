@@ -110,6 +110,24 @@
                                     <div class="pd_name_label">작품명</div>
                                     <input type="text" class="pd_name_text">
                                 </div>
+
+                                <div class="sectionType1">
+                                    <div class="label_type1">장소</div>
+                                    <input type="text" class="pd_space inputType1">
+                                </div>
+
+                                <div class="sectionType1">
+                                    <div class="label_type1">최소 연령</div></div>
+                                    <select name="slc_age" class="pd_minAge inputType1">
+                                        <option name="slc_age" value="-1" selected>전체 이용가</option>
+                                        <option name="slc_age" value="12">만 12세 이상</option>
+                                        <option name="slc_age" value="15">만 15세 이상</option>
+                                        <option name="slc_age" value="19">만 19세 이상</option>
+                                    </select>
+
+                                </div>
+
+
                             </div>
 
                             <div class="section_div">
@@ -327,7 +345,6 @@
                                         </tr>
                                     </table>
                                 </div>
-
                             </div>
                             <div class="section_div_no_row">
                                 <div class="section_label">휴관 요일</div>

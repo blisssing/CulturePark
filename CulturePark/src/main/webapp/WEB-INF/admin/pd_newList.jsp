@@ -131,6 +131,10 @@
                                             <input type="hidden" class="pd_closeDay" value="${productVO.pd_closeDay}" name="pd_closeDay"/>
                                             <input type="hidden" class="pt_seq" value="${productVO.pt_seq}" name="pt_seq"/>
                                             <input type="hidden" class="pd_request_manager" value="${productVO.pd_request_manager}" name="pd_request_manager"/>
+                                            <input type="hidden" class="pd_class2" value="${productVO.pd_genre2}"/>
+                                            <input type="hidden" class="start_date" value="${formatstartDate}"/>
+                                            <input type="hidden" class="end_date" value="${formatendDate}"/>
+
 
                                             <td class="seq">${count}</td>
                                             <td class="comp_name">${partnerList[varStatus.index].pt_comp_name}</td>
@@ -186,25 +190,25 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <div class="form-head">분야</div>
-                                        <div class="form-control form-control-user modal_content_div"  id="pd_class_1" >전시</div>
+                                        <div class="form-control form-control-user modal_content_div"  id="pd_class_1" ></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-head">장르</div>
-                                        <div class="form-control form-control-user modal_content_div" id="pd_class_2">퓨전</div>
+                                        <div class="form-control form-control-user modal_content_div" id="pd_class_2"></div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <div class="form-head">시작일</div>
-                                        <div class="form-control form-control-user modal_content_div" id="start_date" >2022.03.03</div>
+                                        <div class="form-control form-control-user modal_content_div" id="start_date" ></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-head">종료일</div>
-                                        <div class="form-control form-control-user modal_content_div" id="end_date" >2022.06.02</div>
+                                        <div class="form-control form-control-user modal_content_div" id="end_date" ></div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><%--Todo : 추가적으로 만들어줄 것!!--%>
                                         <div class="form-head">장소</div>
                                         <div class="form-control form-control-user modal_content_div" id="pd_place" >장소</div>
                                     </div>

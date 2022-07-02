@@ -21,11 +21,12 @@ public class ProductVO {
             pd_typeStr,         // 티켓유형 문자열 V
             pd_requestStatus,   // 요청상태 V
             pd_status,
-            pd_request_manager;
+            pd_request_manager,
+            pd_place;
 
     Date pd_startDate, pd_closeDate, pd_requestDate; //V
 
-    int pd_seq, pt_seq, pd_openTime, pd_closeTime, pd_maxTicket; //V
+    int pd_seq, pt_seq, pd_openTime, pd_closeTime, pd_maxTicket, pd_minAge; //V
 
 
 
