@@ -13,32 +13,32 @@
         </div>
         <div class="function_section">
             <%
-            String loginChk_ = (String) session.getAttribute("loginChk");
+            String loginChk= (String) session.getAttribute("loginChk");
 
-            if (loginChk_ == null) {
+          /*  if (loginChk == null) {*/
             %>
+                <c:set var="loginId" value="${sessionScope.member.mb_email}"/>
+                <c:set var="loginPw" value="${sessionScope.member.mb_pw}"/>
 
-            <ul class="funcs_pc">
-                <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
-                <li><a href="/join.do" class="func_list" >join</a></li>
-                <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
-            </ul>
+                <c:choose>
+                    <c:when test="${loginId != null && loginPw != null}">
+                        <ul class="funcs_pc">
+                            <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
+                            <li><a href="/join.do" class="func_list" >join</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
+                        </ul>
+                    </c:when>
+                    <c:otherwise>
+                        <ul class="funcs_pc">
+                            <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
+                            <li><a href="/join.do" class="func_list" >join</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
+                        </ul>
+                    </c:otherwise>
+                </c:choose>
 
-            <%
-            } else {
-            %>
-
-            <ul class="funcs_pc">
-                <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
-                <li><a href="/join.do" class="func_list" >join</a></li>
-                <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
-            </ul>
-
-            <%
-            }
-            %>
 
             <div class="funcs_mobile">
 

@@ -272,7 +272,6 @@ public class MemberLoginController {
     }
 
 
-
     @RequestMapping("logout.do") //logout.do에 매핑
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
         /* memberService.logout(session); //세션 초기화 작업*/
@@ -284,5 +283,6 @@ public class MemberLoginController {
         mav.addObject("message","logout"); //변수 저장
         return mav; //페이지로 이동
     }
+
 
 }
