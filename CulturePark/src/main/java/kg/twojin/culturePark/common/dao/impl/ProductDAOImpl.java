@@ -24,6 +24,8 @@ public class ProductDAOImpl implements ProductDAO {
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     Calendar cal = Calendar.getInstance();
 
+    // 상품 요청 조회
+
     @Override
     public List selectAllNewProduct() {
         List<ProductVO> productVOList = null;
@@ -50,6 +52,31 @@ public class ProductDAOImpl implements ProductDAO {
         return productRequestVOList;
     }
 
+
+    // 상품 조회
+    @Override
+    public List selectAllExhibitProductByPtSeq(int pt_seq) {
+        List<ProductVO> productVOList = null;
+        try {
+            productVOList = sqlSessionTemplate.selectList("mapper.productInfo.selectAllExhibitProductList", pt_seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return productVOList;
+    }
+    @Override
+    public List selectAllMuseumProductByPtSeq(int pt_seq) {
+        List<ProductVO> productVOList = null;
+        try {
+            productVOList = sqlSessionTemplate.selectList("mapper.productInfo.selectAllMuseumProductList", pt_seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return productVOList;
+    }
+
     @Override
     public int insertProductRequest(ProductVO productVO) {
         int result = 0;
@@ -60,7 +87,6 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
-
 
     @Override
     @Transactional
@@ -265,7 +291,6 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
-
 
     private boolean chkCloseDay(String [] closeDayStr, String day) {
 
