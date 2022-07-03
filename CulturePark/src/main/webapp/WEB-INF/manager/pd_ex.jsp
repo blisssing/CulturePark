@@ -33,6 +33,76 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
+    <style>
+
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            vertical-align:middle;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {display:none;}
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        p {
+            margin:0px;
+            display:inline-block;
+            font-size:0.8rem;
+            font-weight:bold;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -74,21 +144,40 @@
                                     <tr>
                                         <th>번호</th>
                                         <th>작품명</th>
-                                        <th>요청 날짜</th>
+                                        <th>운영기간</th>
                                         <th>상태</th>
                                         <th>관리자 아이디</th>
                                         <th>기능</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach varStatus="" var="">
+                                    <c:forEach items="${productList}" var="product" varStatus="varStatus">
+                                        <fmt:formatDate var="formatstartDate" value="${product.pd_startDate}" pattern="yyyy-MM-dd"/>
+                                        <fmt:formatDate var="formatendDate" value="${product.pd_closeDate}" pattern="yyyy-MM-dd"/>
                                     <tr>
-                                        <td>1</td>
-                                        <td>라이프 사진전</td>
-                                        <td>2022.05.04</td>
-                                        <td>수락</td>
+                                        <td class="tr_seq">${varStatus.count}</td>
+                                        <td class="pd_title">${product.pd_title}</td>
+                                        <td class="pd_period">${formatstartDate}~${formatendDate}</td>
+                                        <td class="pd_status">
+                                            <label class="switch">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <c:choose>
+                                                <c:when test="${product.stauts eq 'ACTIVE'}">
+                                                    <p class="toggle_p">활성화</p>
+                                                    <p class="toggle_p" style="display:none;">비활성</p>
+                                                </c:when>
+                                            </c:choose>
+                                            <c:otherwise>
+                                                <p class="toggle_p" style="display: none">활성화</p>
+                                                <p class="toggle_p">비활성</p>
+                                            </c:otherwise>
+
+                                        </td>
                                         <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
                                         <td><input type="button" class="td_update_btn" value="수정"></td>
+                                    </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
