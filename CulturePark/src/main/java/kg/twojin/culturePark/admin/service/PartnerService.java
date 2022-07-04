@@ -10,6 +10,8 @@ public interface PartnerService {
 
     List<PartnerVO> getAllPartner();
 
+
+
     ManagerVO createManagerAccount(PartnerVO partnerVO, String encodePw);
 
     int agreePartnerRequest(PartnerVO partnerVO,ManagerVO managerVO);

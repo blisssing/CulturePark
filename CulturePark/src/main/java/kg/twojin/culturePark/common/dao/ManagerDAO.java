@@ -12,6 +12,8 @@ public interface ManagerDAO {
 
     int insertManager(ManagerVO managerVO);
 
+    int insertRootManager(ManagerVO managerVO);
+
     int updateManager(ManagerVO managerVO);
 
     /*int deleteManager(ManagerVO managerVO);*/

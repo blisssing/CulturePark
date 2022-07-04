@@ -13,6 +13,7 @@ public class ManagerManageServiceImpl implements ManagerManageService {
 
     // 세부 구현 페이지
 
+    // Todo : 긴급 수정 2
 
     @Autowired
     private ManagerDAO managerDAO;

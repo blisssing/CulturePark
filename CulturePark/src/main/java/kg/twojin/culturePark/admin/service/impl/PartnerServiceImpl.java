@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service("partnerService")
 public class PartnerServiceImpl implements PartnerService {
-
+//Todo : 긴급 수정
     @Autowired
     PartnerRequestDAO partnerRequestDAO;
 
@@ -40,7 +40,7 @@ public class PartnerServiceImpl implements PartnerService {
     public int agreePartnerRequest(PartnerVO partnerVO, ManagerVO managerVO) {
 
         int result1 =partnerRequestDAO.agreePartnerRequest(partnerVO);
-        int result2 = managerDAO.insertManager(managerVO);
+        int result2 = managerDAO.insertRootManager(managerVO);
 
         if (result2 == 1 && result1 == 1) {
             return 1;

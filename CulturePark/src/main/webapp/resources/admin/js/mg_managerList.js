@@ -4,8 +4,55 @@ $(document).ready(function () {
         clearValuesCompany();
         selectedRow = $(this).closest('tr');
 
-        var comp_num = selectedRow.children('.comp_num');
-        var getInfo_result = getInfoComp(comp_num);
+        var comp_num = selectedRow.children('.comp_num').val();
+        var pt_compName;
+        var pt_ceoName;
+        var pt_ceoNumber;
+        var pt_tel;
+        var pt_email;
+        var pt_agreeDate;
+        var pt_file;
+
+
+        $.ajax({
+            type:"POST",
+            dataType:"text",
+            data:{"comp_num":comp_num},
+            url:"mgInfoModal.ado",
+            async:false,
+            cache:false,
+            success: function(data) {
+                var jsonInfo = JSON.parse(data);
+
+
+                comp_num = jsonInfo.pt_seq;
+                pt_compName = jsonInfo.pt_comp_name;
+                pt_ceoName = jsonInfo.pt_ceo_name;
+                pt_ceoNumber = jsonInfo.pt_ceo_number;
+                pt_tel = jsonInfo.pt_phone;
+                pt_email = jsonInfo.pt_email;
+                pt_agreeDate = jsonInfo.pt_agreeDate;
+                pt_file = jsonInfo.pt_file;
+
+                $('#CompanySeq').text(comp_num);
+                $('#CompanyName').text(pt_compName);
+                $('#PresentName').text(pt_ceoName);
+                $('#CompanyNum').text(pt_ceoNumber);
+                $('#PhoneNumber').text(pt_tel);
+                $('#CompanyEmail').text(pt_email);
+                $('#AgreementDate').text(pt_agreeDate);
+                $('#File_location').text(pt_file);
+            },
+            error: function() {
+                console.log("실패!");
+            },
+        });
+
+        $('#CompanyInfoModal').modal({});
+    });
+
+
+     /*   var getInfo_result = getInfoComp(comp_num);*/
 
         if (getInfo_result) {
             $('#CompanyName').text("회사정보불러옴");
@@ -62,14 +109,18 @@ $(document).ready(function () {
 
 
 function getInfoComp(comp_num) {
-    //Todo : 회사 넘버를 통해 회사 정보를 DB에서 불러오는 코드를 작성해줄 것
+
+
+
     return true;
 }
 
+/*
 function getInfoManager(comp_num, manager_num) {
     //Todo : 회사 넘버와 매니저 넘버를 통해 회사 정보를 DB에서 불러오는 코드를 작성해줄 것
     return true;
 }
+*/
 
 
 function clearValuesCompany() {
