@@ -85,7 +85,7 @@
                                     <td>허브 아일랜드</td>
                                     <td>2022.05.04</td>
                                     <td>수락</td>
-                                    <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
+                                    <td ><button class="btn_adminInfo">admin1</button></td>
                                     <td><input type="button" class="td_update_btn" value="수정"></td>
                                 </tr>
                                 <tr>
@@ -93,7 +93,7 @@
                                     <td>박물관이 살아있다</td>
                                     <td>2022.04.11</td>
                                     <td class="status_btn" onclick="refuse_popup()"><button class="btn_refuse">거절</button></td>
-                                    <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
+                                    <td  ><button class="btn_adminInfo">admin1</button></td>
                                     <td><input type="button" class="td_update_btn" value="수정"></td>
                                 </tr>
                                 <tr>
@@ -101,7 +101,7 @@
                                     <td>미로 찾기</td>
                                     <td>2022.03.08</td>
                                     <td class="status_btn" onclick="refuse_popup()"><button class="btn_refuse">거절</button></td>
-                                    <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin2</button></td>
+                                    <td ><button type="button" class="btn_adminInfo"></button></td>
                                     <td><input type="button" class="td_update_btn" value="수정"></td>
                                 </tr>
                                 </tbody>

@@ -54,11 +54,11 @@
     </select>
 
     <select id="selectAllExhibitProductList" resultMap="productRequestMap">
-        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1="exhibiton"
+        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1='exhibition'
     </select>
 
     <select id="selectAllMuseumProductList" resultMap="productRequestMap">
-        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1="museum"
+        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1='museum'
     </select>
 
 </mapper>

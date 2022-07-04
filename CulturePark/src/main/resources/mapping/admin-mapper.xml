@@ -41,6 +41,14 @@
         WHERE AD_SEQ = #{ad_seq};
     </select>
 
+    <select id="selectAdminInfoByMultiSeq" parameterType="java.util.List" resultMap="adResult">
+        SELECT AD_SEQ, AD_TEL, AD_EMAIL FROM ADMIN_ACCOUNT
+        WHERE AD_SEQ IN
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item.ad_seq}
+        </foreach>
+    </select>
+
     <select id="selectAdminEmailTel" resultType="adminVO" parameterType="int">
         SELECT AD_SEQ AS ad_seq, AD_EMAIL AS ad_email, AD_TEL AS ad_tel
         FROM ADMIN_ACCOUNT

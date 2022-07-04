@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.adPdRelation">
+
+
+    <resultMap id="aprMap" type="aprVO">
+        <result property="apr_seq" column="apr_seq"></result>
+        <result property="ad_seq" column="ad_seq"></result>
+        <result property="pd_seq" column="pd_seq"></result>
+    </resultMap>
+
+    <select id="selectAdminListByPdSeq" parameterType="_int" resultMap="aprMap">
+        <![CDATA[
+        SELECT *
+        FROM ADMIN_PRODUCT_RELATION
+        WHERE PD_SEQ = #{pd_seq2};
+
+        ]]>
+    </select>
+
+</mapper>

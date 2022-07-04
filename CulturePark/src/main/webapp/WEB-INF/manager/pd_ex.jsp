@@ -124,8 +124,6 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <div class="div1">
@@ -146,7 +144,6 @@
                                         <th>작품명</th>
                                         <th>운영기간</th>
                                         <th>상태</th>
-                                        <th>관리자 아이디</th>
                                         <th>기능</th>
                                     </tr>
                                     </thead>
@@ -155,28 +152,52 @@
                                         <fmt:formatDate var="formatstartDate" value="${product.pd_startDate}" pattern="yyyy-MM-dd"/>
                                         <fmt:formatDate var="formatendDate" value="${product.pd_closeDate}" pattern="yyyy-MM-dd"/>
                                     <tr>
+                                        <input type="hidden" class="pt_seq" value="${product.pt_seq}"/>
+                                        <input type="hidden" class="pd_seq" value="${product.pd_seq}"/>
+
+                                        <input type="hidden" class="pd_request_code" value="${productVO.pd_seq}" name="pd_seq">
+                                        <input type="hidden" class="pd_timeType" value="${productVO.pd_timeType}" name="pd_timeType"/>
+                                        <input type="hidden" class="pd_maxTicket" value="${productVO.pd_maxTicket}" name="pd_maxTicket"/>
+                                        <input type="hidden" class="pd_typeStr" value="${productVO.pd_typeStr}" name="pd_typeStr"/>
+                                        <input type="hidden" class="pd_openTime" value="${productVO.pd_openTime}" name="pd_openTime"/>
+                                        <input type="hidden" class="pd_closeTime" value="${productVO.pd_closeTime}" name="pd_closeTime"/>
+                                        <input type="hidden" class="pd_closeDay" value="${productVO.pd_closeDay}" name="pd_closeDay"/>
+                                        <input type="hidden" class="pd_request_manager" value="${productVO.pd_request_manager}" name="pd_request_manager"/>
+                                        <input type="hidden" class="start_date" value="${formatstartDate}"/>
+                                        <input type="hidden" class="end_date" value="${formatendDate}"/>
+
+
                                         <td class="tr_seq">${varStatus.count}</td>
                                         <td class="pd_title">${product.pd_title}</td>
                                         <td class="pd_period">${formatstartDate}~${formatendDate}</td>
                                         <td class="pd_status">
                                             <label class="switch">
-                                                <input type="checkbox" checked="checked">
+                                                <c:choose>
+                                                    <c:when test="${product.pd_status eq 'ACTIVE'}">
+                                                        <input type="checkbox" checked="checked">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input type="checkbox">
+                                                    </c:otherwise>
+                                                </c:choose>
                                                 <span class="slider round"></span>
                                             </label>
                                             <c:choose>
-                                                <c:when test="${product.stauts eq 'ACTIVE'}">
+                                                <c:when test="${product.pd_status eq 'ACTIVE'}">
                                                     <p class="toggle_p">활성화</p>
                                                     <p class="toggle_p" style="display:none;">비활성</p>
                                                 </c:when>
+                                                <c:otherwise>
+                                                    <p class="toggle_p" style="display: none">활성화</p>
+                                                    <p class="toggle_p">비활성</p>
+                                                </c:otherwise>
                                             </c:choose>
-                                            <c:otherwise>
-                                                <p class="toggle_p" style="display: none">활성화</p>
-                                                <p class="toggle_p">비활성</p>
-                                            </c:otherwise>
-
                                         </td>
-                                        <td class="adminInfo_btn" onclick="adminInfo_popup()"><button class="btn_adminInfo">admin1</button></td>
-                                        <td><input type="button" class="td_update_btn" value="수정"></td>
+<%--                                        <td class="adminInfo_btn" onclick="adminInfo_popup()"></td>--%>
+                                        <td>
+                                            <button type="button" class="btn_adminInfo">담당자 정보</button>
+                                            <input type="button" class="td_update_btn" value="수정">
+                                        </td>
                                     </tr>
                                     </c:forEach>
                                     </tbody>
@@ -184,7 +205,6 @@
                             </div>
                         </div>
                     </div>
-
             </div>
             <!-- /.container-fluid -->
 
@@ -237,7 +257,7 @@
                 </button>
             </div>
 
-            <div class="user modal-body">
+            <div class="user modal-body" style="max-height: 400px; overflow: scroll;">
 
 
             <%------------ 1. 유형 구분 -------------%>
@@ -524,6 +544,7 @@
 
 <%-- script --%>
 <script src="/resources/manager/js/pd_ex_mu.js"></script>
+<script src="/resources/common/js/toggleBtn.js"></script>
 
 
 
