@@ -26,6 +26,8 @@
 
         <typeAlias alias="stageVO" type="kg.twojin.culturePark.common.vo.StageTicketInfoVO"></typeAlias>
 
+        <typeAlias alias="aprVO" type="kg.twojin.culturePark.common.vo.AdminProductRelationVO"></typeAlias>
+
     </typeAliases>
 
 
@@ -40,6 +42,7 @@
         <mapper resource="mapping/adminLog-mapper.xml"/>
         <mapper resource="mapping/dateTicketInfo-mapper.xml"/>
         <mapper resource="mapping/stageTicket-mapper.xml"/>
+        <mapper resource="mapping/AdPdRelation-mapper.xml"/>
     </mappers>
 
     <!-- mybatisConfig는 mybatis를 사용하기 위한 환경 설정 -->

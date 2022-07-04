@@ -93,6 +93,19 @@ public class AdminDAOImpl implements AdminDAO {
         return adminVO;
     }
 
+    @Override
+    public List selectAdminInfoByMultiSeq(List list) {
+        List<AdminVO> adminVOList = null;
+        try {
+            adminVOList = sqlSessionTemplate.selectList("selectAdminInfoByMultiSeq", list);
+            System.out.println("정상수행 됨");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return adminVOList;
+    }
 
     @Override
     public List listAdmins() {

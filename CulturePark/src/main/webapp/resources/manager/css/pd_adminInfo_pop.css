@@ -15,7 +15,7 @@
 }
 
 
-.adminEmail_section {
+.adminEmail_section, .sectionType1{
     display: flex;
     justify-content: center;
 }
