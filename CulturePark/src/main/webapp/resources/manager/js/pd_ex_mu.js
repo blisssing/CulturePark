@@ -4,9 +4,7 @@ function refuse_popup() {
 }
 
 /* 관리자 정보 팝업 */
-function adminInfo_popup() {
-    window.open( "/adminInfo.mdo", "pd_adminInfo_pop", "width=500px, height=200px");
-}
+
 
 
 /* 요청하기 모달 */
@@ -85,6 +83,27 @@ $(document).ready(function () {
             $(this).closest('tr').children('.td_1').children('.price').prop('disabled', true);
         }
     });
+
+    $('.btn_adminInfo').click(function () {
+        var thisRow = $(this).closest('tr');
+        var pd_seq = thisRow.children('.pd_seq').val();
+        console.log(pd_seq);
+        adminInfo_popup(pd_seq);
+    });
+
+    function adminInfo_popup(pd_seq) {
+        $.ajax({
+            type: "post",
+            data: {"pd_seq":pd_seq},
+            datatype:"text",
+            url: "/getAdminInfo.mdo",
+            async: false,
+            cache: false,
+            success: function (data) {
+                window.open("openAdminInfoPop.mdo");
+            },
+        })
+    }
 
 
     $('.chk_type').change(function () {

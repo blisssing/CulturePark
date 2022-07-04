@@ -7,21 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Mg_manageController {
 
-
-    @RequestMapping(value = "/pdEx.mdo")
-    public ModelAndView mgPdEx() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_ex");
-        return mv;
-    }
-
-    @RequestMapping(value = "/pdMu.mdo")
-    public ModelAndView mgPdMu() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_mu");
-        return mv;
-    }
-
     @RequestMapping(value = "/pdCreate.mdo")
     public ModelAndView mgPdCreate() {
         ModelAndView mv = new ModelAndView();
@@ -36,11 +21,5 @@ public class Mg_manageController {
         return mv;
     }
 
-    @RequestMapping(value = "/adminInfo.mdo")
-    public ModelAndView mgManagerInfo() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_adminInfo_pop");
-        return mv;
-    }
 
 }

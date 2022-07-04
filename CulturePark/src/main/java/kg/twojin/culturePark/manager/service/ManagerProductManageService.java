@@ -12,5 +12,4 @@ public interface ManagerProductManageService {
 
     ProductLogVO getProductLogByPdrSeq(int pt_seq);
 
-    AdminVO getAdminInfoBySeq(int ad_seq);
 }

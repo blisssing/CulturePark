@@ -45,9 +45,4 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
 
         return productLogVO;
     }
-
-    @Override
-    public AdminVO getAdminInfoBySeq(int ad_seq) {
-        return adminDAO.selectAdminEmailTel(ad_seq);
-    }
 }

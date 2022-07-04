@@ -31,6 +31,7 @@
         <result property="pd_minAge" column="pd_minage"></result>
         <result property="pd_place" column="pd_place"></result>
     </resultMap>
+
     <insert id="insertProduct" parameterType="productRequestVO">
         <![CDATA[
         INSERT INTO PRODUCT_INFO(PD_TITLE, PD_GENRE1, PD_GENRE2, PD_TIMETYPE, PD_CLOSEDAY,
@@ -51,4 +52,13 @@
         WHERE PT_SEQ = #{pt_seq} and PD_TITLE = #{pdr_title};
         ]]>
     </select>
+
+    <select id="selectAllExhibitProductList" resultMap="productRequestMap">
+        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1='exhibition'
+    </select>
+
+    <select id="selectAllMuseumProductList" resultMap="productRequestMap">
+        SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1='museum'
+    </select>
+
 </mapper>

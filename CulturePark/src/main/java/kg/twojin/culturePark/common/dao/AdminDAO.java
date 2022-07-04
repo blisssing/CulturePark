@@ -23,6 +23,8 @@ public interface AdminDAO {
     /* list로 반환 */
     List listAdmins();
 
+    List selectAdminInfoByMultiSeq(List list);
+
     int removeAdmin(AdminVO adminVO);
 
     int updateAdminWithPw(AdminVO adminVO);
