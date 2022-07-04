@@ -56,6 +56,7 @@ public class PartnerServiceImpl implements PartnerService {
         ManagerVO managerVO = new ManagerVO();
 
             managerVO.setComp_seq(partnerVO.getPt_seq());
+            managerVO.setMg_compName(partnerVO.getPt_comp_name());
             managerVO.setMg_email(partnerVO.getPt_email());
             managerVO.setMg_pw(encodePw);
             managerVO.setMg_name(partnerVO.getPt_register_name());

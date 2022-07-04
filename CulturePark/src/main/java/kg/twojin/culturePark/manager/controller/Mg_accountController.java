@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -61,6 +62,14 @@ public class Mg_accountController {
         ModelAndView mv = new ModelAndView();
         int chk_len = chk_is.size();
         String chk_str = "";
+
+        // 회사정보 뽑아오기
+
+        HttpSession session = request.getSession();
+        ManagerVO managerVO = (ManagerVO) session.getAttribute("manager");
+        int pt_seq = managerVO.getComp_seq();
+
+        insertedVO.setComp_seq(pt_seq);
 
         for (int i = 0; i < chk_len; i++) {
 
