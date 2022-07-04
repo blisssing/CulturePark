@@ -14,6 +14,7 @@
     <result property="mg_tel" column="mg_tel"></result>
     <result property="mg_is" column="mg_is"></result>
     <result property="mg_createDate" column="mg_createdate"></result>
+    <result property="mg_compName" column="mg_compname"></result>
 </resultMap>
 
 <select id="selectManager" resultType="managerVO">
@@ -43,15 +44,30 @@
 
 
     <insert id="insertRootManager" parameterType="managerVO">
+        INSERT INTO MANAGER_ACCOUNT
+        (COMP_SEQ, mg_compName, MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
+        VALUES
+            (
+                    (select pt_seq from partner_agreement where pt_email=#{mg_email}),
+                    (select pt_compname from partner_agreement where pt_seq = )
+                        #{mg_email},
+                    #{mg_pw},
+                    #{mg_name},
+                    #{mg_tel},
+                    #{mg_is},
+                    #{mg_createDate}
+            );
 
     </insert>
 
 <insert id="insertManager" parameterType="managerVO">
+/*Todo : 수정해야 함 */
     INSERT INTO MANAGER_ACCOUNT
-    (COMP_SEQ, MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
+    (COMP_SEQ, mg_compName, MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
     VALUES
     (
         (select pt_seq from partner_agreement where pt_email=#{mg_email}),
+        (select pt_compname from partner_agreement where pt_seq = )
         #{mg_email},
         #{mg_pw},
         #{mg_name},

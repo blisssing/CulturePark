@@ -9,10 +9,13 @@ public interface PartnerDAO  {
 
     List<PartnerVO> getAllPartner();
 
+    List<PartnerVO> getAllPartnerByPtSeq(int pt_seq);
 
     // 조회
-    PartnerVO selectPartner(PartnerVO partnerVO);
+    PartnerVO getEmailPartner(PartnerVO partnerVO);
+
 
     PartnerVO selectPartner(int seq);
+
 
 }
