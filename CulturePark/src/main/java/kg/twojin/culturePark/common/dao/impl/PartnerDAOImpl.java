@@ -48,5 +48,8 @@ public class PartnerDAOImpl implements PartnerDAO {
         return partnerVO;
     }
 
-
+    @Override
+    public List<PartnerVO> getAllPartnerByPtSeq(int pt_seq) {
+        return null;
+    }
 }
