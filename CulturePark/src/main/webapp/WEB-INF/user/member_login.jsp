@@ -83,7 +83,7 @@
                                             required value="아이디저장">
                                     <div class="save_id">아이디 기억하기</div>
                                     <a href="https://kauth.kakao.com/oauth/authorize?client_id=e61e3864a242f32ca419f010fd9c059a&redirect_uri=http://localhost:8080/testLogin.do&response_type=code">
-                                        <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="height: 30px; margin-left:195px"></a>
+                                        <img src="/resources/common/img/kakao_login.png" class="kakaoLogo" alt="카카오계정 로그인"></a>
                                 </div>
                             </div>
 

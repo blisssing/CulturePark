@@ -112,7 +112,7 @@
                 <div class="btn_box">
                     <button type="button" class="home_btn">
                         <i class="fa-solid fa-house"></i>
-                        <div class="menu_name"><a href="/home.do">홈</a></div>
+                        <div class="menu_name"><a href="/home.do" class="mobile_home">홈</a></div>
                     </button>
                 </div>
             </li>
@@ -134,16 +134,21 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="mySide_btn">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="menu_name">마이메뉴</div>
-                    </button>
-                    <%--<button type="button" class="login_btn">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="menu_name">로그인</div>
-                    </button>--%>
+            <c:choose>
+                <c:when test="${loginId != null && loginPw != null}">
+                            <button type="button" class="mySide_btn">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="menu_name">마이메뉴</div>
+                            </button>
+                </c:when>
+                <c:otherwise>
+                            <button type="button" class="login_btn">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="menu_name">마이메뉴</div>
+                            </button>
+                </c:otherwise>
+            </c:choose>
                 </div>
-
             </li>
         </ul>
     </div>

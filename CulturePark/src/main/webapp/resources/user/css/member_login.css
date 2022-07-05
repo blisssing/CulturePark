@@ -1,6 +1,6 @@
 .findId, .findPw, .join {
     cursor: pointer;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
 }
 
 .checkbox_save_id_m {
@@ -9,7 +9,12 @@
 }
 
 .p-2 {
-    width:0;
+   width:0;
+}
+
+.kakaoLogo {
+    width: 100px;
+    margin-left: 111px;
 }
 
 .m_save_id {
@@ -103,6 +108,7 @@
 .m_id_label {
     width: 100%;
     font-size:0.8rem;
+    font-size:0.8rem;
     float: left;
 }
 
@@ -148,10 +154,10 @@
 }
 
 .m_id_save_section {
-    width: 100%;
+   /* width: 100%;
     justify-content: space-between;
     font-size: 0.8rem;
-    display: flex;
+    display: flex;*/
 }
 
 .m_id_save_div {
@@ -367,6 +373,12 @@ m_find {
         display: flex;
         height: 30px;
         margin-left: 20px;
+    }
+
+    .kakaoLogo {
+        height: 25px;
+        width: 100px;
+        margin-left: 218px;
     }
 
 
