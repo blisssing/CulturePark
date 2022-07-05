@@ -154,7 +154,6 @@
                                     <tr>
                                         <input type="hidden" class="pt_seq" value="${product.pt_seq}"/>
                                         <input type="hidden" class="pd_seq" value="${product.pd_seq}"/>
-
                                         <input type="hidden" class="pd_request_code" value="${productVO.pd_seq}" name="pd_seq">
                                         <input type="hidden" class="pd_timeType" value="${productVO.pd_timeType}" name="pd_timeType"/>
                                         <input type="hidden" class="pd_maxTicket" value="${productVO.pd_maxTicket}" name="pd_maxTicket"/>
@@ -165,8 +164,6 @@
                                         <input type="hidden" class="pd_request_manager" value="${productVO.pd_request_manager}" name="pd_request_manager"/>
                                         <input type="hidden" class="start_date" value="${formatstartDate}"/>
                                         <input type="hidden" class="end_date" value="${formatendDate}"/>
-
-
                                         <td class="tr_seq">${varStatus.count}</td>
                                         <td class="pd_title">${product.pd_title}</td>
                                         <td class="pd_period">${formatstartDate}~${formatendDate}</td>
@@ -193,7 +190,6 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>
-<%--                                        <td class="adminInfo_btn" onclick="adminInfo_popup()"></td>--%>
                                         <td>
                                             <button type="button" class="btn_adminInfo">담당자 정보</button>
                                             <input type="button" class="td_update_btn" value="수정">
@@ -269,7 +265,6 @@
                 <%--기존 --%>
                 <div class="row1">
                     <table class="table" id="table1">
-
                         <thead>
                             <tr>
                                 <th class="center" colspan="2">기존</th>
@@ -277,26 +272,30 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="none" type="checkbox" name="pd_ticketType" class="chkbox pd_ticketType no_distinction" id="bf_type_none">구분없음
+                            </td>
+                            <td class="td_1"><div type="text" id="bf_none_price" class="price nonDistinc_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</div></td>
+                        </tr>
 
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="adult"type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_adult" id="bf_type_adult">성인
+                            </td>
+                            <td class="td_1"><div type="text" id="bf_adult_price"class="price adult_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</div></td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="teenager" type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_teenager"id="bf_type_teenager">청소년
+                            </td>
+                            <td class="td_1"><div type="text" id="bf_teenager_price" class="price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</div></td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="child" type="checkbox" name="pd_ticketType"  class="chk_type chkbox pd_ticketType chk_children" id="bf_type_children">어린이
+                            </td>
+                            <td class="td_1"><div type="text" id="bf_child_price" class="price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</div></td>
+                        </tr>
                         </tbody>
 
                     </table>
@@ -313,25 +312,31 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk">구분없음</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                            <tr class="chk_row">
+                                <td class="td_0"><input value="none" type="checkbox" name="pd_ticketType" class="chkbox pd_ticketType no_distinction">구분없음
+                                </td>
+                                <td class="td_1"><input type="text" class="price nonDistinc_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                             </tr>
 
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk">성인</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                            <tr class="chk_row">
+                                <td class="td_0"><input value="adult"type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_adult">성인
+                                </td>
+                                <td class="td_1"><input type="text" class="price adult_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                             </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk">청소년</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                            <tr class="chk_row">
+                                <td class="td_0"><input value="teenager" type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_teenager"
+                                >청소년
+                                </td>
+                                <td class="td_1"><input type="text"  class="price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                             </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk">어린이</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
+                            <tr class="chk_row">
+                                <td class="td_0"><input value="child" type="checkbox" name="pd_ticketType"  class="chk_type chkbox pd_ticketType chk_children"
+                                >어린이
+                                </td>
+                                <td class="td_1"><input type="text" class="price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                             </tr>
                         </tbody>
 
@@ -362,33 +367,39 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <select class="choice" id="choice1" disabled="disabled">
-                                    <option value="">선택</option>
-                                    <option value="day">일별(day)</option>
-                                    <option value="time">시간대별(time)</option>
+                                    <select class="pd_timeTypeSelect choice" name="chk_timeType" id="choice1" disabled="disabled">
+                                        <option value="day">일별(day)</option>
+                                        <option value="time">시간대별(time)</option>
                                     </select>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colspan="2">티켓 max</td>
+                                <td   colspan="2">하루 최대 판매량</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2"><div type="text" id="bf_day_max" class="tck " disabled="disabled"></div></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">스테이지 최대 판매량</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="bf_stage_max" class="tck" disabled="disabled"></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">오픈시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2"><div type="text" id="bf_pd_openTime" class="tck" disabled="disabled"></div></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">마감시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2"><div type="text" id="bf_pd_closeTime" class="tck" disabled="disabled"></div></td>
                             </tr>
 
                             </tbody>
