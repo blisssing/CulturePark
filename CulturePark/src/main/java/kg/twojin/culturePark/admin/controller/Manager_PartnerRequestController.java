@@ -85,6 +85,7 @@ public class Manager_PartnerRequestController {
         ManagerVO managerVO = new ManagerVO(); // 루트 매니저 객체
         managerVO = partner_requestService.createManagerAccount(partnerVO, dbPw);
 
+
         //  4: DB에 값 넣기
         int dbResult = partner_requestService.agreePartnerRequest(partnerVO,managerVO);
 

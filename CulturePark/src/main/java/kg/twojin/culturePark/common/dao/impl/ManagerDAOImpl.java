@@ -75,6 +75,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         }
         return result;
     }*/
+
     public int deleteManager(int mg_seq){
         int result = 0;
         try {
@@ -93,8 +94,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         try {
             managerList = sqlSessionTemplate.selectList("mapper.manager.selectAllManager");
         } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
+            e.printStackTrace();throw e;
         }
         return managerList;
     }
@@ -103,7 +103,7 @@ public class ManagerDAOImpl implements ManagerDAO {
     public ManagerVO selectManagerByEmailAndPt(ManagerVO managerVO) {
         ManagerVO vo = new ManagerVO();
         try {
-            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEamilAndPt", managerVO);
+            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEmailAndPt", managerVO);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

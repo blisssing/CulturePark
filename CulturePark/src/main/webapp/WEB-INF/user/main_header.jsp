@@ -40,11 +40,19 @@
                 </c:choose>
 
 
+
             <div class="funcs_mobile">
 
+            <c:choose>
+                <c:when test="${loginId != null && loginPw != null}">
                 <%--   로그인 창으로 이동하는 링크 달아줄 것--%>
-                <button type="button" class="login_btn"><i class="fa-regular fa-user"></i></button>
+                <button type="button" class="mySide_btn"><i class="fa-regular fa-user"></i></button>
+                </c:when>
 
+                <c:otherwise>
+                <button type="button" class="login_btn"><i class="fa-regular fa-user"></i></button>
+                </c:otherwise>
+            </c:choose>
 
                 <%--<button type="button" class="sideMenu_btn"><i class="fa-solid fa-bars"></i></button>--%>
                 <button type="button" class="sideMenu_btn">
@@ -79,6 +87,8 @@
                 </button>
 
             </div>
+
+
         </div>
     </div>
 </div>

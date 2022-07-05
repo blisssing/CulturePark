@@ -4,11 +4,17 @@
 }
 
 .checkbox_save_id_m {
-    vertical-align: top;
+    margin-top:-15px;
+    margin-right:5px;
+}
+
+.p-2 {
+    width:0;
 }
 
 .m_save_id {
     vertical-align: top;
+    font-size:0.8rem;
 }
 
 .label_div {
@@ -101,7 +107,7 @@
 }
 
 .m_id_value {
-    width: 100%;
+    width: 98%;
     height: 25px;
     border: 1px solid black;
     margin-bottom: 8px;
@@ -120,7 +126,7 @@
 }
 
 .m_pw_value {
-    width: 100%;
+    width: 98%;
     height: 25px;
     border: 1px solid black;
 }

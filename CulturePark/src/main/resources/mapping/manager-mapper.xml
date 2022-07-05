@@ -44,11 +44,10 @@
 <insert id="insertRootManager" parameterType="managerVO">
         INSERT INTO MANAGER_ACCOUNT
         (COMP_SEQ, mg_compName, MG_EMAIL, MG_PW, MG_NAME, MG_TEL, MG_IS, MG_CREATEDATE)
-        VALUES ((select pt_seq from partner_agreement where pt_email = #{mg_email}),
-                (select pt_compname
-                 from partner_agreement
-                 where pt_seq =)
-                    #{mg_email},
+        VALUES (
+                (select pt_seq from partner_agreement where pt_email = #{mg_email}),
+                #{mg_compName},
+                #{mg_email},
                 #{mg_pw},
                 #{mg_name},
                 #{mg_tel},

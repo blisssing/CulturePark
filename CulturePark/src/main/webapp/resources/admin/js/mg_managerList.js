@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     $('.btn_comp_info').click(function () {
+
+
         clearValuesCompany();
         selectedRow = $(this).closest('tr');
 
@@ -14,22 +16,26 @@ $(document).ready(function () {
         var pt_file;
 
 
+
+
         $.ajax({
             type:"POST",
             dataType:"text",
             data:{"comp_num":comp_num},
-            url:"mgInfoModal.ado",
+            url:"partnerInfoModal.ado",
             async:false,
             cache:false,
+            contentType:"application/json; charset=utf-8",
+            traditional:true,
             success: function(data) {
+
                 var jsonInfo = JSON.parse(data);
 
-
-                comp_num = jsonInfo.pt_seq;
-                pt_compName = jsonInfo.pt_comp_name;
-                pt_ceoName = jsonInfo.pt_ceo_name;
-                pt_ceoNumber = jsonInfo.pt_ceo_number;
-                pt_tel = jsonInfo.pt_phone;
+                comp_num = jsonInfo.comp_seq;
+                pt_compName = jsonInfo.pt_compName;
+                pt_ceoName = jsonInfo.pt_ceoName;
+                pt_ceoNumber = jsonInfo.pt_ceoNumber;
+                pt_tel = jsonInfo.pt_tel;
                 pt_email = jsonInfo.pt_email;
                 pt_agreeDate = jsonInfo.pt_agreeDate;
                 pt_file = jsonInfo.pt_file;
@@ -43,6 +49,7 @@ $(document).ready(function () {
                 $('#AgreementDate').text(pt_agreeDate);
                 $('#File_location').text(pt_file);
             },
+
             error: function() {
                 console.log("실패!");
             },
@@ -54,15 +61,6 @@ $(document).ready(function () {
 
      /*   var getInfo_result = getInfoComp(comp_num);*/
 
-        if (getInfo_result) {
-            $('#CompanyName').text("회사정보불러옴");
-        } else {
-            alert('화사정보를 성공적으로 불러오지 못했습니다');
-            return;
-        }
-        modal_now = $('#CompanyInfoModal');
-        modal_now.modal({});
-    });
 
     $('.btn_mg_info').click(function () {
         clearValuesManager();

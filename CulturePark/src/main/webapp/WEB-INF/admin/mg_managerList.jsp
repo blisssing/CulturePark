@@ -222,7 +222,7 @@
                                                 <input type="hidden" class="comp_num" value="${managerVO.comp_seq}">
                                                 <input type="hidden" class="manager_num" value="${managerVO.mg_seq}">
                                                 <td class="seq">${count}</td>
-                                                <td class="comp">${partnerVO.pt_comp_name}</td>
+                                                <td class="comp">${managerVO.mg_compName}</td>
                                                 <td class="name">${managerVO.mg_name}</td>
                                                 <td class="email">${managerVO.mg_email}</td>
                                                 <td class="phone">${managerVO.mg_tel}</td>

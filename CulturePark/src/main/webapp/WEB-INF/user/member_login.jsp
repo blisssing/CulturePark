@@ -26,7 +26,6 @@
 <body>
 
 
-
 <%-- Main --%>
 <div class="mainContainer">
     <%-- 절대 건드리지말기. class이름 공통으로 가져가기. div 따로 만들어주고 건드리기 --%>
@@ -83,7 +82,8 @@
                                     <input class="checkbox_save_id checkbox_save_id_p" type="checkbox" name="save_id"
                                             required value="아이디저장">
                                     <div class="save_id">아이디 기억하기</div>
-                                   <%-- <a href="javascript:void(0)">--%><img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="height: 30px; margin-left:195px" onclick="kakaoLogin();"><%--</a>--%>
+                                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=e61e3864a242f32ca419f010fd9c059a&redirect_uri=http://localhost:8080/testLogin.do&response_type=code">
+                                        <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="height: 30px; margin-left:195px"></a>
                                 </div>
                             </div>
 
@@ -153,8 +153,8 @@
                             <%-- 아이디/비밀번호 찾기  // 회원가입 --%>
                             <div class="m_find_section">
                                 <div class="m_find">
-                                    <a href="/findId.do.ado" class="find_id find_id_m"><button class="findId" >아이디 찾기</button></a>
-                                    <a href="/findPw.do.ado" class="find_pw find_pw_m"><button class="findPw">비밀번호 찾기</button></a>
+                                    <a href="/findId.do" class="find_id find_id_m"><button class="findId" >아이디 찾기</button></a>
+                                    <a href="/findPw.do" class="find_pw find_pw_m"><button class="findPw">비밀번호 찾기</button></a>
                                 </div>
                                 <div class="m_join">
                                     <a href="/join.do" class="join_btn join_btn_m"><button class="join">회원가입</button></a>
