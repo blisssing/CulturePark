@@ -157,14 +157,14 @@
 
                                         <tr class="chk_row">
                                             <td class="td_0"><input value="teenager" type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_teenager"
-                                                                    >청소년
+                                            >청소년
                                             </td>
                                             <td class="td_1"><input type="text"  class="price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
 
                                         <tr class="chk_row">
                                             <td class="td_0"><input value="child" type="checkbox" name="pd_ticketType"  class="chk_type chkbox pd_ticketType chk_children"
-                                                                    >어린이
+                                            >어린이
                                             </td>
                                             <td class="td_1"><input type="text" class="price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled">원</td>
                                         </tr>
@@ -456,7 +456,7 @@
 
 
     <%-- script --%>
-    <script src="/resources/manager/js/pd_ex_mu.js"></script>
+    <script src="/resources/manager/js/pd_create.js"></script>
 
 
 </body>

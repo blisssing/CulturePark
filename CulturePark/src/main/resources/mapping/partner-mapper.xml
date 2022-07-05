@@ -96,12 +96,6 @@
         WHERE PT_EMAIL = #{pt_email};
     </select>
 
-    <select id="selectPartnerBySeq" resultType="partnerVO">
-        SELECT *
-        FROM PARTNER_AGREEMENT
-        WHERE PT_SEQ=#{pt_seq}
-    </select>
-
 
     <select id="selectAllPartner" resultMap="resultPartner2">
         SELECT * FROM PARTNER_AGREEMENT;

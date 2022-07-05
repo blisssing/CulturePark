@@ -44,7 +44,9 @@ public class Manager_ListController {
 
             // 2. 리스트에 담고 있는 정보들을 바탕으로 회사 정보를 불러옴
 
+
             List<PartnerVO> partnerVOList = partnerService.get*/
+
 
             mv.addObject("managerList", managerList);
             mv.setViewName("mg_managerList");
