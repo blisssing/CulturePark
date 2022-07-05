@@ -95,25 +95,12 @@ public class MemberLoginController {
         return result;
     }
 
-    /* 로그인 기억하기 */
-   /* @PostMapping("/postMethod")
-    public String Login_remember (
-            LoginCommand loginCommand, HttpServletResponse response) {
-
-        Cookie rCookie = new Cookie("cEmail", loginCommand.getEmail());
-        rCookie.setPath("/");
-
-        if (loginCommand.isRememberEmail()) {
-            rCookie.setMaxAge(60 * 60 * 24 * 15);
-        } else {
-            rCookie.setMaxAge(0);
-        }
-
-        response.addCookie(reCookie);
-
-        return "login/loginSuccess";
-
-    }*/
+    /*https://mylupin.tistory.com/47?category=792579*/
+    @RequestMapping("/kakaoLogin.do")
+    public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
+        System.out.println("#########" + code);
+        return "testPage";
+    }
 
     @RequestMapping(value = "/findId.do")
     public ModelAndView getFindId() {

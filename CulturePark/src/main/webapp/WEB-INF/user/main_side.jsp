@@ -77,5 +77,6 @@
         <li class="my_sideList"><a href="/myTicket.do">마이티켓</a></li>
         <li class="my_sideList"><a href="/likeList.do">찜목록</a></li>
         <li class="my_sideList"><a href="/myReview.do">마이리뷰</a></li>
+        <li class="my_sideList"><a href="/logout.do">로그아웃</a></li>
     </ul>
 </div>

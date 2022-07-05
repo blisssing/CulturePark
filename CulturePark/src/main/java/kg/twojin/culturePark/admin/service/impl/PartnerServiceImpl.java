@@ -55,20 +55,21 @@ public class PartnerServiceImpl implements PartnerService {
 
         ManagerVO managerVO = new ManagerVO();
 
-            managerVO.setComp_seq(partnerVO.getPt_seq());
-            managerVO.setMg_compName(partnerVO.getPt_comp_name());
-            managerVO.setMg_email(partnerVO.getPt_email());
-            managerVO.setMg_pw(encodePw);
-            managerVO.setMg_name(partnerVO.getPt_register_name());
-            managerVO.setMg_tel(partnerVO.getPt_phone());
-            managerVO.setMg_is("root");
-            managerVO.setMg_createDate(new Date());
+        managerVO.setComp_seq(partnerVO.getPt_seq());
+        managerVO.setMg_email(partnerVO.getPt_email());
+        managerVO.setMg_pw(encodePw);
+        managerVO.setMg_compName(partnerVO.getPt_comp_name());
+        managerVO.setMg_name(partnerVO.getPt_register_name());
+        managerVO.setMg_tel(partnerVO.getPt_phone());
+        managerVO.setMg_is("root");
+        managerVO.setMg_createDate(new Date());
         // Todo : 신청인 자리 만들어줄 것
         return managerVO;
     }
 
     @Override
     public PartnerVO getPartnerBySeq(int pt_seq) {
+
         return partnerDAO.selectPartner(pt_seq);
     }
 }
