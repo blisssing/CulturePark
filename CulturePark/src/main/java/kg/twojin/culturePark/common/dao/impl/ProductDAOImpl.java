@@ -270,6 +270,12 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
     @Override
+
+    public int updateProductStatus(ProductVO productVO) {
+        return sqlSessionTemplate.update("mapper.productInfo.updateProductStatus", productVO);
+    }
+
+    @Override
     public int updateProductRequestStatusAgree(int pdr_seq) {
         int result = 0;
         try {
