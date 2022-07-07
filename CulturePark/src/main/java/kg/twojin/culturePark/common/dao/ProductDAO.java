@@ -27,7 +27,5 @@ public interface ProductDAO {
 
     int updateProductRequestStatusRefused(int pdr_seq);
 
-
-
-
+    int updateProductStatus(ProductVO productVO);
 }

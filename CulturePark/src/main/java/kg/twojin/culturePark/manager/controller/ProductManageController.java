@@ -1,6 +1,5 @@
 package kg.twojin.culturePark.manager.controller;
 
-import com.google.gson.JsonObject;
 import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
 import kg.twojin.culturePark.manager.service.ManagerAdminService;
@@ -8,10 +7,11 @@ import kg.twojin.culturePark.manager.service.ProductionManageService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@Controller
+@RestController
 public class ProductManageController {
 
     @Autowired
@@ -84,11 +84,35 @@ public class ProductManageController {
 
     }
 
+
     @RequestMapping(value = "openAdminInfoPop.mdo")
     public ModelAndView openAdminInfoPop() {
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pd_adminInfo_pop");
         return mv;
+    }
+
+    @RequestMapping("/changePdStatus.mdo")
+    public void changePdStatus(HttpServletRequest request, HttpServletResponse response,
+                                 @RequestBody ProductVO productVO) throws IOException{
+        String genre = productVO.getPd_genre1();
+
+        System.out.println(productVO.toString());
+
+        int result;
+
+        if (genre.equals("museum")) {
+            result=0;
+            System.out.println("뮤지엄입니다");
+        } else {
+            result = exhibitionManageService.changeProductStatus(productVO);
+        }
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result", result);
+
+        PrintWriter out = response.getWriter();
+        out.print(jsonObject);
     }
 }

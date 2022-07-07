@@ -61,4 +61,10 @@
         SELECT * FROM PRODUCT_INFO WHERE PT_SEQ=#{pt_seq} and PD_GENRE1='museum'
     </select>
 
+    <update id="updateProductStatus" parameterType="productVO">
+        update product_info
+        set pd_status=#{pd_status}
+        where pd_seq = #{pd_seq};
+    </update>
+
 </mapper>
