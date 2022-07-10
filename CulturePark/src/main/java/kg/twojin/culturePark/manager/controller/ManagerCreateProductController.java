@@ -2,6 +2,8 @@ package kg.twojin.culturePark.manager.controller;
 
 import kg.twojin.culturePark.common.vo.*;
 import kg.twojin.culturePark.manager.service.ManagerProductManageService;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
