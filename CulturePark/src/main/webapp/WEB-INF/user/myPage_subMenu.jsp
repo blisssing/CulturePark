@@ -55,6 +55,6 @@
         <li><a class="subList" href="/likeList.do">찜목록</a></li>
         <li><a class="subList" href="/myReview.do">마이리뷰</a></li>
         <li><a class="subList" href="/myInfo.do">회원정보</a></li>
-        <li><a class="subList" href="/logout.do">로그아웃</a></li>
+        <li class="pc_none"><a class="subList" href="/logout.do">로그아웃</a></li>
     </ul>
 </div> <%-- /subMenu --%>

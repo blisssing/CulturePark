@@ -27,6 +27,20 @@
     <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
 
     <title>my Review</title>
+
+
+    <%
+        String loginChk_ = (String) session.getAttribute("loginChk");
+
+        if (loginChk_ == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <%
+        }
+    %>
+
 </head>
 <body>
 
