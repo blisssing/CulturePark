@@ -2,7 +2,7 @@ package kg.twojin.culturePark.admin.controller;
 
 import kg.twojin.culturePark.admin.service.EmailService;
 import kg.twojin.culturePark.admin.service.PartnerService;
-import kg.twojin.culturePark.common.service.RandomNumberService;
+import kg.twojin.culturePark.common.service.RandomNumberUtil;
 import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.EmailVO;
 import kg.twojin.culturePark.common.vo.ManagerVO;
@@ -36,7 +36,7 @@ public class Manager_PartnerRequestController {
     EmailService emailService;
 
     @Autowired
-    RandomNumberService randomNumberService;
+    RandomNumberUtil randomNumberUtil;
 
     @RequestMapping(value = "mgPartnerRequest.ado")
     public ModelAndView partnerList(HttpServletRequest request) {
@@ -73,7 +73,7 @@ public class Manager_PartnerRequestController {
         partnerVO.setAd_seq(ad_seq);
 
         //  2-1 : 파트너에게 발급할 계정에 대한 임시 비밀번호를 설정한 후 partnerVO에 담음
-        int randomNumber = randomNumberService.getRandomCode6();
+        int randomNumber = randomNumberUtil.getRandomCode6();
         String dbPw = passwordEncoder.encode(Integer.toString(randomNumber));
 
 
