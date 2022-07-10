@@ -82,8 +82,8 @@
                                     <input class="checkbox_save_id checkbox_save_id_p" type="checkbox" name="save_id"
                                             required value="아이디저장">
                                     <div class="save_id">아이디 기억하기</div>
-                                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=e61e3864a242f32ca419f010fd9c059a&redirect_uri=http://localhost:8080/testLogin.do&response_type=code">
-                                        <img src="/resources/common/img/kakao_login.png" class="kakaoLogo" alt="카카오계정 로그인"></a>
+                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code" name="code">
+                                        <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="width:108px; margin-left:91px;"></a>
                                 </div>
                             </div>
 
@@ -143,8 +143,8 @@
                                         <span class="m_save_id">아이디 저장</span>
                                     </div>
 
-                                    <a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=e61e3864a242f32ca419f010fd9c059a&redirect_uri=https://localhost:5500/login&response_type=code">
-                                        <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="height: 25px; width:100px; margin-left:65px" onclick="kakaoLogin();">
+                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code" name="code">
+                                        <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="width:100px; margin-left:65px">
                                     </a>
 
                                 </div>

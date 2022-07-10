@@ -25,16 +25,16 @@
                         <ul class="funcs_pc">
                             <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
                             <li><a href="/join.do" class="func_list" >join</a></li>
-                            <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                            <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
+                            <li><a href="/levelPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my ticket</a></li>
                         </ul>
                     </c:when>
                     <c:otherwise>
                         <ul class="funcs_pc">
                             <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
                             <li><a href="/join.do" class="func_list" >join</a></li>
-                            <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                            <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
+                            <li><a href="/levelPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my ticket</a></li>
                         </ul>
                     </c:otherwise>
                 </c:choose>

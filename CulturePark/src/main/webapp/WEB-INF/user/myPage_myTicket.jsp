@@ -35,6 +35,19 @@
 
 
     <title>my Ticket</title>
+
+    <%
+        String loginChk_ = (String) session.getAttribute("loginChk");
+
+        if (loginChk_ == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <%
+        }
+    %>
+
 </head>
 <body>
 <%-- Main --%>

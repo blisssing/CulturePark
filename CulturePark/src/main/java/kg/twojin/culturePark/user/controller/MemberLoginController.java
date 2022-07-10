@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
 @RestController
 public class MemberLoginController {
 
@@ -45,7 +46,7 @@ public class MemberLoginController {
         return mv;
     }
 
-    @ResponseBody //restController를 써주면 생략가능
+   @ResponseBody //restController를 써주면 생략가능
     @RequestMapping(value = "/loginProc.do", method = {RequestMethod.POST})
     public String loginProc(@RequestBody MemberVO vo,
                             HttpServletRequest request,
@@ -58,9 +59,9 @@ public class MemberLoginController {
                  2. 두 가지 정보를 통해서 DB에 일치하는 녀석이 있는지 확인함.
                  3. 있으면 일치하는 값 전체를 VO에 담아서 최종단계인 컨트롤러까지 반환함.
                  4. 처음 아이디랑 비밀번호를 담았을 때 썼던 VO는 DB에서 반환되는 VO에 얹혀져도 상관이 없음.
-        * */
+        */
 
-        /* 사용자가 입력한 정보 */
+        //* 사용자가 입력한 정보 *//*
         String voPw = vo.getMb_pw();
 
         /* DB정보 셋팅 */
@@ -89,12 +90,12 @@ public class MemberLoginController {
         return result;
     }
 
-    /*https://mylupin.tistory.com/47?category=792579*/
+    /*https://mylupin.tistory.com/47?category=792579*//*
     @RequestMapping("/kakaoLogin.do")
     public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
         System.out.println("#########" + code);
         return "testPage";
-    }
+    }*/
 
     @RequestMapping(value = "/findId.do")
     public ModelAndView getFindId() {

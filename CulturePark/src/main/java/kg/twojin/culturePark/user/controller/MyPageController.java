@@ -4,16 +4,24 @@ import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberJoinService;
 import kg.twojin.culturePark.user.service.MemberMypageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MyPageController {
@@ -33,6 +41,7 @@ public class MyPageController {
         mv.setViewName("myPage_myTicket");
         return mv;
     }
+
 
     @RequestMapping(value = "/viewDetail.do")
     public ModelAndView getViewDetail() {
