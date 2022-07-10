@@ -1,10 +1,10 @@
 package kg.twojin.culturePark.common.service.impl;
 
-import kg.twojin.culturePark.common.service.RandomNumberService;
+import kg.twojin.culturePark.common.service.RandomNumberUtil;
 import org.springframework.stereotype.Service;
 
-@Service("RandomNumberService")
-public class RandomNumberServiceImpl implements RandomNumberService {
+@Service("RandomNumberUtil")
+public class RandomNumberUtilImpl implements RandomNumberUtil {
 
 
     @Override

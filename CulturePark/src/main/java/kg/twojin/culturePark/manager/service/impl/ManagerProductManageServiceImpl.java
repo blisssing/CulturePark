@@ -26,6 +26,8 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
 
     @Override
     public int createNewProductReqeust(ProductVO productVO) {
+
+
         return productDAO.insertProductRequest(productVO);
     }
 
@@ -36,7 +38,7 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
 
     @Override
     public ProductLogVO getProductLogByPdrSeq(int pdr_seq) {
-        ProductLogVO productLogVO =productCreateLogDAO.selectProductLogByPdrSeq(pdr_seq);
+        ProductLogVO productLogVO = productCreateLogDAO.selectProductLogByPdrSeq(pdr_seq);
         int ad_seq = productLogVO.getAd_seq();
 
         AdminVO adminVO = adminDAO.selectAdminEmailTel(ad_seq);
@@ -45,4 +47,6 @@ public class ManagerProductManageServiceImpl implements ManagerProductManageServ
 
         return productLogVO;
     }
+
+
 }

@@ -2,26 +2,20 @@ package kg.twojin.culturePark.user.controller;
 
 import kg.twojin.culturePark.admin.service.EmailService;
 import kg.twojin.culturePark.common.dao.MemberDAO;
-import kg.twojin.culturePark.common.service.RandomNumberService;
+import kg.twojin.culturePark.common.service.RandomNumberUtil;
 import kg.twojin.culturePark.common.vo.EmailVO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberLoginService;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Random;
 
 @RestController
 public class MemberLoginController {
@@ -36,7 +30,7 @@ public class MemberLoginController {
     BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    RandomNumberService randomNumberService;
+    RandomNumberUtil randomNumberUtil;
 
     @Autowired
     EmailService emailService;
@@ -211,7 +205,7 @@ public class MemberLoginController {
     @RequestMapping(value="/culturePark/chkEmailSms.do",method = RequestMethod.POST)
     public String sendSmsM(@RequestBody MemberVO vo, @RequestParam("email") String emailNumber, HttpServletResponse response) throws Exception {
 
-        int randomNumber = randomNumberService.getRandomCode6();
+        int randomNumber = randomNumberUtil.getRandomCode6();
 
         boolean emailResult = false; //결과 담을 변수
 
