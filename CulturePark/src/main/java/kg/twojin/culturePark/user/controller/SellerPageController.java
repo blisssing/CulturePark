@@ -3,6 +3,7 @@ package kg.twojin.culturePark.user.controller;
 
 import kg.twojin.culturePark.common.dao.MemberDAO;
 
+import kg.twojin.culturePark.common.service.FileUploaderService;
 import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
@@ -31,6 +32,9 @@ public class SellerPageController {
 
     @Autowired
     PartnerJoinService partnerJoinService; //service와 연결
+
+    @Autowired
+    FileUploaderService fileUploaderService;
 
 
         @RequestMapping(value = "/partnerRequest.do")
@@ -112,9 +116,8 @@ public class SellerPageController {
 
     // insert
     @RequestMapping(value = "/partnerRequestProc.do")
-    public String  ptRequestProc(@RequestBody PartnerVO insertedVO,
-                                      HttpServletResponse response, HttpServletRequest request)
-                                        throws IOException {
+    public String  ptRequestProc(@RequestPart("key") PartnerVO insertedVO, @RequestPart("file") MultipartFile file,
+                                      HttpServletResponse response, HttpServletRequest request)  throws IOException {
                                 //json 사용시 RequestBody사용. ModelAttribute사용불가능
         System.out.println("partnerRequestProc 동작 확인");
 
@@ -122,10 +125,23 @@ public class SellerPageController {
         Date date = new Date();
         insertedVO.setPt_createDate(date);
 
+        String uploadPath = "/Users/hanjinhui/Desktop/AWS/Main_Project/uploadFiles/PartnerInfo/";
+
+        String folderName = fileUploaderService.getSaveDirectory(uploadPath);
+        String randomName = fileUploaderService.getRandomFileName();
+        String fileForm = fileUploaderService.getFileForm(file);
+
+        insertedVO.setPt_file(folderName+File.separator+randomName + "." + fileForm);
         int result = partnerJoinService.insertPartner(insertedVO);
 
         if (result == 1) {
-            return "success";
+            boolean uploadResult = fileUploaderService.uploadPartnerRequest(file, uploadPath, folderName, randomName);
+            if (uploadResult) {
+                return "success";
+            } else {
+                return "false";
+            }
+
         } else {
             return "failed";
         }

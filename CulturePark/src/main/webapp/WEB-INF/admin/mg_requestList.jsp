@@ -297,13 +297,15 @@
                 </div>
                 <div class="form-group">
                     <div class="button_wrap">
-                        <input type="hidden" id="file_path"/>
-                        <a href="#" class="btn_file btn btn-info btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fa-regular fa-file"></i>
-                                            </span>
-                            <span class="text">첨부파일 다운로드</span>
-                        </a>
+                        <button type="button" id="file_path" class="btn btn-success btn-icon-split">
+                            <a href="#" class="btn_file btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fa-regular fa-file"></i>
+                                                </span>
+                                <span class="text">첨부파일 다운로드</span>
+                            </a>
+
+                        </button>
                     </div>
                 </div>
             </div>
