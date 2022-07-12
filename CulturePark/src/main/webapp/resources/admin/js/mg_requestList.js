@@ -50,6 +50,37 @@ $(document).ready(function () {
         }
     });
 
+    // 첨부파일 다운로드
+
+    $('#file_path').click(function () {
+        var fileName= eventRow.children('.pt_file').val();
+        var pt_seq = eventRow.children('.pt_seq').val();
+
+        var obj = new Object();
+        obj.pt_seq = pt_seq;
+        obj.pt_file = fileName;
+
+        $.ajax({
+            type:"POST",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            contentType: "application/json; charset=UTF-8",
+            async: false,
+            cache: false,
+            traditional: true,
+            url:"",
+            success: function () {
+
+            },
+            error: function () {
+
+            }
+
+
+        });
+
+    });
+
     function removeRow(row) {
         row.remove();
     }
