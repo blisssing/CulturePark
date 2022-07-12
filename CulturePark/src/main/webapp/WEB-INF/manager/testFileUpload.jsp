@@ -54,25 +54,28 @@
 
         $('.download_btn').click(function () {
 
-            var pt_file = "20220721/d5e0ba78-9dc0-45e4-8b8b-ab9f89f5ae1c.png";
+            var pt_file = "20220712/d5e0ba78-9dc0-45e4-8b8b-ab9f89f5ae1c.png";
             var pr_comp_name = "투진"
 
-            $.ajax({
-                type:"POST",
-                dataType: "text",
-                data: {"pt_file": pt_file, "pr_comp_name" : pr_comp_name},
-                async: false,
-                cache: false,
-                traditional: true,
-                url:"/testDownload.mdo",
-                success: function (data) {
-                    console.log(data);
-                },
-                error: function () {
-                    console.log("실패");
-                }
 
-            });
+            location.href = "testDownload.mdo";
+
+            // $.ajax({
+            //     type:"POST",
+            //     dataType: "text",
+            //     data: {"pt_file": pt_file, "pr_comp_name" : pr_comp_name},
+            //     async: true,
+            //     cache: false,
+            //     traditional: true,
+            //     url:"/testDownload.mdo",
+            //     done: function (data) {
+            //         data.
+            //     },
+            //     error: function () {
+            //         console.log("실패");
+            //     }
+            //
+            // });
 
 
 

@@ -3,18 +3,26 @@ package kg.twojin.culturePark.manager.controller;
 import kg.twojin.culturePark.admin.service.PartnerService;
 import kg.twojin.culturePark.common.utils.FileUtilTwojin;
 import kg.twojin.culturePark.common.vo.ProductVO;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.net.URLEncoder;
 
 @Controller
@@ -91,27 +99,32 @@ public class FileTestController {
 
     @RequestMapping(value = "testDownload.mdo")
     @ResponseBody
-    public String  downloadFileTest(@RequestParam(value = "pt_file") String pt_file, @RequestParam(value="pr_comp_name")String comp_name,
-                                    HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void downloadFileTest(
+                                                     HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        System.out.println("실행 확인");
 
         // https://to-dy.tistory.com/101
+        // https://offetuoso.tistory.com/entry/ajax-파일-다운로드-경로-파일명
+         String pt_file = "20220712/d5e0ba78-9dc0-45e4-8b8b-ab9f89f5ae1c.png";
+         String comp_name = "투진";
 
-        logger.info("파일 명 : " + pt_file);
-
-        byte[] fileByte=partnerService.downloadFile(pt_file);
+        File file = partnerService.downloadFile(pt_file);
+        byte[] bytes = FileUtils.readFileToByteArray(file);
 
         response.setContentType("application/octet-stream");
-        response.setContentLength(fileByte.length);
-        response.setHeader("Content-Disposition" , "attachment; fileName\""+ URLEncoder.encode(comp_name,"UTF-8")+"\";");
-        response.setHeader("Content-Transfer-Encoding", "binary");
+        response.setContentLength(bytes.length);
 
-        response.getOutputStream().write(fileByte);
+        logger.info("length : " + bytes.length);
+        response.setHeader("Content-Disposition", "attachment; fileName=\"" +
+                URLEncoder.encode(comp_name, "UTF-8") + "\";");
+        response.setHeader("Content_Transfer-Encoding", "binary");
+        response.getOutputStream().write(bytes);
+
+
         response.getOutputStream().flush();
         response.getOutputStream().close();
 
-
-
-        return "hi";
     }
 
 

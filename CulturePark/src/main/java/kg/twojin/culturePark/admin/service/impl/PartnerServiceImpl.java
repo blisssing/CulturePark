@@ -82,11 +82,12 @@ public class PartnerServiceImpl implements PartnerService {
 
 
     @Override
-    public byte[] downloadFile(String pr_file) throws IOException {
+    public File downloadFile(String pr_file) throws IOException {
         String directoryPath = "/Users/hanjinhui/Desktop/AWS/Main_Project/uploadFiles/PartnerInfo"; // 맥북용 패스
         File file = fileUtilTwojin.getFileByPath(directoryPath, pr_file);
-        byte fileByte[] = FileUtils.readFileToByteArray(file);
-        return fileByte;
+//        byte fileByte[] = FileUtils.readFileToByteArray(file);
+//        return fileByte;
+        return file;
 
     }
 }

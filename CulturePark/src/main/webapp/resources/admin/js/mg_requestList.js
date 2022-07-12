@@ -54,31 +54,8 @@ $(document).ready(function () {
 
     $('#file_path').click(function () {
         var fileName= eventRow.children('.pt_file').val();
-        var pt_seq = eventRow.children('.pt_seq').val();
-
-        var obj = new Object();
-        obj.pt_seq = pt_seq;
-        obj.pt_file = fileName;
-
-        $.ajax({
-            type:"POST",
-            dataType: "json",
-            data: JSON.stringify(obj),
-            contentType: "application/json; charset=UTF-8",
-            async: false,
-            cache: false,
-            traditional: true,
-            url:"",
-            success: function () {
-
-            },
-            error: function () {
-
-            }
-
-
-        });
-
+        var pt_comp_name = eventRow.children('pt_comp_name').val();
+        location.href = "/downloadCompDoc.ado"+"?pt_comp_name=" + pt_comp_name + "&&pt_file=" + fileName;
     });
 
     function removeRow(row) {
