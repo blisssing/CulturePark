@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    $('#myModal').show();
+
+
     var frm = $('#frm');
 
     var code = "";
@@ -9,11 +12,11 @@ $(document).ready(function() {
     var chk_nick_result = "";
     var chk_phone_result = "";
     var chk_agree_result = "";
-    var ajax_result="";
+    var ajax_result = "";
 
     /* 이전 */
 
-    $('.back').click(function(){
+    $('.back').click(function () {
         window.history.back();
     });
 
@@ -116,9 +119,9 @@ $(document).ready(function() {
 
         console.log(first_num)
 
-        if (first_num=== '0') {
+        if (first_num === '0') {
             alert("전화번호 첫번째 자리를 선택해주세요");
-        } else if (second_num.trim()==='') {
+        } else if (second_num.trim() === '') {
             alert("전화번호 두 번째 자리를 입력해주세요");
         } else if (third_num.trim() === '') {
             alert("전화번호 세 번째 자리를 입력해주세요");
@@ -143,12 +146,18 @@ $(document).ready(function() {
     /* 인증번호 확인 */
     $('.code_ok_btn').click(function () {
         var authen_code = $('.authentication_code').val();
+        var tel = $('.tel_1').val()+"-"+$('.tel_2').val()+"-"+$('.tel_3').val();
+
+        var jsonObj = new Object();
+        jsonObj.mb_tel= tel;
 
         if (code === authen_code) {
             chk_phone_result = "able";
-            alert("인증번호가 일치합니다");
+            /*alert("인증번호가 일치합니다");*/
+            kakaoJoinFunction();
+
         } else {
-            chk_phone_result="disable"
+            chk_phone_result = "disable"
             alert("인증번호가 불일치합니다. 확인해주시기 바랍니다");
         }
 
@@ -182,26 +191,26 @@ $(document).ready(function() {
             alert("비밀번호 기입을 확인해주시길 바랍니다")
         } else if (chk_nick_result !== 'able') {
             alert("닉네임 중복확인을 해주시길 바랍니다");
-        } else if (checkOthers()!==1) {
+        } else if (checkOthers() !== 1) {
             alert("입력을 정상적으로 해주시길 바랍니다");
         } else if (chk_phone_result !== 'able') {
             alert("인증번호를 먼저 확인해주시길 바랍니다");
         } else if (chk_agree_result !== 'able') {
             alert("동의를 모두 해주시길 바랍니다.")
-        }  else {
+        } else {
             createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
             if (ajax_result === 'success') {
                 alert("생성 성공");
-                location.href="/home.do";
+                location.href = "/home.do";
             } else {
                 alert("생성 실패");
             }
         }
 
 
-
-
     });
+
+});
 
     function validateEmail(mb_email) {
         // 검증에 사용할 정규식 변수 regExp에 저장
@@ -294,17 +303,19 @@ $(document).ready(function() {
 
 
     function createAccount(mb_email, mb_pw, mb_nick, mb_name, mb_birth, mb_gender, phoneStr) {
-        var all_Data = {"mb_email": mb_email, "mb_pw":mb_pw, "mb_nick":mb_nick, "mb_name":mb_name,
-            "mb_birth":mb_birth, "mb_gender":mb_gender,"mb_tel":phoneStr}
+        var all_Data = {
+            "mb_email": mb_email, "mb_pw": mb_pw, "mb_nick": mb_nick, "mb_name": mb_name,
+            "mb_birth": mb_birth, "mb_gender": mb_gender, "mb_tel": phoneStr
+        }
         $.ajax({
-            type:"post",
-            dataType:"JSON",
-            data:JSON.stringify(all_Data),
-            cache:false,
-            async:false,
+            type: "post",
+            dataType: "JSON",
+            data: JSON.stringify(all_Data),
+            cache: false,
+            async: false,
             contentType: 'application/json; charset=utf-8',
-            traditional:true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
-            url:"/culturePark/createUserProc.do",
+            traditional: true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
+            url: "/culturePark/createUserProc.do",
             success: function (data) {
                 console.log(data);
                 ajax_result = data.result;
@@ -312,4 +323,61 @@ $(document).ready(function() {
         });
     }
 
-});
+    function kakaoJoinFunction(obj) {
+        $.ajax({
+            type: "POST",
+            url: "/kakaoJoinProc.do",
+            data: JSON.stringify(obj),
+            datatype: "text",
+            cache: false,
+            async: false,
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data === 'success') {
+                    //기존 이메일 또는, 전화번호의 값이 같으면
+                    //모달 띄어주기
+                    $('#mergeJoinModal').show();
+
+                    // 기존에 있던 이메일(아이디)값위에 카카오이메일과 닉네임값을 넣어준다.
+
+
+
+                } else {
+                    console.log(data);
+
+                    //기존가입하지않은 신규회원이면
+                    // 모달 띄어주기
+
+                    $('#kakaoJoinModal').show();
+
+                    $('.disabledFalse').click(function(){
+                        $('.id_value_1').prop('disabled', false);
+                        $('.id_confirm_btn').prop('disabled', false);
+                        $('.nick_value').prop('disabled', false);
+                        $('.nick_confirm_btn').prop('disabled', false);
+                        $('.input_pw').prop('disabled', false);
+                        $('.name_value').prop('disabled', false);
+                        $('.jumin_value1').prop('disabled', false);
+                        $('.jumin_value2').prop('disabled', false);
+
+                       /* $('.id_value_1').prop('disabled', false);
+                        $('.id_value_1').prop('disabled', false);
+                        $('.id_value_1').prop('disabled', false);*/
+
+                        $('.checkbox_agree').prop('disabled', false);
+                        // 회원가입 계속 진행하기. 비활성화 풀어주고, 카카오 api 닉네임 및 아이디값 셋팅해줌.
+                        // member 테이블로 넘김
+                    });
+                }
+            },
+            error: function () {
+                alert('실행오류!!');
+            },
+        });
+    }
+
+       function close_pop(flag){
+           $('#myModal').hide();
+       }
+
+

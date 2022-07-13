@@ -25,6 +25,8 @@
 
 <body>
 
+<%-- 카카오 API 로그인 링크 참고 (REST API 키 사용) --%>
+<%--https://velog.io/@ohjs813/Spring-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-REST-API#1-loginjsp%EC%97%90-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0--%>
 
 <%-- Main --%>
 <div class="mainContainer">
@@ -82,13 +84,13 @@
                                     <input class="checkbox_save_id checkbox_save_id_p" type="checkbox" name="save_id"
                                             required value="아이디저장">
                                     <div class="save_id">아이디 기억하기</div>
-                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code" name="code">
+                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin.do&response_type=code">
                                         <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="width:108px; margin-left:91px;"></a>
                                 </div>
                             </div>
 
                             <div class="join_section">
-                                <input class="join_btn join_btn_p" type="submit" value="회원가입">
+                                <a href="/join.do"><input class="join_btn join_btn_p" type="button" value="회원가입"/></a>
                             </div>
 
                             <div class="find_section">
@@ -143,7 +145,7 @@
                                         <span class="m_save_id">아이디 저장</span>
                                     </div>
 
-                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code" name="code">
+                                    <a class="p-2 logo" href="https://kauth.kakao.com/oauth/authorize?client_id=9062209bdf61d6187a357519816058d2&redirect_uri=http://localhost:8080/member/kakaoLogin.do&response_type=code">
                                         <img src="/resources/common/img/kakao_login.png" alt="카카오계정 로그인" style="width:100px; margin-left:65px">
                                     </a>
 
@@ -178,6 +180,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="/resources/user/js/member_login.js"></script>
+
+
 
 
 </html>

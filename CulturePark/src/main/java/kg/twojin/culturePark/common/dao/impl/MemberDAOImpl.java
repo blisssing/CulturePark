@@ -176,6 +176,16 @@ public class MemberDAOImpl implements MemberDAO {
         return vo;
     }
 
+    @Override
+    public MemberVO selectExistTel_kakao(MemberVO memberVO) {
+        MemberVO vo = null;
+        try{
+            vo = sqlSessionTemplate.selectOne("mapper.user.selectExistTel_kakao", memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return vo;
+    }
 
 }
 

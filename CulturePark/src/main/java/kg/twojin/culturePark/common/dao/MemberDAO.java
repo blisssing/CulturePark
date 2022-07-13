@@ -32,6 +32,8 @@ public interface MemberDAO {
 
     MemberVO findPw_Tel(MemberVO memberVO);
 
+    MemberVO selectExistTel_kakao(MemberVO memberVO);
+
 }
 
 

@@ -61,8 +61,8 @@ a{
     color: black;
 }
 
-a:hover {
-    color: seagreen;
+li:hover {
+    text-decoration: underline
 }
 
 

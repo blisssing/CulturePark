@@ -82,7 +82,6 @@
 }
 
 
-
 .tel_1 {
     font-size: 0.7rem;
     width: 50px;
@@ -107,20 +106,16 @@
 
 
 
-
 /*인증번호*/
 .tel_authentication_btn {
     width: 60px;
     font-size: 0.5rem;
     margin-left: 10px;
- }
-
-.certifyTime{
-    margin-top: -7px;
 }
 
+
 .time{
-     margin-left: 75px;
+    margin-left: 75px;
 }
 
 .section_type01 {
@@ -131,43 +126,11 @@
     display: flex;
 }
 
-/*
-section_type01로 통합
-.id_section {
-    display: flex;
-}
-
-.pw_section {
-    display: flex;
-}
-
-.rePw_section {
-    display: flex;
-}
-
-.nick_section {
-    display: flex;
-}
-
-.name_section {
-    display: flex;
-}
-
-.jumin_section {
-    display: flex;
-}
-
-.tel_section {
-    display: flex;
-}
-*/
-
-
 /* 인증번호받기 버튼 클릭시 나타남 */
 .authentication_code_section {
     display: flex;
     margin-top: 5px;
-   /* display: none;*/
+    /* display: none;*/
 }
 .authentication_code {
     width: 110px;
@@ -268,59 +231,59 @@ section_type01로 통합
 @media screen and (min-width:1200px) {
 
 
-.back_section {
-    display: none;
-}
+    .back_section {
+        display: none;
+    }
 
-.function_section {
-    display: none;
-}
-
-
-.join_section {
-    font-size: 0.8rem;
-}
-
-.join_section > div {
-    line-height: 300%;
-    margin-bottom: 5px;
-}
-
-.join_section > div > div:nth-child(1) {
-    width: 113px;
-    font-size: 0.9rem;
-}
-
-/*진희수정*/
-.join_section > div > input , .rePw_value {
-    margin: auto 0;
-    font-size: 0.8rem;
-}
+    .function_section {
+        display: none;
+    }
 
 
+    .join_section {
+        font-size: 0.8rem;
+    }
 
-.time {
-    margin-left: 112px;
-}
+    .join_section > div {
+        line-height: 300%;
+        margin-bottom: 5px;
+    }
 
-.code_reSend_btn {
-    margin-right: 5px;
-    font-size: 0.8rem;
-}
+    .join_section > div > div:nth-child(1) {
+        width: 113px;
+        font-size: 0.9rem;
+    }
 
-.code_ok_btn {
-    font-size: 0.8rem;
-}
+    /*진희수정*/
+    .join_section > div > input , .rePw_value {
+        margin: auto 0;
+        font-size: 0.8rem;
+    }
 
-.code_reSend_btn_section {
-    display: flex;
-    height: 27px;
-}
 
-.tel_authentication_btn {
-    width: 70px;
-    font-size: 0.8rem;
-}
+
+    .time {
+        margin-left: 112px;
+    }
+
+    .code_reSend_btn {
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    .code_ok_btn {
+        font-size: 0.8rem;
+    }
+
+    .code_reSend_btn_section {
+        display: flex;
+        height: 27px;
+    }
+
+    .tel_authentication_btn {
+        width: 70px;
+        font-size: 0.8rem;
+    }
 
 
 }

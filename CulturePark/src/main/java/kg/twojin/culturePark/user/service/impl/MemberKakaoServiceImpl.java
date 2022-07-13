@@ -3,17 +3,21 @@ package kg.twojin.culturePark.user.service.impl;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import kg.twojin.culturePark.user.service.MemberService;
-import org.json.simple.parser.JSONParser;
-import org.springframework.context.annotation.Primary;
+import kg.twojin.culturePark.common.dao.MemberDAO;
+import kg.twojin.culturePark.common.vo.MemberVO;
+import kg.twojin.culturePark.user.service.MemberKakaoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
-@Service("memberService")
-public class MemberServiceImpl implements MemberService {
+@Service("memberKakaoService")
+public class MemberKakaoServiceImpl implements MemberKakaoService {
+
+    @Autowired
+    MemberDAO memberDAO;
 
     @Override
     public String getAccessToken (String authorize_code) {
@@ -36,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
             sb.append("grant_type=authorization_code");
 
             sb.append("&client_id=9062209bdf61d6187a357519816058d2"); //본인이 발급받은 key
-            sb.append("&redirect_uri=http://localhost:8080/member/kakaoLogin"); // 본인이 설정한 주소
+            sb.append("&redirect_uri=http://localhost:8080/member/kakaoLogin.do"); // 본인이 설정한 주소
 
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
@@ -100,23 +104,37 @@ public class MemberServiceImpl implements MemberService {
             while ((line = br.readLine()) != null) {
                 result += line;
             }
+
             System.out.println("response body : " + result);
 
             JsonParser parser = new JsonParser();
+            System.out.println("1");
             JsonElement element = parser.parse(result);
-
+            System.out.println("2");
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
+            System.out.println("3");
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+            System.out.println("4");
 
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
+            System.out.println("email = " + email);
+            System.out.println("nickname = " + nickname);
+
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         return userInfo;
+    }
+
+    @Override
+    public MemberVO selectExistTel_kakao(MemberVO memberVO){
+        MemberVO vo = memberDAO.selectExistTel_kakao(memberVO);
+        return vo;
     }
 }
