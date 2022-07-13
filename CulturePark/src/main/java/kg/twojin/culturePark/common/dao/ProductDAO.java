@@ -3,6 +3,7 @@ package kg.twojin.culturePark.common.dao;
 import kg.twojin.culturePark.common.vo.ProductVO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductDAO {
 
@@ -28,4 +29,6 @@ public interface ProductDAO {
     int updateProductRequestStatusRefused(int pdr_seq);
 
     int updateProductStatus(ProductVO productVO);
+
+    int updateProductSetting(Map<String, Object> map);
 }

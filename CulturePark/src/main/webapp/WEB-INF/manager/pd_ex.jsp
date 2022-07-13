@@ -575,39 +575,6 @@
 
                 <%-------------- 3. 기타 설정 ---------------%>
                 <%--여기서부터 테이블 1개--%>
-
-                    <div class="section_div_no_row">
-                        <div class="section_label">기타 설정</div>
-
-                        <div class="row0">
-                            <table class="table" id="table5">
-
-                                <tr class="list1">
-                                    <td class="label">썸네일</td>
-                                    <td class="file_padding"><input class="pd_thumbnail" name="pd_thumbnail" type="file"></td>
-                                </tr>
-
-                                <tr class="list2">
-                                    <td class="label">메인 이미지</td>
-                                    <td class="file_padding"><input class="pd_mainImg" name="pd_mainImg" type="file"></td>
-                                </tr>
-
-                                <tr class="list2">
-                                    <td class="label">설명파일</td>
-                                    <td class="file_padding"><input class="pd_descript" name="pd_descript" type="file"></td>
-                                </tr>
-
-                                <tr class="list3">
-                                    <td colspan="2" class="label">태그</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="tag"><input id="af_pd_tag"type="text"/></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-
                                 <%------------- 휴관요일 -------------%>
                                 <%--테이블 1개--%>
                                     <div class="section_div_no_row">

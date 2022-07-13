@@ -65,6 +65,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return productVOList;
     }
+
     @Override
     public List selectAllMuseumProductByPtSeq(int pt_seq) {
         List<ProductVO> productVOList = null;
@@ -269,10 +270,22 @@ public class ProductDAOImpl implements ProductDAO {
             return result3;
         }
 
-    @Override
-
+    @Override // 온 오프 전환
     public int updateProductStatus(ProductVO productVO) {
         return sqlSessionTemplate.update("mapper.productInfo.updateProductStatus", productVO);
+    }
+
+    @Override
+    public int updateProductSetting(Map<String, Object> map) {
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.productInfo.updateProductSetting", map);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return result;
     }
 
     @Override

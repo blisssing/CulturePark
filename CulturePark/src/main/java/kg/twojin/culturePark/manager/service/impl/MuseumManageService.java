@@ -6,7 +6,9 @@ import kg.twojin.culturePark.manager.service.ProductionManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("museumManageService")
 public class MuseumManageService implements ProductionManageService {
@@ -23,5 +25,10 @@ public class MuseumManageService implements ProductionManageService {
     @Override
     public int changeProductStatus(ProductVO productVO) {
         return 0;
+    }
+
+    @Override
+    public int modifyProductSetting(HashMap<String, Object> hashMap) {
+        return productDAO.updateProductSetting(hashMap);
     }
 }
