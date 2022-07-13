@@ -118,25 +118,5 @@ $(document).ready(function() {
 
 });
 
-    /* 카카오 API */
-    //https://tyrannocoding.tistory.com/61
-    //https://velog.io/@ohjs813/Spring-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-REST-API
-
-    //카카오로그인
-/*
-    function kakaoLogin() {
-
-        $.ajax({
-            url: '/kakaoLogin',
-            type: 'POST',
-            async: false,
-            dataType: 'text',
-            success: function (res) {
-                location.href = res;
-            }
-        });
-
-    }
-*/
 
 

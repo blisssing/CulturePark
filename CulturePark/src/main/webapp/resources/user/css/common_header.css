@@ -120,12 +120,14 @@
 }
 
 .main_title:hover {
+    text-decoration: none;
     color: darkblue;
     -webkit-text-decoration-color: black;
     text-decoration-color: black;
 }
 
 .sub_title {
+    text-decoration: none;
     font-size: 0.4rem;
     margin-top: -2px;
     margin-left: 106px;
@@ -190,7 +192,7 @@ style attribute {
 }
 
 .func_list:hover {
-    color: orange;
+    text-decoration: underline;
 }
 
 #logoutText {
@@ -219,10 +221,12 @@ style attribute {
 
     /* 헤더 우측상단 기능 모바일-pc 스위칭*/
     .funcs_pc {
+        margin-top:15px;
         display: flex;
     }
 
     .main_title {
+        text-decoration: none;
         margin-top: 90px;
         float:left;
         font-size: 3rem;
@@ -233,6 +237,7 @@ style attribute {
     }
 
     .sub_title {
+        text-decoration: none;
         font-size: 0.8rem;
         margin-top: 121px;
         margin-left: 186px;

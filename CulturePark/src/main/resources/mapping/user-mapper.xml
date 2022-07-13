@@ -20,6 +20,13 @@
         <result property="mb_grade" column="mb_grade"></result>
     </resultMap>
 
+    <select id="selectExistTel_kakao" resultType="memberVO" parameterType="memberVO">
+    <![CDATA[
+        select * from MEMBER_ACCOUNT
+        where mb_tel=#{mb_tel}
+    ]]>
+    </select>
+
     <select id="selectMember" resultType="memberVO" parameterType="memberVO">
         <![CDATA[
             select * from MEMBER_ACCOUNT
