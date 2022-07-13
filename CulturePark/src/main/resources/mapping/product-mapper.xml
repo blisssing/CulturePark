@@ -66,5 +66,19 @@
         set pd_status=#{pd_status}
         where pd_seq = #{pd_seq};
     </update>
+<!--    &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
+    <update id="updateProductSetting" parameterType="java.util.HashMap">
+        update product_info
+        <set>
+            <if test="pd_timeType!=null">pd_timeType=#{pd_timeType},</if>
+            <if test="pd_maxTicket!=null">PD_MAXTICKET=CAST(#{pd_maxTicket} AS INTEGER),</if>
+            <if test="pd_openTime!=null">pd_openTime=CAST(#{pd_openTime} AS INTEGER ),</if>
+            <if test="pd_closeTime!=null">pd_closeTime=CAST(#{pd_closeTime} AS INTEGER ),</if>
+            <if test="pd_typeStr!=null">pd_typeStr=#{pd_typeStr},</if>
+            <if test="pd_closeDay!=null">pd_closeDay=#{pd_closeDay},</if>
+            <if test="pd_tag!=null">pd_tag=#{pd_tag},</if>
+        </set>
+        where pd_seq = CAST(#{pd_seq} AS INTEGER );
+    </update>
 
 </mapper>

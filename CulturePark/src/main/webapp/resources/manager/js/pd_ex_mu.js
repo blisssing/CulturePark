@@ -165,9 +165,6 @@ $(document).ready(function () {
             var pd_maxTicket = "";
             var pd_openTime = "";
             var pd_closeTime = "";
-            var pd_thumbnail_PATH = "";
-            var pd_descript_PATH = "";
-            var pd_mainImg_PATH = "";
             var pd_tag = "";
             var pd_closeDay = "";
 
@@ -178,16 +175,16 @@ $(document).ready(function () {
             typeList.each(function () {
                 var type = $(this).val()
                 if (type ==='adult') {
-                    var price =$('.af_adult_price').val();
+                    var price =$('#af_adult_price').val();
                     typeStr += type + ":" + price+"/";
                 } else if (type === 'teenager') {
-                    var price =$('.af_teenager_price').val();
+                    var price =$('#af_teenager_price').val();
                     typeStr += type + ":" + price+"/";
                 } else if (type === 'child') {
-                    var price =$('.af_child_price').val();
+                    var price =$('#af_child_price').val();
                     typeStr += type + ":" + price+"/";
                 } else {
-                    var price =$('.af_none_price').val();
+                    var price =$('#af_none_price').val();
                     typeStr += type + ":" + price+"/";
                 }
             });
@@ -199,17 +196,12 @@ $(document).ready(function () {
             if (ticketType === 'day') {
                 chk_mode = 1;
                 pd_maxTicket = $('#af_day_max').val();
-            } else if(pd_timeType === 'time') {
+            } else if(ticketType === 'time') {
                 chk_mode =2;
                 pd_maxTicket = $('#af_stage_max').val();
                 pd_openTime = $('#af_pd_openTime').val();
                 pd_closeTime = $('#af_pd_closeTime').val();
             }
-
-
-            pd_thumbnail_PATH = $('.pd_thumbnail').val();
-            pd_descript_PATH = $('.pd_descript').val();
-            pd_mainImg_PATH =$('.pd_mainImg').val();
 
             pd_tag = $('#af_pd_tag').val();
 
@@ -233,6 +225,7 @@ $(document).ready(function () {
             jsonObj.pd_seq = thisRow.children('.pd_seq').val();
             jsonObj.pd_genre1 = thisRow.children('.pd_genre1').val();
 
+
             if (chk_mode === 1) {
                 // jsonObj.pd_chkMode2 = 1;
                 jsonObj.pd_timeType = 'day';
@@ -250,22 +243,24 @@ $(document).ready(function () {
             jsonObj.pd_tag = pd_tag;
             jsonObj.pd_closeDay = pd_closeDay;
 
-            jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
-            jsonObj.pd_descript_PATH = pd_descript_PATH;
-            jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;
 
             console.log(JSON.stringify(jsonObj));
-
+            //Todo : 여기 작성해줄 것
             $.ajax({
                 type:"POST",
                 datatype: "json",
                 data: JSON.stringify(jsonObj),
-                contentType: "application/json; charset=tuf-8",
+                contentType: "application/json; charset=utf-8",
                 cache: false,
                 async: false,
                 traditional: true,
+                url:'/modifyPdInfo.mdo',
                 success: function (data) {
-
+                    if (data === 1) {
+                        alert("변경 요청 성공!!");
+                    } else {
+                        alert("변경 요청 실패! : " + data);
+                    }
                 },
                 error: function () {
                     alert("실행 오류!");
@@ -292,13 +287,13 @@ $(document).ready(function () {
                 var type = $(this).val()
 
                 if (type ==='adult') {
-                    var price =$('.af_adult_price').val();
+                    var price =$('#af_adult_price').val();
                 } else if (type === 'teenager') {
-                    var price =$('.af_teenager_price').val();
+                    var price =$('#af_teenager_price').val();
                 } else if (type === 'child') {
-                    var price =$('.af_child_price').val();
+                    var price =$('#af_child_price').val();
                 } else {
-                    var price =$('.af_none_price').val();
+                    var price =$('#af_none_price').val();
                 }
 
                 if (price === '') {

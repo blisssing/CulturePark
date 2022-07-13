@@ -4,6 +4,8 @@ import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
 import kg.twojin.culturePark.manager.service.ManagerAdminService;
 import kg.twojin.culturePark.manager.service.ProductionManageService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProductManageController {
@@ -31,6 +36,7 @@ public class ProductManageController {
     @Autowired
     ManagerAdminService managerAdminService;
 
+    Logger logger = LogManager.getLogger(ProductManageController.class);
     // 전시
 
     @RequestMapping(value = "/productList.mdo")
@@ -94,7 +100,7 @@ public class ProductManageController {
 
     @RequestMapping("/changePdStatus.mdo")
     public void changePdStatus(HttpServletRequest request, HttpServletResponse response,
-                                 @RequestBody ProductVO productVO) throws IOException{
+                               @RequestBody ProductVO productVO) throws IOException {
         String genre = productVO.getPd_genre1();
 
         System.out.println(productVO.toString());
@@ -102,7 +108,7 @@ public class ProductManageController {
         int result;
 
         if (genre.equals("museum")) {
-            result=0;
+            result = 0;
             System.out.println("뮤지엄입니다");
         } else {
             result = exhibitionManageService.changeProductStatus(productVO);
@@ -114,5 +120,28 @@ public class ProductManageController {
 
         PrintWriter out = response.getWriter();
         out.print(jsonObject);
+    }
+
+    @RequestMapping("/modifyPdInfo.mdo")
+    //Todo : 로그에 남겨주기 작성해줄 것
+    public int modifyPdInfo(@RequestBody HashMap<String ,Object> productMap) {
+
+        String genre1= (String) productMap.get("pd_genre1");
+
+//        Iterator it = productMap.entrySet().iterator();
+//        while (it.hasNext()) {
+//            Map.Entry<String, Object> entry = (Map.Entry) it.next();
+//            logger.info("키 : " + entry.getKey());
+//            logger.info("벨류 : " + entry.getValue());
+//        }
+
+        int result = 0;
+        if (genre1.equals("exhibition")) {
+            result = exhibitionManageService.modifyProductSetting(productMap);
+        } else {
+            result = museumManageService.modifyProductSetting(productMap);
+        }
+
+        return result;
     }
 }

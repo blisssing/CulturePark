@@ -139,6 +139,8 @@ public class ManagerCreateProductController {
 
         JSONObject json = new JSONObject();
         String resultStr = null;
+
+
         if (productLogVO1 != null) {
             resultStr = "success";
             json.put("ad_email", productLogVO1.getAd_email());
