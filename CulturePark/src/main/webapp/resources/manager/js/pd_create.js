@@ -208,7 +208,7 @@ $(document).ready(function () {
         // 장소 , 최소 연령
 
         pd_place = $('.pd_place').val();
-        pd_minAge = $('input[name=slc_age]:selected').val();
+        pd_minAge = $('.pd_minAge').val();
 
 
 
@@ -251,9 +251,9 @@ $(document).ready(function () {
 
         // 첨부파일
 
-        pd_thumbnail_PATH = $('.pd_thumbnail').val();
-        pd_descript_PATH = $('.pd_descript').val();
-        pd_mainImg_PATH =$('.pd_mainImg').val();
+        pd_thumbnail_PATH = $('.pd_thumbnail')[0].files[0];
+        pd_descript_PATH = $('.pd_descript')[0].files[0];
+        pd_mainImg_PATH =$('.pd_mainImg')[0].files[0];
 
         pd_tag = $('input[name=pd_tag]').val();
 
@@ -307,9 +307,9 @@ $(document).ready(function () {
         jsonObj.pd_title = pd_title;
         jsonObj.pd_place = pd_place;
         jsonObj.pd_minAge = pd_minAge;
-        jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
-        jsonObj.pd_descript_PATH = pd_descript_PATH;
-        jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;
+        // jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
+        // jsonObj.pd_descript_PATH = pd_descript_PATH;
+        // jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;
 
         jsonObj.pd_tag = pd_tag;
         jsonObj.pd_closeDay = pd_closeDay;
@@ -317,18 +317,24 @@ $(document).ready(function () {
         jsonObj.pd_startDate = pd_startDate;
         jsonObj.pd_closeDate = pd_closeDate;
 
+        var formData = new FormData();
+
+
+        formData.append("thumbNail", pd_thumbnail_PATH);
+        formData.append("descript", pd_descript_PATH);
+        formData.append("mainImg", pd_mainImg_PATH);
+        formData.append("key", new Blob([JSON.stringify(jsonObj)], {type:"application/json"}))
+
         $.ajax({
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
             type:"post",
-            data: JSON.stringify(jsonObj),
-            datatype:"json",
-            contentType: "application/json; charset=utf-8",
+            data: formData,
             url:"/requestNewProduct.mdo",
-            cache:false,
-            async:false,
-            traditional:true,
-            success: function (data) {
+            success: function (result) {
                 alert("정상 수행!");
-                if (data == 1) {
+                if (result == 1) {
                     location.replace("/index.mdo");
                 } else {
                     console.log('비정상수행');

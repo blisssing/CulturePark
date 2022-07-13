@@ -12,7 +12,11 @@
 
 
     <input class="pd_thumbnail" name="pd_thumbnail" type="file">
+    <input class="pd_descript" name="pd_descript" type="file">
+    <input class="pd_mainImg" name="pd_mainImg" type="file">
     <input class="upload_btn" type="button" value="전송"/>
+    <input class="upload_files" type="button" value="여러 개 전송"/>
+
     <input class="download_btn" type="button" value="받기"/>
 
 </body>
@@ -35,6 +39,7 @@
             formData.append('key', new Blob([JSON.stringify(data)], {type:"application/json"}));
             console.log(form);
             console.log(formData);
+
             $.ajax({
                 enctype: 'multipart/form-data',
                 processData: false,
@@ -42,6 +47,7 @@
                 type:"post",
                 data: formData,
                 url: "/uploadFile.mdo",
+
                 success: function (result) {
                     alert("전송 성공!")
                 },
@@ -80,6 +86,45 @@
 
 
         });
+
+        $('.upload_files').click(function () {
+
+            var thumbNail =$('.pd_thumbnail')[0].files[0];
+            var descript = $('.pd_descript')[0].files[0];
+            var mainImg = $('.pd_mainImg')[0].files[0];
+
+            var formData2 = new FormData();
+
+            formData2.append('thumb', thumbNail);
+            formData2.append('descript', descript);
+            formData2.append('main', mainImg);
+
+
+            console.log(thumbNail);
+            console.log(descript);
+            console.log(mainImg);
+
+            $.ajax({
+                type:"POST",
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                url: "/uploadFiles.mdo",
+                data: formData2,
+                async:false,
+                cache:false,
+
+                success: function (result) {
+                    alert("전송 성공!")
+                },
+                error: function () {
+                    alert("전송 실패!");
+                }
+            })
+
+        });
+
+
 
     });
 </script>

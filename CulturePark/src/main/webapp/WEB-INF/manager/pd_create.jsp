@@ -113,7 +113,7 @@
 
                                 <div class="sectionType1">
                                     <div class="label_type1">장소</div>
-                                    <input type="text" class="pd_space inputType1">
+                                    <input type="text" class="pd_place inputType1">
                                 </div>
 
                                 <div class="sectionType1">

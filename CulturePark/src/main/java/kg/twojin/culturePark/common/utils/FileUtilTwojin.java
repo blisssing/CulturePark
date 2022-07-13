@@ -16,9 +16,10 @@ public class FileUtilTwojin {
     static final int WIDTH = 300;
     static final int HEIGHT = 300;
 
-    public boolean fileUpload(String randomName , String fullPathName, String fileForm, MultipartFile file) throws IOException {
+    public boolean fileUpload(String fileName, String fullPathName, String fileForm, MultipartFile file) throws IOException {
 
-        String newFileName = randomName;
+        String newFileName = fileName;
+
         String fileFullName = fullPathName + File.separator + newFileName+ fileForm;
 
         File newFile = new File(fileFullName);
@@ -40,8 +41,8 @@ public class FileUtilTwojin {
         return donwloadFile;
     }
 
-
     public String makeFolder(String uploadPath) {
+
         String folderPath = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
         uploadPath +=folderPath;

@@ -1,18 +1,20 @@
 package kg.twojin.culturePark.manager.controller;
 
+import kg.twojin.culturePark.common.service.FileUploaderService;
 import kg.twojin.culturePark.common.vo.*;
 import kg.twojin.culturePark.manager.service.ManagerProductManageService;
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -21,10 +23,16 @@ public class ManagerCreateProductController {
     @Autowired
     ManagerProductManageService managerProductManageService;
 
+    @Autowired
+    FileUploaderService fileUploaderService;
 
+    // Todo : 업로드 양식으로 바꿔주는 중
     @RequestMapping(value = "requestNewProduct.mdo")
     public int createNewProduct(HttpServletResponse response, HttpServletRequest request,
-                                @RequestBody ProductVO productVO) {
+                                @RequestPart("key") ProductVO productVO,
+                                @RequestPart("thumbNail") MultipartFile thumb_file,
+                                @RequestPart("descript") MultipartFile descript_file,
+                                @RequestPart("mainImg") MultipartFile main_file) {
 
         System.out.println("동작확인");
         System.out.println(productVO.toString());
@@ -46,15 +54,43 @@ public class ManagerCreateProductController {
         int openTime = productVO.getPd_openTime();
         int closeTime = productVO.getPd_closeTime();
 
+        // 파일 업로드
 
-        int result = managerProductManageService.createNewProductReqeust(productVO);
+        HashMap<String, MultipartFile> multipartFileHashMap = new HashMap<>();
 
-        if (result == 1) {
-            return result;
-        } else {
-            // 실패
+        // 해시맵에 각 파일 데이터를 담아줌
+        multipartFileHashMap.put("thumbNail", thumb_file);
+        multipartFileHashMap.put("descript", descript_file);
+        multipartFileHashMap.put("mainImg", main_file);
+
+
+        HashMap<String, String> resultUpload = null;
+
+        try {
+            // 업로드 결과로 키와 경로값이 담겨 있는 해시맵을 받아옴.
+            resultUpload = managerProductManageService.uploadEssentialFiles(multipartFileHashMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int result = 0;
+
+        if (resultUpload != null) {
+
+            // 경로값이 담겨져 있는 해시맵을 통해 경로를 vo에 넣어줌
+            productVO.setPd_thumbnail_PATH(resultUpload.get("thumb"));
+            productVO.setPd_descript_PATH(resultUpload.get("descript"));
+            productVO.setPd_mainImg_PATH(resultUpload.get("mainImg"));
+
+            System.out.println(productVO.toString());
+
+            // 최종적으로 셋팅이 완료됀 vo를 db에 주입
+            result = managerProductManageService.createNewProductRequest(productVO);
+        } else{
             return result;
         }
+
+        return result;
     }
 
 
