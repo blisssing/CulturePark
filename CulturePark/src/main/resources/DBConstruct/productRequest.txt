@@ -28,15 +28,19 @@ CREATE TABLE PD_CREATE_REQUEST
     PDR_CLOSEDATE       timestamp   NOT NULL,
     PDR_MAXTICKET       INTEGER     default 0,
     PDR_request_manager varchar(40) not null,
-    PDR_requestDate     timestamp   not null
+    PDR_requestDate     timestamp   not null default now(),
+    pdr_place varchar(30) not null
 
 );
 
 select * from PD_CREATE_REQUEST;
 
 alter table PD_CREATE_REQUEST add column PDR_MAINIMG_PATH varchar(60);
+alter table PD_CREATE_REQUEST alter column PDR_requestDate set default now();
 
 commit
 
 
 <진희>6.30 변경
+
+<진희>0713 변경

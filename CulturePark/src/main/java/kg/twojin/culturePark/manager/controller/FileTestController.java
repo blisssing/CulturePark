@@ -18,14 +18,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-@Controller
+@RestController
 public class FileTestController {
 
 
@@ -36,6 +37,7 @@ public class FileTestController {
 //https://velog.io/@jyyoun1022/SPRING파일-업로드-처리
 
     Logger logger = LogManager.getLogger(FileTestController.class);
+
     @RequestMapping(value = "testFile.mdo")
     public ModelAndView testFileUpload() {
 
@@ -59,7 +61,8 @@ public class FileTestController {
         String fileForm = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
 
         logger.info("받아온 정보 : " + vo.toString());
-        logger.info("파일의 실제 데이터  : byte []data = file.getBytes()" );
+        logger.info("파일의 실제 데이터  : byte []data = file.getBytes()");
+
         byte[] data = file.getBytes();
 
 
@@ -93,21 +96,20 @@ public class FileTestController {
 //        }
 
 
-
     }
 
 
     @RequestMapping(value = "testDownload.mdo")
     @ResponseBody
     public void downloadFileTest(
-                                                     HttpServletRequest request, HttpServletResponse response) throws IOException {
+            HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("실행 확인");
+        System.out.println("실행 확인`");
 
         // https://to-dy.tistory.com/101
         // https://offetuoso.tistory.com/entry/ajax-파일-다운로드-경로-파일명
-         String pt_file = "20220712/d5e0ba78-9dc0-45e4-8b8b-ab9f89f5ae1c.png";
-         String comp_name = "투진";
+        String pt_file = "20220712/d5e0ba78-9dc0-45e4-8b8b-ab9f89f5ae1c.png";
+        String comp_name = "투진";
 
         File file = partnerService.downloadFile(pt_file);
         byte[] bytes = FileUtils.readFileToByteArray(file);
@@ -128,7 +130,35 @@ public class FileTestController {
     }
 
 
+    @RequestMapping(value = "/uploadFiles.mdo" , method = RequestMethod.POST)
+    public void testFilesUpload( @RequestPart("thumb") MultipartFile thumbNail,
+                                 @RequestPart("descript") MultipartFile descript,
+                                 @RequestPart("main") MultipartFile mainImg) throws IOException{
+
+        logger.info("여러 개 업로드 실행 ");
+
+        logger.info("실행 확인 구간 1 ");
+        Map<String, MultipartFile> map = new HashMap<>();
+        logger.info("실행 확인 구간 2 ");
+
+        map.put("thumb", thumbNail);
+        map.put("descript", descript);
+        map.put("mainImg", mainImg);
+
+        logger.info("실행 확인 구간 3 ");
+
+        Iterator it = map.entrySet().iterator();
+        logger.info("실행 확인 구간 4 ");
+        while (it.hasNext()) {
+            logger.info("실행 확인 구간 5 ");
+            Map.Entry<String, MultipartFile> entry = (Map.Entry) it.next();
+            logger.info("키 : " + entry.getKey());
+            logger.info("벨류 : " + entry.getValue());
+        }
+
+        
 
 
 
+    }
 }
