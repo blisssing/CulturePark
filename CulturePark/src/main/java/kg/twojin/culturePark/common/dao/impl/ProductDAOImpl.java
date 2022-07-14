@@ -54,6 +54,20 @@ public class ProductDAOImpl implements ProductDAO {
 
 
     // 상품 조회
+
+    // 상품 정보
+    @Override
+    public ProductVO selectProductInfo(HashMap hashMap) {
+        ProductVO productVO = null;
+        try {
+            productVO = sqlSessionTemplate.selectOne("mapper.product.selectProduct", hashMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productVO;
+    }
+
     @Override
     public List selectAllExhibitProductByPtSeq(int pt_seq) {
         List<ProductVO> productVOList = null;
