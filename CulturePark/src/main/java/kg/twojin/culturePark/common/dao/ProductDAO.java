@@ -30,5 +30,5 @@ public interface ProductDAO {
 
     int updateProductStatus(ProductVO productVO);
 
-    int updateProductSetting(Map<String, Object> map);
+    int insertProductModiRequest(ProductVO productVO, int mg_seq);
 }

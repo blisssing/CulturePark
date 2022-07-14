@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service("exhibitionManageService")
 public class ExhibitionManageService implements ProductionManageService {
@@ -29,8 +27,8 @@ public class ExhibitionManageService implements ProductionManageService {
     }
 
     @Override
-    public int modifyProductSetting(HashMap<String, Object> hashMap) {
-        int modifyResult = productDAO.updateProductSetting(hashMap);
+    public int modifyProductSetting(ProductVO productVO, int mg_seq) {
+        int modifyResult = productDAO.insertProductModiRequest(productVO, mg_seq);
         if (modifyResult == 1) {
 
         } else {

@@ -66,9 +66,27 @@
         set pd_status=#{pd_status}
         where pd_seq = #{pd_seq};
     </update>
+
+
+
+<!--  ?? ??   -->
 <!--    &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
-    <update id="updateProductSetting" parameterType="java.util.HashMap">
-        update product_info
+    <insert id="insertProductModiRequest" parameterType="java.util.HashMap">
+        insert into product_modify_request
+        (pt_seq, pd_seq, mg_seq, pd_timetype,
+         PD_MAXTICKET, PD_OPENTIME,
+         PD_CLOSETIME,
+         PD_TYPESTR,
+         PD_CLOSEDAY,
+         PD_TAG)
+        values (#{productVO.pt_seq}, #{productVO.pd_seq}, #{mg_seq}, #{productVO.pd_timeType}
+               , #{productVO.pd_maxTicket}, #{productVO.pd_openTime}, #{productVO.pd_closeTime}
+               , #{productVO.pd_typeStr}, #{productVO.pd_closeDay}, #{productVO.pd_tag}
+               )
+
+    </insert>
+
+    <!--update PRODUCT_MODIFY_REQUEST
         <set>
             <if test="pd_timeType!=null">pd_timeType=#{pd_timeType},</if>
             <if test="pd_maxTicket!=null">PD_MAXTICKET=CAST(#{pd_maxTicket} AS INTEGER),</if>
@@ -78,7 +96,6 @@
             <if test="pd_closeDay!=null">pd_closeDay=#{pd_closeDay},</if>
             <if test="pd_tag!=null">pd_tag=#{pd_tag},</if>
         </set>
-        where pd_seq = CAST(#{pd_seq} AS INTEGER );
-    </update>
+        where pd_seq = CAST(#{pd_seq} AS INTEGER );-->
 
 </mapper>

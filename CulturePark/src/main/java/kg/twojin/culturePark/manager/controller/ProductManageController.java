@@ -1,6 +1,7 @@
 package kg.twojin.culturePark.manager.controller;
 
 import kg.twojin.culturePark.common.vo.AdminVO;
+import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
 import kg.twojin.culturePark.manager.service.ManagerAdminService;
 import kg.twojin.culturePark.manager.service.ProductionManageService;
@@ -19,10 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class ProductManageController {
@@ -124,23 +122,33 @@ public class ProductManageController {
 
     @RequestMapping("/modifyPdInfo.mdo")
     //Todo : 로그에 남겨주기 작성해줄 것
-    public int modifyPdInfo(@RequestBody HashMap<String ,Object> productMap) {
+    public int modifyPdInfo(@RequestBody  ProductVO productVO, HttpServletResponse response, HttpServletRequest request) {
 
-        String genre1= (String) productMap.get("pd_genre1");
+        int result = 0;
 
-//        Iterator it = productMap.entrySet().iterator();
+        //Todo : 바꿔줄 것.
+//        HttpSession session = request.getSession();
+//        ManagerVO managerVO = (ManagerVO) session.getAttribute("manager");
+//        int mg_seq = managerVO.getMg_seq();
+
+        int mg_seq = 1;
+        logger.info("productVO : " + productVO.toString());
+        logger.info("mg_seq :" + mg_seq);
+
+
+        if (productVO.getPd_genre1().equals("exhibition")) {
+            result = exhibitionManageService.modifyProductSetting(productVO, mg_seq);
+        } else {
+            result = museumManageService.modifyProductSetting(productVO, mg_seq);
+        }
+
+        //        Iterator it = productVO.entrySet().iterator();
 //        while (it.hasNext()) {
 //            Map.Entry<String, Object> entry = (Map.Entry) it.next();
 //            logger.info("키 : " + entry.getKey());
 //            logger.info("벨류 : " + entry.getValue());
 //        }
 
-        int result = 0;
-        if (genre1.equals("exhibition")) {
-            result = exhibitionManageService.modifyProductSetting(productMap);
-        } else {
-            result = museumManageService.modifyProductSetting(productMap);
-        }
 
         return result;
     }
