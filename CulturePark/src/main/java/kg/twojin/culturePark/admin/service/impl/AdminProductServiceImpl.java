@@ -86,4 +86,8 @@ public class AdminProductServiceImpl implements AdminProductService {
         return productDAO.selectAllProductModiRequestList();
     }
 
+    @Override
+    public ProductVO getProductInfo(HashMap hashMap) {
+        return productDAO.selectProductInfo(hashMap);
+    }
 }

@@ -45,6 +45,12 @@
         ]]>
     </insert>
 
+    <select id="selectProduct" parameterType="hashmap">
+        SELECT *
+        FROM PRODUCT_INFO
+        WHERE PD_SEQ = #{pd_seq}, PT_SEQ=#{pt_seq};
+    </select>
+
     <select id="selectProductByPtAndTitle" parameterType="productRequestVO" resultType="productVO">
         <![CDATA[
         SELECT *

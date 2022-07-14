@@ -2,6 +2,7 @@ package kg.twojin.culturePark.common.dao;
 
 import kg.twojin.culturePark.common.vo.ProductVO;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,10 @@ public interface ProductDAO {
 
     // 상품 요청 리스트 검색
     List selectAllNewProduct();
+
+
+    // 상품 정보 검색
+    ProductVO selectProductInfo(HashMap hashMap);
 
     // 전시 상품 리스트 검색
     List selectAllExhibitProductByPtSeq(int pt_seq);

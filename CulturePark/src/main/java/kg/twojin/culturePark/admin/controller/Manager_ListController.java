@@ -53,7 +53,7 @@ public class Manager_ListController {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("Error", "Proc");
-            mv.setViewName("accessError.jsp");
+            mv.setViewName("accessError");
         }
         return mv;
     }

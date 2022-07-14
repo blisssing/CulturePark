@@ -14,4 +14,6 @@ public interface AdminProductService {
     int refuseProductCreate(ProductLogVO productLogVO);
 
     List<HashMap<String ,Object>> getProductModifyRequestList();
+
+    ProductVO getProductInfo(HashMap hashMap);
 }

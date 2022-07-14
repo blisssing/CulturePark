@@ -7,7 +7,9 @@ import kg.twojin.culturePark.manager.controller.FileTestController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,7 +29,7 @@ public class Admin_PMR_Controller {
 
     @RequestMapping(value = "/pdModifyRequest.ado")
     public ModelAndView pdModifyRequest() {
-        List <HashMap<String,Object>>  productVOList =adminProductService.getProductModifyRequestList();
+        List<HashMap<String, Object>> productVOList = adminProductService.getProductModifyRequestList();
         ModelAndView mv = new ModelAndView();
         if (productVOList != null) {
             int listSize = productVOList.size();
@@ -50,5 +52,14 @@ public class Admin_PMR_Controller {
             return null;
         }
         return mv;
+    }
+
+    @RequestMapping(value = "/pmrInfo.ado")
+    public void getPmrInfo(@RequestBody HashMap<String, Object> hashMap) {
+
+
+
+
+
     }
 }
