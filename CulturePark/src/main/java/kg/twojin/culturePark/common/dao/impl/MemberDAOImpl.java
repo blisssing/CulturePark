@@ -32,6 +32,19 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
+    public int joinUpdateMember(MemberVO memberVO) {
+        int result;
+        try{
+            result = sqlSessionTemplate.update("mapper.user.joinUpdateMember",memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+            result = 0;
+        }
+        return result;
+    }
+
+
+    @Override
     public int updateMemberWithoutPw(MemberVO memberVO) {
         int result;
         try{

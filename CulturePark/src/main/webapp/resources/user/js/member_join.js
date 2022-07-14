@@ -123,7 +123,7 @@ $(document).ready(function() {
         } else if (third_num.trim() === '') {
             alert("전화번호 세 번째 자리를 입력해주세요");
         } else {
-            alert("인증번호 발송이 완료되었습니다. \n 휴대폰에서 인증번호를 확인해 주십시오");
+            alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호를 확인해 주십시오");
 
             var phone = first_num + second_num + third_num;
 
