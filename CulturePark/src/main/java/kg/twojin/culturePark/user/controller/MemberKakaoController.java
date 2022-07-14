@@ -1,13 +1,9 @@
 package kg.twojin.culturePark.user.controller;
 
-import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberKakaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
@@ -44,30 +40,5 @@ public class MemberKakaoController {
         return "member_kakaoJoin";
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/kakaoJoinProc.do", method = RequestMethod.POST)
-    public String kakaoJoinProc(@RequestBody MemberVO vo,
-                                HttpServletRequest request,
-                                HttpServletResponse response) throws Exception {
-
-        String result;
-
-        String voTel = vo.getMb_tel();
-
-        vo = memberKakaoService.selectExistTel_kakao(vo);
-
-        if(vo != null) {
-           String dbTel = vo.getMb_tel();
-
-            if (dbTel == voTel) {
-                result = "success";
-            } else {
-                result = "wrongTel";
-            }
-        }else {
-            result = "failed";
-        }
-        return result;
-    }
 
 }

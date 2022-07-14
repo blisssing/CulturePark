@@ -17,6 +17,8 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     @Autowired
     MemberDAO memberDAO;
 
+
+
     @Override
     public String searchEmailAddress(String userEmail) {
 
@@ -66,7 +68,14 @@ public class MemberJoinServiceImpl implements MemberJoinService {
 
     @Override
     public int joinMember(MemberVO memberVO) {
+
         return memberDAO.insertMember(memberVO);
+    }
+
+    @Override
+    public int joinUpdateMember(MemberVO memberVO) {
+
+        return memberDAO.joinUpdateMember(memberVO);
     }
 
 

@@ -83,9 +83,6 @@
                         </div>
                     </div>
 
-
-
-
                     <div class="name_section section_type01">
                         <div class="name_label">이름</div>
                         <input class="name_value input_type01" type="textFiled" name="name_value" maxlength="5">

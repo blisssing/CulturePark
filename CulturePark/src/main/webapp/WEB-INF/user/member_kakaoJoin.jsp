@@ -46,7 +46,54 @@
         margin: 15% auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 30%;
+        width: 70%;
+      }
+
+      #mergeBtn {
+        cursor:pointer;
+        background-color:#DDDDDD;
+        text-align:center;
+        font-size:0.8rem;
+        margin-right:20px;
+        margin-left:-4px;
+        display: inline-block;
+        height: 22px;
+        width:122px;
+        padding-top:8px;
+      }
+
+      #mergeCancelBtn {
+        cursor:pointer;
+        background-color:#DDDDDD;
+        text-align:center;
+        font-size:0.8rem;
+        display: inline-block;
+        height: 22px;
+        width:122px;
+        padding-top:8px;
+      }
+
+      #kakaoJoinBtn{
+        margin-right:20px;
+        cursor:pointer;
+        background-color:#DDDDDD;
+        text-align:center;
+        font-size:0.8rem;
+        display: inline-block;
+        height: 22px;
+        width:122px;
+        padding-top:8px
+      }
+
+      #kakaoJoinCancelBtn {
+        cursor:pointer;
+        background-color:#DDDDDD;
+        text-align:center;
+        font-size:0.8rem;
+        display: inline-block;
+        height: 22px;
+        width:122px;
+        padding-top:8px
       }
 
     </style>
@@ -78,26 +125,25 @@
         <div class="join_label">회원 가입</div>
       </div>
 
+
+
       <%-- -------------- 회원정보입력 영역 --------------- --%>
       <form id="frm">
         <div class="join_section">
           <p class="sectionLine_thin"></p>
 
-          <div class="id_section section_type01">
-            <div class="id_label">아이디</div>
-            <input class="id_value_1" type="email" name="mb_email" maxlength="40" disabled="disabled">
-            <%--${sessionScope.kakaoN}--%>
 
+           <%-- <c:set var="kakaoNick" value="${sessionScope.kakaoN}"></c:set>--%>
+            <c:set var="kakaoEmail" value="${sessionScope.kakaoE}"></c:set>
 
-            <%-- 아이디 중복확인 버튼 --%>
-            <input class="id_confirm_btn" type="button" name="id_confirm_btn" value="중복확인" disabled="disabled">
-          </div>
+          <input type="hidden" class="id_value" name="mb_email" value="${kakaoEmail}">
+          <input type="hidden" class="mb_seq"
 
           <div class="nick_section section_type01">
             <div class="nick_label">닉네임</div>
             <div class="nick_confirm_msg_section">
               <%-- 닉네임 중복확인 메세지 --%>
-              <input class="nick_value input_type01" type="textFiled" name="mb_nick" maxlength="10" disabled="disabled">
+              <input class="nick_value input_type01" name="mb_nick" maxlength="10" disabled="disabled">
               <input class="nick_confirm_btn" type="button" name="nick_confirm_btn" value="중복확인" disabled="disabled">
             </div>
           </div>
@@ -343,9 +389,8 @@
           기존 회원 확인을 위해<br/>
           먼저 핸드폰 번호 입력 후, 인증번호를 입력해주세요.</p>
         <p><br/></p>
-        <div style="cursor:pointer;background-color:#DDDDDD;text-align:center;padding-bottom:10px;padding-top:10px;"
-             onClick="close_pop();">
-          <span class="pop_bt" style="font-size: 13pt;">닫기</span>
+        <div class="modal_close1" style="cursor:pointer;background-color:#DDDDDD;text-align:center;padding-bottom:10px;padding-top:10px;">
+          <span style="font-size: 13pt;">닫기</span>
         </div>
       </div>
     </div>
@@ -360,12 +405,15 @@
         </p>
         <p style="text-align:center; line-height:1.5;"><br/>
           기존에 가입한 내역이 존재합니다.<br/>
-          무분별한 회원가입 방지를 위해 통합회원가입으로 전환됩니다.
+          무분별한 회원가입 방지를 위해 통합회원가입으로 전환됩니다.<br/>
           로그인시 아이디는 카카오 이메일로 입력하여주세요.
         </p>
-        <a href="/login.do"><span style="cursor:pointer;background-color:#DDDDDD;text-align:center; font-size:13pt;">통합회원가입하기</span></a>
-        //클릭시 통합회원가입처리 되었습니다. 로그인해주세요.
-        <span style="cursor:pointer; background-color:#DDDDDD; text-align:center; font-size:13pt;" onClick="close_pop();">취소</span>
+
+        <div class="btn_section" style="display: flex; margin-top:15px; width:100%; justify-content: center;" >
+        <div class="mergeBtn" style="display: flex;"><span id="mergeBtn">통합회원가입하기</span></div>
+        <div><span class="locationLogin" id="mergeCancelBtn">취소</span></div>
+        </div>
+
         <p><br/></p>
       </div>
     </div>
@@ -381,10 +429,30 @@
         <p style="text-align:center; line-height:1.5;"><br/>
           회원가입을 위해서 나머지 회원정보를 기입해주세요.<br/>
         </p>
-        <span class="disabledFalse" style="cursor:pointer;background-color:#DDDDDD;text-align:center; font-size:13pt;" onClick="close_pop();">확인</span><
-        //비활성화풀어주기
-        <a href="/login.do"><span style="cursor:pointer; background-color:#DDDDDD; text-align:center; font-size:13pt;">취소</span></a>
+
+        <div class="btn_section" style="display: flex; margin-top:15px; justify-content: center;">
+          <div><span class="disabledFalse modal_close2" id="kakaoJoinBtn">확인</span></div>
+          <div><span class="joinModalCancel locationLogin" id="kakaoJoinCancelBtn">취소</span></div>
+        </div>
+
         <p><br/></p>
+      </div>
+    </div>
+
+
+    <div id="mergeModal" class="modal">
+      <div class="modal-content">
+        <p style="text-align:center;">
+       <span style="font-size:14pt;"><b>
+       <span style="font-size:20pt;">알림</span></b>
+       </span>
+        </p>
+        <p style="text-align:center; line-height:1.5;"><br/>
+          통합회원으로 전환되었습니다.<br/> 로그인 창으로 이동합니다.</p>
+        <p><br/></p>
+        <div style="cursor:pointer;background-color:#DDDDDD;text-align:center;padding-bottom:10px;padding-top:10px;">
+        <a class="mergeModalExit locationLogin" style="font-size: 13pt;">닫기</a>
+        </div>
       </div>
     </div>
 

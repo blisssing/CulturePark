@@ -195,6 +195,7 @@
     font-size: 0.6rem;
     color: white;
     background-color: black;
+    cursor: pointer;
 }
 
 .pw_check {
@@ -269,9 +270,11 @@
     .code_reSend_btn {
         margin-right: 5px;
         font-size: 0.8rem;
+        cursor:pointer;
     }
 
     .code_ok_btn {
+        cursor:pointer;
         font-size: 0.8rem;
     }
 
