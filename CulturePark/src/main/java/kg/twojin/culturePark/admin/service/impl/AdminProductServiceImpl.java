@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("adminProductService")
@@ -79,4 +80,10 @@ public class AdminProductServiceImpl implements AdminProductService {
 
         return finalChk;
     }
+
+    @Override
+    public List<HashMap<String,Object>> getProductModifyRequestList() {
+        return productDAO.selectAllProductModiRequestList();
+    }
+
 }

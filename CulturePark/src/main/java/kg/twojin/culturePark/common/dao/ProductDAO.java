@@ -22,6 +22,8 @@ public interface ProductDAO {
     // 뮤지엄 상품 리스트 검색
     List selectAllMuseumProductByPtSeq(int pt_seq);
 
+    List selectAllProductModiRequestList();
+
     public List selectAllOnwPdCreateRequest(int pt_num);
 
     int updateProductRequestStatusAgree(int pdr_seq);

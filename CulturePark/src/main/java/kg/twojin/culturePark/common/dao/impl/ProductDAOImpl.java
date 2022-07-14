@@ -78,6 +78,20 @@ public class ProductDAOImpl implements ProductDAO {
         return productVOList;
     }
 
+    // 변경 요청 상품 목록 조회
+    @Override
+    public List selectAllProductModiRequestList() {
+        List<HashMap<String,Object>> productVOList = null;
+        try {
+            productVOList = sqlSessionTemplate.selectList("mapper.productInfo.selectAllPMR");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return productVOList;
+    }
+
+
     @Override
     public int insertProductRequest(ProductVO productVO) {
         int result = 0;
@@ -315,6 +329,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
+
 
     private boolean chkCloseDay(String [] closeDayStr, String day) {
 

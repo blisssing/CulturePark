@@ -24,7 +24,7 @@ public class ProductVO {
             pd_request_manager,
             pd_place;
 
-    Date pd_startDate, pd_closeDate, pd_requestDate; //V
+    Date pd_startDate, pd_closeDate, pd_requestDate, pd_processDate; //V
 
     int pd_seq, pt_seq, pd_openTime, pd_closeTime, pd_maxTicket, pd_minAge; //V
 

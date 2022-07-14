@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -275,17 +276,24 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach items="${productList}" var="product" varStatus="status">
+                                    <fmt:formatDate var="formatRequestDate" value="${product.get('pmr_requestdate')}" pattern="yyyy-MM-dd"/>
                                     <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01-03</td>
-                                        <td class="handle_date"></td>
-                                        <td class="request_status">대기</td>
+                                        <input type="hidden" class="pd_seq" value="${product.get("pd_seq")}">
+                                        <input type="hidden" class="pmr_seq" value="${product.get("pmr_seq")}">
+                                        <input type="hidden" class="pt_seq" value="${product.get("pt_seq")}">
+                                        <input type="hidden" class="mg_seq" value="${product.get('mg_seq')}">
+                                        <td class="seq">${status.count}</td>
+                                        <td class="comp_name">${product.get("pt_comp_name")}</td>
+                                        <td class="pd_title">${product.get("pd_title")}</td>
+                                        <td class="request_date">${formatRequestDate}</td>
+                                        <td class="handle_date">
+                                            <c:if test="${product.containsKey('pmr_processdate')}">
+                                                <fmt:formatDate var="formatProcessDate" value="${product.get('pmr_requestdate')}" pattern="yyyy-MM-dd"/>
+                                                ${formatProcessDate}
+                                            </c:if>
+                                        </td>
+                                        <td class="request_status">${product.get('pmr_status')}</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
@@ -294,61 +302,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01.03</td>
-                                        <td class="handle_date">2022.01.04</td>
-                                        <td class="request_status">거절</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01.03</td>
-                                        <td class="handle_date">2022.01.04</td>
-                                        <td class="request_status">승인</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01-03</td>
-                                        <td class="handle_date"></td>
-                                        <td class="request_status">대기</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
