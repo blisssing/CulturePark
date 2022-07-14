@@ -68,18 +68,26 @@
     </update>
 
 
+<!-- PMR   -->
 
-<!--  ?? ??   -->
-<!--    &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
+    <select id="selectAllPMR" resultType="java.util.HashMap">
+        select * from product_modify_request
+    </select>
+
+<!--  &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
     <insert id="insertProductModiRequest" parameterType="java.util.HashMap">
         insert into product_modify_request
-        (pt_seq, pd_seq, mg_seq, pd_timetype,
+        (pt_seq, pd_seq, pt_comp_name, pd_title, mg_seq, pd_timetype,
          PD_MAXTICKET, PD_OPENTIME,
          PD_CLOSETIME,
          PD_TYPESTR,
          PD_CLOSEDAY,
          PD_TAG)
-        values (#{productVO.pt_seq}, #{productVO.pd_seq}, #{mg_seq}, #{productVO.pd_timeType}
+        values (#{productVO.pt_seq},
+                #{productVO.pd_seq},
+                (select pt_comp_name from PARTNER_AGREEMENT where pt_seq=#{productVO.pt_seq}),
+                (select pd_title from product_info where pd_seq=#{productVO.pd_seq}),
+                #{mg_seq}, #{productVO.pd_timeType}
                , #{productVO.pd_maxTicket}, #{productVO.pd_openTime}, #{productVO.pd_closeTime}
                , #{productVO.pd_typeStr}, #{productVO.pd_closeDay}, #{productVO.pd_tag}
                )

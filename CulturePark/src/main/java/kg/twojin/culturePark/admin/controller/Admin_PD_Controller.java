@@ -8,13 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class Admin_PD_Controller {
 
 
-    @RequestMapping(value = "pdModifyRequest.ado")
-    public ModelAndView pdModifyRequest() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_modiRequest");
-        return mv;
-    }
-
     @RequestMapping(value = "pdList.ado")
     public ModelAndView pdManageList() {
         ModelAndView mv = new ModelAndView();
