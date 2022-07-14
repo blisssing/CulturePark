@@ -28,8 +28,4 @@ public class ProductVO {
 
     int pd_seq, pt_seq, pd_openTime, pd_closeTime, pd_maxTicket, pd_minAge; //V
 
-
-
-    //17
-
 }

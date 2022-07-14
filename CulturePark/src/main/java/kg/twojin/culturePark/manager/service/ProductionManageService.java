@@ -12,7 +12,8 @@ public interface ProductionManageService {
 
     int changeProductStatus(ProductVO productVO);
 
-    int modifyProductSetting(HashMap <String, Object> hashMap);
+    int modifyProductSetting(ProductVO productVO, int mg_seq);
+
 
 
 }

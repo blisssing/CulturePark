@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,7 @@
 
 
 
-    <title>manager exhibition management</title>
+    <title>우리들의 문화광간 CulturePark</title>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -107,6 +108,9 @@
 
 <body id="page-top">
 
+<%--Todo : 수정해줄 것!!--%>
+    <input id="mg_seq" type="hidden" value="1">
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -148,6 +152,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                     <c:forEach items="${productList}" var="product" varStatus="varStatus">
                                         <fmt:formatDate var="formatstartDate" value="${product.pd_startDate}" pattern="yyyy-MM-dd"/>
                                         <fmt:formatDate var="formatendDate" value="${product.pd_closeDate}" pattern="yyyy-MM-dd"/>

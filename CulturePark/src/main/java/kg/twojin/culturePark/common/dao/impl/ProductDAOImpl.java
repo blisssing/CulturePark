@@ -276,10 +276,15 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public int updateProductSetting(Map<String, Object> map) {
+    public int insertProductModiRequest(ProductVO productVO, int mg_seq) {
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("mg_seq", mg_seq);
+        map.put("productVO", productVO);
+
         int result = 0;
         try {
-            result = sqlSessionTemplate.update("mapper.productInfo.updateProductSetting", map);
+            result = sqlSessionTemplate.update("mapper.productInfo.insertProductModiRequest", map);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

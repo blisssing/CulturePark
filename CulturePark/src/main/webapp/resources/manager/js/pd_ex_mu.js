@@ -223,6 +223,7 @@ $(document).ready(function () {
             var jsonObj = new Object();
 
             jsonObj.pd_seq = thisRow.children('.pd_seq').val();
+            jsonObj.pt_seq = thisRow.children('.pt_seq').val();
             jsonObj.pd_genre1 = thisRow.children('.pd_genre1').val();
 
 
@@ -258,6 +259,7 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data === 1) {
                         alert("변경 요청 성공!!");
+                        closeModal(modalNow);
                     } else {
                         alert("변경 요청 실패! : " + data);
                     }
