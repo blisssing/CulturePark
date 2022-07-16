@@ -60,7 +60,7 @@ public class ProductDAOImpl implements ProductDAO {
     public ProductVO selectProductInfo(HashMap hashMap) {
         ProductVO productVO = null;
         try {
-            productVO = sqlSessionTemplate.selectOne("mapper.product.selectProduct", hashMap);
+            productVO = sqlSessionTemplate.selectOne("mapper.productInfo.selectProduct", hashMap);
         } catch (Exception e) {
             e.printStackTrace();
         }

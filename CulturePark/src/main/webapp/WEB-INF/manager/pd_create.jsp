@@ -89,8 +89,8 @@
                                         <div class="genre_label">1차 선택</div>
                                         <select class="genre_select first_select">
                                             <option value="none">선택</option>
-                                            <option value="exhibition" selected="selected">전시</option>
-                                            <option value="museum">뮤지엄</option>
+                                            <option value="전시회" selected="selected">전시</option>
+                                            <option value="뮤지엄">뮤지엄</option>
                                         </select>
                                     </div>
 
@@ -98,10 +98,10 @@
                                         <div class="genre_label">2차 선택</div>
                                         <select class="genre_select second_select">
                                             <option value="none">선택</option>
-                                            <option value="ex_photo">사진</option>
-                                            <option value="ex_painting">그림</option>
-                                            <option value="ex_installation">설치</option>
-                                            <option value="ex_experience">체험</option>
+                                            <option value="사진">사진</option>
+                                            <option value="그림">그림</option>
+                                            <option value="설치">설치</option>
+                                            <option value="체험">체험</option>
                                         </select>
                                     </div>
                                 </div>

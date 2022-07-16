@@ -64,7 +64,6 @@ public class Admin_PD_NewController {
 
         productLogVO.setAd_seq(ad_seq);
 
-
         int result = adminProductService.agreeProductCreate(productLogVO);
 
         String resultStr = null;

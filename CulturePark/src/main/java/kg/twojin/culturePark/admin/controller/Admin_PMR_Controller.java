@@ -35,12 +35,10 @@ public class Admin_PMR_Controller {
             int listSize = productVOList.size();
 
             for (HashMap<String, Object> map : productVOList) {
-                logger.info("--------목록 --------");
-
                 Iterator it = map.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, Object> entry = (Map.Entry) it.next();
-                    logger.info(entry.getKey() + ":" + entry.getValue());
+//                    logger.info(entry.getKey() + ":" + entry.getValue());
                 }
 
             }
@@ -56,8 +54,6 @@ public class Admin_PMR_Controller {
 
     @RequestMapping(value = "/pmrInfo.ado")
     public void getPmrInfo(@RequestBody HashMap<String, Object> hashMap) {
-
-
 
 
 

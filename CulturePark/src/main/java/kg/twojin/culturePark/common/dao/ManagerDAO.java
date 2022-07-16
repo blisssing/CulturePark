@@ -10,6 +10,8 @@ public interface ManagerDAO {
 
     ManagerVO selectManagerByEmailAndPt(ManagerVO managerVO);
 
+    ManagerVO selectManagerByEmail(String mg_email);
+
     int insertManager(ManagerVO managerVO);
 
     int insertRootManager(ManagerVO managerVO);

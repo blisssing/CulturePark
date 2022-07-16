@@ -20,7 +20,14 @@ $(document).ready(function () {
             async: false,
             cache: false,
             traditional: true,
-            url: '/pdDetail.ado',
+            contentType: 'application/json; charset=utf-8',
+            url: '/pdDetailProc.ado',
+            success: function () {
+                location.href = "/pdDetail.ado";
+            },
+            error: function () {
+                alert("실행 실패");
+            },
         });
 
     });

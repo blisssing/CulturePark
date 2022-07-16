@@ -64,7 +64,7 @@ $(document).ready(function () {
 
     $('.first_select').change(function () {
         var first_val = $('.genre_select').val();
-        if (first_val === 'museum') {
+        if (first_val === '뮤지엄') {
             $('.second_select').prop('disabled', true);
         } else {
             $('.second_select').prop('disabled', false);
@@ -195,7 +195,7 @@ $(document).ready(function () {
         // 장르
         pd_first_genre = $('.first_select').val();
 
-        if (pd_first_genre === 'exhibition') {
+        if (pd_first_genre === '전시회') {
             chk_mode1 = 1;
             pd_second_genre = $('.second_select').val();
         } else {
@@ -358,7 +358,7 @@ $(document).ready(function () {
         if ($('.first_select').val() === 'none') {
             alert("1차 장르를 선택해주세요!");
             return -1;
-        } else if ($('.first_select').val() === 'exhibition' && $('.second_select').val() === 'none') {
+        } else if ($('.first_select').val() === '전시회' && $('.second_select').val() === 'none') {
             alert("2차 장르를 선택해주세요");
             return -1;
         }

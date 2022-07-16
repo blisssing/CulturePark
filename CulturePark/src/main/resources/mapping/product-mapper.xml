@@ -45,10 +45,11 @@
         ]]>
     </insert>
 
-    <select id="selectProduct" parameterType="hashmap">
+    <select id="selectProduct" parameterType="hashmap" resultType="productVO">
         SELECT *
         FROM PRODUCT_INFO
-        WHERE PD_SEQ = #{pd_seq}, PT_SEQ=#{pt_seq};
+        WHERE PD_SEQ = CAST(#{pd_seq} AS INTEGER ) and PT_SEQ=CAST(#{pt_seq} AS INTEGER );
+
     </select>
 
     <select id="selectProductByPtAndTitle" parameterType="productRequestVO" resultType="productVO">

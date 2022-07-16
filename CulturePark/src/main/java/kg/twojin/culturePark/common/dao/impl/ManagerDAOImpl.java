@@ -110,4 +110,17 @@ public class ManagerDAOImpl implements ManagerDAO {
         }
         return  vo;
     }
+
+    @Override
+    public ManagerVO selectManagerByEmail(String mg_email) {
+        ManagerVO managerVO = null;
+        try {
+            managerVO = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEmail", mg_email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return managerVO;
+    }
+
 }
