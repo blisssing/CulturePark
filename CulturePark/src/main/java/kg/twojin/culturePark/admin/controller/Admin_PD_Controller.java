@@ -61,7 +61,6 @@ public class Admin_PD_Controller {
         return mv;
     }
 
-
     @RequestMapping("/changePdStatus.ado")
     public void changePdStatus(HttpServletRequest request, HttpServletResponse response,
                                @RequestBody ProductVO productVO) throws IOException {
@@ -95,7 +94,7 @@ public class Admin_PD_Controller {
         session.setAttribute("productVO", productVO);
     }
 
-    @RequestMapping(value = "pdDetail.ado")
+    @RequestMapping(value = "/pdDetail.ado")
     public ModelAndView pdDetail(HttpServletRequest request) {
         ProductVO productVO = null;
         PartnerVO partnerVO = null;
@@ -123,4 +122,5 @@ public class Admin_PD_Controller {
 
         return mv;
     }
+
 }

@@ -75,6 +75,14 @@
         select * from PD_CREATE_REQUEST;
     </select>
 
+    <select id="selectProductRequestByPdrSeq" parameterType="int"  resultType="productRequestVO">
+        <![CDATA[
+        select *
+        from PD_CREATE_REQUEST
+        WHERE pdr_seq= #{pdr_seq};
+        ]]>
+    </select>
+
     <select id="selectProductRequestByPtSeq" parameterType="int"  resultType="productRequestVO">
         <![CDATA[
         select *
