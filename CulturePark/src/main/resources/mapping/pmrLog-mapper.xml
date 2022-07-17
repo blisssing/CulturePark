@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.pmrLog">
+
+    <insert id="insertPmrLog" parameterType="map" >
+        insert into product_modify_log
+            (pt_seq, pd_seq, ad_seq, pml_status, pml_comments)
+            values ( #{pt_seq}, #{pd_seq} , #{ad_seq} ,#{pml_status},#{pml_comments})
+    </insert>
+
+
+</mapper>

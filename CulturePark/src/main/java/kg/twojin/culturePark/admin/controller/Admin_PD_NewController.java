@@ -6,13 +6,9 @@ import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.common.vo.ProductLogVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
-import org.apache.xerces.impl.dv.xs.AnyURIDV;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,7 +35,7 @@ public class Admin_PD_NewController {
         List<ProductVO> productVOList = null;
         List<PartnerVO> partnerVOList = new ArrayList<PartnerVO>();
 
-        productVOList = adminProductService.getProductList();
+        productVOList = adminProductService.getProductRequestList();
 
         for (ProductVO vo : productVOList) {
             int pt_seq = vo.getPt_seq();

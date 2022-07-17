@@ -1,6 +1,7 @@
 package kg.twojin.culturePark.admin.service.impl;
 
 import kg.twojin.culturePark.admin.service.AdminProductService;
+import kg.twojin.culturePark.common.dao.AdPdRelationDAO;
 import kg.twojin.culturePark.common.dao.ProductCreateLogDAO;
 import kg.twojin.culturePark.common.dao.ProductDAO;
 import kg.twojin.culturePark.common.vo.ProductLogVO;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("adminProductService")
 public class AdminProductServiceImpl implements AdminProductService {
@@ -21,9 +23,13 @@ public class AdminProductServiceImpl implements AdminProductService {
     @Autowired
     ProductCreateLogDAO productCreateLogDAO;
 
+    @Autowired
+    AdPdRelationDAO adPdRelationDAO;
+
+    // Product Request
 
     @Override
-    public List<ProductVO> getProductList() {
+    public List<ProductVO> getProductRequestList() {
         return productDAO.selectAllNewProduct();
     }
 
@@ -81,13 +87,59 @@ public class AdminProductServiceImpl implements AdminProductService {
         return finalChk;
     }
 
+
+
+    // Product Info
+
+
     @Override
-    public List<HashMap<String,Object>> getProductModifyRequestList() {
-        return productDAO.selectAllProductModiRequestList();
+    public List<Map<String, Object>> getProductEssentialList() {
+        return productDAO.selectAllProductEssential();
     }
 
     @Override
     public ProductVO getProductInfo(HashMap hashMap) {
         return productDAO.selectProductInfo(hashMap);
     }
+
+    @Override
+    @Transactional
+    public boolean changeProductStatus(ProductVO productVO, int ad_seq) {
+
+        int result1 = 0;
+        int result2 = 0;
+
+        Map<String, Object> logMap = new HashMap<>();
+
+        logMap.put("pt_seq", productVO.getPt_seq());
+        logMap.put("pd_seq", productVO.getPd_seq());
+        logMap.put("ad_seq", ad_seq);
+        logMap.put("pd_status", productVO.getPd_seq());
+
+        try {
+            result1 = productDAO.updateProductStatus(productVO);
+            result2 = adPdRelationDAO.insertStatusLog(logMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (result1 == 1 && result2 == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Product Modi Request
+
+
+    @Override
+    public List<HashMap<String,Object>> getProductModifyRequestList() {
+        return productDAO.selectAllProductModiRequestList();
+    }
+
+
+
+
 }

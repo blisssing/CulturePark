@@ -71,7 +71,6 @@
         <result property="pt_agreeDate" column="PT_AGREEDATE"></result>
     </resultMap>
 
-
     <insert id="insertPartner" parameterType="partnerVO">
         INSERT INTO PARTNER_AGREEMENT
         (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE  , ad_seq
@@ -89,6 +88,7 @@
             );
     </insert>
 
+
     <select id="selectPartnerByEmail" parameterType="partnerVO">
         SELECT *
         FROM PARTNER_AGREEMENT
@@ -105,7 +105,6 @@
     <select id="selectAllPartner" resultMap="resultPartner2">
         SELECT * FROM PARTNER_AGREEMENT;
     </select>
-
 
 
 </mapper>

@@ -3,23 +3,23 @@ package kg.twojin.culturePark.admin.controller;
 import kg.twojin.culturePark.admin.service.Ad_ManagerAccountService;
 import kg.twojin.culturePark.admin.service.AdminProductService;
 import kg.twojin.culturePark.admin.service.PartnerService;
+import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.common.vo.ProductVO;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.*;
 
 @RestController
 public class Admin_PD_Controller {
@@ -35,9 +35,51 @@ public class Admin_PD_Controller {
 
     @RequestMapping(value = "pdList.ado")
     public ModelAndView pdManageList() {
+
+        
+
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("pd_progressList");
+
+        List<Map<String, Object>> mapList = adminProductService.getProductEssentialList();
+
+//        for (Map map : mapList) {
+//            Iterator it = map.entrySet().iterator();
+//            while (it.hasNext()) {
+//                Map.Entry entry = (Map.Entry) it.next();
+//                System.out.println("entry.getKey() = " + entry.getKey());
+//                System.out.println("entry.getValue() = " + entry.getValue());
+//            }
+//        }
+
+        if (mapList!= null) {
+            mv.setViewName("pd_productList");
+            mv.addObject("mapList", mapList);
+        } else {
+            mv.setViewName("accessError");
+        }
+
         return mv;
+    }
+
+
+    @RequestMapping("/changePdStatus.ado")
+    public void changePdStatus(HttpServletRequest request, HttpServletResponse response,
+                               @RequestBody ProductVO productVO) throws IOException {
+
+        String genre = productVO.getPd_genre1();
+
+        AdminVO adminVO = (AdminVO) request.getSession().getAttribute("admin");
+        int ad_seq = adminVO.getAd_seq();
+
+        boolean result;
+
+        result = adminProductService.changeProductStatus(productVO, ad_seq);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result", result);
+
+        PrintWriter out = response.getWriter();
+        out.print(jsonObject);
     }
 
     @RequestMapping(value = "pdDetailProc.ado")
