@@ -17,9 +17,14 @@ CREATE TABLE PRODUCT_MODIFY_LOG
 );
 
 
+<진희> 07/13
+<진아>07.15 완료
+
+
 
 
 alter table PRODUCT_MODIFY_LOG alter column pmr_seq set not null ;
 
 
 07/16일 진희 수정
+

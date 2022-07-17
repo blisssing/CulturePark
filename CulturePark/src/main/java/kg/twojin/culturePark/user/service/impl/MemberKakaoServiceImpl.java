@@ -48,7 +48,7 @@ public class MemberKakaoServiceImpl implements MemberKakaoService {
 
             // 결과 코드가 200이라면 성공
             int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode);
+            System.out.println("responseCode확인 : " + responseCode);
 
             // 요청을 통해 얻은 JSON타입의 Response 메세지 읽어오기
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -108,19 +108,19 @@ public class MemberKakaoServiceImpl implements MemberKakaoService {
             System.out.println("response body : " + result);
 
             JsonParser parser = new JsonParser();
-            System.out.println("1");
+           /* System.out.println("1");*/
             JsonElement element = parser.parse(result);
-            System.out.println("2");
+          /*  System.out.println("2");*/
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
-            System.out.println("3");
+           /* System.out.println("3");*/
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-            System.out.println("4");
+           /* System.out.println("4");*/
 
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
-            System.out.println("email = " + email);
-            System.out.println("nickname = " + nickname);
+            /*System.out.println("email = " + email);
+            System.out.println("nickname = " + nickname);*/
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);

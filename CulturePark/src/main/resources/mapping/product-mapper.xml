@@ -107,6 +107,7 @@
     </select>
 
 <!--  &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
+
     <insert id="insertProductModiRequest" parameterType="java.util.HashMap">
         insert into product_modify_request
         (pt_seq, pd_seq, pt_comp_name, pd_title, mg_seq, pd_timetype,

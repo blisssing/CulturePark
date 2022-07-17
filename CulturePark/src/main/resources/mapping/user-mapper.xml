@@ -57,19 +57,19 @@
     <update id="joinUpdateMember" parameterType="memberVO">
         <![CDATA[
         UPDATE MEMBER_ACCOUNT
-        SET MB_EMAIL=#{mb_email}, MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender},
+        SET MB_EMAIL=#{mb_email}
         WHERE MB_TEL=#{mb_tel}
-]]>
+        ]]>
     </update>
 
     <insert id="createKakaoMember" parameterType="hashMap">
     <![CDATA[
         INSERT INTO KMEMBER_ACCOUNT
             (
-                KMB_EMAIL, KMB_STATUS
+                KMB_EMAIL
             )
         VALUES(
-               #{kmb_email}, #{kmb_status}
+               #{kmb_email}
             );
     ]]>
     </insert>

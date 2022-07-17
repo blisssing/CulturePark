@@ -8,6 +8,7 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 
@@ -73,9 +74,21 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     }
 
     @Override
-    public int joinUpdateMember(MemberVO memberVO) {
+    @Transactional
+    public MemberVO integrateMember(MemberVO memberVO) {
 
-        return memberDAO.joinUpdateMember(memberVO);
+
+        int result1 = memberDAO.joinUpdateMember(memberVO);
+        int result2 = memberDAO.insertKakaoMember(memberVO.getMb_email());
+        MemberVO resultMember = null;
+        System.out.println("result1 = " + result1);
+        System.out.println("result2 = " + result2);
+
+        if (result1+result2 != 2) {
+            resultMember = memberDAO.selectMember(memberVO);
+        }
+
+        return resultMember;
     }
 
 

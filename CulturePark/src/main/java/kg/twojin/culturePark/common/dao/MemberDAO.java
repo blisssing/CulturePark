@@ -12,7 +12,7 @@ public interface MemberDAO {
 
     int joinUpdateMember(MemberVO memberVO);
 
-
+    int insertKakaoMember(String mb_email);
 
     int updateMemberWithoutPw(MemberVO memberVO);
 
