@@ -1,6 +1,7 @@
 .innerContainer {
     max-width: 600px;
     margin: auto;
+    margin-top: 80px;
 }
 
 .back_section {
@@ -60,23 +61,6 @@
 }
 
 
-/*
-.pw_section > .pw_value {
-    width: 120px;
-}
-
-.rePw_section > .rePw_value {
-    width: 120px;
-}
-
-.nick_section > .nick_value {
-    width: 120px;
-}
-
-.name_section > .name_value {
-    width: 120px;
-}*/
-
 /* 진희 : 위의 주석 통합 버전 */
 .input_type01 {
     width: 120px;
@@ -112,9 +96,6 @@
     width: 45px;
 }
 
-/*.tel_3 {
-    width: 45px;
-}*/
 
 .tel_section > span {
     margin: 0 5px;
@@ -125,7 +106,6 @@
 }
 
 
-/*중복확인*/
 
 
 /*인증번호*/
@@ -136,7 +116,7 @@
  }
 
 .certifyTime{
-    margin-top: -10px;
+    margin-top: -7px;
 }
 
 .time{
@@ -268,7 +248,7 @@ section_type01로 통합
 }
 
 .certifyTime {
-    margin-top: -15px;
+    margin-top: -7px;
 }
 
 /* 모바일용 헤더 비활성화*/

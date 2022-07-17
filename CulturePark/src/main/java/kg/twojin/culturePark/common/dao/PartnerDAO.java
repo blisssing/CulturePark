@@ -11,8 +11,10 @@ public interface PartnerDAO  {
 
 
     // 조회
-    PartnerVO selectPartner(PartnerVO partnerVO);
+    PartnerVO getEmailPartner(PartnerVO partnerVO);
+
 
     PartnerVO selectPartner(int seq);
+
 
 }

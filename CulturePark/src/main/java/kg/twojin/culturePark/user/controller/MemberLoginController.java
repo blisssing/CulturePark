@@ -2,26 +2,21 @@ package kg.twojin.culturePark.user.controller;
 
 import kg.twojin.culturePark.admin.service.EmailService;
 import kg.twojin.culturePark.common.dao.MemberDAO;
-import kg.twojin.culturePark.common.service.RandomNumberService;
+import kg.twojin.culturePark.common.service.RandomNumberUtil;
 import kg.twojin.culturePark.common.vo.EmailVO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.user.service.MemberLoginService;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Random;
+
 
 @RestController
 public class MemberLoginController {
@@ -36,7 +31,7 @@ public class MemberLoginController {
     BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    RandomNumberService randomNumberService;
+    RandomNumberUtil randomNumberUtil;
 
     @Autowired
     EmailService emailService;
@@ -51,7 +46,7 @@ public class MemberLoginController {
         return mv;
     }
 
-    @ResponseBody //restController를 써주면 생략가능
+   @ResponseBody //restController를 써주면 생략가능
     @RequestMapping(value = "/loginProc.do", method = {RequestMethod.POST})
     public String loginProc(@RequestBody MemberVO vo,
                             HttpServletRequest request,
@@ -64,9 +59,9 @@ public class MemberLoginController {
                  2. 두 가지 정보를 통해서 DB에 일치하는 녀석이 있는지 확인함.
                  3. 있으면 일치하는 값 전체를 VO에 담아서 최종단계인 컨트롤러까지 반환함.
                  4. 처음 아이디랑 비밀번호를 담았을 때 썼던 VO는 DB에서 반환되는 VO에 얹혀져도 상관이 없음.
-        * */
+        */
 
-        /* 사용자가 입력한 정보 */
+        //* 사용자가 입력한 정보 *//*
         String voPw = vo.getMb_pw();
 
         /* DB정보 셋팅 */
@@ -95,24 +90,11 @@ public class MemberLoginController {
         return result;
     }
 
-    /* 로그인 기억하기 */
-   /* @PostMapping("/postMethod")
-    public String Login_remember (
-            LoginCommand loginCommand, HttpServletResponse response) {
-
-        Cookie rCookie = new Cookie("cEmail", loginCommand.getEmail());
-        rCookie.setPath("/");
-
-        if (loginCommand.isRememberEmail()) {
-            rCookie.setMaxAge(60 * 60 * 24 * 15);
-        } else {
-            rCookie.setMaxAge(0);
-        }
-
-        response.addCookie(reCookie);
-
-        return "login/loginSuccess";
-
+    /*https://mylupin.tistory.com/47?category=792579*//*
+    @RequestMapping("/kakaoLogin.do")
+    public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
+        System.out.println("#########" + code);
+        return "testPage";
     }*/
 
     @RequestMapping(value = "/findId.do")
@@ -224,7 +206,7 @@ public class MemberLoginController {
     @RequestMapping(value="/culturePark/chkEmailSms.do",method = RequestMethod.POST)
     public String sendSmsM(@RequestBody MemberVO vo, @RequestParam("email") String emailNumber, HttpServletResponse response) throws Exception {
 
-        int randomNumber = randomNumberService.getRandomCode6();
+        int randomNumber = randomNumberUtil.getRandomCode6();
 
         boolean emailResult = false; //결과 담을 변수
 
@@ -272,7 +254,6 @@ public class MemberLoginController {
     }
 
 
-
     @RequestMapping("logout.do") //logout.do에 매핑
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
         /* memberService.logout(session); //세션 초기화 작업*/
@@ -284,5 +265,6 @@ public class MemberLoginController {
         mav.addObject("message","logout"); //변수 저장
         return mav; //페이지로 이동
     }
+
 
 }

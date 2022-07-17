@@ -18,4 +18,15 @@ public class MuseumManageService implements ProductionManageService {
     public List<ProductVO> getProductList(int pt_seq) {
         return productDAO.selectAllMuseumProductByPtSeq(pt_seq);
     }
+
+
+    @Override
+    public int changeProductStatus(ProductVO productVO) {
+        return 0;
+    }
+
+    @Override
+    public int modifyProductSetting(ProductVO productVO, int mg_seq) {
+        return productDAO.insertProductModiRequest(productVO, mg_seq);
+    }
 }

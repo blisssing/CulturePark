@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -275,17 +276,32 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach items="${productList}" var="product" varStatus="status">
+                                    <fmt:formatDate var="formatRequestDate" value="${product.get('pmr_requestdate')}" pattern="yyyy-MM-dd"/>
                                     <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01-03</td>
-                                        <td class="handle_date"></td>
-                                        <td class="request_status">대기</td>
+                                        <input type="hidden" class="pd_seq" value="${product.get("pd_seq")}">
+                                        <input type="hidden" class="pmr_seq" value="${product.get("pmr_seq")}">
+                                        <input type="hidden" class="pt_seq" value="${product.get("pt_seq")}">
+                                        <input type="hidden" class="mg_seq" value="${product.get('mg_seq')}">
+                                        <input type="hidden" class="pd_typeStr" value="${product.get('pd_typestr')}">
+                                        <input type="hidden" class="pd_timeType" value="${product.get('pd_timetype')}">
+                                        <input type="hidden" class="pd_openTime" value="${product.get('pd_opentime')}">
+                                        <input type="hidden" class="pd_closetime" value="${product.get('pd_closetime')}">
+                                        <input type="hidden" class="pd_timeType" value="${product.get('pd_tag')}">
+                                        <input type="hidden" class="pd_maxTicket" value="${product.get('pd_maxticket')}">
+                                        <input type="hidden" class="pd_closeDay" value="${product.get('pd_closeday')}">
+
+                                        <td class="seq">${status.count}</td>
+                                        <td class="comp_name">${product.get("pt_comp_name")}</td>
+                                        <td class="pd_title">${product.get("pd_title")}</td>
+                                        <td class="request_date">${formatRequestDate}</td>
+                                        <td class="handle_date">
+                                            <c:if test="${product.containsKey('pmr_processdate')}">
+                                                <fmt:formatDate var="formatProcessDate" value="${product.get('pmr_requestdate')}" pattern="yyyy-MM-dd"/>
+                                                ${formatProcessDate}
+                                            </c:if>
+                                        </td>
+                                        <td class="request_status">${product.get('pmr_status')}</td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
                                                 <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
@@ -294,61 +310,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01.03</td>
-                                        <td class="handle_date">2022.01.04</td>
-                                        <td class="request_status">거절</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01.03</td>
-                                        <td class="handle_date">2022.01.04</td>
-                                        <td class="request_status">승인</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="pd_modi_request" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="request_date">2022.01-03</td>
-                                        <td class="handle_date"></td>
-                                        <td class="request_status">대기</td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_info btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_request_info btn btn-primary btn-circle btn-sm fa-solid fa-file-pen"></button>
-                                                <button class="btn_manager_info btn btn-primary btn-circle btn-sm fa-solid fa-user"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -387,24 +349,24 @@
 
                                             <tbody>
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox"  id="bf_chk_none" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
+                                                <td class="td_1"><input type="text"  id="bf_none_price" class="price" disabled="disabled">원</td>
                                             </tr>
 
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="bf_chk_adult" class="chkbox chk_adult " name="chk" disabled="disabled">성인</td>
+                                                <td class="td_1"><input type="text" id="bf_adult_price" class="price" disabled="disabled">원</td>
                                             </tr>
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="bf_chk_teenager" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
+                                                <td class="td_1"><input type="text" id="bf_teenager_price" class="price" disabled="disabled">원</td>
                                             </tr>
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="bf_chk_child" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
+                                                <td class="td_1"><input type="text" id="bf_child_price" class="price" disabled="disabled">원</td>
                                             </tr>
                                             </tbody>
 
@@ -423,24 +385,24 @@
 
                                             <tbody>
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="af_chk_none"  class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
+                                                <td class="td_1"><input type="text" id="af_none_price" class="price" disabled="disabled">원</td>
                                             </tr>
 
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="af_chk_adult" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
+                                                <td class="td_1"><input type="text" id="af_adult_price"  class="price" disabled="disabled">원</td>
                                             </tr>
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox"  id="af_chk_teenager" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
+                                                <td class="td_1"><input type="text"  id="af_teenager_price" class="price" disabled="disabled">원</td>
                                             </tr>
 
                                             <tr>
-                                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
-                                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
+                                                <td class="td_0"><input type="checkbox" id="af_chk_child" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
+                                                <td class="td_1"><input type="text" id="af_child_price"  class="price" disabled="disabled">원</td>
                                             </tr>
                                             </tbody>
 
@@ -483,21 +445,21 @@
                                                 <td colspan="2">티켓 max</td>
                                             </tr>
                                             <tr class="list2">
-                                                <td colspan="2"><input type="text" class="tck_max" disabled="disabled"></td>
+                                                <td colspan="2"><input id="bf_ticketMax" type="text" class="tck_max" disabled="disabled"></td>
                                             </tr>
 
                                             <tr class="list3">
                                                 <td colspan="2">오픈시간대</td>
                                             </tr>
                                             <tr class="list3">
-                                                <td colspan="2"><input type="text" class="tck_openTime" disabled="disabled"></td>
+                                                <td colspan="2"><input id="bf_openTime" type="text" class="tck_openTime" disabled="disabled"></td>
                                             </tr>
 
                                             <tr class="list4">
                                                 <td colspan="2">마감시간대</td>
                                             </tr>
                                             <tr class="list4">
-                                                <td colspan="2"><input type="text" class="tck_closeTime" disabled="disabled"></td>
+                                                <td colspan="2"><input id="bf_closeTime" type="text" class="tck_closeTime" disabled="disabled"></td>
                                             </tr>
 
                                             </tbody>
@@ -534,21 +496,21 @@
                                                 <td class="list" colspan="2">티켓 max</td>
                                             </tr>
                                             <tr class="list">
-                                                <td colspan="2"><input type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
+                                                <td colspan="2"><input id="af_ticketMax" type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
                                             </tr>
 
                                             <tr>
                                                 <td class="list" colspan="2">오픈시간대</td>
                                             </tr>
                                             <tr class="list">
-                                                <td colspan="2"><input type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
+                                                <td colspan="2"><input id="af_openTime" type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
                                             </tr>
 
                                             <tr>
                                                 <td class="list" colspan="2">마감시간대</td>
                                             </tr>
                                             <tr class="list">
-                                                <td colspan="2"><input type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
+                                                <td colspan="2"><input id="af_closeTime" type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
                                             </tr>
 
                                             </tbody>
@@ -558,58 +520,64 @@
 
                                 </div>
 
-                                <%-------------- 3. 기타 설정 ---------------%>
-                                <%--여기서부터 테이블 1개--%>
+                                    <div class="section_div_no_row">
+                                        <div class="section_label">기타 설정</div>
 
-                                <div class="section_div_no_row">
-                                    <div class="section_label">기타 설정</div>
-
-                                    <div class="row0">
-                                        <table class="table" id="table5">
-
-                                            <tr class="list1">
-                                                <td class="label">썸네일</td>
-                                                <td class="file_padding"><input type="file"></td>
-                                            </tr>
-
-                                            <tr class="list2">
-                                                <td class="label">설명파일</td>
-                                                <td class="file_padding"><input type="file"></td>
-                                            </tr>
-
-                                            <tr class="list3">
-                                                <td colspan="2" class="label">태그</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
-                                            </tr>
-                                        </table>
+                                        <div class="row0">
+                                            <table class="table" id="table5">
+                                                <tr class="list3">
+                                                    <td colspan="2" class="label">태그</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="tag"><input type="text" id="af_pd_tag" name="pd_tag" readonly="readonly"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
-
 
                                 <%------------- 휴관요일 -------------%>
                                 <%--테이블 1개--%>
                                 <div class="section_div_no_row">
-                                    <div class="section_label">휴관 요일</div>
+                                    <div class="section_label">변경 전 휴관 요일</div>
 
                                     <div class="row0">
                                         <table class="table" id="table6">
                                             <tr>
                                                 <td colspan="2" class="chkbox_day">
-                                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox" disabled="disabled">일
-                                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox" disabled="disabled">월
-                                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox" disabled="disabled">화
-                                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox" disabled="disabled">수
-                                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox" disabled="disabled">목
-                                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox" disabled="disabled">금
-                                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox" disabled="disabled">토
+                                                    <input type="checkbox" id="bf_sunday" class="chkbox" id="sunday" name="chkbox" disabled="disabled">일
+                                                    <input type="checkbox" id="bf_monday" class="chkbox chkLabel" id="monday" name="chkbox" disabled="disabled">월
+                                                    <input type="checkbox" id="bf_tuesday" class="chkbox chkLabel" id="tuesday" name="chkbox" disabled="disabled">화
+                                                    <input type="checkbox" id="bf_wednesday" class="chkbox chkLabel" id="wednesday" name="chkbox" disabled="disabled">수
+                                                    <input type="checkbox" id="bf_thursday" class="chkbox chkLabel" id="thursday" name="chkbox" disabled="disabled">목
+                                                    <input type="checkbox" id="bf_friday" class="chkbox chkLabel" id="friday" name="chkbox" disabled="disabled">금
+                                                    <input type="checkbox" id="bf_saturday" class="chkbox chkLabel" id="saturday" name="chkbox" disabled="disabled">토
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
-
                                 </div>
+
+                                    <div class="section_div_no_row">
+                                        <div class="section_label">변경 후 휴관 요일</div>
+
+                                        <div class="row0">
+                                            <table class="table">
+                                                <tr>
+                                                    <td colspan="2" class="chkbox_day">
+                                                        <input type="checkbox" class="chkbox" id="af_sunday" name="chkbox" disabled="disabled">일
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_monday" name="chkbox" disabled="disabled">월
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_tuesday" name="chkbox" disabled="disabled">화
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_wednesday" name="chkbox" disabled="disabled">수
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_thursday" name="chkbox" disabled="disabled">목
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_friday" name="chkbox" disabled="disabled">금
+                                                        <input type="checkbox" class="chkbox chkLabel" id="af_saturday" name="chkbox" disabled="disabled">토
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
                             </div>
 
                             <div class="modal-footer">
@@ -679,6 +647,32 @@
                             </form>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--거절 사유 모달--%>
+
+
+                <div class="modal fade" id="ReasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reasonAsk">거절 사유</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="user modal-body">
+                                <div class="form-group">
+                                    <div class="form-head">사유를 적어주시오</div>
+                                    <input type="text" class="form-control form-control-user" id="refuseReason"></input>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                <button class="btn_finalDisAgree btn btn-primary" >확인</button>
                             </div>
                         </div>
                     </div>

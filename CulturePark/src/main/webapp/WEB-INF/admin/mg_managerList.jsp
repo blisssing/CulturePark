@@ -162,7 +162,6 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">판매자 관리</h1>
 
                 <div class="icon_descript">
                     <div class="descript_wrap">
@@ -216,14 +215,14 @@
                                 </tr>
                                 </tfoot>--%>
                                 <tbody>
-                                    <c:forEach var="managerVO" items="managerList" varStatus="managerStatus">
+                                    <c:forEach var="managerVO" items="${managerList}" varStatus="managerStatus">
                                         <c:set var="count" value="${count+1}"/>
                                         <tr>
                                             <form name="frm">
                                                 <input type="hidden" class="comp_num" value="${managerVO.comp_seq}">
                                                 <input type="hidden" class="manager_num" value="${managerVO.mg_seq}">
                                                 <td class="seq">${count}</td>
-                                                <td class="comp">투진컴퍼니</td>
+                                                <td class="comp">${managerVO.mg_compName}</td>
                                                 <td class="name">${managerVO.mg_name}</td>
                                                 <td class="email">${managerVO.mg_email}</td>
                                                 <td class="phone">${managerVO.mg_tel}</td>
@@ -267,40 +266,36 @@
                             </div>
 
                             <form class="user modal-body frm_comp_info_modal" style="max-height: 600px; overflow: scroll">
-                                <input type="hidden" class="partner_num" name="pt_seq" value="${partnerVO.pt_seq}">
+                                <input type="hidden" class="partner_num" name="pt_seq">
 
                                 <div class="form-group">
                                     <span>업체번호 : </span>
-                                    <span id="CompanySeq">#{partnerVO.pt_seq}</span>
+                                    <span id="CompanySeq"></span>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-head">업체명</div>
-                                    <div class="form-control form-control-user" id="CompanyName">${partnerVO.pt_comp_name}</div>
+                                    <div class="form-control form-control-user" id="CompanyName"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">사업자명</div>
-                                    <div class="form-control form-control-user" id="PresentName">${partnerVO.pt_ceo_name}</div>
+                                    <div class="form-control form-control-user" id="PresentName"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">사업자번호</div>
-                                    <div class="form-control form-control-user" id="CompanyNum">${partnerVO.pt_ceo_number}</div>
+                                    <div class="form-control form-control-user" id="CompanyNum"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">전화번호</div>
-                                    <div class="form-control form-control-user" id="PhoneNumber">${partnerVO.pt_phone}</div>
+                                    <div class="form-control form-control-user" id="PhoneNumber"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">이메일</div>
-                                    <div class="form-control form-control-user" id="CompanyEmail">${partnerVO.pt_email}</div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-head">유형</div>
-                                    <div class="form-control form-control-user" id="ProductType">${}</div>
+                                    <div class="form-control form-control-user" id="CompanyEmail"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-head">승인날짜</div>
-                                    <div class="form-control form-control-user" id="AgreementDate">${partnerVO.pt_agreeDate}</div>
+                                    <div class="form-control form-control-user" id="AgreementDate"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="button_wrap">
@@ -310,6 +305,7 @@
                                             </span>
                                             <span class="text">첨부파일 다운로드</span>
                                             <%--https://to-dy.tistory.com/101--%>
+                                            <span class="file_location" id="File_location"></span>
                                         </a>
                                     </div>
                                 </div>
@@ -338,9 +334,10 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
 
+                                <%-- 비동기 ajax 방식으로 값을 셋팅 js --%>
                             </div>
                             <form class="user modal-body" style="max-height: 600px; overflow: scroll">
-                                <input type="hidden" class="manager_num" name="mg_seq" value="${managerVO.mg_seq}">
+                                <input type="hidden" class="manager_num" name="mg_seq">
                                 <div class="form-group">
                                     <span class="head_comp_name"></span>  #<span class="head_comp_num"></span>
                                 </div>

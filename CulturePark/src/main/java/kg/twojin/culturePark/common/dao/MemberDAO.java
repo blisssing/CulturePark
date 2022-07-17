@@ -10,6 +10,10 @@ public interface MemberDAO {
 
     int insertMember(MemberVO memberVO);
 
+    int joinUpdateMember(MemberVO memberVO);
+
+
+
     int updateMemberWithoutPw(MemberVO memberVO);
 
     List<MemberVO> selectAllMember();
@@ -31,6 +35,8 @@ public interface MemberDAO {
     MemberVO findPw_Email(MemberVO memberVO);
 
     MemberVO findPw_Tel(MemberVO memberVO);
+
+    MemberVO selectExistTel_kakao(MemberVO memberVO);
 
 }
 

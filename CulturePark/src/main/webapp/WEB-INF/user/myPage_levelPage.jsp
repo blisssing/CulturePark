@@ -29,7 +29,20 @@
 
     <title>level Page</title>
 
+    <%
+        String loginChk_ = (String) session.getAttribute("loginChk");
+
+        if (loginChk_ == null) {
+    %>
+
+    <script> location.href="/login.do"</script>
+
+    <%
+        }
+    %>
+
 </head>
+
 <body>
 
 <%-- Main --%>
@@ -100,19 +113,19 @@
                         <tbody>
                             <tr class="progress_row">
                                 <td class="icon_wrap"><i class="fa-solid fa-seedling"></i></td>
-                                <td class="rank_wrap">컬쳐 비기너</td>
+                                <td class="rank_wrap">Culture BEGINNER</td>
                                 <td class="condition_wrap">누적결제 15만 이상</td>
                                 <td class="benefit_wrap">결제금액 3% 포인트 적립</td>
                             </tr>
                             <tr class="progress_row">
                                 <td class="icon_wrap"><i class="fa-solid fa-child-reaching"></i></td>
-                                <td class="rank_wrap">컬쳐 비기너</td>
+                                <td class="rank_wrap">Culture PEOPLE</td>
                                 <td class="condition_wrap">누적결제 30만 이상</td>
                                 <td class="benefit_wrap">결제금액 7% 포인트 적립</td>
                             </tr>
                             <tr class="progress_row">
                                 <td class="icon_wrap"><i class="fa-solid fa-heart"></i></td>
-                                <td class="rank_wrap">컬쳐 비기너</td>
+                                <td class="rank_wrap">Culture LOVER</td>
                                 <td class="condition_wrap">누적결제 60만 이상</td>
                                 <td class="benefit_wrap">결제금액 15% 포인트 적립</td>
                             </tr>

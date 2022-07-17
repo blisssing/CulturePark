@@ -119,7 +119,7 @@
                    <%-- 제목 영역 --%>
                     <div class="title_section">
                     <span class="title_label">제목</span>
-                   <div class="review_title" type="textFiled" aria-placeholder="제목입력"></div>
+                   <input class="review_title" type="textFiled" aria-placeholder="제목입력"></input>
                     </div>
 
                    <%-- 사진 추가 영역 --%>
@@ -132,9 +132,7 @@
                 </div>
 
                     <%-- 감상평 등록 영역 --%>
-                    <div class="content_section">
-                        <div type="textArea" class="content_text" aria-placeholder="내용입력"></div>
-                    </div>
+                    <input class="content_section" class="content_text">
 
                     <%-- 리뷰 등록 버튼 영역 --%>
                     <%-- mobile --%>

@@ -32,6 +32,19 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
+    public int joinUpdateMember(MemberVO memberVO) {
+        int result;
+        try{
+            result = sqlSessionTemplate.update("mapper.user.joinUpdateMember",memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+            result = 0;
+        }
+        return result;
+    }
+
+
+    @Override
     public int updateMemberWithoutPw(MemberVO memberVO) {
         int result;
         try{
@@ -176,6 +189,16 @@ public class MemberDAOImpl implements MemberDAO {
         return vo;
     }
 
+    @Override
+    public MemberVO selectExistTel_kakao(MemberVO memberVO) {
+        MemberVO vo = null;
+        try{
+            vo = sqlSessionTemplate.selectOne("mapper.user.selectExistTel_kakao", memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return vo;
+    }
 
 }
 

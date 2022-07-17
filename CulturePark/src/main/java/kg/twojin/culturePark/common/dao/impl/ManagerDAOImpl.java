@@ -43,6 +43,18 @@ public class ManagerDAOImpl implements ManagerDAO {
     }
 
     @Override
+    public int insertRootManager(ManagerVO managerVO) {
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.insert("mapper.manager.insertRootManager", managerVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return result;
+    }
+
+    @Override
     public int updateManager(ManagerVO managerVO) {  /* managerVO 의 인자값을 받은 updateManager메소드의 기능 */
         int result = 0;
         try {                             /*  mapper에 정의 되어있는 기능을 찾아간다. managerVO의 값을 넘긴다*/
@@ -63,6 +75,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         }
         return result;
     }*/
+
     public int deleteManager(int mg_seq){
         int result = 0;
         try {
@@ -81,8 +94,7 @@ public class ManagerDAOImpl implements ManagerDAO {
         try {
             managerList = sqlSessionTemplate.selectList("mapper.manager.selectAllManager");
         } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
+            e.printStackTrace();throw e;
         }
         return managerList;
     }
@@ -91,11 +103,24 @@ public class ManagerDAOImpl implements ManagerDAO {
     public ManagerVO selectManagerByEmailAndPt(ManagerVO managerVO) {
         ManagerVO vo = new ManagerVO();
         try {
-            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEamilAndPt", managerVO);
+            vo = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEmailAndPt", managerVO);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
         return  vo;
     }
+
+    @Override
+    public ManagerVO selectManagerByEmail(String mg_email) {
+        ManagerVO managerVO = null;
+        try {
+            managerVO = sqlSessionTemplate.selectOne("mapper.manager.selectManagerByEmail", mg_email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return managerVO;
+    }
+
 }

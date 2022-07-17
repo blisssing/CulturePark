@@ -282,6 +282,11 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: *!
 }
 
 @media screen and (min-width: 1200px){
+
+    .pc_none {
+        display: none;
+    }
+
     .sideMenu_mobile{
         display: none;
     }

@@ -15,10 +15,10 @@ public class PartnerDAOImpl implements PartnerDAO {
     SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public PartnerVO selectPartner(PartnerVO partnerVO) {
+    public PartnerVO getEmailPartner(PartnerVO partnerVO) {
         PartnerVO vo = null;
         try {
-            sqlSessionTemplate.selectOne("mapper.partner.selectPartner", partnerVO);
+            sqlSessionTemplate.selectOne("mapper.partner.selectPartnerByEmail", partnerVO);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,4 +47,5 @@ public class PartnerDAOImpl implements PartnerDAO {
 
         return partnerVO;
     }
+
 }

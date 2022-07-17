@@ -60,13 +60,13 @@
         <![CDATA[
         InSERT INTO PD_CREATE_REQUEST (PDR_TITLE, PDR_GENRE1, PDR_GENRE2, PDR_TIMETYPE, PDR_CLOSEDAY,
                                     PDR_TAG, PDR_THUMBNAIL_PATH, PDR_DESCRIPT_PATH, PDR_TYPESTR, PDR_STARTDATE,
-                                    PDR_CLOSEDATE,PT_SEQ, PDR_OPENTIME, PDR_CLOSETIME, PDR_MAXTICKET,PDR_request_manager
-                                           ,PDR_MAINIMG_PATH)
+                                    PDR_CLOSEDATE,PT_SEQ,PDR_MINAGE, PDR_OPENTIME, PDR_CLOSETIME, PDR_MAXTICKET,PDR_request_manager
+                                           ,PDR_MAINIMG_PATH, PDR_PLACE)
         VALUES (
                 #{pd_title}, #{pd_genre1}, #{pd_genre2}, #{pd_timeType},
                 #{pd_closeDay}, #{pd_tag}, #{pd_thumbnail_PATH}, #{pd_descript_PATH},
-                #{pd_typeStr}, #{pd_startDate}, #{pd_closeDate}, #{pt_seq}, #{pd_openTime},
-                #{pd_closeTime}, #{pd_maxTicket}, #{pd_request_manager}, #{pd_mainImg_PATH}
+                #{pd_typeStr}, #{pd_startDate}, #{pd_closeDate}, #{pt_seq}, #{pd_minAge}, #{pd_openTime},
+                #{pd_closeTime}, #{pd_maxTicket}, #{pd_request_manager}, #{pd_mainImg_PATH}, #{pd_place}
                 );
         ]]>
     </insert>

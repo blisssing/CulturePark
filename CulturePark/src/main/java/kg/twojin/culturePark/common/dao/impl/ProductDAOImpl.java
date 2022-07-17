@@ -24,6 +24,9 @@ public class ProductDAOImpl implements ProductDAO {
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     Calendar cal = Calendar.getInstance();
 
+
+    //PR
+
     // 상품 요청 조회
 
     @Override
@@ -52,8 +55,34 @@ public class ProductDAOImpl implements ProductDAO {
         return productRequestVOList;
     }
 
+    // PI
 
-    // 상품 조회
+    // 조회
+
+    @Override
+    public ProductVO selectProductInfo(HashMap hashMap) {
+        ProductVO productVO = null;
+        try {
+            productVO = sqlSessionTemplate.selectOne("mapper.productInfo.selectProduct", hashMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productVO;
+    }
+
+    @Override
+    public List selectAllProductEssential() {
+        List<Map<String, Object>> mapList = null;
+        try {
+            mapList = sqlSessionTemplate.selectList("mapper.productInfo.selectProductEssential");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mapList;
+    }
+
     @Override
     public List selectAllExhibitProductByPtSeq(int pt_seq) {
         List<ProductVO> productVOList = null;
@@ -65,6 +94,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return productVOList;
     }
+
     @Override
     public List selectAllMuseumProductByPtSeq(int pt_seq) {
         List<ProductVO> productVOList = null;
@@ -77,17 +107,8 @@ public class ProductDAOImpl implements ProductDAO {
         return productVOList;
     }
 
-    @Override
-    public int insertProductRequest(ProductVO productVO) {
-        int result = 0;
-        try {
-            result = sqlSessionTemplate.insert("mapper.productRequest.insertProduct", productVO);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
+    // 생성
     @Override
     @Transactional
     public int insertNewProduct(int pdr_seq) {
@@ -101,12 +122,12 @@ public class ProductDAOImpl implements ProductDAO {
         int finalResult = 0;
 
         // 1단계 : pdr 정보를 통해 요청 정보 전체를 productRequestVO에 담기
-            productRequestVO = sqlSessionTemplate.selectOne("mapper.productRequest.selectProductRequestBySeq", pdr_seq);
+        productRequestVO = sqlSessionTemplate.selectOne("mapper.productRequest.selectProductRequestBySeq", pdr_seq);
         System.out.println("1단계 결과 : " + productRequestVO.toString() );
 
         // 2단계 : 모든 정보가 담겨져 있는 productRequestVO를 ProductInfo 테이블에 담아주기 < == 허용된 상품만 등록됨
         if (productRequestVO != null) {
-                result1 = sqlSessionTemplate.insert("mapper.productInfo.insertProduct", productRequestVO);
+            result1 = sqlSessionTemplate.insert("mapper.productInfo.insertProduct", productRequestVO);
         } else {
             return -1;
         }
@@ -119,7 +140,7 @@ public class ProductDAOImpl implements ProductDAO {
         // 3- 1: 정식 등록된 pd의 정보를 얻어오기 위해 product Info 조회
 
         if (result1 == 1) { //
-                newProductVo = sqlSessionTemplate.selectOne("mapper.productInfo.selectProductByPtAndTitle", productRequestVO);
+            newProductVo = sqlSessionTemplate.selectOne("mapper.productInfo.selectProductByPtAndTitle", productRequestVO);
         }
 
         //조회를 통해 얻어온 pd_seq 주입
@@ -142,7 +163,7 @@ public class ProductDAOImpl implements ProductDAO {
             boolean thu = chkCloseDay(closeDayAry, "thu");
             boolean fri = chkCloseDay(closeDayAry, "fri");
             boolean sat = chkCloseDay(closeDayAry, "sat");
-                                                                                                            //            if (pdr_timeType.equals("day")) {
+            //            if (pdr_timeType.equals("day")) {
             // productRequestVO의 데이터를 바탕으로 오픈 - 마감 기간을 선정. 그리고 countDate의 시작지점을
             // startDate로 지정.
 
@@ -241,33 +262,92 @@ public class ProductDAOImpl implements ProductDAO {
                 }
 
                 System.out.println("Step Final : " + result3);
-                    // 날짜에 +1 연산
-                    cal.add(Calendar.DATE, 1);
-                    String newDateString = df.format(cal.getTime());
-                    System.out.println("동작확인 1 : " + df.format(cal.getTime()));
+                // 날짜에 +1 연산
+                cal.add(Calendar.DATE, 1);
+                String newDateString = df.format(cal.getTime());
+                System.out.println("동작확인 1 : " + df.format(cal.getTime()));
 
-                    // countDate에 반환
-                    try {
-                        countDate = new Date(df.parse(newDateString).getTime());
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("동작 확인 2 : ");
+                // countDate에 반환
+                try {
+                    countDate = new Date(df.parse(newDateString).getTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("동작 확인 2 : ");
 
-                    System.out.println("종료날짜" + df.format(closeDate));
-                    System.out.println("카운트 날짜" + df.format(countDate));
+                System.out.println("종료날짜" + df.format(closeDate));
+                System.out.println("카운트 날짜" + df.format(countDate));
 
-                    compare = closeDate.compareTo(countDate);
+                compare = closeDate.compareTo(countDate);
 
-                    System.out.println("비교결과 : " + compare);
-                } // result3 =1 <<= 정상
-                System.out.println("while 탈출 확인 ");
-            }
-
-            System.out.println("최종 수행 결과 : " + result3);
-
-            return result3;
+                System.out.println("비교결과 : " + compare);
+            } // result3 =1 <<= 정상
+            System.out.println("while 탈출 확인 ");
         }
+
+        System.out.println("최종 수행 결과 : " + result3);
+
+        return result3;
+    }
+
+    // PMR
+
+    // 변경 요청 상품 목록 조회
+    @Override
+    public List selectAllProductModiRequestList() {
+        List<HashMap<String,Object>> productVOList = null;
+        try {
+            productVOList = sqlSessionTemplate.selectList("mapper.productInfo.selectAllPMR");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return productVOList;
+    }
+
+    @Override
+    public int insertProductRequest(ProductVO productVO) {
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.insert("mapper.productRequest.insertProduct", productVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+
+    @Override // 온 오프 전환
+    public int updateProductStatus(ProductVO productVO) {
+
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.productInfo.updateProductStatus", productVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return result;
+    }
+
+    @Override
+    public int insertProductModiRequest(ProductVO productVO, int mg_seq) {
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("mg_seq", mg_seq);
+        map.put("productVO", productVO);
+
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.productInfo.insertProductModiRequest", map);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return result;
+    }
 
     @Override
     public int updateProductRequestStatusAgree(int pdr_seq) {
@@ -291,6 +371,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
+
 
     private boolean chkCloseDay(String [] closeDayStr, String day) {
 
@@ -346,4 +427,36 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
 
+    // pmr
+
+    @Override
+    public Map<String, Object> selectPmrInfo(int pmr_seq) {
+        Map<String, Object> map = new HashMap<>();
+        try {
+            map = sqlSessionTemplate.selectOne("mapper.productInfo.selectPmr",pmr_seq);
+        } catch (Exception e) {
+            e.printStackTrace();
+            map = null;
+        }
+        return map;
+    }
+
+    @Override
+    @Transactional
+    public int updatePmrStatus(Map<String ,Object> map) {
+        int result1 = 0;
+        int result2 = 0;
+        try {
+            result1= sqlSessionTemplate.update("mapper.productInfo.updatePmrStatus", map.get("pmr_seq"));
+            result2 = sqlSessionTemplate.insert("mapper.pmrLog.insertPmrLog", map);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (result1 + result2 == 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

@@ -239,7 +239,7 @@ $(document).ready(function() {
         var pt_comp_name = $('#comp_val').val();
         var pt_ceo_name = $('#ceo_name_val').val();
         var pt_ceo_number = $('#ceo_number_val').val();
-        var pt_file = $('#file_val').val();
+        var pt_file = $('#file_val')[0].files[0];
         var pt_register_name = $('#register_name_val').val();
 
         var valTel1 = $('#tel_1').val();
@@ -317,16 +317,21 @@ function insertPartnerAjax(pt_email, pt_comp_name, pt_ceo_name, pt_ceo_number, p
 //여러값을 넣을때 json을 사용. key:value의 형태로 넣음. controller에서는 void로 반환값 없지만,
 
     var itemSet={"pt_email":pt_email, "pt_comp_name":pt_comp_name, "pt_ceo_name":pt_ceo_name,
-        "pt_ceo_number":pt_ceo_number, "pt_file":pt_file, "pt_phone":pt_phone, "pt_register_name":pt_register_name};
+        "pt_ceo_number":pt_ceo_number, "pt_phone":pt_phone, "pt_register_name":pt_register_name};
+
+    var formData = new FormData();
+    formData.append('file',pt_file);
+    formData.append('key', new Blob([JSON.stringify(itemSet)], {type:"application/json"}));
 
     $.ajax({
         type:"post",
-        datatype:"json",
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
         url:"/partnerRequestProc.do",
         async:false,
         cache:false,
-        contentType:"application/json; charset=utf-8",
-        data: JSON.stringify(itemSet),
+        data: formData,
         success:function (a) { //controller의 writer.print(json)의 결과가 반환됨.
             if (a === "success") {
                 alert("성공");

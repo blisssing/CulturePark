@@ -22,7 +22,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center mt-4">
-                            <h1 class="display-1">부적절한 권한</h1>
+                            <h1 class="display-1">부적절한 권한 및 접근</h1>
                             <p class="lead">Unauthorized</p>
                             <p>Access to this resource is denied.</p>
                             <a href="index.html">

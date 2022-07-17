@@ -1,93 +1,11 @@
-/* 거절사유 팝업 */
-function refuse_popup() {
-    window.open("/refuse.mdo", "pd_refuse_pop", "width=500px, height=200px");
-}
-
-/* 관리자 정보 팝업 */
-
-
-
-/* 요청하기 모달 */
 $(document).ready(function () {
 
-    var pd_first_genre;
-    var pd_second_genre;
-    var pd_title;
-
-    var pd_place;
-    var pd_minAge;
-
-    var pd_timeType;
-    var pd_maxTicket;
-
-
-    var pd_thumbnail_PATH;
-    var pd_descript_PATH;
-    var pd_mainImg_PATH;
-    var pd_tag;
-    var pd_closeDay='';
-    var pd_openTime;
-    var pd_closeTime;
-
-    var pd_startDate;
-    var pd_closeDate;
-
-
-    var chk_mode1=0;
-    var chk_mode2=0;
-
-
-
-    $('.td_update_btn').click(function () {
-        eventData = $(this);
-        eventRow = $(this).closest('tr');
-        $('#RequestingModal').modal({});
-    });
-
-    // 진희
-    $('#choice2').change(function () {
-        var selected_val = $('#choice2 option:selected').val();
-        console.log(selected_val);
-
-        if (selected_val === 'day') {
-            $('.tck_day').attr('disabled', false);
-            $('.tck_time').attr('disabled', true);
-            $('.tck_timeStage').attr('disabled', true);
-        } else if (selected_val === 'time') {
-            $('.tck_day').attr('disabled', true);
-            $('.tck_timeStage').attr('disabled', false);
-            $('.tck_time').attr('disabled', false);
-        } else {
-            $('.tck').attr('disabled', true);
-        }
-    });
-
-    $('.first_select').change(function () {
-        var first_val = $('.genre_select').val();
-        if (first_val === 'museum') {
-            $('.second_select').prop('disabled', true);
-        } else {
-            $('.second_select').prop('disabled', false);
-        }
-
-    });
-
-
-    $('.no_distinction').change(function () {
-
-        if ($(this).prop('checked')) {
-            $('.chk_type').prop('checked', false);
-            $('.chk_type').closest('tr').children('.td_1').children('.price').prop('disabled', true);
-            $(this).closest('tr').children('.td_1').children('.price').prop('disabled', false);
-        } else {
-            $(this).closest('tr').children('.td_1').children('.price').prop('disabled', true);
-        }
-    });
+    modalNow = "";
+    thisRow = "";
 
     $('.btn_adminInfo').click(function () {
         var thisRow = $(this).closest('tr');
         var pd_seq = thisRow.children('.pd_seq').val();
-        console.log(pd_seq);
         adminInfo_popup(pd_seq);
     });
 
@@ -105,330 +23,384 @@ $(document).ready(function () {
         })
     }
 
+    // 활성 비활성
 
-    $('.chk_type').change(function () {
-        if ($(this).prop("checked")) {
-            $('.no_distinction').prop('checked', false);
-            $('.no_distinction').closest('tr').children('.td_1').children('.price').prop('disabled', true);
-            $(this).closest('tr').children('.td_1').children('.price').prop('disabled', false);
+    $('input[name=pd_status]').change(function () {
+        eventRow = $(this).closest('tr');
+        var pd_seq = eventRow.children('.pd_seq').val();
+        var pd_genre1 = eventRow.children('.pd_genre1').val();
+
+        var status = "";
+        if ($(this).is(":checked")) {
+            status = "ACTIVE"
         } else {
-            $(this).closest('tr').children('.td_1').children('.price').prop('disabled', true);
+            status = "INACTIVE";
         }
 
-        var checkedPart = $(this);
-
-        if (checkedPart.val() === 'none'&& $(this).prop('checked')) {
-
-        }
-
-    });
-
-    $('.tck').change(function () {
-        var open = parseInt($('.open_tck').val());
-        var close = parseInt($('.close_tck').val());
-        console.log(open+","+close);
-        if (open >= close) {
-            alert("오픈 시간은 마감시간보다 빨라야 합니다.");
-            $(this).find("option:eq(0)").prop("selected", true);
-        }
-    });
-
-    $('.datePicker').change(function () {
-
-        var startDate = $('#startDate').val();
-        var endDate = $('#endDate').val();
-
-        console.log(startDate);
-        console.log(endDate);
-
-        if (new Date(startDate) > new Date(endDate) ) {
-            alert("시작날짜는 종료날짜의 이후로 설정될 수 없습니다");
-            $('.datePicker').val('');
-        }
-
-    });
-
-    // Datepicker
-
-    $('#startDate').datepicker({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dayNames:['일','월','화','수','목','금','토'],
-        dayNamesShort:['일','월','화','수','목','금','토'],
-        dayNamesMin: ['일','월','화','수','목','금','토'],
-        showMonthAfterYear: false,
-        yearSuffix: '년',
-        changeYear:true,
-        changeMonth: true,
-        minDate:0
-    });
-
-    $('#endDate').datepicker({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNamesShort: ['1월', '2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dayNames:['일','월','화','수','목','금','토'],
-        dayNamesShort:['일','월','화','수','목','금','토'],
-        dayNamesMin: ['일','월','화','수','목','금','토'],
-        showMonthAfterYear: false,
-        yearSuffix: '년',
-        changeYear:true,
-        changeMonth: true,
-        minDate:0
-    });
-
-
-    $('.regist_btn').click(function () {
-        var resultChk= chkValues();
-
-        if (resultChk == -1) {
-            return;
-        }
-
-        // 값 기입하기
-
-        // 장르
-        pd_first_genre = $('.first_select').val();
-
-        if (pd_first_genre === 'exhibition') {
-            chk_mode1 = 1;
-            pd_second_genre = $('.second_select').val();
-        } else {
-            chk_mode1 = 2;
-        }
-
-        // 작품명
-        pd_title = $('.pd_name_text').val();
-
-        // 장소 , 최소 연령
-
-        pd_place = $('.pd_place').val();
-        pd_minAge = $('input[name=slc_age]:selected').val();
-
-
-
-        // 티켓 연령 유형
-        var typeChkList =$('input[name=pd_ticketType]:checked');
-        var jsonData
-        var typeStr = "";
-        typeChkList.each(function () {
-            var type = $(this).val()
-            if (type ==='adult') {
-                var price =$('.adult_price').val();
-                typeStr += type + ":" + price+"/";
-            } else if (type === 'teenager') {
-                var price =$('.teenager_price').val();
-                typeStr += type + ":" + price+"/";
-            } else if (type === 'child') {
-                var price =$('.children_price').val();
-                typeStr += type + ":" + price+"/";
-            } else {
-                var price =$('.nonDistinc_price').val();
-                typeStr += type + ":" + price+"/";
-            }
-        });
-
-
-        // 티켓 타입
-
-        pd_timeType = $('#choice2').val();
-
-        if (pd_timeType === 'day') {
-            chk_mode2 = 1;
-            pd_maxTicket = $('.tck_day').val();
-        } else if(pd_timeType === 'time') {
-            chk_mode2 =2;
-            pd_maxTicket = $('.tck_timeStage').val();
-            pd_openTime = $('.open_tck').val();
-            pd_closeTime = $('.close_tck').val();
-
-        }
-
-        // 첨부파일
-
-        pd_thumbnail_PATH = $('.pd_thumbnail').val();
-        pd_descript_PATH = $('.pd_descript').val();
-        pd_mainImg_PATH =$('.pd_mainImg').val();
-
-        pd_tag = $('input[name=pd_tag]').val();
-
-        // 휴관요일
-
-        var checkedList = $('input[name=day_chkbox]:checked');
-        pd_closeDay = "";
-
-        if (checkedList.length === 0) {
-            pd_closeDay = 'none';
-        } else {
-            checkedList.each(function () {
-                if (pd_closeDay === '') {
-                    pd_closeDay += $(this).val();
-                } else {
-                    pd_closeDay += "/"+$(this).val();
-                }
-            });
-        }
-
-        // 운영 기간
-
-        pd_startDate = $('#startDate').val();
-        pd_closeDate = $('#endDate').val()
-
-
+        console.log(pd_seq + "/" + pd_genre1 + "/" + status);
         var jsonObj = new Object();
-
-
-        if (chk_mode1 === 1) {
-            // jsonObj.pd_chkMode1 = 1;
-            jsonObj.pd_genre1 = pd_first_genre;
-            jsonObj.pd_genre2 = pd_second_genre;
-        } else if (chk_mode1 === 2) {
-            // jsonObj.pd_chkMode1 = 2;
-            jsonObj.pd_genre1 = pd_first_genre;
-        }
-
-        if (chk_mode2 === 1) {
-            // jsonObj.pd_chkMode2 = 1;
-            jsonObj.pd_timeType = 'day';
-            jsonObj.pd_maxTicket = pd_maxTicket;
-        } else if (chk_mode2 === 2) {
-            // jsonObj.pd_chkMode2 = 2;
-            jsonObj.pd_timeType = 'time';
-            jsonObj.pd_maxTicket = pd_maxTicket;
-            jsonObj.pd_openTime = pd_openTime;
-            jsonObj.pd_closeTime = pd_closeTime;
-        }
-
-        jsonObj.pd_title = pd_title;
-        jsonObj.pd_place = pd_place;
-        jsonObj.pd_minAge = pd_minAge;
-        jsonObj.pd_thumbnail_PATH = pd_thumbnail_PATH;
-        jsonObj.pd_descript_PATH = pd_descript_PATH;
-        jsonObj.pd_mainImg_PATH = pd_mainImg_PATH;
-
-        jsonObj.pd_tag = pd_tag;
-        jsonObj.pd_closeDay = pd_closeDay;
-        jsonObj.pd_typeStr = typeStr;
-        jsonObj.pd_startDate = pd_startDate;
-        jsonObj.pd_closeDate = pd_closeDate;
+        jsonObj.pd_seq = pd_seq;
+        jsonObj.pd_genre1 = pd_genre1;
+        jsonObj.pd_status = status;
 
         $.ajax({
-            type:"post",
+            type: "POST",
             data: JSON.stringify(jsonObj),
-            datatype:"json",
+            dataType:"json",
+            async: false,
+            cache: false,
             contentType: "application/json; charset=utf-8",
-            url:"/requestNewProduct.mdo",
-            cache:false,
-            async:false,
-            traditional:true,
+            url: "/changePdStatus.mdo",
             success: function (data) {
-                alert("정상 수행!");
-                if (data == 1) {
-                    location.replace("/index.mdo");
-                } else {
-                    console.log('비정상수행');
+                console.log(data);
+                console.log(JSON.parse(data.result));
+                if (data.result === 1) {
+                    alert("변경사항이 정상적으로 적용됐습니다");
                 }
             },
             error: function () {
-                alert("비정상 수행");
+                alert("실행 오류")
+            },
+        })
+
+    });
+
+
+    //
+
+
+    $('.td_update_btn').click(function () {
+        thisRow = $(this).closest('tr');
+        var typeStr = thisRow.children('.pd_typeStr').val();
+        console.log(typeStr)
+
+        settingBeforeValue(thisRow);
+        modalNow = $('#RequestingModal');
+        modalNow.modal({});
+    });
+
+    $('input[name=af_pd_ticketType]').change(function () {
+        var selectedVal = $(this).val();
+
+        if (selectedVal === 'none') {
+            $('.af_pd_ticketType').prop('checked', false);
+            $('.af_select_price').prop('disabled', true);
+
+
+            if ($(this).prop('checked')) {
+                $('#af_none_price').prop('disabled', false);
+            } else {
+                $('#af_none_price').prop('disabled', true);
+                $('.af_chk_type').prop('disabled', false);
             }
 
-        });
+
+
+        } else {
+            $('#af_type_none').prop('checked', false);
+            $('#af_none_price').prop('disabled', true);
+
+            if (selectedVal === 'adult') {
+                if ($(this).prop('checked')) {
+                    $('#af_adult_price').prop('disabled', false);
+                    console.log('여기 실행 1');
+                } else {
+                    console.log('여기 실행 2');
+                    $('#af_adult_price').prop('disabled', true);
+                }
+            } else if (selectedVal === 'teenager') {
+                if ($(this).prop('checked')) {
+                    $('#af_teenager_price').prop('disabled', false);
+                } else {
+                    $('#af_teenager_price').prop('disabled', true);
+                }
+            } else if (selectedVal === 'child') {
+                if ($(this).prop('checked')) {
+                    $('#af_child_price').prop('disabled', false);
+                } else {
+                    $('#af_child_price').prop('disabled', true);
+                }
+            }
+        }
+
 
 
     });
 
-    // 장싱입력 검사
+    $('#af_pd_timeTypeSelect').change(function () {
 
-    function chkValues() {
+        var pd_timeType = $(this).val();
+        console.log(pd_timeType);
 
-        // 장르 선택
-
-        if ($('.first_select').val() === 'none') {
-            alert("1차 장르를 선택해주세요!");
-            return -1;
-        } else if ($('.first_select').val() === 'exhibition' && $('.second_select').val() === 'none') {
-            alert("2차 장르를 선택해주세요");
-            return -1;
+        if (pd_timeType === 'none') {
+            $('#af_day_max').prop('disabled', true);
+            $('#af_pd_openTime').prop('disabled', true);
+            $('#af_pd_closeTime').prop('disabled', true);
+            $('#af_stage_max').prop('disabled', true);
+        } else if (pd_timeType==='day') {
+            console.log('여기 수행');
+            $('#af_day_max').prop('disabled', false);
+            $('#af_pd_openTime').prop('disabled', true);
+            $('#af_pd_closeTime').prop('disabled', true);
+            $('#af_stage_max').prop('disabled', true);
+        } else {
+            $('#af_day_max').prop('disabled', true);
+            $('#af_pd_openTime').prop('disabled', false);
+            $('#af_pd_closeTime').prop('disabled', false);
+            $('#af_stage_max').prop('disabled', false);
         }
 
-        // 제목 기입
+    });
 
-        if ($('.pd_name_text').val().trim() === '') {
-            alert("작품명을 기입해주세요");
-            return -1;
+    $('.btn_Agree2').click(function () {
+
+        var checkResult =checkType1();
+
+        if (checkResult !== -1) {
+
+
+
+            var typeStr = "";
+            var chk_mode="";
+            var pd_maxTicket = "";
+            var pd_openTime = "";
+            var pd_closeTime = "";
+            var pd_tag = "";
+            var pd_closeDay = "";
+
+
+            // 유형 기입
+            var typeList = $('input[name=af_pd_ticketType]:checked');
+
+            typeList.each(function () {
+                var type = $(this).val()
+                if (type ==='adult') {
+                    var price =$('#af_adult_price').val();
+                    typeStr += type + ":" + price+"/";
+                } else if (type === 'teenager') {
+                    var price =$('#af_teenager_price').val();
+                    typeStr += type + ":" + price+"/";
+                } else if (type === 'child') {
+                    var price =$('#af_child_price').val();
+                    typeStr += type + ":" + price+"/";
+                } else {
+                    var price =$('#af_none_price').val();
+                    typeStr += type + ":" + price+"/";
+                }
+            });
+
+            // 티켓 타입
+
+            var ticketType = $('#af_pd_timeTypeSelect').val();
+
+            if (ticketType === 'day') {
+                chk_mode = 1;
+                pd_maxTicket = $('#af_day_max').val();
+            } else if(ticketType === 'time') {
+                chk_mode =2;
+                pd_maxTicket = $('#af_stage_max').val();
+                pd_openTime = $('#af_pd_openTime').val();
+                pd_closeTime = $('#af_pd_closeTime').val();
+            }
+
+            pd_tag = $('#af_pd_tag').val();
+
+
+            var checkedList = $('input[name=day_chkbox]:checked');
+            if (checkedList.length === 0) {
+                pd_closeDay = 'none';
+            } else {
+                checkedList.each(function () {
+                    if (pd_closeDay === '') {
+                        pd_closeDay += $(this).val();
+                    } else {
+                        pd_closeDay += "/"+$(this).val();
+                    }
+                });
+            }
+
+
+            var jsonObj = new Object();
+
+            jsonObj.pd_seq = thisRow.children('.pd_seq').val();
+            jsonObj.pt_seq = thisRow.children('.pt_seq').val();
+            jsonObj.pd_genre1 = thisRow.children('.pd_genre1').val();
+
+
+            if (chk_mode === 1) {
+                // jsonObj.pd_chkMode2 = 1;
+                jsonObj.pd_timeType = 'day';
+                jsonObj.pd_maxTicket = pd_maxTicket;
+            } else if (chk_mode === 2) {
+                // jsonObj.pd_chkMode2 = 2;
+                jsonObj.pd_timeType = 'time';
+                jsonObj.pd_maxTicket = pd_maxTicket;
+                jsonObj.pd_openTime = pd_openTime;
+                jsonObj.pd_closeTime = pd_closeTime;
+            }
+
+
+            jsonObj.pd_typeStr = typeStr;
+            jsonObj.pd_tag = pd_tag;
+            jsonObj.pd_closeDay = pd_closeDay;
+
+
+            console.log(JSON.stringify(jsonObj));
+            //Todo : 여기 작성해줄 것
+            $.ajax({
+                type:"POST",
+                datatype: "json",
+                data: JSON.stringify(jsonObj),
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                async: false,
+                traditional: true,
+                url:'/modifyPdInfo.mdo',
+                success: function (data) {
+                    if (data === 1) {
+                        alert("변경 요청 성공!!");
+                        closeModal(modalNow);
+                    } else {
+                        alert("변경 요청 실패! : " + data);
+                    }
+                },
+                error: function () {
+                    alert("실행 오류!");
+                }
+            })
+
+
+
         }
 
-        // 유형별 금액 입력
+    });
 
-        var type_checked = $('input[name=pd_ticketType]:checked');
+    // 입력갑 확인
+    function checkType1() {
+        var type_checked = $('input[name=af_pd_ticketType]:checked');
 
         if (type_checked.length === 0) {
             alert("티켓 유형을 최소 1개 선택해주세요");
             return -1;
         } else {
-
-            $('input[name=pd_ticketType]:checked').each(function () {
+            type_checked.each(function () {
                 console.log('확인 : ' + $(this).val());
-                var price;
-                if ($(this).val() === 'adult') {
-                    price = $('.adult_price');
-                } else if ($(this).val() === 'teenager') {
-                    price = $('.teenager_price');
-                } else if ($(this).val() === 'child') {
-                    price = $('.children_price');
+
+                var type = $(this).val()
+
+                if (type ==='adult') {
+                    var price =$('#af_adult_price').val();
+                } else if (type === 'teenager') {
+                    var price =$('#af_teenager_price').val();
+                } else if (type === 'child') {
+                    var price =$('#af_child_price').val();
                 } else {
-                    price = $('.nonDistinc_price');
+                    var price =$('#af_none_price').val();
                 }
 
-                console.log('확인 2 : ' + price.val());
-                if (price.val() === '') {
+                if (price === '') {
                     alert($(this).val()+ "의 금액을 입력해주세요!");
                     return -1;
                 }
             });
         }
 
-        // 첨부 파일 확인
 
-        if ($('.pd_descript').val() === '' || $('.pd_thumbnail').val() === '') {
-            alert("첨부파일을 선택해주세요!");
-            return -1;
-        }
 
-        var chkList = $('.chkLabel');
-
-        if (chkList.length === 0) {
-            alert("날짜를 선택해주세요!");
-            return -1;
-        }
-
-        // 태그 확인
-
-        if ($('.tag > input').val() === '')
-        {
-            alert("태그를 기입해주세요!");
-            return -1;
-        }
-
-        if ($('#endDate').val() === '' || $('#startDate').val() === '') {
-            alert("날짜를 선택해주세요!");
-            return -1;
-        }
-
-        // 휴관 요일
-
-        console.log('모두 정상 입력!!');
-        return 1;
 
 
     }
-            $('.cancel_btn').click(function(){
-                $('.modal').modal('hide');
-            });
+
+
+    function settingBeforeValue(eventRow) {
+        var typeStr = eventRow.children('.pd_typeStr').val();
+        setTypeInfo(typeStr);
+        var pd_timeType = eventRow.children('.pd.timeType').val();
+        var pd_maxTicket = eventRow.children('.pd_maxTicket').val();
+        var pd_openTime = eventRow.children('.pd_openTime').val();
+        var pd_closeTime = eventRow.children('.pd_closeTime').val();
+
+
+        if (pd_timeType === 'day') {
+            $('.pd_timeTypeSelect option:eq(0)').prop("selected", true);
+            setDayInfo( pd_maxTicket)
+        } else {
+            $('.pd_timeTypeSelect option:eq(1)').prop("selected", true);
+            setTimeInfo( pd_maxTicket, pd_openTime, pd_closeTime);
+        }
+
+        var pd_tagStr = eventRow.children('.pd_tag').val();
+        $('#bf_pd_tag').val(pd_tagStr);
+
+        var pd_closeDay = $('.pd_closeDay').val();
+        setPdCloseDay(pd_closeDay);
+
+
+
+
+
+    }
+
+    function setTypeInfo(str) {
+        var splitList = str.split('/');
+        var cloneList;
+
+        for (var i = 0; i < splitList.length - 1; i++) {
+            cloneList = splitList[i].split(':');
+            var key = cloneList[0];
+            var value = cloneList[1];
+
+            console.log("key :  " + key);
+            console.log("value : " + value);
+            if ( key=== 'none') {
+                $('#bf_none_price').val(value);
+            } else if (key === 'adult') {
+                $('#bf_adult_price').val(value);
+            } else if (key === 'teenager') {
+                $('#bf_teenager_price').val(value);
+            } else if (key === 'children') {
+                $('#bf_child_price').val(value);
+            }
+        }
+    }
+
+    function setTimeInfo(pd_maxTicket, pd_openTime, pd_closeTime) {
+        $('#bf_stage_max').val(pd_maxTicket);
+        $('#bf_pd_openTime').val(pd_openTime).prop('selected', true);
+        $('#bf_pd_closeTime').val(pd_closeTime).prop('selected', true);
+    }
+
+    function setDayInfo(pd_maxTicket) {
+        $('#bf_day_max').val(pd_maxTicket);
+    }
+
+    function setPdCloseDay(pd_closeDay) {
+
+
+        var closeStr = pd_closeDay.split('/');
+
+        for (var str in closeStr) {
+
+            if (closeStr[str] === 'son') {
+                $('input[name=chk_son]').attr('checked', 'checked');
+            } else if (closeStr[str] === 'mon') {
+                $('input[name=chk_mon]').attr('checked', 'checked');
+            } else if (closeStr[str] === 'tue') {
+                $('input[name=chk_tue]').attr('checked', 'checked');
+            } else if (closeStr[str] === ' wen') {
+                $('input[name=chk_wen]').attr('checked', 'checked');
+            } else if (closeStr[str] === 'thu') {
+                $('input[name=chk_thu]').attr('checked', 'checked');
+            } else if (closeStr[str] === 'fri') {
+                $('input[name=chk_fri]').attr('checked', 'checked');
+            } else if (closeStr[str] === 'sat') {
+                $('input[name=chk_sat]').attr('checked', 'checked');
+            }
+        }
+
+    }
+
+
+
+
 });

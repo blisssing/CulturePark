@@ -13,7 +13,6 @@ public class ManagerManageServiceImpl implements ManagerManageService {
 
     // 세부 구현 페이지
 
-
     @Autowired
     private ManagerDAO managerDAO;
 

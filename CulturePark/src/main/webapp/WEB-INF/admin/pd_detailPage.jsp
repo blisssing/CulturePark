@@ -1,9 +1,60 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page import="kg.twojin.culturePark.common.vo.ProductVO" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="kor">
 
 <head>
+
+    <%
+        ProductVO productVO = null;
+        try {
+            productVO = (ProductVO) request.getSession().getAttribute("productVO");
+        } catch (Exception e) {
+
+        }
+
+        if (productVO != null) {
+        String typeStr = productVO.getPd_typeStr();
+        String [] typeList = typeStr.split("/");
+            boolean noneBool = false;
+            boolean adultBool = false;
+            boolean teenagerBool = false;
+            boolean childrenBool = false;
+            int nonePrice = 0;
+            int adultPrice = 0;
+            int teenagerPrice = 0;
+            int childrenPrice = 0;
+
+            for (String type : typeList) {
+                String [] typeAry =type.split(":");
+                switch (typeAry[0]) {
+                    case "adult":
+                        adultBool = true;
+                        adultPrice = Integer.parseInt(typeAry[1]);
+                        continue;
+                    case "teenager":
+                        teenagerBool = true;
+                        teenagerPrice = Integer.parseInt(typeAry[1]);
+                        continue;
+                    case "child":
+                        childrenBool = true;
+                        childrenPrice  = Integer.parseInt(typeAry[1]);
+                        continue;
+                    default:
+                        noneBool = true;
+                        nonePrice = Integer.parseInt(typeAry[1]);
+                        break;
+                }
+
+
+            }
+
+
+
+    %>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +79,12 @@
         <%@include file="/resources/common/vendor/fontawesome-free/css/all.min.css" %>
     </style>
 
-    <style><%@ include file="/resources/admin/css/common_tableStyle.css"%></style>
-    <style><%@ include file="/resources/admin/css/pd_detailPage.css"%></style>
+    <style>
+        <%@ include file="/resources/admin/css/common_tableStyle.css" %>
+    </style>
+    <style>
+        <%@ include file="/resources/admin/css/pd_detailPage.css" %>
+    </style>
 
 
     <style>
@@ -39,7 +94,7 @@
             right: 10px;
         }
 
-        .td_1 , table>tr>td{
+        .td_1, table > tr > td {
             text-align: right;
         }
     </style>
@@ -84,74 +139,131 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <div class="context_head">업체명</div>
-                                                <div class="form-control form-control-user" id="CompanyName"></div>
+                                                <div class="form-control form-control-user" id="CompanyName">
+                                                    ${partner.pt_comp_name}
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="context_head">업체코드</div>
-                                                <div class="form-control form-control-user" id="CompanyCode"></div>
+                                                <div class="form-control form-control-user" id="CompanyCode">
+                                                    ${partner.pt_seq}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <div class="context_head">루트매니저 계정</div>
-                                                <div class="form-control form-control-user" id="RootMail"></div>
+                                                <div class="form-control form-control-user" id="RootMail">
+                                                    ${manager.mg_email}
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="context_head">매니저 코드</div>
-                                                <div class="form-control form-control-user" id="RootCode"></div>
+                                                <div class="form-control form-control-user" id="RootCode">
+                                                    ${manager.mg_seq}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="context_head">이름</div>
-                                            <div  class="form-control form-control-user" id="ProductTitle"></div>
+                                            <div class="form-control form-control-user" id="ProductTitle">
+                                                ${product.pd_title}
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="context_head">장소</div>
-                                            <div  class="form-control form-control-user" id="ProductPlace"></div>
+                                            <div class="form-control form-control-user" id="ProductPlace">
+                                                ${product.pd_place}
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <div class="context_head">분야</div>
-                                                <div class="form-control form-control-user" id="ProductClass"></div>
+                                                <div class="form-control form-control-user" id="ProductClass">
+                                                    ${product.pd_genre1}
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="context_head">장르</div>
-                                                <div class="form-control form-control-user" id="ProductGenre"></div>
+                                                <div class="form-control form-control-user" id="ProductGenre">
+                                                    <c:if test="${product.pd_genre2} neq null">
+                                                        ${product.pd_genre2}
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <div class="context_head">시작일</div>
-                                                <div class="form-control form-control-user" id="ProductStartDate"></div>
+                                                <div class="form-control form-control-user" id="ProductStartDate">
+                                                    <fmt:formatDate var="formatstartDate" value="${productVO.pd_startDate}" pattern="yyyy-MM-dd"/>
+                                                    ${formatstartDate}
+                                                </div>일
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="context_head">종료일</div>
-                                                <div class="form-control form-control-user" id="ProductEndDate"></div>
+                                                <div class="form-control form-control-user" id="ProductEndDate">
+                                                    <fmt:formatDate var="formatcloseDate" value="${productVO.pd_closeDate}" pattern="yyyy-MM-dd"/>
+                                                    ${formatcloseDate}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row2">
                                                 <table class="table" id="table2">
                                                     <thead>
-                                                       <tr><th class="center" colspan="2">티켓 구분</th></tr>
+                                                    <tr>
+                                                        <th class="center" colspan="2">티켓 구분</th>
+                                                    </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
-                                                            <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
-                                                            <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
-                                                            <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
-                                                            <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td class="td_0"><input type="checkbox"
+                                                                                class="chkbox no_distinction" name="chk" disabled="disabled"
+                                                                                <%if(noneBool){%>
+                                                                                checked="checked"
+                                                                                <%}%>
+                                                                                >구분없음
+                                                        </td>
+                                                        <td class="td_1"><input type="text" class="price"
+                                                                                disabled="disabled">
+                                                            <%=nonePrice%>원
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td_0"><input type="checkbox" class="chkbox chk_adult"
+                                                                                name="chk" disabled="disabled"
+                                                            <%if(adultBool){%>
+                                                                                checked="checked"
+                                                            <%}%>>성인
+                                                        </td>
+                                                        <td class="td_1"><input type="text" class="price"
+                                                                                disabled="disabled" value="<%=adultPrice%>">원
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td_0"><input type="checkbox"
+                                                                                class="chkbox chk_teenager" name="chk"
+                                                                                disabled="disabled" <%if(teenagerBool){%>
+                                                                                checked="checked"
+                                                            <%}%>>청소년
+                                                        </td>
+                                                        <td class="td_1"><input type="text" class="price"
+                                                                                disabled="disabled" value="<%=teenagerPrice%>">원
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td_0"><input type="checkbox"
+                                                                                class="chkbox chk_children" name="chk"
+                                                                                disabled="disabled" <%if(childrenBool){%>
+                                                                                checked="checked"
+                                                            <%}%>>어린이
+                                                        </td>
+                                                        <td class="td_1"><input type="text" class="price"
+                                                                                disabled="disabled" value="<%=childrenPrice%>">원
+                                                        </td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -160,27 +272,40 @@
                                             <div class="row2">
                                                 <table class="table" id="table4">
                                                     <thead>
-                                                        <tr>
-                                                            <th class="center" colspan="2">타입</th>
-                                                        </tr>
+                                                    <tr>
+                                                        <th class="center" colspan="2">타입</th>
+                                                    </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="list" colspan="2"> <span>선택된 타입</span></td>
-                                                                <td><span>타입 1 </span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="list" colspan="2">티켓 max</td>
-                                                            <td><input type="text" class="tck tck_day tck_max inputText" disabled="disabled"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="list" colspan="2">오픈시간대</td>
-                                                            <td><input type="text" class="tck tck_time tck_openTime inputText" disabled="disabled"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="list" colspan="2">마감시간대</td>
-                                                            <td><input type="text" class="tck tck_time tck_closeTime inputText" disabled="disabled"></td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td class="list" colspan="2"><span>선택된 타입</span></td>
+                                                        <td><span>타입 1 </span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="list" colspan="2">티켓 max</td>
+                                                        <td><input type="text" class="tck tck_day tck_max inputText"
+                                                                   disabled="disabled" value="${product.pd_maxTicket}">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="list" colspan="2">오픈시간대</td>
+                                                        <td><input type="text"
+                                                                   class="tck tck_time tck_openTime inputText"
+                                                                   disabled="disabled"
+                                                                   value="${product.pd_openTime}:00">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="list" colspan="2">마감시간대</td>
+                                                        <td><input type="text"
+                                                                   class="tck tck_time tck_closeTime inputText"
+                                                                   disabled="disabled"
+                                                                   value="${product.pd_closeTime}:00">
+
+                                                        </td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -188,18 +313,21 @@
 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <div class="context_head">이미지1</div>
-                                                <button type="button" class="btn btn-primary btn-user btn-block ">다운로드</button>
+                                                <div class="context_head">썸네일</div>
+                                                <button type="button" class="btn btn-primary btn-user btn-block" value="
+                                                <%=productVO.getPd_thumbnail_PATH()%>">다운로드
+                                                </button>
                                             </div>
                                             <div class="col-sm-6">
-                                                <div class="context_head">이미지2</div>
-                                                <button type="button" class="btn btn-primary btn-user btn-block ">다운로드</button>
+                                                <div class="context_head">설명서</div>
+                                                <button type="button" class="btn btn-primary btn-user btn-block " value="<%=productVO.getPd_descript_PATH()%>">다운로드
+                                                </button>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <div class="context_head">설명서</div>
-                                            <button  class="btn btn-primary btn-user btn-block">다운로드</button>
+                                            <div class="context_head">메인이미지</div>
+                                            <button class="btn btn-primary btn-user btn-block" value="<%=productVO.getPd_mainImg_PATH()%>">다운로드</button>
                                         </div>
 
 
@@ -271,4 +399,14 @@
 
 </body>
 
+<%
+} else {
+%>
+
+<script>
+    location.href = "/accessError.ado";
+</script>
+<%
+    }
+%>
 </html>

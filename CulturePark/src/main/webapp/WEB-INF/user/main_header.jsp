@@ -13,38 +13,46 @@
         </div>
         <div class="function_section">
             <%
-            String loginChk_ = (String) session.getAttribute("loginChk");
+            String loginChk= (String) session.getAttribute("loginChk");
 
-            if (loginChk_ == null) {
+          /*  if (loginChk == null) {*/
             %>
+                <c:set var="loginId" value="${sessionScope.member.mb_email}"/>
+                <c:set var="loginPw" value="${sessionScope.member.mb_pw}"/>
 
-            <ul class="funcs_pc">
-                <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
-                <li><a href="/join.do" class="func_list" >join</a></li>
-                <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
-            </ul>
+                <c:choose>
+                    <c:when test="${loginId != null && loginPw != null}">
+                        <ul class="funcs_pc">
+                            <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
+                            <li><a href="/join.do" class="func_list" >join</a></li>
+                            <li><a href="/levelPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my ticket</a></li>
+                        </ul>
+                    </c:when>
+                    <c:otherwise>
+                        <ul class="funcs_pc">
+                            <li><a href="login.do" class="func_list" id="loginText" >login</a></li>
+                            <li><a href="/join.do" class="func_list" >join</a></li>
+                            <li><a href="/levelPage.do" class="func_list" >my page</a></li>
+                            <li><a href="/myPage.do" class="func_list" >my ticket</a></li>
+                        </ul>
+                    </c:otherwise>
+                </c:choose>
 
-            <%
-            } else {
-            %>
 
-            <ul class="funcs_pc">
-                <li><a href="/logout.do" class="func_list" id="logoutText" >logout</a></li>
-                <li><a href="/join.do" class="func_list" >join</a></li>
-                <li><a href="/myPage.do" class="func_list" >my page</a></li>
-                <li><a href="/myTicket.do" class="func_list" >my ticket</a></li>
-            </ul>
-
-            <%
-            }
-            %>
 
             <div class="funcs_mobile">
 
+            <c:choose>
+                <c:when test="${loginId != null && loginPw != null}">
                 <%--   로그인 창으로 이동하는 링크 달아줄 것--%>
-                <button type="button" class="login_btn"><i class="fa-regular fa-user"></i></button>
+                <button type="button" class="mySide_btn"><i class="fa-regular fa-user"></i></button>
+                </c:when>
 
+                <c:otherwise>
+                <button type="button" class="login_btn"><i class="fa-regular fa-user"></i></button>
+                </c:otherwise>
+            </c:choose>
 
                 <%--<button type="button" class="sideMenu_btn"><i class="fa-solid fa-bars"></i></button>--%>
                 <button type="button" class="sideMenu_btn">
@@ -79,6 +87,8 @@
                 </button>
 
             </div>
+
+
         </div>
     </div>
 </div>
@@ -102,7 +112,7 @@
                 <div class="btn_box">
                     <button type="button" class="home_btn">
                         <i class="fa-solid fa-house"></i>
-                        <div class="menu_name"><a href="/home.do">홈</a></div>
+                        <div class="menu_name"><a href="/home.do" class="mobile_home">홈</a></div>
                     </button>
                 </div>
             </li>
@@ -124,16 +134,21 @@
             </li>
             <li>
                 <div class="btn_box">
-                    <button type="button" class="mySide_btn">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="menu_name">마이메뉴</div>
-                    </button>
-                    <%--<button type="button" class="login_btn">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="menu_name">로그인</div>
-                    </button>--%>
+            <c:choose>
+                <c:when test="${loginId != null && loginPw != null}">
+                            <button type="button" class="mySide_btn">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="menu_name">마이메뉴</div>
+                            </button>
+                </c:when>
+                <c:otherwise>
+                            <button type="button" class="login_btn">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="menu_name">마이메뉴</div>
+                            </button>
+                </c:otherwise>
+            </c:choose>
                 </div>
-
             </li>
         </ul>
     </div>

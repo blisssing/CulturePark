@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,7 @@
 
 
 
-    <title>manager exhibition management</title>
+    <title>우리들의 문화광간 CulturePark</title>
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -107,6 +108,9 @@
 
 <body id="page-top">
 
+<%--Todo : 수정해줄 것!!--%>
+    <input id="mg_seq" type="hidden" value="1">
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -148,25 +152,25 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                     <c:forEach items="${productList}" var="product" varStatus="varStatus">
                                         <fmt:formatDate var="formatstartDate" value="${product.pd_startDate}" pattern="yyyy-MM-dd"/>
                                         <fmt:formatDate var="formatendDate" value="${product.pd_closeDate}" pattern="yyyy-MM-dd"/>
                                     <tr>
                                         <input type="hidden" class="pt_seq" value="${product.pt_seq}"/>
                                         <input type="hidden" class="pd_seq" value="${product.pd_seq}"/>
-
-                                        <input type="hidden" class="pd_request_code" value="${productVO.pd_seq}" name="pd_seq">
-                                        <input type="hidden" class="pd_timeType" value="${productVO.pd_timeType}" name="pd_timeType"/>
-                                        <input type="hidden" class="pd_maxTicket" value="${productVO.pd_maxTicket}" name="pd_maxTicket"/>
-                                        <input type="hidden" class="pd_typeStr" value="${productVO.pd_typeStr}" name="pd_typeStr"/>
-                                        <input type="hidden" class="pd_openTime" value="${productVO.pd_openTime}" name="pd_openTime"/>
-                                        <input type="hidden" class="pd_closeTime" value="${productVO.pd_closeTime}" name="pd_closeTime"/>
-                                        <input type="hidden" class="pd_closeDay" value="${productVO.pd_closeDay}" name="pd_closeDay"/>
-                                        <input type="hidden" class="pd_request_manager" value="${productVO.pd_request_manager}" name="pd_request_manager"/>
+                                        <input type="hidden" class="pd_genre1" value="${product.pd_genre1}"/>
+                                        <input type="hidden" class="pd_request_code" value="${product.pd_seq}" name="pd_seq">
+                                        <input type="hidden" class="pd_timeType" value="${product.pd_timeType}" name="pd_timeType"/>
+                                        <input type="hidden" class="pd_maxTicket" value="${product.pd_maxTicket}" name="pd_maxTicket"/>
+                                        <input type="hidden" class="pd_typeStr" value="${product.pd_typeStr}" name="pd_typeStr"/>
+                                        <input type="hidden" class="pd_openTime" value="${product.pd_openTime}" name="pd_openTime"/>
+                                        <input type="hidden" class="pd_closeTime" value="${product.pd_closeTime}" name="pd_closeTime"/>
+                                        <input type="hidden" class="pd_closeDay" value="${product.pd_closeDay}" name="pd_closeDay"/>
+                                        <input type="hidden" class="pd_request_manager" value="${product.pd_request_manager}" name="pd_request_manager"/>
                                         <input type="hidden" class="start_date" value="${formatstartDate}"/>
                                         <input type="hidden" class="end_date" value="${formatendDate}"/>
-
-
+                                        <input type="hidden" class="pd_tag" value="${product.pd_tag}"/>
                                         <td class="tr_seq">${varStatus.count}</td>
                                         <td class="pd_title">${product.pd_title}</td>
                                         <td class="pd_period">${formatstartDate}~${formatendDate}</td>
@@ -174,10 +178,10 @@
                                             <label class="switch">
                                                 <c:choose>
                                                     <c:when test="${product.pd_status eq 'ACTIVE'}">
-                                                        <input type="checkbox" checked="checked">
+                                                        <input name="pd_status" type="checkbox" checked="checked">
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <input type="checkbox">
+                                                        <input name="pd_status" type="checkbox">
                                                     </c:otherwise>
                                                 </c:choose>
                                                 <span class="slider round"></span>
@@ -193,10 +197,9 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>
-<%--                                        <td class="adminInfo_btn" onclick="adminInfo_popup()"></td>--%>
                                         <td>
                                             <button type="button" class="btn_adminInfo">담당자 정보</button>
-                                            <input type="button" class="td_update_btn" value="수정">
+                                            <button type="button" class="td_update_btn">수정</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
@@ -247,7 +250,8 @@
 </div>
 
 <%--세부사항 모달 --%>
-<div class="modal fade border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade border-0 shadow-lg my-5" id="RequestingModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content ard-body p-0">
             <div class="modal-header">
@@ -269,7 +273,6 @@
                 <%--기존 --%>
                 <div class="row1">
                     <table class="table" id="table1">
-
                         <thead>
                             <tr>
                                 <th class="center" colspan="2">기존</th>
@@ -277,26 +280,29 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk" disabled="disabled">구분없음</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input disabled="disabled" value="none" type="checkbox" name="pd_ticketType" class="chkbox pd_ticketType no_distinction" id="bf_type_none">구분없음
+                            </td>
+                            <td class="td_1"><input type="text" id="bf_none_price" class="price nonDistinc_price"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled"/>원</td>
+                        </tr>
 
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk" disabled="disabled">성인</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input disabled="disabled" value="adult"type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_adult" id="bf_type_adult">성인
+                            </td>
+                            <td class="td_1"><input type="text" id="bf_adult_price"class="price adult_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled"/>원</td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk" disabled="disabled">청소년</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input disabled="disabled" value="teenager" type="checkbox" name="pd_ticketType" class="chk_type chkbox pd_ticketType chk_teenager"id="bf_type_teenager">청소년
+                            </td>
+                            <td class="td_1"><input type="text" id="bf_teenager_price" class="price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled"/>원</td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk" disabled="disabled">어린이</td>
-                                <td class="td_1"><input type="text" class="price" disabled="disabled">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input disabled="disabled" value="child" type="checkbox" name="pd_ticketType"  class="chk_type chkbox pd_ticketType chk_children" id="bf_type_children">어린이</td>
+                            <td class="td_1"><input type="text" id="bf_child_price" class="price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled="disabled"/>원</td>
+                        </tr>
                         </tbody>
 
                     </table>
@@ -313,26 +319,29 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox no_distinction" name="chk">구분없음</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="none" type="checkbox" name="af_pd_ticketType" class="chkbox pd_ticketType no_distinction" id="af_type_none">구분없음
+                            </td>
+                            <td class="td_1"><input disabled="disabled" type="text" id="af_none_price" class="price nonDistinc_price"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />원</td>
+                        </tr>
 
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_adult" name="chk">성인</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input  value="adult"type="checkbox" name="af_pd_ticketType" class="af_chk_type chkbox af_pd_ticketType chk_adult" id="af_type_adult">성인
+                            </td>
+                            <td class="td_1"><input disabled="disabled" type="text" id="af_adult_price"class="price af_select_price adult_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />원</td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_teenager" name="chk">청소년</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input value="teenager" type="checkbox" name="af_pd_ticketType" class="af_chk_type chkbox af_pd_ticketType chk_teenager"id="af_type_teenager">청소년
+                            </td>
+                            <td class="td_1"><input disabled="disabled" type="text" id="af_teenager_price" class="price af_select_price teenager_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>원</td>
+                        </tr>
 
-                            <tr>
-                                <td class="td_0"><input type="checkbox" class="chkbox chk_children" name="chk">어린이</td>
-                                <td class="td_1"><input type="text" class="price">원</td>
-                            </tr>
+                        <tr class="chk_row">
+                            <td class="td_0"><input  value="child" type="checkbox" name="af_pd_ticketType"  class="af_chk_type chkbox af_pd_ticketType chk_children" id="af_type_children">어린이</td>
+                            <td class="td_1"><input disabled="disabled" type="text" id="af_child_price" class="price af_select_price children_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />원</td>
+                        </tr>
                         </tbody>
 
                     </table>
@@ -362,33 +371,93 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <select class="choice" id="choice1" disabled="disabled">
-                                    <option value="">선택</option>
-                                    <option value="day">일별(day)</option>
-                                    <option value="time">시간대별(time)</option>
+                                    <select class="pd_timeTypeSelect choice" name="chk_timeType" disabled="disabled">
+                                        <option value="day" selected="selected">일별(day)</option>
+                                        <option value="time">시간대별(time)</option>
                                     </select>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colspan="2">티켓 max</td>
+                                <td   colspan="2">하루 최대 판매량</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2"><input type="text" id="bf_day_max" class="tck day_max" disabled="disabled"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">스테이지 최대 판매량</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" id="bf_stage_max" class="stage_max tck" disabled="disabled"></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">오픈시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2">
+                                    <select name="bf_pd_openTime" id="bf_pd_openTime" class="tck_pd_openTime tck" disabled="disabled">
+                                        <option value="0">00:00</option>
+                                        <option value="1">01:00</option>
+                                        <option value="2">02:00</option>
+                                        <option value="3">03:00</option>
+                                        <option value="4">04:00</option>
+                                        <option value="5">05:00</option>
+                                        <option value="6">06:00</option>
+                                        <option value="7">07:00</option>
+                                        <option value="8">08:00</option>
+                                        <option value="9">09:00</option>
+                                        <option value="10">10:00</option>
+                                        <option value="11">11:00</option>
+                                        <option value="12">12:00</option>
+                                        <option value="13">13:00</option>
+                                        <option value="14">14:00</option>
+                                        <option value="15">15:00</option>
+                                        <option value="16">16:00</option>
+                                        <option value="17">17:00</option>
+                                        <option value="18">18:00</option>
+                                        <option value="19">19:00</option>
+                                        <option value="20">20:00</option>
+                                        <option value="21">21:00</option>
+                                        <option value="22">22:00</option>
+                                        <option value="23">23:00</option>
+                                    </select>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">마감시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck" disabled="disabled"></td>
+                                <td colspan="2">
+                                    <select name="bf_pd_closeTime" id="bf_pd_closeTime" class="tck_pd_closeTime tck" disabled="disabled">
+                                        <option value="0">00:00</option>
+                                        <option value="1">01:00</option>
+                                        <option value="2">02:00</option>
+                                        <option value="3">03:00</option>
+                                        <option value="4">04:00</option>
+                                        <option value="5">05:00</option>
+                                        <option value="6">06:00</option>
+                                        <option value="7">07:00</option>
+                                        <option value="8">08:00</option>
+                                        <option value="9">09:00</option>
+                                        <option value="10">10:00</option>
+                                        <option value="11">11:00</option>
+                                        <option value="12">12:00</option>
+                                        <option value="13">13:00</option>
+                                        <option value="14">14:00</option>
+                                        <option value="15">15:00</option>
+                                        <option value="16">16:00</option>
+                                        <option value="17">17:00</option>
+                                        <option value="18">18:00</option>
+                                        <option value="19">19:00</option>
+                                        <option value="20">20:00</option>
+                                        <option value="21">21:00</option>
+                                        <option value="22">22:00</option>
+                                        <option value="23">23:00</option>
+                                    </select>
+                                </td>
                             </tr>
 
                             </tbody>
@@ -413,33 +482,93 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <select class="choice" id="choice2" name="choice">
-                                        <option value="">선택</option>
-                                        <option value="day" id="request_day" name="choice">일별(day)</option>
-                                        <option value="time" id="request_time" name="choice">시간대별(time)</option>
+                                    <select class="pd_timeTypeSelect choice" name="chk_timeType" id="af_pd_timeTypeSelect">
+                                        <option value="none" selected="selected">선택</option>
+                                        <option value="day">일별(day)</option>
+                                        <option value="time">시간대별(time)</option>
                                     </select>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colspan="2">티켓 max</td>
+                                <td colspan="2">하루 최대 판매량 </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck tck_day inputText" disabled="disabled"></td>
+                                <td colspan="2"><input disabled="disabled" type="text" id="af_day_max" class="tck day_max tck_day inputText"/></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">스테이지 최대 판매량</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input disabled="disabled" type="text" id="af_stage_max" class="stage_max tck"/></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">오픈시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
+                                <td colspan="2"><select disabled="disabled" id="af_pd_openTime" class="tck_pd_openTime tck tck_time inputText">
+                                    <option value="0">00:00</option>
+                                    <option value="1">01:00</option>
+                                    <option value="2">02:00</option>
+                                    <option value="3">03:00</option>
+                                    <option value="4">04:00</option>
+                                    <option value="5">05:00</option>
+                                    <option value="6">06:00</option>
+                                    <option value="7">07:00</option>
+                                    <option value="8">08:00</option>
+                                    <option value="9">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                </select>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td colspan="2">마감시간대</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="text" class="tck tck_time inputText" disabled="disabled"></td>
+                                <td colspan="2">
+                                    <select id="af_pd_closeTime" disabled="disabled" class="tck_pd_closeTime tck tck_time inputText" >
+                                    <option value="0">00:00</option>
+                                    <option value="1">01:00</option>
+                                    <option value="2">02:00</option>
+                                    <option value="3">03:00</option>
+                                    <option value="4">04:00</option>
+                                    <option value="5">05:00</option>
+                                    <option value="6">06:00</option>
+                                    <option value="7">07:00</option>
+                                    <option value="8">08:00</option>
+                                    <option value="9">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                </select>
+                                </td>
                             </tr>
 
                             </tbody>
@@ -451,34 +580,6 @@
 
                 <%-------------- 3. 기타 설정 ---------------%>
                 <%--여기서부터 테이블 1개--%>
-
-                    <div class="section_div_no_row">
-                        <div class="section_label">기타 설정</div>
-
-                        <div class="row0">
-                            <table class="table" id="table5">
-
-                                <tr class="list1">
-                                    <td class="label">썸네일</td>
-                                    <td class="file_padding"><input type="file"></td>
-                                </tr>
-
-                                <tr class="list2">
-                                    <td class="label">설명파일</td>
-                                    <td class="file_padding"><input type="file"></td>
-                                </tr>
-
-                                <tr class="list3">
-                                    <td colspan="2" class="label">태그</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="tag">#태그1 #태그2 #태그3</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-
                                 <%------------- 휴관요일 -------------%>
                                 <%--테이블 1개--%>
                                     <div class="section_div_no_row">
@@ -488,13 +589,27 @@
                                         <table class="table" id="table6">
                                             <tr>
                                                 <td colspan="2" class="chkbox_day">
-                                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox">일
-                                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox">월
-                                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox">화
-                                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox">수
-                                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox">목
-                                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox">금
-                                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox">토
+                                                    <input type="checkbox" class="chkbox chkLabel" value="sun" name="day_chkbox">일
+
+                                                    <input type="checkbox" class="chkbox chkLabel" value="mon"
+                                                           name="day_chkbox">월
+                                                    <input type="checkbox" class="chkbox chkLabel" value="tue"
+                                                           name="day_chkbox">화
+                                                    <input type="checkbox" class="chkbox chkLabel" value="wed"
+                                                           name="day_chkbox">수
+                                                    <input type="checkbox" class="chkbox chkLabel" value="thu"
+                                                           name="day_chkbox">목
+                                                    <input type="checkbox" class="chkbox chkLabel" value="fri"
+                                                           name="day_chkbox">금
+                                                    <input type="checkbox" class="chkbox chkLabel" value="sat"
+                                                           name="day_chkbox">토
+<%--                                                    <input type="checkbox" class="chkbox" id="sunday" name="chkbox">일--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="monday" name="chkbox">월--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="tuesday" name="chkbox">화--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="wednesday" name="chkbox">수--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="thursday" name="chkbox">목--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="friday" name="chkbox">금--%>
+<%--                                                    <input type="checkbox" class="chkbox chkLabel" id="saturday" name="chkbox">토--%>
                                                 </td>
                                             </tr>
                                         </table>

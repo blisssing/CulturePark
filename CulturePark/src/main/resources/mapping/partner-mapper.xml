@@ -19,7 +19,7 @@
         <result property="pt_file" column="pr_file"></result>
         <result property="pt_phone" column="pr_phone"></result>
         <result property="pt_createDate" column="pr_createdate"></result>
-        <result property="pt_agreeDate" column="PT_AGREEMENT_DATE"></result>
+        <result property="pt_agreeDate" column="PT_AGREEDATE"></result>
         <result property="pt_status" column="pr_status"></result>
     </resultMap>
 
@@ -68,13 +68,12 @@
         <result property="pt_file" column="pt_file"></result>
         <result property="pt_phone" column="pt_phone"></result>
         <result property="pt_createDate" column="pt_createdate"></result>
-        <result property="pt_agreeDate" column="PT_AGREEMENT_DATE"></result>
+        <result property="pt_agreeDate" column="PT_AGREEDATE"></result>
     </resultMap>
 
-    <!--??? ??/??-->
     <insert id="insertPartner" parameterType="partnerVO">
         INSERT INTO PARTNER_AGREEMENT
-        (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE ,PT_AGREEMENT_DATE , ad_seq
+        (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE  , ad_seq
                 , pt_phone)
         VALUES
             (
@@ -84,27 +83,28 @@
                 #{pt_register_name},
                 #{pt_ceo_number},
                 #{pt_file},
-                #{pt_agreeDate},
                 #{ad_seq},
                 #{pt_phone}
             );
     </insert>
 
-    <select id="selectPartner" parameterType="partnerVO">
+
+    <select id="selectPartnerByEmail" parameterType="partnerVO">
         SELECT *
         FROM PARTNER_AGREEMENT
         WHERE PT_EMAIL = #{pt_email};
     </select>
 
-    <select id="selectPartnerBySeq" resultType="partnerVO">
-        SELECT *
-        FROM PARTNER_AGREEMENT
-        WHERE PT_SEQ=#{pt_seq}
+    <select id="selectPartnerBySeq" parameterType="int" resultType="partnerVO">
+        select *
+        from partner_agreement
+        where pt_seq = #{pt_seq};
     </select>
 
-    <!--??? ?? ??-->
+
     <select id="selectAllPartner" resultMap="resultPartner2">
         SELECT * FROM PARTNER_AGREEMENT;
     </select>
+
 
 </mapper>

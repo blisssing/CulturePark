@@ -1,6 +1,6 @@
 package kg.twojin.culturePark.common.service;
 
-public interface RandomNumberService {
+public interface RandomNumberUtil {
 
 
     int getRandomCode6();

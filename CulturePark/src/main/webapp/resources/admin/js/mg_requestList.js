@@ -50,6 +50,14 @@ $(document).ready(function () {
         }
     });
 
+    // 첨부파일 다운로드
+
+    $('#file_path').click(function () {
+        var fileName= eventRow.children('.pt_file').val();
+        var pt_comp_name = eventRow.children('pt_comp_name').val();
+        location.href = "/downloadCompDoc.ado"+"?pt_comp_name=" + pt_comp_name + "&&pt_file=" + fileName;
+    });
+
     function removeRow(row) {
         row.remove();
     }

@@ -20,6 +20,13 @@
         <result property="mb_grade" column="mb_grade"></result>
     </resultMap>
 
+    <select id="selectExistTel_kakao" resultType="memberVO" parameterType="memberVO">
+    <![CDATA[
+        select * from MEMBER_ACCOUNT
+        where mb_tel=#{mb_tel}
+    ]]>
+    </select>
+
     <select id="selectMember" resultType="memberVO" parameterType="memberVO">
         <![CDATA[
             select * from MEMBER_ACCOUNT
@@ -45,6 +52,26 @@
                 #{mb_createDate}
             );
         ]]>
+    </insert>
+
+    <update id="joinUpdateMember" parameterType="memberVO">
+        <![CDATA[
+        UPDATE MEMBER_ACCOUNT
+        SET MB_EMAIL=#{mb_email}, MB_PW=#{mb_pw}, MB_NICK=#{mb_nick}, MB_GENDER=#{mb_gender},
+        WHERE MB_TEL=#{mb_tel}
+]]>
+    </update>
+
+    <insert id="createKakaoMember" parameterType="hashMap">
+    <![CDATA[
+        INSERT INTO KMEMBER_ACCOUNT
+            (
+                KMB_EMAIL, KMB_STATUS
+            )
+        VALUES(
+               #{kmb_email}, #{kmb_status}
+            );
+    ]]>
     </insert>
 
 

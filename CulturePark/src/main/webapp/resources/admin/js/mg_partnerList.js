@@ -8,8 +8,6 @@ $(document).ready(function () {
         eventData = $(this);
         eventRow = $(this).closest('tr');
 
-
-
         var ad_seq = eventRow.children('.ad_seq').val();
         var ad_email;
         var ad_name;
@@ -41,10 +39,9 @@ $(document).ready(function () {
             },
         });
 
-
-
         $('#AdminInfoModal').modal({});
     });
+
 
     $('.btn_modal_close').click(function () {
         closeModal(modal_now);

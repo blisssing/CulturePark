@@ -1,7 +1,30 @@
 .findId, .findPw, .join {
     cursor: pointer;
+    font-size: 0.7rem;
 }
 
+.checkbox_save_id_m {
+    margin-top:-15px;
+    margin-right:5px;
+}
+
+
+.logo {
+    /*width: 100px;
+    margin-left: 111px;*/
+}
+
+.m_save_id {
+    vertical-align: top;
+    font-size:0.8rem;
+}
+
+.label_div {
+    width:70px;
+    padding-top: 2px;
+    margin-top: -5px;
+    vertical-align: top;
+}
 
 .back_section {
     display: flex;
@@ -84,13 +107,15 @@
 .m_id_label {
     width: 100%;
     font-size:0.8rem;
+    font-size:0.8rem;
     float: left;
 }
 
 .m_id_value {
-    width: 100%;
+    width: 98%;
     height: 25px;
     border: 1px solid black;
+    margin-bottom: 8px;
 }
 
 /*비밀번호*/
@@ -106,7 +131,7 @@
 }
 
 .m_pw_value {
-    width: 100%;
+    width: 98%;
     height: 25px;
     border: 1px solid black;
 }
@@ -128,14 +153,14 @@
 }
 
 .m_id_save_section {
-    width: 100%;
-    justify-content: space-around;
-    font-size: 0.8rem;
+    display: flex;
+    height: 50px;
 }
 
 .m_id_save_div {
     /*width:50%;*/
     float: left;
+    display: flex;
 }
 
 .m_find_section {
@@ -146,10 +171,6 @@
     justify-content: space-between;
 }
 
-m_find {
-    display: flex;
-    float: left;
-}
 
 .find_id_m {
     margin-right: 15px;
@@ -180,9 +201,21 @@ m_find {
     display: none;
 }
 
+.save_id{
+    padding-top: 7px;
+}
 
 @media screen and (min-width: 500px){
 
+    .logoImage{
+        width: 108px;
+        margin-left: 217px;
+    }
+
+    .logo {
+        width: 111px;
+        margin-left: -12px;
+    }
 
     .function_section {
         display: none;
@@ -311,6 +344,7 @@ m_find {
     .checkbox_section {
         display: flex;
         height: 30px;
+        margin-top: 15px;
     }
 
 
@@ -319,7 +353,7 @@ m_find {
     }
 
     .save_id {
-        width:100%;
+        width:100px;
         font-size: 0.8rem;
     }
 
@@ -333,14 +367,21 @@ m_find {
 
     .join_btn_p {
         border: 1px solid black;
-        width: 90%;
+        width: 450px;
         height: 30px;
+        cursor: pointer;
     }
 
     .find_section {
         display: flex;
         height: 30px;
         margin-left: 20px;
+    }
+
+    .kakaoLogo {
+        height: 25px;
+        width: 100px;
+        margin-left: 218px;
     }
 
 
