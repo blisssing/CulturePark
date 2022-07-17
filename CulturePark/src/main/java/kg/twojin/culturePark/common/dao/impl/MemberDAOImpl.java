@@ -4,13 +4,12 @@ package kg.twojin.culturePark.common.dao.impl;
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PauseVO;
-import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.Member;
+import java.util.HashMap;
 import java.util.List;
 
 @Repository("memberDAO")
@@ -40,6 +39,23 @@ public class MemberDAOImpl implements MemberDAO {
             e.printStackTrace();
             result = 0;
         }
+        return result;
+    }
+
+    @Override
+    public int insertKakaoMember(String mb_email){
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("kmb_email", mb_email);
+
+        int result = 0;
+        try {
+            result = sqlSessionTemplate.update("mapper.user.createKakaoMember", map);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
         return result;
     }
 

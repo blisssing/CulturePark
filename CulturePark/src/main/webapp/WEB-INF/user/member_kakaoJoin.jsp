@@ -136,8 +136,7 @@
            <%-- <c:set var="kakaoNick" value="${sessionScope.kakaoN}"></c:set>--%>
             <c:set var="kakaoEmail" value="${sessionScope.kakaoE}"></c:set>
 
-          <input type="hidden" class="id_value" name="mb_email" value="${kakaoEmail}">
-          <input type="hidden" class="mb_seq"
+          <input type="hidden" class="id_value mb_email" name="mb_email" value="${kakaoEmail}">
 
           <div class="nick_section section_type01">
             <div class="nick_label">닉네임</div>
@@ -450,8 +449,8 @@
         <p style="text-align:center; line-height:1.5;"><br/>
           통합회원으로 전환되었습니다.<br/> 로그인 창으로 이동합니다.</p>
         <p><br/></p>
-        <div style="cursor:pointer;background-color:#DDDDDD;text-align:center;padding-bottom:10px;padding-top:10px;">
-        <a class="mergeModalExit locationLogin" style="font-size: 13pt;">닫기</a>
+        <div class="locationLogin" style="cursor:pointer;background-color:#DDDDDD;text-align:center;padding-bottom:10px;padding-top:10px;">
+        <a class="mergeModalExit" style="font-size: 13pt;">닫기</a>
         </div>
       </div>
     </div>

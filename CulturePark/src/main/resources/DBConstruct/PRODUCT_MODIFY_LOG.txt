@@ -15,4 +15,5 @@ CREATE TABLE PRODUCT_MODIFY_LOG
     PML_COMMENTS varchar(100)
 );
 
-07/13
+<진희> 07/13
+<진아>07.15 완료

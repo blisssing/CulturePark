@@ -7,7 +7,7 @@ public interface MemberJoinService {
 
     int joinMember(MemberVO memberVO);
 
-    int joinUpdateMember(MemberVO memberVO);
+    MemberVO integrateMember(MemberVO memberVO);
 
     void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
 

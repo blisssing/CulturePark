@@ -2,7 +2,6 @@ package kg.twojin.culturePark.user.controller;
 
 
 import kg.twojin.culturePark.common.vo.MemberVO;
-import kg.twojin.culturePark.common.vo.ProductVO;
 import kg.twojin.culturePark.user.service.MemberJoinService;
 import kg.twojin.culturePark.user.service.MemberKakaoService;
 import org.json.simple.JSONObject;
@@ -10,16 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class MemberJoinController {
@@ -136,68 +131,31 @@ public class MemberJoinController {
     }
 
     // 카카오api로 계정 update
-    @RequestMapping(value = "/culturePark/updateUserProc.do", method = RequestMethod.POST)
-    public void updateUser(@RequestBody MemberVO memberVO,
-                           HttpServletResponse response ) throws IOException   {
-
-
-        System.out.println("실행확인");
-        String result_str;
-
-        // 암호화
-        String pw = memberVO.getMb_pw();
-        String encodePw = passwordEncoder.encode(pw);
-
-        // 생성날짜
-      /*  Date date = new Date();
-
-        memberVO.setMb_createDate(date);*/
-        memberVO.setMb_pw(encodePw);
-
-        int result = memberJoinService.joinUpdateMember(memberVO);
-        System.out.println(result);
-
-        JSONObject json = new JSONObject();
-
-        if (result == 0) {
-            result_str = "failed";
-        } else {
-            result_str = "success";
-        }
-
-        json.put("result", result_str);
-
-        PrintWriter out = response.getWriter();
-        out.print(json);
-    }
-
-    // kakao table로 셋팅
-    @RequestMapping(value = "/culturePark/createKakaoUserProc.do", method = RequestMethod.POST)
-    public void createKakaoUser(@RequestBody MemberVO memberVO, String mb_email, String kmb_status,
-                                HttpServletResponse response ) throws IOException   {
-
+    @RequestMapping(value = "/culturePark/integratedProc.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String integratedKaKaoAPI(@ModelAttribute MemberVO memberVO, HttpServletRequest request){
+        HttpSession session = request.getSession();
 
         System.out.println("실행확인");
-        String result_str;
+        System.out.println("memberVO = " + memberVO);
 
-        int result = memberJoinService.joinMember(memberVO);
-        System.out.println(result);
+        String result_str=null;
 
-        JSONObject json = new JSONObject();
-        HashMap<String, Object> map = new HashMap<>();
+        MemberVO result = memberJoinService.integrateMember(memberVO);
 
-        if (result == 0) {
-            result_str = "failed";
-        } else {
+        if(result!=null) {
             result_str = "success";
+            session.setAttribute("member", result);
+            //Todo : 일반회원 로그인할 때는 normal로 띄워줄 것
+            session.setAttribute("memberIs" , "kakao");
+            session.setAttribute("loginChk", "logOn");
+        } else {
+            result_str = "failed";
         }
-            map.put("kmb_email", mb_email);
-            map.put("kmb_status", kmb_status);
 
-        json.put("result", result_str);
-
-        PrintWriter out = response.getWriter();
-        out.print(json);
+        System.out.println("result = " + result.toString());
+        System.out.println("result_str = " + result_str);
+        return result_str;
     }
 
 }

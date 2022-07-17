@@ -25,4 +25,4 @@ SELECT * FROM ADMIN_ACCOUNT ;
 
 
 <6.27 진희>
-<6.27 진아 등록완료>
+<6.27 진아> 완료

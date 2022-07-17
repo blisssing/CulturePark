@@ -67,8 +67,6 @@
         where pd_seq = #{pd_seq};
     </update>
 
-
-
 <!--  ?? ??   -->
 <!--    &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
     <insert id="insertProductModiRequest" parameterType="java.util.HashMap">
