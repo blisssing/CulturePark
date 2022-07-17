@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,20 +34,11 @@ public class ManagerCreateProductController {
                                 @RequestPart("thumbNail") MultipartFile thumb_file,
                                 @RequestPart("descript") MultipartFile descript_file,
                                 @RequestPart("mainImg") MultipartFile main_file) {
+        HttpSession session = request.getSession();
+        ManagerVO managerVO = (ManagerVO) session.getAttribute("manager");
 
-        System.out.println("동작확인");
-        System.out.println(productVO.toString());
-
-        // 세션에서 매니저의 회사 정보를 얻어와서 product 객체에 옮김
-
-        //HttpSession session = request.getSession();
-        //ManagerVO managerVO = (ManagerVO) session.getAttribute("manager");
-        //int pt_seq = managerVO.getComp_seq();
-
-        //Todo : pt_seq, pt_request_manager 위의 주석으로 대체할 것
-
-        int pt_seq = 1;
-        String pt_request_manager = "taran0913@naver.com";
+        int pt_seq = managerVO.getComp_seq();
+        String pt_request_manager = managerVO.getMg_email();
 
         productVO.setPt_seq(pt_seq);
         productVO.setPd_request_manager(pt_request_manager);
@@ -130,12 +122,8 @@ public class ManagerCreateProductController {
     public void getProductRequestLog(@RequestParam int pdr_seq, HttpServletResponse response, HttpServletRequest request)
                                     throws IOException {
 
-        System.out.println(pdr_seq);
 
         ProductLogVO productLogVO1 = managerProductManageService.getProductLogByPdrSeq(pdr_seq);
-
-        System.out.println(productLogVO1.toString());
-
 
         JSONObject json = new JSONObject();
         String resultStr = null;

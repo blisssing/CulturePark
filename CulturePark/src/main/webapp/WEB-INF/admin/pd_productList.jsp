@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,7 +161,6 @@
                                     <th>상품명</th>
                                     <th>분야</th>
                                     <th>기간</th>
-                                    <th>상태</th>
                                     <th>활성/비활성</th>
                                     <th>기능</th>
                                 </tr>
@@ -172,29 +172,45 @@
                                     <th>상품명</th>
                                     <th>분야</th>
                                     <th>기간</th>
-                                    <th>상태</th>
                                     <th>활성/비활성</th>
                                     <th>기능</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <form name="frm">
+                                <c:forEach var="map" items="${mapList}" varStatus="status">
                                     <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="pd_status">진행중/만료</td>
-                                        <td class="pd_active">
+                                        <input type="hidden" class="pd_seq" value="${map.get("pd_seq")}">
+                                        <input type="hidden" class="pt_seq" value="${map.get("pt_seq")}">
+                                        <fmt:formatDate var="formatStartDate" value="${map.get('pd_startdate')}" pattern="yyyy-MM-dd"/>
+                                        <fmt:formatDate var="formatCloseDate" value="${map.get('pd_closedate')}" pattern="yyyy-MM-dd"/>
+
+                                        <td class="seq">${status.count}</td>
+                                        <td class="comp_name">${map.get("pt_comp_name")}</td>
+                                        <td class="pd_title">${map.get("pd_title")}</td>
+                                        <td class="pd_genre1">${map.get("pd_genre1")}</td>
+                                        <td class="pd_period">${formatStartDate}~${formatCloseDate}</td>
+                                        <td class="pd_status">
                                             <label class="switch">
-                                                <input type="checkbox" checked="checked">
+                                                <c:choose>
+                                                    <c:when test="${map.get('pd_status') eq 'ACTIVE'}">
+                                                        <input name="pd_status" type="checkbox" checked="checked">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input name="pd_status" type="checkbox">
+                                                    </c:otherwise>
+                                                </c:choose>
                                                 <span class="slider round"></span>
                                             </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
+                                            <c:choose>
+                                                <c:when test="${map.get('pd_status') eq 'ACTIVE'}">
+                                                    <p class="toggle_p">활성화</p>
+                                                    <p class="toggle_p" style="display:none;">비활성</p>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p class="toggle_p" style="display: none">활성화</p>
+                                                    <p class="toggle_p">비활성</p>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td class="btn_section">
                                             <div class="btn_wrap">
@@ -204,82 +220,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="pd_status">진행중/만료</td>
-                                        <td class="pd_active">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_detail btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_pd_link btn btn-primary btn-circle btn-sm fa-solid fa-link"></button>
-                                                <button class="btn_comp_info btn btn-primary btn-circle btn-sm fa-solid fa-gift"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="pd_status">진행중/만료</td>
-                                        <td class="pd_active">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_detail btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_pd_link btn btn-primary btn-circle btn-sm fa-solid fa-link"></button>
-                                                <button class="btn_comp_info btn btn-primary btn-circle btn-sm fa-solid fa-gift"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <input type="hidden" class="pd_code" value="50">
-                                        <input type="hidden" class="comp_code" value="51">
-                                        <td class="seq">1</td>
-                                        <td class="comp_name">피크닉</td>
-                                        <td class="pd_class">전시</td>
-                                        <td class="pd_title">사울레이터 : 창문을 통해 어렴풋이</td>
-                                        <td class="pd_period">2022.01-03~ 2022.05.07</td>
-                                        <td class="pd_status">진행중/만료</td>
-                                        <td class="pd_active">
-                                            <label class="switch">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <p class="toggle_p">활성화</p>
-                                            <p class="toggle_p" style="display:none;">비활성</p>
-                                        </td>
-                                        <td class="btn_section">
-                                            <div class="btn_wrap">
-                                                <button class="btn_pd_detail btn btn-primary btn-circle btn-sm fa-solid fa-cube"></button>
-                                                <button class="btn_pd_link btn btn-primary btn-circle btn-sm fa-solid fa-link"></button>
-                                                <button class="btn_comp_info btn btn-primary btn-circle btn-sm fa-solid fa-gift"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </form>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

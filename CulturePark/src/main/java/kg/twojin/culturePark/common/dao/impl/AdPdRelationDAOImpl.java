@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service("adPdRelationDAOImpl")
 public class AdPdRelationDAOImpl implements AdPdRelationDAO {
@@ -28,5 +29,19 @@ public class AdPdRelationDAOImpl implements AdPdRelationDAO {
             throw e;
         }
         return aprList;
+    }
+
+    @Override
+    public int insertStatusLog(Map<String, Object> logMap)  {
+
+        int result = 0;
+
+        try {
+            result = sqlSessionTemplate.insert("mapper.adPdRelation.insertActiveLog", logMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return result;
     }
 }

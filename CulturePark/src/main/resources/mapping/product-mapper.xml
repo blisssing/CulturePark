@@ -45,10 +45,11 @@
         ]]>
     </insert>
 
-    <select id="selectProduct" parameterType="hashmap">
+    <select id="selectProduct" parameterType="hashmap" resultType="productVO">
         SELECT *
         FROM PRODUCT_INFO
-        WHERE PD_SEQ = #{pd_seq}, PT_SEQ=#{pt_seq};
+        WHERE PD_SEQ = CAST(#{pd_seq} AS INTEGER ) and PT_SEQ=CAST(#{pt_seq} AS INTEGER );
+
     </select>
 
     <select id="selectProductByPtAndTitle" parameterType="productRequestVO" resultType="productVO">
@@ -74,10 +75,35 @@
     </update>
 
 
+<!--PI-->
+
+    <select id="selectAllProduct" resultMap="productRequestMap">
+        select * from product_info
+    </select>
+    
+    <select id="selectProductEssential" resultType="map">
+        select PRODUCT_INFO.PT_SEQ,
+               PRODUCT_INFO.PD_SEQ,
+               PRODUCT_INFO.PD_GENRE1,
+               PRODUCT_INFO.PD_STARTDATE,
+               PRODUCT_INFO.pd_closedate,
+               PRODUCT_INFO.pd_title,
+               PRODUCT_INFO.pd_startdate,
+               PRODUCT_INFO.PD_STATUS,
+               PARTNER_AGREEMENT.PT_COMP_NAME
+        FROM PRODUCT_INFO INNER JOIN PARTNER_AGREEMENT
+        ON PRODUCT_INFO.PT_SEQ=PARTNER_AGREEMENT.PT_SEQ;
+    </select>
+
+
 <!-- PMR   -->
 
     <select id="selectAllPMR" resultType="java.util.HashMap">
         select * from product_modify_request
+    </select>
+
+    <select id="selectPmr" resultType="map" parameterType="int">
+        select * from product_modify_request where pmr_seq=#{pmr_seq}
     </select>
 
 <!--  &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
@@ -99,6 +125,10 @@
                )
 
     </insert>
+
+    <update id="updatePmrStatus" parameterType="map">
+        update product_modify_request set pmr_status=#{pml_status} where pmr_seq=#{pmr_seq}
+    </update>
 
     <!--update PRODUCT_MODIFY_REQUEST
         <set>

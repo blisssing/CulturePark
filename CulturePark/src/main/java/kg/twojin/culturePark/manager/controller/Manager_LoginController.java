@@ -1,22 +1,16 @@
 package kg.twojin.culturePark.manager.controller;
 
-import kg.twojin.culturePark.admin.service.Ad_ManagerListService;
 import kg.twojin.culturePark.common.vo.ManagerVO;
-import kg.twojin.culturePark.common.vo.MemberVO;
-import kg.twojin.culturePark.common.vo.PartnerVO;
 import kg.twojin.culturePark.manager.service.ManagerLoginService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @RestController
 public class Manager_LoginController {

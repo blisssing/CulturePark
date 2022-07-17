@@ -132,9 +132,10 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">상품관리</h6>
+                <a class="collapse-item" href="/pdList.ado"> 상품 리스트</a>
                 <a class="collapse-item" href="/pdNewList.ado">신규요청</a>
                 <a class="collapse-item" href="/pdModifyRequest.ado">변경요청</a>
-                <a class="collapse-item" href="/pdList.ado">진행 중 리스트</a>
+
 
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">프로모션 관리</h6>
