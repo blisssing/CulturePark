@@ -19,7 +19,7 @@ import java.util.List;
 
 @Service("partnerService")
 public class PartnerServiceImpl implements PartnerService {
-//Todo : 긴급 수정
+
     @Autowired
     PartnerRequestDAO partnerRequestDAO;
 
@@ -32,6 +32,8 @@ public class PartnerServiceImpl implements PartnerService {
     @Autowired
     ManagerDAO managerDAO;
 
+    //select
+
     @Override
     public List<PartnerVO> getAllPartnerRequest() {
         return partnerRequestDAO.selectAllPartner();
@@ -41,6 +43,7 @@ public class PartnerServiceImpl implements PartnerService {
     public List<PartnerVO> getAllPartner() {
         return partnerDAO.getAllPartner();
     }
+
 
     @Transactional
     @Override

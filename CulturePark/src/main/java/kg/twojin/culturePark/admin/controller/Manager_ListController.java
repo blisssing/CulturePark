@@ -1,15 +1,11 @@
 package kg.twojin.culturePark.admin.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import kg.twojin.culturePark.admin.service.Ad_ManagerListService;
+import kg.twojin.culturePark.admin.service.Ad_ManagerAccountService;
 import kg.twojin.culturePark.admin.service.PartnerService;
-import kg.twojin.culturePark.common.vo.AdminVO;
 import kg.twojin.culturePark.common.vo.ManagerVO;
 import kg.twojin.culturePark.common.vo.PartnerVO;
-import kg.twojin.culturePark.common.vo.ProductVO;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +20,7 @@ import java.util.List;
 public class Manager_ListController {
 
     @Autowired
-    Ad_ManagerListService ad_managerListService;
+    Ad_ManagerAccountService ad_managerAccountService;
 
     @Autowired
     PartnerService partnerService;
@@ -34,7 +30,7 @@ public class Manager_ListController {
     public ModelAndView managerList(HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView mv = new ModelAndView();
-        List<ManagerVO> managerList = ad_managerListService.getManagerList();
+        List<ManagerVO> managerList = ad_managerAccountService.getManagerList();
         List partnerSeqList = null;
         if (managerList != null) {
 /*            // 1. 회사 번호를 리스트에 담음
@@ -53,7 +49,7 @@ public class Manager_ListController {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("Error", "Proc");
-            mv.setViewName("accessError.jsp");
+            mv.setViewName("accessError");
         }
         return mv;
     }

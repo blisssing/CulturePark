@@ -71,10 +71,9 @@
         <result property="pt_agreeDate" column="PT_AGREEDATE"></result>
     </resultMap>
 
-
     <insert id="insertPartner" parameterType="partnerVO">
         INSERT INTO PARTNER_AGREEMENT
-        (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE ,PT_AGREEDATE , ad_seq
+        (PT_EMAIL, PT_COMP_NAME, PT_CEO_NAME,pt_register_name, PT_CEO_NUMBER, PT_FILE  , ad_seq
                 , pt_phone)
         VALUES
             (
@@ -84,11 +83,11 @@
                 #{pt_register_name},
                 #{pt_ceo_number},
                 #{pt_file},
-                #{pt_agreeDate},
                 #{ad_seq},
                 #{pt_phone}
             );
     </insert>
+
 
     <select id="selectPartnerByEmail" parameterType="partnerVO">
         SELECT *
@@ -96,11 +95,16 @@
         WHERE PT_EMAIL = #{pt_email};
     </select>
 
+    <select id="selectPartnerBySeq" parameterType="int" resultType="partnerVO">
+        select *
+        from partner_agreement
+        where pt_seq = #{pt_seq};
+    </select>
+
 
     <select id="selectAllPartner" resultMap="resultPartner2">
         SELECT * FROM PARTNER_AGREEMENT;
     </select>
-
 
 
 </mapper>

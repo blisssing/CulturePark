@@ -45,6 +45,13 @@
         ]]>
     </insert>
 
+    <select id="selectProduct" parameterType="hashmap" resultType="productVO">
+        SELECT *
+        FROM PRODUCT_INFO
+        WHERE PD_SEQ = CAST(#{pd_seq} AS INTEGER ) and PT_SEQ=CAST(#{pt_seq} AS INTEGER );
+
+    </select>
+
     <select id="selectProductByPtAndTitle" parameterType="productRequestVO" resultType="productVO">
         <![CDATA[
         SELECT *
@@ -67,22 +74,62 @@
         where pd_seq = #{pd_seq};
     </update>
 
-<!--  ?? ??   -->
-<!--    &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
+
+<!--PI-->
+
+    <select id="selectAllProduct" resultMap="productRequestMap">
+        select * from product_info
+    </select>
+    
+    <select id="selectProductEssential" resultType="map">
+        select PRODUCT_INFO.PT_SEQ,
+               PRODUCT_INFO.PD_SEQ,
+               PRODUCT_INFO.PD_GENRE1,
+               PRODUCT_INFO.PD_STARTDATE,
+               PRODUCT_INFO.pd_closedate,
+               PRODUCT_INFO.pd_title,
+               PRODUCT_INFO.pd_startdate,
+               PRODUCT_INFO.PD_STATUS,
+               PARTNER_AGREEMENT.PT_COMP_NAME
+        FROM PRODUCT_INFO INNER JOIN PARTNER_AGREEMENT
+        ON PRODUCT_INFO.PT_SEQ=PARTNER_AGREEMENT.PT_SEQ;
+    </select>
+
+
+<!-- PMR   -->
+
+    <select id="selectAllPMR" resultType="java.util.HashMap">
+        select * from product_modify_request
+    </select>
+
+    <select id="selectPmr" resultType="map" parameterType="int">
+        select * from product_modify_request where pmr_seq=#{pmr_seq}
+    </select>
+
+<!--  &#45;&#45; https://atoz-develop.tistory.com/entry/MyBatis-??-SQL-choose?-set?-????-??-SQL-???-->
+
     <insert id="insertProductModiRequest" parameterType="java.util.HashMap">
         insert into product_modify_request
-        (pt_seq, pd_seq, mg_seq, pd_timetype,
+        (pt_seq, pd_seq, pt_comp_name, pd_title, mg_seq, pd_timetype,
          PD_MAXTICKET, PD_OPENTIME,
          PD_CLOSETIME,
          PD_TYPESTR,
          PD_CLOSEDAY,
          PD_TAG)
-        values (#{productVO.pt_seq}, #{productVO.pd_seq}, #{mg_seq}, #{productVO.pd_timeType}
+        values (#{productVO.pt_seq},
+                #{productVO.pd_seq},
+                (select pt_comp_name from PARTNER_AGREEMENT where pt_seq=#{productVO.pt_seq}),
+                (select pd_title from product_info where pd_seq=#{productVO.pd_seq}),
+                #{mg_seq}, #{productVO.pd_timeType}
                , #{productVO.pd_maxTicket}, #{productVO.pd_openTime}, #{productVO.pd_closeTime}
                , #{productVO.pd_typeStr}, #{productVO.pd_closeDay}, #{productVO.pd_tag}
                )
 
     </insert>
+
+    <update id="updatePmrStatus" parameterType="map">
+        update product_modify_request set pmr_status=#{pml_status} where pmr_seq=#{pmr_seq}
+    </update>
 
     <!--update PRODUCT_MODIFY_REQUEST
         <set>

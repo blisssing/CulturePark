@@ -20,9 +20,4 @@ public interface PartnerService {
 
     File downloadFile(String  pr_file) throws IOException;
 
-
-
-
-
-
 }
