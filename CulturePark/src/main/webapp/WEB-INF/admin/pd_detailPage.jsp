@@ -226,9 +226,8 @@
                                                                                 >구분없음
                                                         </td>
                                                         <td class="td_1"><input type="text" class="price"
-                                                                                disabled="disabled">
-                                                            <%=nonePrice%>원
-
+                                                                                disabled="disabled" value="<%=nonePrice%>">
+                                                            원
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -279,7 +278,7 @@
                                                     <tbody>
                                                     <tr>
                                                         <td class="list" colspan="2"><span>선택된 타입</span></td>
-                                                        <td><span>타입 1 </span></td>
+                                                        <td><span>${product.pd_timeType}</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="list" colspan="2">티켓 max</td>
@@ -314,20 +313,20 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <div class="context_head">썸네일</div>
-                                                <button type="button" class="btn btn-primary btn-user btn-block" value="
+                                                <button type="button" class="btn_down thumb_btn btn btn-primary btn-user btn-block" value="
                                                 <%=productVO.getPd_thumbnail_PATH()%>">다운로드
                                                 </button>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="context_head">설명서</div>
-                                                <button type="button" class="btn btn-primary btn-user btn-block " value="<%=productVO.getPd_descript_PATH()%>">다운로드
+                                                <button type="button" class="btn_down descript_btn btn btn-primary btn-user btn-block " value="<%=productVO.getPd_descript_PATH()%>">다운로드
                                                 </button>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="context_head">메인이미지</div>
-                                            <button class="btn btn-primary btn-user btn-block" value="<%=productVO.getPd_mainImg_PATH()%>">다운로드</button>
+                                            <button class="btn_down mainImg_btn btn btn-primary btn-user btn-block" value="<%=productVO.getPd_mainImg_PATH()%>">다운로드</button>
                                         </div>
 
 
@@ -396,6 +395,8 @@
 <!-- Page level custom scripts -->
 <script src="/resources/common/js/demo/datatables-demo.js"></script>
 <script src="https://kit.fontawesome.com/2f0c3a79f6.js" crossorigin="anonymous"></script>
+
+<script src="/resources/admin/js/pd_detailPage.js"></script>
 
 </body>
 
