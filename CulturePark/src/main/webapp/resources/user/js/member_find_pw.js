@@ -129,8 +129,8 @@ $(document).ready(function() {
             $('.code_send_ok_phone').prop("disabled", false);
             $('#find_email_value').prop("disabled", true);
 
-            // sendSMSm(email);
-            code = "1234"; // 임시 코드
+          /*  sendSMSm(email);*/
+            code = "1234"; // 임시 코드*/
         }
     });
 
@@ -163,7 +163,7 @@ $(document).ready(function() {
             $('.tel_3').prop("disabled", true);
             $('.tel_2').prop("disabled", true);
 
-            // sendSMS(phone);
+            /* sendSMS(phone);*/
             code = "1234"; // 임시 코드
         }
     });

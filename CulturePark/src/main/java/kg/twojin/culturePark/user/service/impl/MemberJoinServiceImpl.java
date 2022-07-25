@@ -9,7 +9,6 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashMap;
 
 @Service("memberJoinService")
@@ -34,13 +33,19 @@ public class MemberJoinServiceImpl implements MemberJoinService {
     //진희
     @Override
     public void certifiedPhoneNumber(String userPhoneNumber, int randomNumber) {
-        String api_key = "NCSPDPTUNFAJ7XXO";
-        String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
+
+        //진희 coolsms
+       /* String api_key = "NCSPDPTUNFAJ7XXO";
+        String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";*/
+
+        //진아 coolsms
+        String api_key = "NCSZXYRTOUI7U2OD";
+        String api_secret = "K59D4SJR3PNIDXTECM340LXORZXKI47T";
         Message coolsms = new Message(api_key, api_secret);
 
         HashMap<String, String> set = new HashMap<String, String>();
         set.put("to", userPhoneNumber);
-        set.put("from", "01098672292");
+        set.put("from", "01091009406");
         set.put("type", "sms");
         set.put("text", "[Web 발신] CulturePark 인증번호는 : " + "[" + randomNumber + "]" + "입니다");
         set.put("app_version", "ver 0.6");
@@ -62,7 +67,7 @@ public class MemberJoinServiceImpl implements MemberJoinService {
         if (result == null) {
             return "able";
         } else {
-            return "disalbe";
+            return "disable";
         }
 
     }
@@ -72,6 +77,25 @@ public class MemberJoinServiceImpl implements MemberJoinService {
 
         return memberDAO.insertMember(memberVO);
     }
+
+    @Override
+    @Transactional
+    public MemberVO newKakaoJoinMember(MemberVO memberVO) {
+
+        int result1 = memberDAO.insertKakaoMember(memberVO.getMb_email());
+        int result2 = memberDAO.insertMember(memberVO);
+
+        MemberVO resultMember = null;
+
+        System.out.println("result1 = " + result1);
+        System.out.println("result2 = " + result2);
+
+        if (result1 + result2 == 2) {
+            resultMember = memberDAO.selectMember(memberVO);
+        }
+        return resultMember;
+    }
+
 
     @Override
     @Transactional
@@ -91,5 +115,11 @@ public class MemberJoinServiceImpl implements MemberJoinService {
         return resultMember;
     }
 
+    @Override
+    public String kakaoMemberExistEmail(MemberVO memberVO) {
 
+        String  result = null;
+        result = memberDAO.kakaoMemberExistEmail(memberVO);
+        return result;
+    }
 }

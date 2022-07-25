@@ -147,7 +147,7 @@
             </div>
           </div>
 
-          <div class="pw_section section_type01">
+          <%--<div class="pw_section section_type01">
             <div class="pw_label">비밀번호</div>
             <input class="input_pw pw_value input_type01" type="password" name="mb_pw" disabled="disabled">
           </div>
@@ -155,12 +155,12 @@
           <div class="rePw_section section_type01">
             <div class="rePw_label">비밀번호확인</div>
             <div class="rePw_value_section">
-              <%-- 비밀번호확인 체크 메세지--%>
+              &lt;%&ndash; 비밀번호확인 체크 메세지&ndash;%&gt;
               <input class="input_pw rePw_value input_type01" type="password" name="rePw_value" disabled="disabled">
               <div class="pw_check" type="textFiled" name="pw_check" value="비밀번호체크">비밀번호를 입력해주세요</div>
             </div>
           </div>
-
+--%>
 
 
 
@@ -225,7 +225,7 @@
           </div>
           <%-- 인증 유효시간 --%>
           <div class="certifyTime">
-            <span class="time">10:00</span>
+            <span class="time" id="timeLimit">08:59</span>
           </div>
         </div>
       </form>

@@ -34,6 +34,7 @@
         ]]>
     </select>
 
+
     <insert id="insertMember" parameterType="memberVO">
         <![CDATA[
         INSERT INTO MEMBER_ACCOUNT
@@ -74,6 +75,13 @@
     ]]>
     </insert>
 
+    <select id="kakaoMemberExistEmail" parameterType="memberVO">
+         <![CDATA[
+        select KMB_email from KMEMBER_ACCOUNT
+        where mb_email=#{mb_email}
+        ]]>
+
+    </select>
 
     <update id="updateMemberWithoutPw" parameterType="memberVO">
         <![CDATA[

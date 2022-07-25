@@ -1,6 +1,5 @@
 package kg.twojin.culturePark.common.dao.impl;
 
-
 import kg.twojin.culturePark.common.dao.MemberDAO;
 import kg.twojin.culturePark.common.vo.MemberVO;
 import kg.twojin.culturePark.common.vo.PauseVO;
@@ -8,7 +7,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,6 +24,18 @@ public class MemberDAOImpl implements MemberDAO {
         } catch (Exception e) {
             e.printStackTrace();
             result = 0;
+        }
+        return result;
+    }
+
+    @Override
+    public String kakaoMemberExistEmail(MemberVO memberVO) {
+
+        String  result = null;
+        try{
+            result = sqlSessionTemplate.selectOne("mapper.user.kakaoMemberExistEmail", memberVO);
+        }catch(Exception e){
+            e.printStackTrace();
         }
         return result;
     }
