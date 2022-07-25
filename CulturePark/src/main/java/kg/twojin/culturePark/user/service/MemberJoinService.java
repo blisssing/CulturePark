@@ -9,6 +9,10 @@ public interface MemberJoinService {
 
     MemberVO integrateMember(MemberVO memberVO);
 
+    MemberVO newKakaoJoinMember(MemberVO memberVO);
+
+    String kakaoMemberExistEmail(MemberVO memberVO);
+
     void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
 
     String searchEmailAddress(String userEmail);

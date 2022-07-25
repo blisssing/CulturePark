@@ -67,7 +67,7 @@ $(document).ready(function() {
 
     // 2. 올바른 비밀번호 입력 확인
 
-    $('.input_pw').keyup(function () {
+  /*  $('.input_pw').keyup(function () {
         chk_pw_result = "disable";
         var first_pw = $('.pw_value').val().trim();
         var sec_pw = $('.rePw_value').val().trim();
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
         }
     });
-
+*/
     // 3. 닉네임 중복확인
 
     $('.nick_confirm_btn').click(function () {
@@ -112,6 +112,29 @@ $(document).ready(function() {
         console.log(mb_nick);
         checkNickExist(mb_nick);
     });
+
+    function checkNickExist(mb_nick) {
+        $.ajax({
+            type: "post",
+            dataType: "text",
+            url:"/culturePark/chkNickProc.do",
+            async:false,
+            cache:false,
+            data:{mb_nick:mb_nick},
+            success: function (data) {
+                chk_nick_result = data;
+
+                if (chk_nick_result === "able" && mb_nick != '') {
+                    alert("사용 가능한 닉네임입니다");
+                } else {
+                    alert("사용 불가능한 닉네임입니다");
+                }
+            },
+
+        });
+    }
+
+
 
     /* 인증번호 보내기*/
     $('.tel_authentication_btn').click(function () {
@@ -139,7 +162,7 @@ $(document).ready(function() {
             $('.tel_3').prop("disabled", true);
             $('.tel_2').prop("disabled", true);
 
-            // sendSMS(phone);
+           /* sendSMS(phone);*/
             code = "1234"; // 임시 코드
 
         }
@@ -173,11 +196,11 @@ $(document).ready(function() {
         var mb_birth = $('.jumin_value1').val();
         var mb_gender;
 
-
+/*
         var first_num = $('.tel_1').val();
         var second_num = $('.tel_2').val()
         var third_num = $('.tel_3').val();
-        var mb_tel = first_num +"-"+ second_num +"-"+third_num;
+        var mb_tel = first_num +"-"+ second_num +"-"+third_num;*/
 
         var mb_jumin2 = $('.jumin_value2').val();
 
@@ -197,7 +220,7 @@ $(document).ready(function() {
         } else if (chk_agree_result !== 'able') {
             alert("동의를 모두 해주시길 바랍니다.")
         } else {
-           /* joinKakaoAccount(mb_nick, mb_name, mb_birth, mb_gender, mb_tel);*/
+            joinKakaoAccount(mb_nick, mb_name, mb_birth, mb_gender, phoneStr);
         }
     });
 
@@ -261,26 +284,7 @@ $(document).ready(function() {
         });
     }*/
 
-    function checkNickExist(mb_nick) {
-        $.ajax({
-            type: "post",
-            dataType: "text",
-            url:"/culturePark/chkNickProc.do",
-            async:false,
-            cache:false,
-            data:{mb_nick:mb_nick},
-            success: function (data) {
-                chk_nick_result = data;
 
-                if (chk_nick_result === "able" && mb_nick != '') {
-                    alert("사용 가능한 닉네임입니다");
-                } else {
-                    alert("사용 불가능한 닉네임입니다");
-                }
-            },
-
-        });
-    }
 
     function checkOthers() {
         if ($('.name_value').val().trim() === '') {
@@ -319,8 +323,6 @@ $(document).ready(function() {
         });
     }
 
-
-
     //통합회원
     function integrateAccount(mb_email, phone) {
 
@@ -348,10 +350,10 @@ $(document).ready(function() {
     }
 
     //카카오 신규회원
-    function joinKakaoAccount(mb_nick, mb_name, mb_birth, mb_gender, mb_tel) {
+    function joinKakaoAccount(mb_email, mb_nick, mb_name, mb_birth, mb_gender, mb_tel) {
     
         var all_Data = {
-            "mb_nick": mb_nick, "mb_name": mb_name, "mb_birth": mb_birth, "mb_gender": mb_gender, "mb_tel": mb_tel
+            "mb_email":mb_email, "mb_nick": mb_nick, "mb_name": mb_name, "mb_birth": mb_birth, "mb_gender": mb_gender, "mb_tel": mb_tel
         };
 
         $.ajax({
@@ -362,12 +364,13 @@ $(document).ready(function() {
             async: false,
             contentType: 'application/json; charset=utf-8',
             traditional: true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함
-            url: "/culturePark/createKakaoProc.do",
+            url: "/culturePark/createKakaoJoinProc.do",
             success: function (data) {
                 if (data === 'success') {
-                    location.href = "/login.do";
+                    location.href = "/home.do";
                     alert('실행성공!!');
                 }else {
+                    location.href="/join.do";
                     alert('실행실패!!');
                 }
             },
@@ -390,18 +393,16 @@ $(document).ready(function() {
                 if (data === 'success') {
                     //기존 이메일 또는, 전화번호의 값이 같으면
                     $('#mergeJoinModal').show();
-
                     // 기존에 있던 이메일(아이디)값위에 카카오이메일과 닉네임값을 넣어준다.
-
                 } else {
                     console.log(data);
 
                     //기존가입하지않은 신규회원이면
                     $('#kakaoJoinModal').show();
+                    //member Table과 kakao Table에 넘긴다
 
                     $('.disabledFalse').click(function(){
-
-
+                        
                         $('.id_value_1').prop('disabled', true);
                         $('.id_confirm_btn').prop('disabled', true);
                         $('.nick_value').prop('disabled', false);
@@ -410,26 +411,17 @@ $(document).ready(function() {
                         $('.name_value').prop('disabled', false);
                         $('.jumin_value1').prop('disabled', false);
                         $('.jumin_value2').prop('disabled', false);
-
-
+                        
                         $('.tel_authentication_btn').prop('disabled',true);
                         $('.authentication_code').prop('disabled',true);
                         $('.code_reSend_btn').prop('disabled',true);
                         $('.code_ok_btn').prop('disabled',true);
 
-
-                       /* $('.id_value_1').prop('disabled', false);
-                        $('.id_value_1').prop('disabled', false);
-                        $('.id_value_1').prop('disabled', false);*/
-
                         $('.checkbox_agree').prop('disabled', false);
                         // 회원가입 계속 진행하기. 비활성화 풀어주고, 카카오 api 닉네임 및 아이디값 셋팅해줌.
                         // member 테이블로 넘김
                         $('.join_btn').prop('disabled', false);
-
-
-                        /*$('.id_value_1').getAttribute("kakaoName");
-                        $('.nick_value').getAttribute("kakaoNick");*/
+                        
                     });
                 }
             },
@@ -438,6 +430,32 @@ $(document).ready(function() {
             },
         });
     }
+
+//카카오 최초로그인 또는 기존로그인 판별 여부
+/*function kakaoMemberExist(mb_email) {
+
+    $.ajax({
+        type: "post",
+        dataType: "text",
+        data: {mb_email:mb_email},
+        cache: false,
+        async: false,
+        /!*contentType: 'application/json; charset=utf-8',*!/
+        /!* traditional: true, // 배열 및 리스트의 형태로 값을 넘기기 위해서는 반드시 해야 함*!/
+        url: "/culturePark/kakaoMemberExistProc.do",
+        success: function (data) {
+            if (data === "success") {
+                alert('실행성공!!');
+                location.href = "/home.do";
+            }else {
+                alert('실행실패!!');
+            }
+        },
+        error: function () {
+            alert('실행오류!!');
+        }
+    });
+}*/
 
 
 

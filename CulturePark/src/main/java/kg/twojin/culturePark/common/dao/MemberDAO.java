@@ -28,6 +28,8 @@ public interface MemberDAO {
 
     int updateMemberPausePeriod(MemberVO memberVO , PauseVO pauseVO);
 
+    String kakaoMemberExistEmail(MemberVO memberVO);
+
     MemberVO selectMember(MemberVO memberVO);
 
     MemberVO findId(MemberVO memberVO);
@@ -37,6 +39,8 @@ public interface MemberDAO {
     MemberVO findPw_Tel(MemberVO memberVO);
 
     MemberVO selectExistTel_kakao(MemberVO memberVO);
+
+
 
 }
 

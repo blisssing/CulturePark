@@ -43,8 +43,15 @@ public class MemberLoginServiceImpl implements MemberLoginService {
 
     @Override
     public void certifiedPhoneNumber(String userPhoneNumber, int randomNumber) {
+        /* //진희 coolsms
         String api_key = "NCSPDPTUNFAJ7XXO";
-        String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";
+        String api_secret = "KHCTQUKWVUPP2ROBLIRMNYW5IJMTNBAP";*/
+
+        //진아 coolsms
+        String api_key = "NCSZXYRTOUI7U2OD";
+        String api_secret = "K59D4SJR3PNIDXTECM340LXORZXKI47T";
+
+        
         Message coolsms = new Message(api_key, api_secret);
 
         HashMap<String, String> set = new HashMap<String, String>();

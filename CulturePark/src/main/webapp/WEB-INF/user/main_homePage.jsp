@@ -48,7 +48,7 @@
 
         <div class="event_section">
             <div class="section_name">
-                <span class="section_title">이벤트 (뺄것)</span>
+                <span class="section_title"></span>
             </div>
             <div class="slide_section" id="slide_event">
                 <ul class="img_box">

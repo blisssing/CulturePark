@@ -32,7 +32,6 @@ public class MemberJoinController {
     private MemberKakaoService memberKakaoService;
 
 
-
     // ID 중복 조회
     @RequestMapping(value = "/culturePark/chkEmail.do", method = RequestMethod.POST)
     @ResponseBody
@@ -65,7 +64,7 @@ public class MemberJoinController {
     // 계정 생성하기
     @RequestMapping(value = "/culturePark/createUserProc.do", method = RequestMethod.POST)
     public void createUser(@RequestBody MemberVO memberVO,
-                           HttpServletResponse response ) throws IOException   {
+                           HttpServletResponse response) throws IOException {
 
 
         System.out.println("실행확인");
@@ -111,7 +110,103 @@ public class MemberJoinController {
 
         vo = memberKakaoService.selectExistTel_kakao(vo);
 
-        if(vo != null) {
+        if (vo != null) {
+            String dbTel = vo.getMb_tel();
+
+            if (dbTel.equals(voTel)) {
+                result = "success";
+                System.out.println("success" + "dbTel" + dbTel + "voTel" + voTel);
+            } else {
+                result = "wrongTel";
+                kakaoJoin = "ok";
+
+                session.setAttribute("newMember", kakaoJoin);
+                System.out.println("wrongTel" + "dbTel" + dbTel + "voTel" + voTel);
+            }
+        } else {
+            result = "failed";
+        }
+        return result;
+    }
+
+    // 카카오api로 계정 update
+    @RequestMapping(value = "/culturePark/integratedProc.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String integratedKaKaoAPI(@ModelAttribute MemberVO memberVO, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        System.out.println("실행확인");
+        System.out.println("memberVO = " + memberVO);
+
+        String result_str = null;
+
+        MemberVO result = memberJoinService.integrateMember(memberVO);
+
+        if (result != null) {
+            result_str = "success";
+            session.setAttribute("member", result);
+            //Todo : 일반회원 로그인할 때는 normal로 띄워줄 것
+            session.setAttribute("memberIs", "kakao");
+            session.setAttribute("loginChk", "logOn");
+        } else {
+            result_str = "failed";
+        }
+
+        System.out.println("result = " + result.toString());
+        System.out.println("result_str = " + result_str);
+        return result_str;
+    }
+
+
+    //카카오 신규회원
+    @RequestMapping(value = "/culturePark/createKakaoJoinProc.do", method = RequestMethod.POST)
+    public String createNewKakaoUser(@RequestBody MemberVO memberVO,
+                                     HttpServletResponse response) throws IOException {
+
+
+        System.out.println("실행확인");
+
+        String result_str = null;
+
+
+        MemberVO result = memberJoinService.newKakaoJoinMember(memberVO); //MemberTable->insert , kakao->insert
+        System.out.println(result);
+
+        if (result != null) {
+            result_str = "success";
+            session.setAttribute("member", result);
+            //Todo : 일반회원 로그인할 때는 normal로 띄워줄 것
+            session.setAttribute("memberIs", "kakao");
+            session.setAttribute("loginChk", "logOn");
+        } else {
+            result_str = "failed";
+        }
+
+        System.out.println("result = " + result.toString());
+        System.out.println("result_str = " + result_str);
+
+        return result_str;
+
+    }
+
+
+    // 카카오 최초로그인 또는 기존로그인 판별 여부
+   /* @ResponseBody
+    @RequestMapping(value = "/culturePark/kakaoMemberExistProc.do", method = RequestMethod.POST)
+    public String kakaoMemberExistProc(@RequestBody MemberVO vo,
+                                HttpServletRequest request,
+                                HttpServletResponse response) throws Exception {
+
+        HttpSession session = request.getSession();
+
+        String result;
+
+        int kakaoMemberExist = memberJoinService.kakaoMemberExistEmail(vo);
+
+        if(kakaoMemberExist != 0) {
+
+
+
             String dbTel = vo.getMb_tel();
 
             if (dbTel.equals(voTel)) {
@@ -128,34 +223,6 @@ public class MemberJoinController {
             result = "failed";
         }
         return result;
-    }
-
-    // 카카오api로 계정 update
-    @RequestMapping(value = "/culturePark/integratedProc.do", method = RequestMethod.POST)
-    @ResponseBody
-    public String integratedKaKaoAPI(@ModelAttribute MemberVO memberVO, HttpServletRequest request){
-        HttpSession session = request.getSession();
-
-        System.out.println("실행확인");
-        System.out.println("memberVO = " + memberVO);
-
-        String result_str=null;
-
-        MemberVO result = memberJoinService.integrateMember(memberVO);
-
-        if(result!=null) {
-            result_str = "success";
-            session.setAttribute("member", result);
-            //Todo : 일반회원 로그인할 때는 normal로 띄워줄 것
-            session.setAttribute("memberIs" , "kakao");
-            session.setAttribute("loginChk", "logOn");
-        } else {
-            result_str = "failed";
-        }
-
-        System.out.println("result = " + result.toString());
-        System.out.println("result_str = " + result_str);
-        return result_str;
-    }
-
+      }  */
 }
+
